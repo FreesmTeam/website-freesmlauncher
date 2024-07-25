@@ -27,5 +27,8 @@
     "nuxt": "^3.11.2",
     "typescript": "^5.4.5",
     "vue-tsc": "^2.0.17"
+  },
+  "dependencies": {
+    "nuxt-social-tags": "^1.2.3"
   }
 }
