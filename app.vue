@@ -2,6 +2,9 @@
 import { appName } from '~/constants'
 
 useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
   title: appName,
 })
 </script>
