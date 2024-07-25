@@ -1,17 +1,4 @@
 {
-  "type": "module",
-  "private": true,
-  "packageManager": "pnpm@9.1.0",
-  "scripts": {
-    "build": "nuxi build",
-    "dev": "nuxi dev",
-    "generate": "nuxi generate",
-    "prepare": "nuxi prepare",
-    "start": "node .output/server/index.mjs",
-    "start:generate": "npx serve .output/public",
-    "lint": "eslint .",
-    "typecheck": "vue-tsc --noEmit"
-  },
   "devDependencies": {
     "@antfu/eslint-config": "^2.17.0",
     "@iconify-json/carbon": "^1.1.32",
@@ -28,7 +15,17 @@
     "typescript": "^5.4.5",
     "vue-tsc": "^2.0.17"
   },
-  "dependencies": {
-    "nuxt-social-tags": "^1.2.3"
-  }
+  "packageManager": "pnpm@9.1.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "generate": "nuxi generate",
+    "prepare": "nuxi prepare",
+    "start": "node .output/server/index.mjs",
+    "start:generate": "npx serve .output/public",
+    "lint": "eslint .",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "type": "module"
 }

@@ -1,4 +1,4 @@
-import { appDescription, appName } from './constants/index'
+import { appDescription } from './constants/index'
 
 export default defineNuxtConfig({
   modules: [
@@ -6,16 +6,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
-    'nuxt-social-tags',
   ],
-
-  socialtags: {
-    enabled: true,
-    title: appName,
-    description: appDescription,
-    opengraph: true,
-    twitter: true,
-  },
 
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
@@ -47,9 +38,6 @@ export default defineNuxtConfig({
   },
 
   app: {
-    rootAttrs: {
-      lang: 'en',
-    },
     head: {
       viewport: 'width=device-width,initial-scale=1',
       link: [
