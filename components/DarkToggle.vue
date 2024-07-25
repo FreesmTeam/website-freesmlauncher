@@ -15,7 +15,11 @@ function toggleDark() {
 </script>
 
 <template>
-  <button class="!outline-none" @click="toggleDark">
+  <button
+    aria-label="Theme change button"
+    class="!outline-none"
+    @click="toggleDark"
+  >
     <div class="i-carbon-sun dark:i-carbon-moon" />
   </button>
 </template>
