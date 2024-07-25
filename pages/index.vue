@@ -6,6 +6,6 @@ definePageMeta({
 
 <template>
   <div>
-    <Logos mb-6 />
+    <Logos class="mb-6" />
   </div>
 </template>
