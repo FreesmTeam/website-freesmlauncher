@@ -6,6 +6,6 @@ definePageMeta({
 
 <template>
   <div>
-    <Logos class="mb-6" />
+    Freesm Launcher
   </div>
 </template>
