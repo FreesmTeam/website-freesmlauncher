@@ -38,6 +38,9 @@ export default defineNuxtConfig({
   },
 
   app: {
+    rootAttrs: {
+      lang: 'en',
+    },
     head: {
       viewport: 'width=device-width,initial-scale=1',
       link: [
