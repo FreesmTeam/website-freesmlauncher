@@ -1,2 +1,5 @@
-# website-freesmlauncher
-A website on nuxt using unocss
+# Freesm Launcher website
+
+# ⬇️ Self-Hosting
+
+# 💬 Contact
