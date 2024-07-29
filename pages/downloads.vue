@@ -4,9 +4,11 @@ const router = useRouter()
 
 <template>
   <div>
-    aaaaaaaaaaaaaaaaaaaaaa
+    <div>
+      aaaaaaaaaaaaaaaaaaaaaa
+    </div>
+    <button class="bg-amber" @click="router.back()">
+      Back
+    </button>
   </div>
-  <button class="bg-amber" @click="router.back()">
-    Back
-  </button>
 </template>
