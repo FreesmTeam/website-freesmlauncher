@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: "Prism Launcher fork aimed to provide a free way to play Minecraft.",
 };
 
-export default async function RootLayout({
+export default async function LocaleLayout({
     children,
     params,
 }: Readonly<{
