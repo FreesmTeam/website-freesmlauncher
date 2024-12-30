@@ -1,6 +1,7 @@
 import Image from "next/image";
 import freesmLogo from '../../../public/freesm-launcher-logo.webp';
 import Link from "next/link";
+import {Icon} from "@iconify/react";
 
 export default function Header() {
     return (
@@ -22,7 +23,11 @@ export default function Header() {
                     </Link>
                     <div className="w-[2px] bg-[#cba6f7]" />
                     <Link href='/'>
-                        12
+                        <Icon
+                            className="transition text-white hover:text-[#cba6f7]"
+                            height={32}
+                            icon="mdi:github"
+                        />
                     </Link>
                 </div>
             </div>
