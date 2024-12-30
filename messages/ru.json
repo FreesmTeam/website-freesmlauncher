@@ -6,6 +6,9 @@
     "general": {
       "download": "Скачать",
       "about": "О нас"
+    },
+    "launcher": {
+      "add-instance": "Добавить сборку..."
     }
   }
 }

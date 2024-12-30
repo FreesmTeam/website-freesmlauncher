@@ -6,6 +6,10 @@
     "general": {
       "download": "Download",
       "about": "About"
+    },
+    "launcher": {
+      "add-instance": "Add Instance",
+      "folders": "Folders"
     }
   }
 }
