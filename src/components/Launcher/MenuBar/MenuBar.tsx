@@ -1,4 +1,4 @@
-import {LAUNCHER_TABS} from "@/configs/launcher";
+import {LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON, LAUNCHER_TABS} from "@/configs/launcher";
 import Image from "next/image";
 import skinAvatar from "../../../../public/windstone_profile_skin.png";
 import {useTranslations} from "next-intl";
@@ -7,20 +7,47 @@ import {useClickOutside} from "@mantine/hooks";
 
 export default function MenuBar() {
     const translate = useTranslations('Translations');
+    const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 });
     const [opened, setOpened] = useState(false);
     const ref = useClickOutside(() => setOpened(false));
 
+    function handleRightClick(event: React.MouseEvent) {
+        setOpened(true);
+        setMouseCoordinates({
+            x: event.clientX,
+            y: event.clientY,
+        });
+    }
+
     return (
         <div
-            onContextMenu={() => setOpened(true)}
+            onContextMenu={handleRightClick}
             className="flex justify-between p-2.5 h-14 w-full bg-[#11111b]"
         >
             {opened && (
                 <div
                     ref={ref}
-                    className="absolute flex flex-col gap-2 border-[#181822] border-[1px] p-2 bg-[#11111B]"
+                    className="absolute flex flex-col gap-2 border-[#181822] border-[1px] p-1 bg-[#11111B]"
+                    style={{
+                        top: mouseCoordinates.y,
+                        left: mouseCoordinates.x,
+                    }}
                 >
-
+                    {
+                        LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON.map((button) => {
+                            return (
+                                <div
+                                    className="flex gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28]"
+                                    key={button}
+                                >
+                                    <div className="rounded-md bg-[#CBA6F7] w-[18px] h-[18px]" />
+                                    <p className="text-[13px] text-[#cdd6f4]">
+                                        {button}
+                                    </p>
+                                </div>
+                            );
+                        })
+                    }
                 </div>
             )}
             <div className="flex items-stretch gap-2">
