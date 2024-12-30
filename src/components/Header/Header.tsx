@@ -5,7 +5,6 @@ import freesmLogo from '../../../public/freesm-launcher-logo.webp';
 import Link from "next/link";
 import {Icon} from "@iconify/react";
 import {GITHUB_LINK} from "@/configs/constants";
-import {useParams, useRouter} from "next/navigation";
 
 export default function Header() {
 
