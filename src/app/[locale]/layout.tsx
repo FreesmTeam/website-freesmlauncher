@@ -3,6 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import NextTopLoader from "nextjs-toploader";
+import {routing} from "@/i18n/routing";
+import {notFound} from "next/navigation";
+import {getMessages} from "next-intl/server";
+import {NextIntlClientProvider} from "next-intl";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -19,27 +23,33 @@ export const metadata: Metadata = {
     description: "Prism Launcher fork aimed to provide a free way to play Minecraft.",
 };
 
-export async function generateStaticParams() {
-    return [{ lang: 'en' }, { lang: 'ru' }]
-}
-
 export default async function RootLayout({
     children,
     params,
 }: Readonly<{
     children: React.ReactNode;
-    params: Promise<{ lang: string }>;
+    params: Promise<{ locale: string; }>;
 }>) {
+    const locale = (await params).locale;
+
+    if (!routing.locales.includes(locale as any)) {
+        notFound();
+    }
+
+    const messages = await getMessages();
+
     return (
-        <html lang={(await params).lang}>
+        <html lang={locale}>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                <NextTopLoader
-                    shadow={false}
-                    showSpinner={false}
-                    color="#cba6f7"
-                />
-                <Header />
-                {children}
+                <NextIntlClientProvider messages={messages}>
+                    <NextTopLoader
+                        shadow={false}
+                        showSpinner={false}
+                        color="#cba6f7"
+                    />
+                    <Header />
+                    {children}
+                </NextIntlClientProvider>
             </body>
         </html>
     );
