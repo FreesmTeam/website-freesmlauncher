@@ -13,7 +13,11 @@
       "settings": "Settings",
       "help": "Help",
       "update": "Update",
-      "profile": "windstone_"
+      "profile": "windstone_",
+      "news-toolbar": "News Toolbar",
+      "instance-toolbar": "Instance Toolbar",
+      "status-bar": "Status Toolbar",
+      "lock-toolbars": "Lock Toolbars"
     }
   }
 }

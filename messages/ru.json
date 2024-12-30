@@ -13,7 +13,11 @@
       "settings": "Настройки...",
       "help": "Помощь",
       "update": "Обновить",
-      "profile": "windstone_"
+      "profile": "windstone_",
+      "news-toolbar": "Панель новостей",
+      "instance-toolbar": "Панель установки игры",
+      "status-bar": "Панель состояния",
+      "lock-toolbars": "Заблокировать панель инструментов"
     }
   }
 }

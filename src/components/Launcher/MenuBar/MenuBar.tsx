@@ -41,8 +41,8 @@ export default function MenuBar() {
                                     key={button}
                                 >
                                     <div className="rounded-md bg-[#CBA6F7] w-[18px] h-[18px]" />
-                                    <p className="text-[13px] text-[#cdd6f4]">
-                                        {button}
+                                    <p className="select-none text-[13px] text-[#cdd6f4]">
+                                        {translate(button)}
                                     </p>
                                 </div>
                             );
