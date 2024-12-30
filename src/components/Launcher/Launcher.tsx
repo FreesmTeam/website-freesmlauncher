@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import freesmLogo from '../../../public/favicon.webp';
 import {LAUNCHER_TABS} from "@/configs/launcher";
@@ -8,7 +10,10 @@ export default function Launcher() {
     const translate = useTranslations('Translations');
 
     return (
-        <div className="w-full flex flex-col gap-0">
+        <div
+            onContextMenu={(event) => event.preventDefault()}
+            className="w-full flex flex-col gap-0"
+        >
             <div className="flex justify-between items-center w-full h-8 bg-white">
                 <div className="select-none px-2 flex gap-2 items-center">
                     <Image
@@ -45,7 +50,9 @@ export default function Launcher() {
             </div>
             <div>
                 <div className="w-full flex flex-col gap-0">
-                    <div className="flex justify-between p-2.5 h-14 w-full bg-[#11111b]">
+                    <div
+                        className="flex justify-between p-2.5 h-14 w-full bg-[#11111b]"
+                    >
                         <div className="flex items-stretch gap-2">
                             <div className="cursor-move w-[5px] rounded-full bg-[#dbcafe]" />
                             {
