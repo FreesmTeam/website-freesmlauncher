@@ -2,6 +2,7 @@ import Image from "next/image";
 import freesmLogo from '../../../public/favicon.webp';
 import {LAUNCHER_TABS} from "@/configs/launcher";
 import {useTranslations} from "next-intl";
+import skinAvatar from '../../../public/windstone_profile_skin.png';
 
 export default function Launcher() {
     const translate = useTranslations('Translations');
@@ -65,7 +66,16 @@ export default function Launcher() {
                                 })
                             }
                         </div>
-                        <div></div>
+                        <button
+                            className="cursor-default px-2 rounded-md flex items-center gap-1 hover:bg-[#211e2f]"
+                        >
+                            <Image height={24} src={skinAvatar} alt={"Profile avatar"} />
+                            {(
+                                <p className="text-[13px] text-[#cdd6f4]">
+                                    {translate('launcher.profile')}
+                                </p>
+                            )}
+                        </button>
                     </div>
                     <div className="h-10 w-full bg-[#09090e]"></div>
                     <div className="w-full bg-[#0c0c13]">345</div>
