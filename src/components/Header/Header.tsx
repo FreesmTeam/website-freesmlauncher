@@ -5,9 +5,25 @@ import freesmLogo from '../../../public/freesm-launcher-logo.webp';
 import Link from "next/link";
 import {Icon} from "@iconify/react";
 import {GITHUB_LINK} from "@/configs/constants";
+import {useTranslations} from "next-intl";
 
 export default function Header() {
+    const info = useTranslations('Info');
+    const locale = info('locale');
+    let redirectLocale;
+    let currentLanguageFlag;
 
+    switch (locale) {
+        case "ru":
+            redirectLocale = "en";
+            currentLanguageFlag = "🇷🇺";
+            break;
+        case "en":
+        default:
+            redirectLocale = "ru";
+            currentLanguageFlag = "🇺🇸";
+            break;
+    }
 
     return (
         <header className="p-4 mx-auto max-w-[1280px] w-full">
@@ -42,10 +58,11 @@ export default function Header() {
                     </Link>
                     <Link
                         className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244]"
-                        target="_blank"
-                        href={'/'}
+                        href={`/${redirectLocale}`}
                     >
-                        <p className="text-white">🇷🇺</p>
+                        <p className="text-white">
+                            {currentLanguageFlag}
+                        </p>
                     </Link>
                 </div>
             </div>

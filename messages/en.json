@@ -1,6 +1,11 @@
 {
-  "general": {
-    "download": "Download",
-    "about": "About"
+  "Info": {
+    "locale": "en"
+  },
+  "Translations": {
+    "general": {
+      "download": "Download",
+      "about": "About"
+    }
   }
 }

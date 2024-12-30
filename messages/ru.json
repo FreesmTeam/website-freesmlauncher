@@ -1,6 +1,11 @@
 {
-  "general": {
-    "download": "Скачать",
-    "about": "О нас"
+  "Info": {
+    "locale": "ru"
+  },
+  "Translations": {
+    "general": {
+      "download": "Скачать",
+      "about": "О нас"
+    }
   }
 }
