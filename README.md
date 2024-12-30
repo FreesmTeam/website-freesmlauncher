@@ -9,3 +9,11 @@
 ## ⬇️ Self-Hosting
 
 ## 💬 Contact
+
+
+// using next websites as references for design:
+https://blitzjs.com/
+https://modrinth.com/app
+https://polymc.org/
+https://multimc.org/
+https://prismlauncher.org/
