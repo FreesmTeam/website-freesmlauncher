@@ -1,10 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import freesmLogo from '../../../public/freesm-launcher-logo.webp';
 import Link from "next/link";
 import {Icon} from "@iconify/react";
 import {GITHUB_LINK} from "@/configs/constants";
+import {useParams, useRouter} from "next/navigation";
 
 export default function Header() {
+
+
     return (
         <header className="p-4 mx-auto max-w-[1280px] w-full">
             <div className="flex justify-between items-center h-12 w-full">
@@ -25,12 +30,23 @@ export default function Header() {
                         About
                     </Link>
                     <div className="w-[2px] bg-[#cba6f7]" />
-                    <Link target="_blank" href={GITHUB_LINK}>
+                    <Link
+                        className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244]"
+                        target="_blank"
+                        href={GITHUB_LINK}
+                    >
                         <Icon
-                            className="transition text-white hover:text-[#cba6f7]"
-                            height={32}
+                            className="text-white"
+                            height={24}
                             icon="mdi:github"
                         />
+                    </Link>
+                    <Link
+                        className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244]"
+                        target="_blank"
+                        href={'/'}
+                    >
+                        <p className="text-white">🇷🇺</p>
                     </Link>
                 </div>
             </div>
