@@ -19,13 +19,19 @@ export const metadata: Metadata = {
     description: "Prism Launcher fork aimed to provide a free way to play Minecraft.",
 };
 
-export default function RootLayout({
+export async function generateStaticParams() {
+    return [{ lang: 'en' }, { lang: 'ru' }]
+}
+
+export default async function RootLayout({
     children,
+    params,
 }: Readonly<{
     children: React.ReactNode;
+    params: Promise<{ lang: string }>;
 }>) {
     return (
-        <html lang="en">
+        <html lang={(await params).lang}>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 <NextTopLoader
                     shadow={false}
