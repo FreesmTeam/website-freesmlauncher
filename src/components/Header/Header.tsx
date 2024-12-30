@@ -9,6 +9,7 @@ import {useTranslations} from "next-intl";
 import {usePathname} from "@/i18n/routing";
 
 export default function Header() {
+    const translate = useTranslations('Translations');
     const info = useTranslations('Info');
     const locale = info('locale');
     const pathname = usePathname();
@@ -38,13 +39,13 @@ export default function Header() {
                         className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-[#cba6f7]"
                         href="/download"
                     >
-                        Download
+                        {translate('general.download')}
                     </Link>
                     <Link
                         className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-[#cba6f7]"
                         href="/about"
                     >
-                        About
+                        {translate('general.about')}
                     </Link>
                     <div className="w-[2px] bg-[#cba6f7]" />
                     <Link
