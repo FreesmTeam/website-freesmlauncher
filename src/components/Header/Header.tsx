@@ -6,10 +6,12 @@ import Link from "next/link";
 import {Icon} from "@iconify/react";
 import {GITHUB_LINK} from "@/configs/constants";
 import {useTranslations} from "next-intl";
+import {usePathname} from "@/i18n/routing";
 
 export default function Header() {
     const info = useTranslations('Info');
     const locale = info('locale');
+    const pathname = usePathname();
     let redirectLocale;
     let currentLanguageFlag;
 
@@ -58,7 +60,7 @@ export default function Header() {
                     </Link>
                     <Link
                         className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244]"
-                        href={`/${redirectLocale}`}
+                        href={`/${redirectLocale}${pathname}`}
                     >
                         <p className="text-white">
                             {currentLanguageFlag}
