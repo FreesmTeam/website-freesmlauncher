@@ -9,7 +9,10 @@
     },
     "launcher": {
       "add-instance": "Add Instance",
-      "folders": "Folders"
+      "folders": "Folders",
+      "settings": "Settings",
+      "help": "Help",
+      "update": "Update"
     }
   }
 }

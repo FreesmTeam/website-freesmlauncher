@@ -49,17 +49,19 @@ export default function Launcher() {
                             <div className="cursor-move w-[5px] rounded-full bg-[#dbcafe]" />
                             {
                                 LAUNCHER_TABS.map((tab) => {
-                                   return (
-                                       <button
-                                           key={tab.name}
-                                           className="cursor-default px-2 rounded-md flex items-center gap-1 hover:bg-[#211e2f]"
-                                       >
-                                           {tab.icon}
-                                           <p className="text-[13px] text-[#cdd6f4]">
-                                               {translate(tab.name)}
-                                           </p>
-                                       </button>
-                                   )
+                                    return (
+                                        <button
+                                            key={tab?.name ?? ''}
+                                            className="cursor-default px-2 rounded-md flex items-center gap-1 hover:bg-[#211e2f]"
+                                        >
+                                            {tab.icon}
+                                            {tab?.name && (
+                                                <p className="text-[13px] text-[#cdd6f4]">
+                                                    {translate(tab.name)}
+                                                </p>
+                                            )}
+                                        </button>
+                                    )
                                 })
                             }
                         </div>

@@ -8,7 +8,11 @@
       "about": "О нас"
     },
     "launcher": {
-      "add-instance": "Добавить сборку..."
+      "add-instance": "Добавить сборку...",
+      "folders": "Папки",
+      "settings": "Настройки...",
+      "help": "Помощь",
+      "update": "Обновить"
     }
   }
 }
