@@ -1,5 +1,6 @@
 import Image from "next/image";
 import freesmLogo from '../../../public/freesm-launcher-logo.webp';
+import Link from "next/link";
 
 export default function Header() {
     return (
@@ -7,19 +8,22 @@ export default function Header() {
             <div className="flex justify-between items-center h-12 w-full">
                 <Image height={48} src={freesmLogo} alt="FreesmLauncher logo" />
                 <div className="flex gap-4">
-                    <a
-                        className="text-white py-1 px-2 rounded-md transition hover:bg-purple-950"
+                    <Link
+                        className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-[#cba6f7]"
                         href="/"
                     >
                         Download
-                    </a>
-                    <a
-                        className="text-white py-1 px-2 rounded-md transition hover:bg-purple-950"
+                    </Link>
+                    <Link
+                        className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-[#cba6f7]"
                         href="/"
                     >
                         About
-                    </a>
-                    <div className="w-[1px] bg-slate-800" />
+                    </Link>
+                    <div className="w-[2px] bg-[#cba6f7]" />
+                    <Link href='/'>
+                        12
+                    </Link>
                 </div>
             </div>
         </header>
