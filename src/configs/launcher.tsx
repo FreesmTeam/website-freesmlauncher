@@ -136,3 +136,14 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
         icon: diamondSvg,
     }
 ];
+export const LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS: LauncherInstanceBarItemType[] = [
+    {
+        name: 'launcher.instance.rename',
+        icon: <Icon height={14} icon="fluent:edit-16-regular" />,
+    },
+    {
+        name: 'launcher.instance.change-icon',
+        icon: <Image height={14} src={grassSvg} alt={"Grass svg icon"} />
+    },
+    ...LAUNCHER_INSTANCE_BAR_ITEMS
+];

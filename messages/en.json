@@ -32,7 +32,9 @@
         "export": "Export",
         "copy": "Copy",
         "delete": "Delete",
-        "create-shortcut": "Create Shortcut"
+        "create-shortcut": "Create Shortcut",
+        "rename": "Rename",
+        "change-icon": "Change Icon"
       }
     }
   }
