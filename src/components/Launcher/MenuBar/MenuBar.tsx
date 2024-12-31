@@ -39,8 +39,8 @@ export default function MenuBar() {
                                     className="flex gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28]"
                                     key={button}
                                 >
-                                    <div className="rounded-md bg-[#CBA6F7] w-[18px] h-[18px]" />
-                                    <p className="select-none text-[13px] text-[#cdd6f4]">
+                                    <div className="rounded-md bg-[#CBA6F7] min-w-[18px] h-[18px]" />
+                                    <p className="select-none text-nowrap text-[13px] text-[#cdd6f4]">
                                         {translate(button)}
                                     </p>
                                 </div>
