@@ -1,7 +1,8 @@
 import {Icon} from "@iconify/react";
 import {TabNameType} from "@/types/TabName.type";
 import {ProfileItem} from "@/types/ProfileItem.type";
-import skinAvatar from "../../public/windstone_profile_skin.png";
+import windstoneSkinAvatar from "../../public/windstone_profile_skin.png";
+import hand7sSkinAvatar from "../../public/hand7s_skin_avatar.png";
 import monochromeSteveSkinAvatar from "../../public/monochrome_steve.png";
 import Image from "next/image";
 
@@ -51,9 +52,16 @@ export const LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON = [
 export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItem[] = [
     {
         icon: (
-            <Image height={16} width={16} src={skinAvatar} alt={"Profile avatar"}/>
+            <Image height={16} width={16} src={windstoneSkinAvatar} alt={"windstone_ skin avatar"}/>
         ),
         name: "launcher.windstone_",
+        hotkey: "Ctrl+2",
+    },
+    {
+        icon: (
+            <Image height={16} width={16} src={hand7sSkinAvatar} alt={"hand7s skin avatar"}/>
+        ),
+        name: "launcher.hand7s",
         hotkey: "Ctrl+1",
     },
     {
