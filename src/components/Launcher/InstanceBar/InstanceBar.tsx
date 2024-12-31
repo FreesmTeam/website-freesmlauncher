@@ -7,6 +7,7 @@ import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import Image from "next/image";
 import {Icon} from "@iconify/react";
 import {useState} from "react";
+import InstanceButton from "@/components/Launcher/InstanceBar/InstanceButton/InstanceButton";
 
 export default function InstanceBar() {
     const translate = useTranslations('Translations');
@@ -14,7 +15,7 @@ export default function InstanceBar() {
     const [hidden, setHidden] = useState(false);
 
     const instancesStore = useInstanceStore((state) => state);
-    const { currentInstance, updateCurrentInstance } = instancesStore;
+    const { currentInstance } = instancesStore;
 
     const launcherBarsStore = useLauncherBarsStore((state) => state);
     const instanceBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.instance-toolbar');
@@ -59,7 +60,7 @@ export default function InstanceBar() {
             }
             <div className="w-full flex flex-col p-4 gap-2 bg-[#0c0c13]">
                 <button
-                    onClick={() => setHidden((hidden: boolean) => hidden = !hidden)}
+                    onClick={() => setHidden((hidden: boolean) => !hidden)}
                     className="select-none flex gap-2 items-center text-[#80859A] text-[12px]"
                 >
                     <Icon
@@ -79,21 +80,11 @@ export default function InstanceBar() {
                             {
                                 LAUNCHER_INSTANCES.map((instance: LauncherInstanceType) => {
                                     return (
-                                        <button
-                                            className="flex flex-col items-center justify-start gap-2 w-[100px]"
+                                        <InstanceButton
                                             key={instance.name}
-                                            onClick={() => updateCurrentInstance(instance)}
-                                        >
-                                            <Image width={48} src={instance.icon} alt="Grass svg icon"/>
-                                            <p
-                                                className="text-[13px] text-[#CDD6F4] text-center w-full"
-                                                style={{
-                                                    background: instance.name === currentInstance.name ? "#a285c6" : "#040407"
-                                                }}
-                                            >
-                                                {instance.name}
-                                            </p>
-                                        </button>
+                                            name={instance.name}
+                                            icon={instance.icon}
+                                        />
                                     );
                                 })
                             }
