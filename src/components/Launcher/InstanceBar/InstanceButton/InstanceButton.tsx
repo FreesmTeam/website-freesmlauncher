@@ -19,6 +19,8 @@ export default function InstanceButton(instance: LauncherInstanceType) {
     const instanceRef = useRef<HTMLButtonElement>(null);
 
     function handleRightClick(event: React.MouseEvent) {
+        updateCurrentInstance(instance);
+
         if (!opened) {
             setMouseCoordinates({
                 x: event.nativeEvent.layerX,
@@ -29,14 +31,16 @@ export default function InstanceButton(instance: LauncherInstanceType) {
         setOpened(true);
     }
 
-
+    function handleLeftClick() {
+        updateCurrentInstance(instance);
+    }
 
     return (
         <button
             ref={instanceRef}
             onContextMenu={handleRightClick}
             className="relative h-fit flex flex-col items-center justify-start gap-2 w-[100px]"
-            onClick={() => updateCurrentInstance(instance)}
+            onClick={handleLeftClick}
         >
             <div
                 aria-label="context-menu"
