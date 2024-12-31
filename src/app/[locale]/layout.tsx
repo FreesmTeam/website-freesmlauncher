@@ -9,6 +9,7 @@ import {getMessages} from "next-intl/server";
 import {NextIntlClientProvider} from "next-intl";
 import {LocaleType} from "@/types/Locale.type";
 import { Analytics } from "@vercel/analytics/react"
+import TanstackQueryProviders from "@/utils/Providers/TanstackQueryProviders";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -43,17 +44,19 @@ export default async function LocaleLayout({
     return (
         <html lang={locale}>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                <NextIntlClientProvider messages={messages}>
-                    <NextTopLoader
-                        zIndex={30000}
-                        shadow={false}
-                        showSpinner={false}
-                        color="#cba6f7"
-                    />
-                    <Header />
-                    {children}
-                </NextIntlClientProvider>
-                <Analytics />
+                <TanstackQueryProviders>
+                    <NextIntlClientProvider messages={messages}>
+                        <NextTopLoader
+                            zIndex={30000}
+                            shadow={false}
+                            showSpinner={false}
+                            color="#cba6f7"
+                        />
+                        <Header />
+                        {children}
+                    </NextIntlClientProvider>
+                    <Analytics />
+                </TanstackQueryProviders>
             </body>
         </html>
     );
