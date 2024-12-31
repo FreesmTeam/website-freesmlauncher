@@ -13,10 +13,9 @@ export default function MenuBar() {
     function handleRightClick(event: React.MouseEvent) {
         setOpened(true);
         setMouseCoordinates({
-            x: event.clientX,
+            x: event.nativeEvent.layerX,
             y: event.nativeEvent.layerY,
         });
-        console.log(event)
     }
 
     return (
