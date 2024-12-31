@@ -3,10 +3,12 @@
 @tailwind utilities;
 
 :root {
-    --background: #09090e;
+    --background-one: #09090e;
+    --background-two: #181825;
 }
 
 body {
+    padding-bottom: 32px;
     overflow-x: hidden;
-    background: var(--background);
+    background: linear-gradient(var(--background-one), var(--background-two));
 }
