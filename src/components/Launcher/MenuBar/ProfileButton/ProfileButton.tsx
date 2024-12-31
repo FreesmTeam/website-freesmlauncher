@@ -4,10 +4,15 @@ import {useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import {LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS} from "@/configs/launcher";
 import {ProfileItemType} from "@/types/ProfileItem.type";
+import {useProfileStore} from "@/utils/stores";
+import {ProfileStateType} from "@/types/ProfileState.type";
 
 export default function ProfileButton() {
     const translate = useTranslations('Translations');
-    const [currentProfile, setCurrentProfile] = useState(LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS[0]);
+
+    const currentProfile = useProfileStore((state: ProfileStateType) => state.currentProfile);
+    const updateCurrentProfile = useProfileStore((state: ProfileStateType) => state.updateCurrentProfile);
+
     const [opened, setOpened] = useState(false);
     const ref = useClickOutside(() => setOpened(false));
 
@@ -18,7 +23,7 @@ export default function ProfileButton() {
     function handleProfileChange(profile: ProfileItemType) {
         // Only selectable profiles have hotkey
         if (profile.hotkey) {
-            setCurrentProfile(profile);
+            updateCurrentProfile(profile);
             setOpened(false);
         }
     }
