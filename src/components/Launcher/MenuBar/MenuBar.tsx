@@ -98,7 +98,7 @@ export default function MenuBar() {
                         return (
                             <button
                                 key={tab?.name ?? ''}
-                                className="cursor-default px-2 rounded-md flex items-center gap-1 hover:bg-[#211e2f]  active:bg-[#171721]"
+                                className="px-2 rounded-md flex items-center gap-1 hover:bg-[#211e2f]  active:bg-[#171721]"
                             >
                                 {tab.icon}
                                 {tab?.name && (

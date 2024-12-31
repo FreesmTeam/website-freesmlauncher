@@ -6,9 +6,12 @@ import {useTranslations} from "next-intl";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import Image from "next/image";
 import {Icon} from "@iconify/react";
+import {useState} from "react";
 
 export default function InstanceBar() {
     const translate = useTranslations('Translations');
+
+    const [hidden, setHidden] = useState(false);
 
     const instancesStore = useInstanceStore((state) => state);
     const { currentInstance, updateCurrentInstance } = instancesStore;
@@ -55,36 +58,48 @@ export default function InstanceBar() {
                 )
             }
             <div className="w-full flex flex-col p-4 gap-2 bg-[#0c0c13]">
-                <div className="select-none flex gap-2 items-center text-[#80859A] text-[12px]">
-                    <Icon height={28} icon="fluent:chevron-down-16-filled" />
+                <button
+                    onClick={() => setHidden((hidden: boolean) => hidden = !hidden)}
+                    className="select-none flex gap-2 items-center text-[#80859A] text-[12px]"
+                >
+                    <Icon
+                        height={28}
+                        icon={
+                            hidden ? "fluent:chevron-right-16-filled" : "fluent:chevron-down-16-filled"
+                        }
+                    />
                     <div className="flex-shrink-0 font-bold">
                         Без группы
                     </div>
                     <div className="w-full h-[2px] bg-[#15161e]" />
-                </div>
-                <div className="flex gap-2">
-                    {
-                        LAUNCHER_INSTANCES.map((instance: LauncherInstanceType) => {
-                            return (
-                                <button
-                                    className="cursor-default flex flex-col items-center justify-start gap-2 w-[100px]"
-                                    key={instance.name}
-                                    onClick={() => updateCurrentInstance(instance)}
-                                >
-                                    <Image width={48} src={instance.icon} alt="Grass svg icon" />
-                                    <p
-                                        className="text-[13px] text-[#CDD6F4] text-center w-full"
-                                        style={{
-                                            background: instance.name === currentInstance.name ? "#a285c6" : "#040407"
-                                        }}
-                                    >
-                                        {instance.name}
-                                    </p>
-                                </button>
-                            );
-                        })
-                    }
-                </div>
+                </button>
+                {
+                    !hidden && (
+                        <div className="flex gap-2">
+                            {
+                                LAUNCHER_INSTANCES.map((instance: LauncherInstanceType) => {
+                                    return (
+                                        <button
+                                            className="flex flex-col items-center justify-start gap-2 w-[100px]"
+                                            key={instance.name}
+                                            onClick={() => updateCurrentInstance(instance)}
+                                        >
+                                            <Image width={48} src={instance.icon} alt="Grass svg icon"/>
+                                            <p
+                                                className="text-[13px] text-[#CDD6F4] text-center w-full"
+                                                style={{
+                                                    background: instance.name === currentInstance.name ? "#a285c6" : "#040407"
+                                                }}
+                                            >
+                                                {instance.name}
+                                            </p>
+                                        </button>
+                                    );
+                                })
+                            }
+                        </div>
+                    )
+                }
             </div>
         </div>
     );

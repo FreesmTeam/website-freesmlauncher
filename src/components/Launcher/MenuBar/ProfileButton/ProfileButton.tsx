@@ -62,7 +62,7 @@ export default function ProfileButton() {
             </div>
             <button
                 onClick={handleLeftClick}
-                className="w-full h-full cursor-default px-2 rounded-md flex items-center gap-2 hover:bg-[#211e2f] focus:bg-[#171721]"
+                className="w-full h-full px-2 rounded-md flex items-center gap-2 hover:bg-[#211e2f] focus:bg-[#171721]"
             >
                 <Image height={24} src={currentProfile.skin} alt={"Profile avatar"}/>
                 {(
