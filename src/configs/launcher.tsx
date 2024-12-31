@@ -55,7 +55,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
             <Image height={16} width={16} src={windstoneSkinAvatar} alt={"windstone_ skin avatar"}/>
         ),
         name: "launcher.windstone_",
-        hotkey: "Ctrl+2",
+        hotkey: "Maintainer",
     },
     {
         skin: hand7sSkinAvatar,
@@ -63,7 +63,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
             <Image height={16} width={16} src={hand7sSkinAvatar} alt={"hand7s skin avatar"}/>
         ),
         name: "launcher.hand7s",
-        hotkey: "Ctrl+1",
+        hotkey: "Maintainer",
     },
     {
         skin: monochromeSteveSkinAvatar,
