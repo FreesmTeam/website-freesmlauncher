@@ -4,7 +4,7 @@ import Image from "next/image";
 import freesmLogo from '../../../public/freesm-launcher-logo.webp';
 import Link from "next/link";
 import {Icon} from "@iconify/react";
-import {GITHUB_LINK} from "@/configs/constants";
+import {ABOUT_LINK, DOWNLOADS_LINK, GITHUB_LINK} from "@/configs/constants";
 import {useTranslations} from "next-intl";
 import {usePathname} from "@/i18n/routing";
 
@@ -37,13 +37,13 @@ export default function Header() {
                 <div className="flex gap-4">
                     <Link
                         className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-[#cba6f7]"
-                        href="/download"
+                        href={DOWNLOADS_LINK}
                     >
                         {translate('general.download')}
                     </Link>
                     <Link
                         className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-[#cba6f7]"
-                        href="/about"
+                        href={ABOUT_LINK}
                     >
                         {translate('general.about')}
                     </Link>
