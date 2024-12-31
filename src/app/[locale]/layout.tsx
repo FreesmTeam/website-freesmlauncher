@@ -45,6 +45,7 @@ export default async function LocaleLayout({
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 <NextIntlClientProvider messages={messages}>
                     <NextTopLoader
+                        zIndex={30000}
                         shadow={false}
                         showSpinner={false}
                         color="#cba6f7"
