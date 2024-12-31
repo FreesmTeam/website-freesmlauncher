@@ -13,6 +13,12 @@
       "description": "Freesm Launcher is a custom launcher for Minecraft that allows you to play with offline account without any restrictions.",
       "download-now": "Download Now"
     },
+    "features": {
+      "first-title": "Open Source",
+      "first-description": "Freesm Launcher is an open source fork of Prism Launcher. All launcher code is available under the GPL-3.0 license.",
+      "second-title": "DRM-free",
+      "second-description": "Easily play Minecraft without any restrictions, even if you don't have an account."
+    },
     "launcher": {
       "windstone_": "windstone_",
       "hand7s": "hand7s",

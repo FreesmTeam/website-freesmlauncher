@@ -13,6 +13,12 @@
       "description": "Freesm Launcher - это кастомный лаунчер для Майнкрафта, который позволяет играть бесплатно.",
       "download-now": "Скачать"
     },
+    "features": {
+      "first-title": "Открытый исходный код",
+      "first-description": "Freesm Launcher - это форк Prism Launcher с открытым исходным кодом, который находится под лицензией GPL-3.0.",
+      "second-title": "Без DRM",
+      "second-description": "С лёгкостью играйте в Майнкрафт без каких-либо ограничений, даже если у Вас нет аккаунта."
+    },
     "launcher": {
       "windstone_": "windstone_",
       "hand7s": "hand7s",
