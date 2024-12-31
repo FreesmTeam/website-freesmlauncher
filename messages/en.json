@@ -21,7 +21,8 @@
       "status-bar": "Status Toolbar",
       "lock-toolbars": "Lock Toolbars",
       "no-default-account": "No Default Account",
-      "manage-accounts": "Manage Accounts..."
+      "manage-accounts": "Manage Accounts...",
+      "more-news": "More news"
     }
   }
 }
