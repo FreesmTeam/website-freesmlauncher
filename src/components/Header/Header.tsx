@@ -4,9 +4,11 @@ import Image from "next/image";
 import freesmLogo from '../../../public/freesm-launcher-logo.webp';
 import Link from "next/link";
 import {Icon} from "@iconify/react";
-import {ABOUT_LINK, DOWNLOADS_LINK, GITHUB_LINK} from "@/configs/constants";
+import {ABOUT_LINK, DOWNLOADS_LINK, GITHUB_LINK, HEADER_ITEMS, HEADER_LINKS} from "@/configs/constants";
 import {useTranslations} from "next-intl";
 import {usePathname} from "@/i18n/routing";
+import {HeaderItemType} from "@/types/HeaderItem.type";
+import {HeaderExternalLinkType} from "@/types/HeaderExternalLink.type";
 
 export default function Header() {
     const translate = useTranslations('Translations');
@@ -35,30 +37,38 @@ export default function Header() {
                     <Image height={48} src={freesmLogo} alt="FreesmLauncher logo" />
                 </Link>
                 <div className="flex gap-4">
-                    <Link
-                        className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-[#cba6f7]"
-                        href={DOWNLOADS_LINK}
-                    >
-                        {translate('general.download')}
-                    </Link>
-                    <Link
-                        className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-[#cba6f7]"
-                        href={ABOUT_LINK}
-                    >
-                        {translate('general.about')}
-                    </Link>
+                    {
+                        HEADER_ITEMS.map((item: HeaderItemType) => {
+                            return (
+                                <Link
+                                    key={item.name}
+                                    className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-[#cba6f7]"
+                                    href={item.link}
+                                >
+                                    {translate(item.name)}
+                                </Link>
+                            );
+                        })
+                    }
                     <div className="w-[2px] bg-[#cba6f7]" />
-                    <Link
-                        className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244]"
-                        target="_blank"
-                        href={GITHUB_LINK}
-                    >
-                        <Icon
-                            className="text-white"
-                            height={24}
-                            icon="mdi:github"
-                        />
-                    </Link>
+                    {
+                        HEADER_LINKS.map((link: HeaderExternalLinkType) => {
+                            return (
+                                <Link
+                                    key={link.link}
+                                    className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244]"
+                                    target="_blank"
+                                    href={link.link}
+                                >
+                                    <Icon
+                                        className="text-white"
+                                        height={link.height}
+                                        icon={link.icon}
+                                    />
+                                </Link>
+                            );
+                        })
+                    }
                     <Link
                         className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244]"
                         href={`/${redirectLocale}${pathname}`}
