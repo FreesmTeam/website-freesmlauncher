@@ -17,13 +17,17 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     if (isPending) {
         return (
-            <>Loading...</>
+            <div>
+                Loading...
+            </div>
         );
     }
 
     if (error) {
         return (
-            <>Error: {error.message}</>
+            <div>
+                Error: {error.message}
+            </div>
         );
     }
 
@@ -51,7 +55,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                         return (
                             <Link
                                 key={build.name}
-                                className="transition border-b-[1px] border-transparent hover:border-white"
+                                className="text-center w-fit text-balance transition border-b-[1px] border-transparent hover:border-white"
                                 target="_blank" 
                                 href={build.url}
                             >
@@ -77,7 +81,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                             return (
                                 <Link
                                     key={build.name}
-                                    className="transition border-b-[1px] border-transparent hover:border-white"
+                                    className="w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white"
                                     target="_blank" 
                                     href={build.url}
                                 >
@@ -88,7 +92,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                     }
                 </div>
                 <div className="flex flex-col flex-1 items-center justify-center gap-4">
-                <p className="text-xl text-gray-400">
+                    <p className="text-xl text-gray-400">
                         Windows ARM64
                     </p>
                     {
@@ -96,7 +100,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                             return (
                                 <Link
                                     key={build.name}
-                                    className="transition border-b-[1px] border-transparent hover:border-white"
+                                    className="w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white"
                                     target="_blank" 
                                     href={build.url}
                                 >

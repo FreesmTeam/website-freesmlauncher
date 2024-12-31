@@ -3,7 +3,6 @@
 import { DOWNLOADS_OPTIONS } from "@/configs/constants";
 import getPlatformName from "@/utils/getPlatformName";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { useState } from "react";
 import ReleaseLinks from "./ReleaseLinks/ReleaseLinks";
 
