@@ -10,5 +10,7 @@
 body {
     padding-bottom: 32px;
     overflow-x: hidden;
-    background: linear-gradient(var(--background-one), var(--background-two));
+    background-image: linear-gradient(var(--background-one), var(--background-two));
+    background-repeat: no-repeat;
+    background-color: var(--background-two);
 }

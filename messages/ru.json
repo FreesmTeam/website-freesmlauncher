@@ -8,6 +8,11 @@
       "download": "Скачать",
       "about": "О нас"
     },
+    "hero": {
+      "title": "Установите Freesm Launcher для",
+      "description": "Freesm Launcher - это кастомный лаунчер для Майнкрафта, который позволяет играть бесплатно.",
+      "download-now": "Скачать"
+    },
     "launcher": {
       "windstone_": "windstone_",
       "hand7s": "hand7s",
