@@ -1,17 +1,26 @@
 import Image from "next/image";
-import skinAvatar from "../../../../../public/windstone_profile_skin.png";
 import {useTranslations} from "next-intl";
 import {useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import {LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS} from "@/configs/launcher";
+import {ProfileItemType} from "@/types/ProfileItem.type";
 
 export default function ProfileButton() {
     const translate = useTranslations('Translations');
+    const [currentProfile, setCurrentProfile] = useState(LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS[0]);
     const [opened, setOpened] = useState(false);
     const ref = useClickOutside(() => setOpened(false));
 
     function handleLeftClick() {
         setOpened(true);
+    }
+
+    function handleProfileChange(profile: ProfileItemType) {
+        // Only selectable profiles have hotkey
+        if (profile.hotkey) {
+            setCurrentProfile(profile);
+            setOpened(false);
+        }
     }
 
     return (
@@ -25,9 +34,10 @@ export default function ProfileButton() {
                 }}
             >
                 {
-                    LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS.map((item) => {
+                    LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS.map((item: ProfileItemType) => {
                         return (
                             <div
+                                onClick={() => handleProfileChange(item)}
                                 className="flex gap-4 items-center rounded-md p-1 hover:bg-[#1D1A28]"
                                 key={item.name}
                             >
@@ -47,12 +57,12 @@ export default function ProfileButton() {
             </div>
             <button
                 onClick={handleLeftClick}
-                className="w-full h-full cursor-default px-2 rounded-md flex items-center gap-1 hover:bg-[#211e2f] focus:bg-[#171721]"
+                className="w-full h-full cursor-default px-2 rounded-md flex items-center gap-2 hover:bg-[#211e2f] focus:bg-[#171721]"
             >
-                <Image height={24} src={skinAvatar} alt={"Profile avatar"}/>
+                <Image height={24} src={currentProfile.skin} alt={"Profile avatar"}/>
                 {(
                     <p className="text-[13px] text-[#cdd6f4]">
-                        {translate('launcher.profile')}
+                        {translate(currentProfile.name)}
                     </p>
                 )}
             </button>

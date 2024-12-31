@@ -1,6 +1,6 @@
 import {Icon} from "@iconify/react";
 import {TabNameType} from "@/types/TabName.type";
-import {ProfileItem} from "@/types/ProfileItem.type";
+import {ProfileItemType} from "@/types/ProfileItem.type";
 import windstoneSkinAvatar from "../../public/windstone_profile_skin.png";
 import hand7sSkinAvatar from "../../public/hand7s_skin_avatar.png";
 import monochromeSteveSkinAvatar from "../../public/monochrome_steve.png";
@@ -49,8 +49,9 @@ export const LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON = [
     'launcher.status-bar',
     'launcher.lock-toolbars',
 ];
-export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItem[] = [
+export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
     {
+        skin: windstoneSkinAvatar,
         icon: (
             <Image height={16} width={16} src={windstoneSkinAvatar} alt={"windstone_ skin avatar"}/>
         ),
@@ -58,6 +59,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItem[] = [
         hotkey: "Ctrl+2",
     },
     {
+        skin: hand7sSkinAvatar,
         icon: (
             <Image height={16} width={16} src={hand7sSkinAvatar} alt={"hand7s skin avatar"}/>
         ),
@@ -65,6 +67,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItem[] = [
         hotkey: "Ctrl+1",
     },
     {
+        skin: monochromeSteveSkinAvatar,
         icon: (
             <Image height={16} width={16} src={monochromeSteveSkinAvatar} alt={"Monochrome Steve avatar"}/>
         ),
@@ -72,6 +75,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItem[] = [
         hotkey: "Ctrl+0",
     },
     {
+        skin: monochromeSteveSkinAvatar,
         icon: (
             <Icon color="#fff" fontSize={16} icon="fluent:people-16-regular" />
         ),
