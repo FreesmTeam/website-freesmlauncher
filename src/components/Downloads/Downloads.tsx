@@ -1,100 +1,19 @@
 "use client";
 
 import { DOWNLOADS_OPTIONS } from "@/configs/constants";
-import getLatestRelease from "@/utils/getLatestRelease";
 import getPlatformName from "@/utils/getPlatformName";
-import { useQuery } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import ReleaseLinks from "./ReleaseLinks/ReleaseLinks";
 
 export default function Downloads() {
-    const { isPending, error, data } = useQuery({
-        queryKey: ['github-releases'],
-        queryFn: async () => {
-            return await getLatestRelease();
-        },
-    })
-
     const translate = useTranslations('Translations');
 
     const platform = navigator.platform.toLowerCase();
     const displayPlatform = getPlatformName(platform);
 
     const [selectedPlatform, setSelectedPlatform] = useState(displayPlatform);
-
-    let downloadsNode;
-
-    switch (selectedPlatform.toLowerCase()) {
-        case 'linux':
-            downloadsNode = (
-                <>
-                </>
-            );
-            break;
-        case 'macos':
-            downloadsNode = (
-                <>
-                </>
-            );
-            break;
-        case 'windows':
-            downloadsNode = (
-                <div className="w-full flex gap-8">
-                    <div className="flex flex-col flex-1 items-center justify-center gap-4">
-                        <p className="text-xl text-gray-400">
-                            Windows 64bit
-                        </p>
-                        <Link
-                            className="transition border-b-[1px] border-transparent hover:border-white"
-                            target="_blank" 
-                            href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
-                        >
-                            Setup (.exe)
-                        </Link>
-                        <Link
-                            className="transition border-b-[1px] border-transparent hover:border-white"
-                            target="_blank" 
-                            href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
-                        >
-                            Portable (.zip)
-                        </Link>
-                    </div>
-                    <div className="flex flex-col flex-1 items-center justify-center gap-4">
-                    <p className="text-xl text-gray-400">
-                            Windows 64bit
-                        </p>
-                        <Link
-                            className="transition border-b-[1px] border-transparent hover:border-white"
-                            target="_blank" 
-                            href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
-                        >
-                            Setup (.exe)
-                        </Link>
-                        <Link
-                            className="transition border-b-[1px] border-transparent hover:border-white"
-                            target="_blank" 
-                            href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
-                        >
-                            Portable (.zip)
-                        </Link>
-                    </div>
-                </div>
-            );
-            break;
-    }
-
-    if (isPending) {
-        return (
-            <>Loading...</>
-        );
-    }
-
-    if (error) {
-        return (
-            <>Error: {error.message}</>
-        );
-    }
 
     return (
         <div className="flex flex-col gap-8 mt-12 max-w-[960px] px-4 mx-auto">
@@ -139,7 +58,7 @@ export default function Downloads() {
                             {selectedPlatform}
                         </span>
                     </p>
-                    {downloadsNode}
+                    <ReleaseLinks platform={selectedPlatform} />
                 </div>
             </div>
         </div>
