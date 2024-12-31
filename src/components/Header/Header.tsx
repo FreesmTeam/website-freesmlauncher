@@ -31,7 +31,7 @@ export default function Header() {
     }
 
     return (
-        <header className="p-4 mx-auto max-w-[1280px] w-full">
+        <header className="select-none p-4 mx-auto max-w-[1280px] w-full">
             <div className="flex justify-between items-center h-12 w-full">
                 <Link href="/">
                     <Image height={48} src={freesmLogo} alt="FreesmLauncher logo" />

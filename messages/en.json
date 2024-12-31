@@ -4,6 +4,7 @@
   },
   "Translations": {
     "general": {
+      "home": "Home",
       "download": "Download",
       "about": "About"
     },

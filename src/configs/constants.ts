@@ -3,6 +3,7 @@ import {HeaderItemType} from "@/types/HeaderItem.type";
 
 export const GITHUB_LINK = "https://github.com/FreesmTeam/FreesmLauncher";
 export const TELEGRAM_LINK = "https://t.me/freesmteam";
+export const HOME_LINK = '/';
 export const DOWNLOADS_LINK = '/downloads';
 export const ABOUT_LINK = '/about';
 export const HEADER_LINKS: HeaderExternalLinkType[] = [
@@ -18,6 +19,10 @@ export const HEADER_LINKS: HeaderExternalLinkType[] = [
     }
 ];
 export const HEADER_ITEMS: HeaderItemType[] = [
+    {
+        name: 'general.home',
+        link: HOME_LINK,
+    },
     {
         name: 'general.download',
         link: DOWNLOADS_LINK,
