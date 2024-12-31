@@ -2,6 +2,7 @@ import {Icon} from "@iconify/react";
 import {TabNameType} from "@/types/TabName.type";
 import {ProfileItem} from "@/types/ProfileItem.type";
 import skinAvatar from "../../public/windstone_profile_skin.png";
+import monochromeSteveSkinAvatar from "../../public/monochrome_steve.png";
 import Image from "next/image";
 
 export const LAUNCHER_TABS: TabNameType[] = [
@@ -57,7 +58,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItem[] = [
     },
     {
         icon: (
-            <Image height={16} width={16} src={skinAvatar} alt={"Monochrome Steve avatar"}/>
+            <Image height={16} width={16} src={monochromeSteveSkinAvatar} alt={"Monochrome Steve avatar"}/>
         ),
         name: "launcher.no-default-account",
         hotkey: "Ctrl+0",
