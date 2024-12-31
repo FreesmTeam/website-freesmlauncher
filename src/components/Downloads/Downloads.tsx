@@ -13,6 +13,26 @@ export default function Downloads() {
 
     const [selectedPlatform, setSelectedPlatform] = useState(displayPlatform);
 
+    let downloadsNode;
+
+    switch (selectedPlatform.toLowerCase()) {
+        case 'linux':
+            downloadsNode = (
+                <>
+
+                </>
+            );
+            break;
+        case 'macos':
+            downloadsNode = (
+                <></>
+            );
+            break;
+        case 'windows':
+            downloadsNode;
+            break;
+    }
+
     return (
         <div className="flex flex-col gap-8 mt-12 max-w-[960px] px-4 mx-auto">
             <p className="text-center font-bold text-balance text-7xl text-white">
@@ -49,7 +69,15 @@ export default function Downloads() {
                 }
             </div>
             <div className="rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-2">
-2
+                <div className="flex flex-col gap-4 py-8 items-center">
+                    <p className="text-3xl font-semibold text-white">
+                        {translate('downloads.packages-for')}{' '}
+                        <span className="text-[#cba6f7]">
+                            {selectedPlatform}
+                        </span>
+                    </p>
+                    
+                </div>
             </div>
         </div>
     );

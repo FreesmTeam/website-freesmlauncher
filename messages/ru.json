@@ -10,7 +10,8 @@
     },
     "downloads": {
       "title": "Загрузки",
-      "description": "Скачайте Freesm Launcher под Вашу операционную систему."
+      "description": "Скачайте Freesm Launcher под Вашу операционную систему.",
+      "packages-for": "Сборки для"
     },
     "hero": {
       "title": "Установите Freesm Launcher для",
