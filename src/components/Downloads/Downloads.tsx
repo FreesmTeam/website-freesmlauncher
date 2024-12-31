@@ -1,13 +1,20 @@
 "use client";
 
 import { DOWNLOADS_OPTIONS } from "@/configs/constants";
+import getLatestRelease from "@/utils/getLatestRelease";
 import getPlatformName from "@/utils/getPlatformName";
+import { useQuery } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Downloads() {
-    const [downloads, setDownloads] = useState([]);
+    const { isPending, error, data } = useQuery({
+        queryKey: ['github-releases'],
+        queryFn: async () => {
+            return await getLatestRelease();
+        },
+    })
 
     const translate = useTranslations('Translations');
 
@@ -75,6 +82,18 @@ export default function Downloads() {
                 </div>
             );
             break;
+    }
+
+    if (isPending) {
+        return (
+            <>Loading...</>
+        );
+    }
+
+    if (error) {
+        return (
+            <>Error: {error.message}</>
+        );
     }
 
     return (
