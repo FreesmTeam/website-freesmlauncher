@@ -1,6 +1,6 @@
 export type GithubReleaseType = {
     assets: {
-        url: string;
+        browser_download_url: string;
         name: string;
     }[];
     name: string;

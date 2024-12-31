@@ -1,5 +1,6 @@
 import { GithubReleaseType } from "@/types/GithubRelease.type";
 import getLatestRelease from "@/utils/getLatestRelease";
+import getReleaseName from "@/utils/getReleaseName";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
@@ -57,7 +58,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                 key={build.name}
                                 className="text-center w-fit text-balance transition border-b-[1px] border-transparent hover:border-white"
                                 target="_blank" 
-                                href={build.url}
+                                href={build.browser_download_url}
                             >
                                 {build.name}
                             </Link>
@@ -78,14 +79,20 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                     </p>
                     {
                         currentBuilds?.filter((build) => !build.name.toLowerCase().includes('arm64')).map((build) => {
+                            const displayName = getReleaseName(build.name);
+
+                            if (displayName === null) {
+                                return;
+                            }
+
                             return (
                                 <Link
                                     key={build.name}
                                     className="w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white"
                                     target="_blank" 
-                                    href={build.url}
+                                    href={build.browser_download_url}
                                 >
-                                    {build.name}
+                                    {displayName}
                                 </Link>
                             );
                         })
@@ -97,14 +104,20 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                     </p>
                     {
                         currentBuilds?.filter((build) => build.name.toLowerCase().includes('arm64')).map((build) => {
+                            const displayName = getReleaseName(build.name);
+
+                            if (displayName === null) {
+                                return;
+                            }
+
                             return (
                                 <Link
                                     key={build.name}
                                     className="w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white"
                                     target="_blank" 
-                                    href={build.url}
+                                    href={build.browser_download_url}
                                 >
-                                    {build.name}
+                                    {displayName}
                                 </Link>
                             );
                         })
