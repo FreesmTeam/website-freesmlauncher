@@ -15,16 +15,16 @@ export default function ProfileButton() {
 
     return (
         <div className="relative">
-            {
-                opened && (
-                    <div
-                        ref={ref}
-                        className="absolute right-0 top-9 flex flex-col gap-2 border-[#181822] border-[1px] p-1 bg-[#11111B]"
-                    >
+            <div
+                ref={ref}
+                className="transition absolute right-0 top-9 flex flex-col gap-2 border-[#181822] border-[1px] p-1 bg-[#11111B]"
+                style={{
+                    opacity: opened ? 1 : 0,
+                    visibility: opened ? 'visible' : 'hidden'
+                }}
+            >
 
-                    </div>
-                )
-            }
+            </div>
             <button
                 onClick={handleLeftClick}
                 className="w-full h-full cursor-default px-2 rounded-md flex items-center gap-1 hover:bg-[#211e2f]"

@@ -23,32 +23,32 @@ export default function MenuBar() {
             onContextMenu={handleRightClick}
             className="flex justify-between p-2.5 h-14 w-full bg-[#11111b]"
         >
-            {opened && (
-                <div
-                    ref={ref}
-                    className="z-[1000] absolute flex flex-col gap-2 border-[#181822] border-[1px] p-1 bg-[#11111B]"
-                    style={{
-                        top: mouseCoordinates.y,
-                        left: mouseCoordinates.x,
-                    }}
-                >
-                    {
-                        LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON.map((button) => {
-                            return (
-                                <div
-                                    className="flex gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28]"
-                                    key={button}
-                                >
-                                    <div className="rounded-md bg-[#CBA6F7] min-w-[18px] h-[18px]" />
-                                    <p className="select-none text-nowrap text-[13px] text-[#cdd6f4]">
-                                        {translate(button)}
-                                    </p>
-                                </div>
-                            );
-                        })
-                    }
-                </div>
-            )}
+            <div
+                ref={ref}
+                className="transition z-[1000] absolute flex flex-col gap-2 border-[#181822] border-[1px] p-1 bg-[#11111B]"
+                style={{
+                    top: mouseCoordinates.y,
+                    left: mouseCoordinates.x,
+                    opacity: opened ? 1 : 0,
+                    visibility: opened ? 'visible' : 'hidden'
+                }}
+            >
+                {
+                    LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON.map((button) => {
+                        return (
+                            <div
+                                className="flex gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28]"
+                                key={button}
+                            >
+                                <div className="rounded-md bg-[#CBA6F7] min-w-[18px] h-[18px]" />
+                                <p className="select-none text-nowrap text-[13px] text-[#cdd6f4]">
+                                    {translate(button)}
+                                </p>
+                            </div>
+                        );
+                    })
+                }
+            </div>
             <div className="flex items-stretch gap-2">
                 <div className="cursor-move w-[5px] rounded-full bg-[#dbcafe]"/>
                 {
