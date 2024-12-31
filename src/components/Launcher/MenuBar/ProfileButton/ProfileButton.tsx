@@ -32,7 +32,7 @@ export default function ProfileButton() {
         <div className="relative">
             <div
                 ref={ref}
-                className="transition absolute right-0 top-9 flex flex-col gap-2 border-[#181822] border-[1px] p-1 bg-[#11111B]"
+                className="z-[1000] transition absolute right-0 top-9 flex flex-col gap-2 border-[#181822] border-[1px] p-1 bg-[#11111B]"
                 style={{
                     opacity: opened ? 1 : 0,
                     visibility: opened ? 'visible' : 'hidden'
