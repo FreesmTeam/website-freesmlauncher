@@ -4,26 +4,12 @@ import Launcher from "@/components/Launcher/Launcher";
 import Link from "next/link";
 import {DOWNLOADS_LINK, GITHUB_LINK} from "@/configs/constants";
 import {useTranslations} from "next-intl";
+import getPlatformName from "@/utils/getPlatformName";
 
 export default function Hero() {
     const translate = useTranslations('Translations');
     const platform = navigator.platform.toLowerCase();
-    let displayPlatform;
-
-    switch (true) {
-        case platform.includes('mac'):
-            displayPlatform = 'macOS';
-            break;
-        case platform.includes('win'):
-            displayPlatform = 'Windows';
-            break
-        case platform.includes('linux'):
-            displayPlatform = 'Linux';
-            break;
-        default:
-            displayPlatform = 'Windows'
-            break;
-    }
+    const displayPlatform = getPlatformName(platform);
 
     return (
         <div className="flex flex-col gap-8 mt-12 max-w-[960px] px-4 mx-auto">

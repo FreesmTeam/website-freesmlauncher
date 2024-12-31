@@ -32,3 +32,8 @@ export const HEADER_ITEMS: HeaderItemType[] = [
         link: ABOUT_LINK,
     }
 ];
+export const DOWNLOADS_OPTIONS = [
+    'Windows',
+    'Linux',
+    'macOS',
+];
