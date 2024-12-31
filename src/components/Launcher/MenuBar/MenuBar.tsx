@@ -26,7 +26,7 @@ export default function MenuBar() {
             {opened && (
                 <div
                     ref={ref}
-                    className="absolute flex flex-col gap-2 border-[#181822] border-[1px] p-1 bg-[#11111B]"
+                    className="z-[1000] absolute flex flex-col gap-2 border-[#181822] border-[1px] p-1 bg-[#11111B]"
                     style={{
                         top: mouseCoordinates.y,
                         left: mouseCoordinates.x,
