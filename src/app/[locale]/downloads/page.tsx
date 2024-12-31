@@ -1,7 +1,9 @@
+import Downloads from "@/components/Downloads/Downloads";
+
 export default function Page() {
     return (
         <div className="text-white">
-            1234
+            <Downloads />
         </div>
     );
 }
