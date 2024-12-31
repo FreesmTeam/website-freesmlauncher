@@ -1,9 +1,8 @@
 import {LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON, LAUNCHER_TABS} from "@/configs/launcher";
-import Image from "next/image";
-import skinAvatar from "../../../../public/windstone_profile_skin.png";
 import {useTranslations} from "next-intl";
 import {useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
+import ProfileButton from "@/components/Launcher/MenuBar/ProfileButton/ProfileButton";
 
 export default function MenuBar() {
     const translate = useTranslations('Translations');
@@ -70,16 +69,7 @@ export default function MenuBar() {
                     })
                 }
             </div>
-            <button
-                className="cursor-default px-2 rounded-md flex items-center gap-1 hover:bg-[#211e2f]"
-            >
-                <Image height={24} src={skinAvatar} alt={"Profile avatar"}/>
-                {(
-                    <p className="text-[13px] text-[#cdd6f4]">
-                        {translate('launcher.profile')}
-                    </p>
-                )}
-            </button>
+            <ProfileButton />
         </div>
     );
 }
