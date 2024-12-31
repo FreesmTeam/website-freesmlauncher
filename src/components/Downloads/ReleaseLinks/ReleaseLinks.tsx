@@ -53,6 +53,12 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
             <div className="flex flex-col items-center justify-center gap-4">
                 {
                     currentBuilds?.map((build) => {
+                        const displayName = getReleaseName(build.name);
+
+                        if (displayName === null) {
+                            return;
+                        }
+
                         return (
                             <Link
                                 key={build.name}
@@ -60,7 +66,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                 target="_blank" 
                                 href={build.browser_download_url}
                             >
-                                {build.name}
+                                {displayName}
                             </Link>
                         );
                     })
