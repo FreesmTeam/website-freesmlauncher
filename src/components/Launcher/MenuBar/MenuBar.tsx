@@ -1,6 +1,6 @@
 import {LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON, LAUNCHER_TABS} from "@/configs/launcher";
 import {useTranslations} from "next-intl";
-import {useState} from "react";
+import {useRef, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import ProfileButton from "@/components/Launcher/MenuBar/ProfileButton/ProfileButton";
 
@@ -9,19 +9,28 @@ export default function MenuBar() {
     const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 });
     const [opened, setOpened] = useState(false);
     const ref = useClickOutside(() => setOpened(false));
+    const menuBarRef = useRef<HTMLDivElement>(null);
 
     function handleRightClick(event: React.MouseEvent) {
+        if (menuBarRef.current !== event.target) {
+            return;
+        }
+
+        if (!opened) {
+            setMouseCoordinates({
+                x: event.nativeEvent.layerX,
+                y: event.nativeEvent.layerY,
+            });
+        }
+
         setOpened(true);
-        setMouseCoordinates({
-            x: event.nativeEvent.layerX,
-            y: event.nativeEvent.layerY,
-        });
     }
 
     return (
         <div
+            ref={menuBarRef}
             onContextMenu={handleRightClick}
-            className="overflow-x-clip relative flex justify-between p-2.5 h-14 w-full bg-[#11111b]"
+            className="relative flex justify-between p-2.5 h-14 w-full bg-[#11111b]"
         >
             <div
                 ref={ref}
