@@ -26,7 +26,7 @@ export const useLauncherBarsStore = create<LauncherBarsStateType>((set) => ({
         },
         {
             name: 'launcher.lock-toolbars',
-            opened: true,
+            opened: false,
         }
     ],
     updateEntries: (bars: LauncherBarType[]) => set({

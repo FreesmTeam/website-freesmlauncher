@@ -18,6 +18,9 @@ export default function MenuBar() {
     const menuBars = launcherMenuBarsStore.entries;
     const updateMenuBars = launcherMenuBarsStore.updateEntries;
 
+    const lastIndex = launcherMenuBarsStore.entries.length - 1;
+    const hasLockBars = launcherMenuBarsStore.entries[lastIndex].opened;
+
     function handleRightClick(event: React.MouseEvent) {
         if (menuBarRef.current !== event.target) {
             return;
@@ -85,7 +88,11 @@ export default function MenuBar() {
                 }
             </div>
             <div className="flex items-stretch gap-2">
-                <div className="cursor-move w-[5px] rounded-full bg-[#dbcafe]"/>
+                {
+                    !hasLockBars && (
+                        <div className="cursor-move w-[5px] rounded-full bg-[#dbcafe]"/>
+                    )
+                }
                 {
                     LAUNCHER_TABS.map((tab) => {
                         return (
