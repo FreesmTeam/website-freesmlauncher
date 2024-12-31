@@ -6,6 +6,10 @@ import hand7sSkinAvatar from "../../public/hand7s_skin_avatar.png";
 import monochromeSteveSkinAvatar from "../../public/monochrome_steve.png";
 import Image from "next/image";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
+import {LauncherInstanceType} from "@/types/LauncherInstance.type";
+import grassSvg from "../../public/grass.svg";
+import stoneSvg from "../../public/stone.svg";
+import diamondSvg from "../../public/diamond.svg";
 
 export const LAUNCHER_TABS: TabNameType[] = [
     {
@@ -80,38 +84,61 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
 export const LAUNCHER_INSTANCE_BAR_ITEMS: LauncherInstanceBarItemType[] = [
     {
         name: 'launcher.instance.launch',
-        icon: <Icon icon="fluent:triangle-right-16-regular" />
+        icon: <Icon height={14} icon="fluent:triangle-right-16-regular" />
     },
     {
         name: 'launcher.instance.kill',
-        icon: <Icon icon="fluent:dismiss-circle-16-regular" />
+        icon: <Icon height={14} icon="fluent:dismiss-circle-16-regular" />
     },
     {
         name: 'launcher.instance.edit',
-        icon: <Icon icon="fluent:settings-16-regular" />
+        icon: <Icon height={14} icon="fluent:settings-16-regular" />
     },
     {
         name: 'launcher.instance.change-group',
-        icon: <Icon icon="fluent:tag-16-regular" />
+        icon: <Icon height={14} icon="fluent:tag-16-regular" />
     },
     {
         name: 'launcher.instance.folder',
-        icon: <Icon icon="fluent:folder-16-regular" />
+        icon: <Icon height={14} icon="fluent:folder-16-regular" />
     },
     {
         name: 'launcher.instance.export',
-        icon: <Icon icon="fluent:folder-arrow-right-16-regular" />
+        icon: <Icon height={14} icon="fluent:folder-arrow-right-16-regular" />
     },
     {
         name: 'launcher.instance.copy',
-        icon: <Icon icon="fluent:copy-arrow-right-16-regular" />
+        icon: <Icon height={14} icon="fluent:copy-arrow-right-16-regular" />
     },
     {
         name: 'launcher.instance.delete',
-        icon: <Icon icon="fluent:delete-16-regular" />
+        icon: <Icon height={14} icon="fluent:delete-16-regular" />
     },
     {
         name: 'launcher.instance.create-shortcut',
-        icon: <Icon icon="fluent:link-16-regular" />
+        icon: <Icon height={14} icon="fluent:link-16-regular" />
     },
+];
+export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
+    {
+        name: '1.21',
+        group: 'Vanilla',
+        icon: (
+            <Image width={80} src={grassSvg} alt="Grass svg icon" />
+        )
+    },
+    {
+        name: '1.12.2',
+        group: 'Vanilla',
+        icon: (
+            <Image width={80} src={stoneSvg} alt="Stone svg icon" />
+        )
+    },
+    {
+        name: '1.16.5',
+        group: 'Fabric',
+        icon: (
+            <Image width={80} src={diamondSvg} alt="Diamond svg icon" />
+        )
+    }
 ];

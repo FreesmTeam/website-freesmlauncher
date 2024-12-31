@@ -1,13 +1,15 @@
-import {useLauncherBarsStore} from "@/utils/stores";
+import {useInstanceStore, useLauncherBarsStore} from "@/utils/stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
-import Image from "next/image";
-import grassSvg from '../../../../public/grass.svg';
 import {LAUNCHER_INSTANCE_BAR_ITEMS} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 
 export default function InstanceBar() {
     const translate = useTranslations('Translations');
+
+    const instancesStore = useInstanceStore((state) => state);
+    const { currentInstance } = instancesStore;
+
     const launcherBarsStore = useLauncherBarsStore((state) => state);
     const instanceBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.instance-toolbar');
     const lastIndex = launcherBarsStore.entries.length - 1;
@@ -24,11 +26,11 @@ export default function InstanceBar() {
                             )
                         }
                         <div className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]">
-                            <Image width={80} src={grassSvg} alt="Grass svg icon" />
+                            {currentInstance.icon}
                         </div>
                         <div className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]">
                             <p className="text-[13px] text-[#CDD6F4]">
-                                1.21
+                                {currentInstance.name}
                             </p>
                         </div>
                         {
@@ -36,7 +38,7 @@ export default function InstanceBar() {
                                 return (
                                     <div
                                         key={item.name}
-                                        className="select-none flex gap-1 items-center rounded-md hover:bg-[#1b1825]"
+                                        className="select-none px-1 py-0.5 flex gap-1 items-center rounded-md hover:bg-[#1b1825]"
                                     >
                                         {item.icon}
                                         <p className="text-[13px] text-[#CDD6F4]">
