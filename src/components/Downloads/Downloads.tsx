@@ -3,6 +3,7 @@
 import { DOWNLOADS_OPTIONS } from "@/configs/constants";
 import getPlatformName from "@/utils/getPlatformName";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Downloads() {
@@ -19,17 +20,58 @@ export default function Downloads() {
         case 'linux':
             downloadsNode = (
                 <>
-
                 </>
             );
             break;
         case 'macos':
             downloadsNode = (
-                <></>
+                <>
+                </>
             );
             break;
         case 'windows':
-            downloadsNode;
+            downloadsNode = (
+                <div className="w-full flex gap-8">
+                    <div className="flex flex-col flex-1 items-center justify-center gap-4">
+                        <p className="text-xl text-gray-400">
+                            Windows 64bit
+                        </p>
+                        <Link
+                            className="transition border-b-[1px] border-transparent hover:border-white"
+                            target="_blank" 
+                            href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
+                        >
+                            Setup (.exe)
+                        </Link>
+                        <Link
+                            className="transition border-b-[1px] border-transparent hover:border-white"
+                            target="_blank" 
+                            href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
+                        >
+                            Portable (.zip)
+                        </Link>
+                    </div>
+                    <div className="flex flex-col flex-1 items-center justify-center gap-4">
+                    <p className="text-xl text-gray-400">
+                            Windows 64bit
+                        </p>
+                        <Link
+                            className="transition border-b-[1px] border-transparent hover:border-white"
+                            target="_blank" 
+                            href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
+                        >
+                            Setup (.exe)
+                        </Link>
+                        <Link
+                            className="transition border-b-[1px] border-transparent hover:border-white"
+                            target="_blank" 
+                            href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
+                        >
+                            Portable (.zip)
+                        </Link>
+                    </div>
+                </div>
+            );
             break;
     }
 
@@ -69,14 +111,14 @@ export default function Downloads() {
                 }
             </div>
             <div className="rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-2">
-                <div className="flex flex-col gap-4 py-8 items-center">
+                <div className="flex flex-col gap-8 py-8 items-center">
                     <p className="text-3xl font-semibold text-white">
                         {translate('downloads.packages-for')}{' '}
                         <span className="text-[#cba6f7]">
                             {selectedPlatform}
                         </span>
                     </p>
-                    
+                    {downloadsNode}
                 </div>
             </div>
         </div>
