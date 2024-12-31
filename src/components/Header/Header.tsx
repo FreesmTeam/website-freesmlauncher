@@ -4,7 +4,7 @@ import Image from "next/image";
 import freesmLogo from '../../../public/freesm-launcher-logo.webp';
 import Link from "next/link";
 import {Icon} from "@iconify/react";
-import {ABOUT_LINK, DOWNLOADS_LINK, GITHUB_LINK, HEADER_ITEMS, HEADER_LINKS} from "@/configs/constants";
+import {HEADER_ITEMS, HEADER_LINKS} from "@/configs/constants";
 import {useTranslations} from "next-intl";
 import {usePathname} from "@/i18n/routing";
 import {HeaderItemType} from "@/types/HeaderItem.type";
