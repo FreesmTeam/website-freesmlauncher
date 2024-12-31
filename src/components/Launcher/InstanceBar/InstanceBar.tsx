@@ -1,14 +1,16 @@
 import {useInstanceStore, useLauncherBarsStore} from "@/utils/stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
-import {LAUNCHER_INSTANCE_BAR_ITEMS} from "@/configs/launcher";
+import {LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
+import {LauncherInstanceType} from "@/types/LauncherInstance.type";
+import Image from "next/image";
 
 export default function InstanceBar() {
     const translate = useTranslations('Translations');
 
     const instancesStore = useInstanceStore((state) => state);
-    const { currentInstance } = instancesStore;
+    const { currentInstance, updateCurrentInstance } = instancesStore;
 
     const launcherBarsStore = useLauncherBarsStore((state) => state);
     const instanceBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.instance-toolbar');
@@ -26,7 +28,7 @@ export default function InstanceBar() {
                             )
                         }
                         <div className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]">
-                            {currentInstance.icon}
+                            <Image width={80} src={currentInstance.icon} alt="Grass svg icon" />
                         </div>
                         <div className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]">
                             <p className="text-[13px] text-[#CDD6F4]">
@@ -51,7 +53,21 @@ export default function InstanceBar() {
                     </div>
                 )
             }
-            <div className="w-full bg-[#0c0c13]"></div>
+            <div className="w-full bg-[#0c0c13]">
+                {
+                    LAUNCHER_INSTANCES.map((instance: LauncherInstanceType) => {
+                        return (
+                            <button
+                                key={instance.name}
+                                onClick={() => updateCurrentInstance(instance)}
+                            >
+                                <Image width={48} src={instance.icon} alt="Grass svg icon" />
+                                {instance.name} - {instance.group}
+                            </button>
+                        );
+                    })
+                }
+            </div>
         </div>
     );
 }

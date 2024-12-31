@@ -123,22 +123,16 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
         name: '1.21',
         group: 'Vanilla',
-        icon: (
-            <Image width={80} src={grassSvg} alt="Grass svg icon" />
-        )
+        icon: grassSvg,
     },
     {
         name: '1.12.2',
         group: 'Vanilla',
-        icon: (
-            <Image width={80} src={stoneSvg} alt="Stone svg icon" />
-        )
+        icon: stoneSvg,
     },
     {
-        name: '1.16.5',
+        name: 'Some 1.16.5 modpack',
         group: 'Fabric',
-        icon: (
-            <Image width={80} src={diamondSvg} alt="Diamond svg icon" />
-        )
+        icon: diamondSvg,
     }
 ];
