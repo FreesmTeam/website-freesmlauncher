@@ -28,50 +28,83 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
     }
 
     const assets = data?.data?.assets;
-    const windowsBuilds = assets?.filter((asset) => asset.name.toLowerCase().includes('windows'))
-    const linuxBuilds = assets?.filter((asset) => asset.name.toLowerCase().includes('linux'))
-    const macosBuilds = assets?.filter((asset) => asset.name.toLowerCase().includes('mac'))
+    let currentBuilds;
+
+    switch (platform.toLowerCase()) {
+        case 'linux':
+            currentBuilds = assets?.filter((asset) => asset.name.toLowerCase().includes('linux'));
+            break;
+        case 'macos':
+            currentBuilds = assets?.filter((asset) => asset.name.toLowerCase().includes('mac'));
+            break;
+        case 'windows':
+        default:
+            currentBuilds = assets?.filter((asset) => asset.name.toLowerCase().includes('windows'));
+            break;
+    }
+
+    if (platform.toLowerCase() !== 'windows') {
+        return (
+            <div className="flex flex-col items-center justify-center gap-4">
+                {
+                    currentBuilds?.map((build) => {
+                        return (
+                            <Link
+                                key={build.name}
+                                className="transition border-b-[1px] border-transparent hover:border-white"
+                                target="_blank" 
+                                href={build.url}
+                            >
+                                {build.name}
+                            </Link>
+                        );
+                    })
+                }
+            </div>
+        );
+    }
 
     return (
         <>
-            <div className="w-full flex gap-8">
+            
+            <div className="w-full flex gap-8 items-start">
                 <div className="flex flex-col flex-1 items-center justify-center gap-4">
                     <p className="text-xl text-gray-400">
                         Windows 64bit
                     </p>
-                    <Link
-                        className="transition border-b-[1px] border-transparent hover:border-white"
-                        target="_blank" 
-                        href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
-                    >
-                        Setup (.exe)
-                    </Link>
-                    <Link
-                        className="transition border-b-[1px] border-transparent hover:border-white"
-                        target="_blank" 
-                        href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
-                    >
-                        Portable (.zip)
-                    </Link>
+                    {
+                        currentBuilds?.filter((build) => !build.name.toLowerCase().includes('arm64')).map((build) => {
+                            return (
+                                <Link
+                                    key={build.name}
+                                    className="transition border-b-[1px] border-transparent hover:border-white"
+                                    target="_blank" 
+                                    href={build.url}
+                                >
+                                    {build.name}
+                                </Link>
+                            );
+                        })
+                    }
                 </div>
                 <div className="flex flex-col flex-1 items-center justify-center gap-4">
                 <p className="text-xl text-gray-400">
-                        Windows 64bit
+                        Windows ARM64
                     </p>
-                    <Link
-                        className="transition border-b-[1px] border-transparent hover:border-white"
-                        target="_blank" 
-                        href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
-                    >
-                        Setup (.exe)
-                    </Link>
-                    <Link
-                        className="transition border-b-[1px] border-transparent hover:border-white"
-                        target="_blank" 
-                        href={'https://github.com/FreesmTeam/FreesmLauncher/releases/download/9.2-free-1/FreesmLauncher-Windows-MSVC-Setup-release.exe'}
-                    >
-                        Portable (.zip)
-                    </Link>
+                    {
+                        currentBuilds?.filter((build) => build.name.toLowerCase().includes('arm64')).map((build) => {
+                            return (
+                                <Link
+                                    key={build.name}
+                                    className="transition border-b-[1px] border-transparent hover:border-white"
+                                    target="_blank" 
+                                    href={build.url}
+                                >
+                                    {build.name}
+                                </Link>
+                            );
+                        })
+                    }
                 </div>
             </div>
         </>
