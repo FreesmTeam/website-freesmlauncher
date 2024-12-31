@@ -4,9 +4,11 @@ import { DOWNLOADS_OPTIONS } from "@/configs/constants";
 import getPlatformName from "@/utils/getPlatformName";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Downloads() {
+    const [downloads, setDownloads] = useState([]);
+
     const translate = useTranslations('Translations');
 
     const platform = navigator.platform.toLowerCase();
