@@ -1,8 +1,11 @@
-import {LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON, LAUNCHER_TABS} from "@/configs/launcher";
+import {LAUNCHER_TABS} from "@/configs/launcher";
 import {useTranslations} from "next-intl";
 import {useRef, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import ProfileButton from "@/components/Launcher/MenuBar/ProfileButton/ProfileButton";
+import {useLauncherBarsStore} from "@/utils/stores";
+import {LauncherBarsStateType} from "@/types/LauncherBarsState.type";
+import {LauncherBarType} from "@/types/LauncherBar.type";
 
 export default function MenuBar() {
     const translate = useTranslations('Translations');
@@ -10,6 +13,10 @@ export default function MenuBar() {
     const [opened, setOpened] = useState(false);
     const ref = useClickOutside(() => setOpened(false));
     const menuBarRef = useRef<HTMLDivElement>(null);
+
+    const launcherMenuBarsStore = useLauncherBarsStore((state: LauncherBarsStateType) => state);
+    const menuBars = launcherMenuBarsStore.entries;
+    const updateMenuBars = launcherMenuBarsStore.updateEntries;
 
     function handleRightClick(event: React.MouseEvent) {
         if (menuBarRef.current !== event.target) {
@@ -43,15 +50,17 @@ export default function MenuBar() {
                 }}
             >
                 {
-                    LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON.map((button) => {
+                    menuBars.map((bar: LauncherBarType) => {
                         return (
                             <div
                                 className="flex gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28]"
-                                key={button}
+                                key={bar.name}
                             >
-                                <div className="rounded-md bg-[#CBA6F7] min-w-[18px] h-[18px]" />
+                                <div
+                                    className="rounded-md bg-[#CBA6F7] min-w-[18px] h-[18px]"
+                                />
                                 <p className="select-none text-nowrap text-[13px] text-[#cdd6f4]">
-                                    {translate(button)}
+                                    {translate(bar.name)}
                                 </p>
                             </div>
                         );

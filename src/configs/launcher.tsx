@@ -43,12 +43,6 @@ export const LAUNCHER_TABS: TabNameType[] = [
         ),
     },
 ];
-export const LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON = [
-    'launcher.news-toolbar',
-    'launcher.instance-toolbar',
-    'launcher.status-bar',
-    'launcher.lock-toolbars',
-];
 export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
     {
         skin: windstoneSkinAvatar,
