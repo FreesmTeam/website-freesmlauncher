@@ -131,7 +131,7 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
         icon: stoneSvg,
     },
     {
-        name: 'Some 1.16.5 modpack',
+        name: 'Some 1.16.5 modpack with a long name',
         group: 'Fabric',
         icon: diamondSvg,
     }

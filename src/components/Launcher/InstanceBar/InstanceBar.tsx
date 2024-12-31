@@ -31,7 +31,7 @@ export default function InstanceBar() {
                             <Image width={80} src={currentInstance.icon} alt="Grass svg icon" />
                         </div>
                         <div className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]">
-                            <p className="text-[13px] text-[#CDD6F4]">
+                            <p className="text-center text-[13px] text-[#CDD6F4]">
                                 {currentInstance.name}
                             </p>
                         </div>
