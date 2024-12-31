@@ -14,14 +14,15 @@ export default function MenuBar() {
         setOpened(true);
         setMouseCoordinates({
             x: event.clientX,
-            y: event.clientY,
+            y: event.nativeEvent.layerY,
         });
+        console.log(event)
     }
 
     return (
         <div
             onContextMenu={handleRightClick}
-            className="flex justify-between p-2.5 h-14 w-full bg-[#11111b]"
+            className="overflow-x-clip relative flex justify-between p-2.5 h-14 w-full bg-[#11111b]"
         >
             <div
                 ref={ref}
