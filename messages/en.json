@@ -22,7 +22,18 @@
       "lock-toolbars": "Lock Toolbars",
       "no-default-account": "No Default Account",
       "manage-accounts": "Manage Accounts...",
-      "more-news": "More news"
+      "more-news": "More news",
+      "instance": {
+        "launch": "Launch",
+        "kill": "Kill",
+        "edit": "Edit",
+        "change-group": "Change Group",
+        "folder": "Folder",
+        "export": "Export",
+        "copy": "Copy",
+        "delete": "Delete",
+        "create-shortcut": "Create Shortcut"
+      }
     }
   }
 }

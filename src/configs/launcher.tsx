@@ -5,6 +5,7 @@ import windstoneSkinAvatar from "../../public/windstone_profile_skin.png";
 import hand7sSkinAvatar from "../../public/hand7s_skin_avatar.png";
 import monochromeSteveSkinAvatar from "../../public/monochrome_steve.png";
 import Image from "next/image";
+import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 
 export const LAUNCHER_TABS: TabNameType[] = [
     {
@@ -75,4 +76,42 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
         ),
         name: "launcher.manage-accounts",
     }
+];
+export const LAUNCHER_INSTANCE_BAR_ITEMS: LauncherInstanceBarItemType[] = [
+    {
+        name: 'launcher.instance.launch',
+        icon: <Icon icon="fluent:triangle-right-16-regular" />
+    },
+    {
+        name: 'launcher.instance.kill',
+        icon: <Icon icon="fluent:dismiss-circle-16-regular" />
+    },
+    {
+        name: 'launcher.instance.edit',
+        icon: <Icon icon="fluent:settings-16-regular" />
+    },
+    {
+        name: 'launcher.instance.change-group',
+        icon: <Icon icon="fluent:tag-16-regular" />
+    },
+    {
+        name: 'launcher.instance.folder',
+        icon: <Icon icon="fluent:folder-16-regular" />
+    },
+    {
+        name: 'launcher.instance.export',
+        icon: <Icon icon="fluent:folder-arrow-right-16-regular" />
+    },
+    {
+        name: 'launcher.instance.copy',
+        icon: <Icon icon="fluent:copy-arrow-right-16-regular" />
+    },
+    {
+        name: 'launcher.instance.delete',
+        icon: <Icon icon="fluent:delete-16-regular" />
+    },
+    {
+        name: 'launcher.instance.create-shortcut',
+        icon: <Icon icon="fluent:link-16-regular" />
+    },
 ];
