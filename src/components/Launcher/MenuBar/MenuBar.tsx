@@ -33,6 +33,14 @@ export default function MenuBar() {
         setOpened(true);
     }
 
+    function handleBarChange(bar: LauncherBarType) {
+        bar.opened = !bar.opened;
+
+        updateMenuBars([
+            ...menuBars,
+        ])
+    }
+
     return (
         <div
             ref={menuBarRef}
@@ -52,17 +60,26 @@ export default function MenuBar() {
                 {
                     menuBars.map((bar: LauncherBarType) => {
                         return (
-                            <div
+                            <button
+                                onClick={() => handleBarChange(bar)}
                                 className="flex gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28]"
                                 key={bar.name}
                             >
-                                <div
-                                    className="rounded-md bg-[#CBA6F7] min-w-[18px] h-[18px]"
-                                />
+                                {
+                                    bar.opened ? (
+                                        <div
+                                            className="rounded-md bg-[#CBA6F7] min-w-[18px] h-[18px]"
+                                        />
+                                    ): (
+                                        <div
+                                            className="rounded-md bg-transparent border-[1px] border-[#606060] min-w-[18px] h-[18px]"
+                                        />
+                                    )
+                                }
                                 <p className="select-none text-nowrap text-[13px] text-[#cdd6f4]">
                                     {translate(bar.name)}
                                 </p>
-                            </div>
+                            </button>
                         );
                     })
                 }
