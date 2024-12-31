@@ -3,6 +3,7 @@ import skinAvatar from "../../../../../public/windstone_profile_skin.png";
 import {useTranslations} from "next-intl";
 import {useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
+import {LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS} from "@/configs/launcher";
 
 export default function ProfileButton() {
     const translate = useTranslations('Translations');
@@ -23,7 +24,26 @@ export default function ProfileButton() {
                     visibility: opened ? 'visible' : 'hidden'
                 }}
             >
-
+                {
+                    LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS.map((item) => {
+                        return (
+                            <div
+                                className="flex gap-4 items-center rounded-md p-1 hover:bg-[#1D1A28]"
+                                key={item.name}
+                            >
+                                {item.icon}
+                                <div className="w-72 flex justify-between items-center gap-2">
+                                    <p className="select-none text-nowrap text-[13px] text-[#cdd6f4]">
+                                        {translate(item.name)}
+                                    </p>
+                                    <p className="select-none text-nowrap text-[13px] text-[#cdd6f4]">
+                                        {item.hotkey}
+                                    </p>
+                                </div>
+                            </div>
+                        );
+                    })
+                }
             </div>
             <button
                 onClick={handleLeftClick}

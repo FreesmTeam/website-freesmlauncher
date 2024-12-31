@@ -50,22 +50,22 @@ export const LAUNCHER_MENU_BAR_CONTEXT_MENU_BUTTON = [
 export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItem[] = [
     {
         icon: (
-            <Image height={8} src={skinAvatar} alt={"Profile avatar"}/>
+            <Image height={16} width={16} src={skinAvatar} alt={"Profile avatar"}/>
         ),
-        name: "windstone_",
+        name: "launcher.windstone_",
         hotkey: "Ctrl+1",
     },
     {
         icon: (
-            <Image height={8} src={skinAvatar} alt={"Monochrome Steve avatar"}/>
+            <Image height={16} width={16} src={skinAvatar} alt={"Monochrome Steve avatar"}/>
         ),
-        name: "no-default-account",
+        name: "launcher.no-default-account",
         hotkey: "Ctrl+0",
     },
     {
         icon: (
-            <Icon color="#fff" fontSize={24} icon="fluent:people-24-regular" />
+            <Icon color="#fff" fontSize={16} icon="fluent:people-16-regular" />
         ),
-        name: "manage-accounts",
+        name: "launcher.manage-accounts",
     }
 ];

@@ -8,6 +8,7 @@
       "about": "О нас"
     },
     "launcher": {
+      "windstone_": "windstone_",
       "add-instance": "Добавить сборку...",
       "folders": "Папки",
       "settings": "Настройки...",
@@ -17,7 +18,9 @@
       "news-toolbar": "Панель новостей",
       "instance-toolbar": "Панель установки игры",
       "status-bar": "Панель состояния",
-      "lock-toolbars": "Заблокировать панель инструментов"
+      "lock-toolbars": "Заблокировать панель инструментов",
+      "no-default-account": "Нет учётной записи по умолчанию",
+      "manage-accounts": "Управление учётными записями..."
     }
   }
 }
