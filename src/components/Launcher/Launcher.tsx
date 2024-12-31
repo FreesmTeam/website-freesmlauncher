@@ -14,7 +14,7 @@ export default function Launcher() {
     return (
         <div
             onContextMenu={(event) => event.preventDefault()}
-            className="w-full flex flex-col gap-0 overflow-clip border-[1px] border-[#cba6f7] rounded-md"
+            className="w-full flex flex-col gap-0 border-[1px] border-[#cba6f7] rounded-md"
         >
             <WindowHeader />
             <div>

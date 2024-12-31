@@ -3,7 +3,7 @@ import freesmLogo from "../../../../public/favicon.webp";
 
 export default function WindowHeader() {
     return (
-        <div className="flex justify-between items-center w-full h-8 bg-white">
+        <div className="flex rounded-t-md justify-between items-center w-full h-8 bg-white">
             <div className="select-none px-2 flex gap-2 items-center">
                 <Image
                     className="h-5 w-5"
