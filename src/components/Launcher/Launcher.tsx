@@ -5,6 +5,7 @@ import MenuBar from "@/components/Launcher/MenuBar/MenuBar";
 import NewsBar from "@/components/Launcher/NewsBar/NewsBar";
 import {useLauncherBarsStore} from "@/utils/stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
+import InstanceBar from "@/components/Launcher/InstanceBar/InstanceBar";
 
 export default function Launcher() {
     const launcherBarsStore = useLauncherBarsStore((state) => state);
@@ -24,7 +25,7 @@ export default function Launcher() {
                             <NewsBar />
                         )
                     }
-                    <div className="w-full bg-[#0c0c13]">345</div>
+                    <InstanceBar />
                 </div>
             </div>
         </div>
