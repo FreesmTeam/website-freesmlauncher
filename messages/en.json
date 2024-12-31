@@ -8,6 +8,10 @@
       "download": "Download",
       "about": "About"
     },
+    "downloads": {
+      "title": "Downloads",
+      "description": "Download Freesm Launcher for your specific platform."
+    },
     "hero": {
       "title": "Download Freesm Launcher for",
       "description": "Freesm Launcher is a custom launcher for Minecraft that allows you to play with offline account without any restrictions.",

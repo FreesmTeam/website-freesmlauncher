@@ -8,6 +8,10 @@
       "download": "Скачать",
       "about": "О нас"
     },
+    "downloads": {
+      "title": "Загрузки",
+      "description": "Скачайте Freesm Launcher под Вашу операционную систему."
+    },
     "hero": {
       "title": "Установите Freesm Launcher для",
       "description": "Freesm Launcher - это кастомный лаунчер для Майнкрафта, который позволяет играть в него бесплатно.",
