@@ -1,5 +1,6 @@
 import {HeaderExternalLinkType} from "@/types/HeaderExternalLink.type";
 import {HeaderItemType} from "@/types/HeaderItem.type";
+import {Icon} from "@iconify/react";
 
 export const GITHUB_LINK = "https://github.com/FreesmTeam/FreesmLauncher";
 export const TELEGRAM_LINK = "https://t.me/freesmteam";
@@ -39,4 +40,16 @@ export const DOWNLOADS_OPTIONS: ('Windows' | 'Linux' | 'macOS')[] = [
     WINDOWS_NAME,
     LINUX_NAME,
     MACOS_NAME
+];
+export const FEATURES_SECTIONS = [
+    {
+        title: "features.first-title",
+        description: "features.first-description",
+        icon: "fluent:people-community-16-regular",
+    },
+    {
+        title: "features.second-title",
+        description: "features.second-description",
+        icon: "fluent:lock-open-16-regular",
+    },
 ];
