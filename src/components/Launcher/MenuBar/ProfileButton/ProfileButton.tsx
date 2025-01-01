@@ -43,15 +43,15 @@ export default function ProfileButton() {
                         return (
                             <div
                                 onClick={() => handleProfileChange(item)}
-                                className="flex gap-4 items-center rounded-md p-1 hover:bg-[#1D1A28]"
+                                className="flex gap-2 sm:gap-4 items-center rounded-md p-1 hover:bg-[#1D1A28]"
                                 key={item.name}
                             >
                                 {item.icon}
                                 <div className="w-72 flex justify-between items-center gap-2">
-                                    <p className="select-none text-nowrap text-[13px] text-[#cdd6f4]">
+                                    <p className="select-none text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                                         {translate(item.name)}
                                     </p>
-                                    <p className="select-none text-nowrap text-[13px] text-[#cdd6f4]">
+                                    <p className="select-none text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                                         {item.hotkey}
                                     </p>
                                 </div>
@@ -62,11 +62,11 @@ export default function ProfileButton() {
             </div>
             <button
                 onClick={handleLeftClick}
-                className="w-full h-full px-2 rounded-md flex items-center gap-2 hover:bg-[#211e2f] focus:bg-[#171721]"
+                className="flex-wrap sm:flex-nowrap justify-center sm:justify-normal w-full h-full px-2 rounded-md flex items-center gap-2 hover:bg-[#211e2f] focus:bg-[#171721]"
             >
                 <Image height={24} src={currentProfile.skin} alt={"Profile avatar"}/>
                 {(
-                    <p className="text-[13px] text-[#cdd6f4]">
+                    <p className="text-[10px] sm:text-[13px] text-[#cdd6f4]">
                         {translate(currentProfile.name)}
                     </p>
                 )}
