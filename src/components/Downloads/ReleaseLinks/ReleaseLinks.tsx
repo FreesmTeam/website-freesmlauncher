@@ -40,7 +40,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
     }
 
     // build name is in the next format:
-    // "Freesm Launcher 9.2-free-2"
+    // Freesm Launcher 9.2-free-2
     const buildName = data?.data?.name;
     const buildNameArr =  buildName?.split(' ');
     const buildVersion = buildNameArr?.pop()?.split('-')?.[0];
