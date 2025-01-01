@@ -26,7 +26,7 @@ export default function About() {
                 <p className="text-3xl font-semibold text-white">
                     {translate('about.maintainers')}
                 </p>
-                <div className="w-full flex flex-wrap gap-8 justify-center">
+                <div className="w-full flex flex-wrap gap-8 justify-center flex-col lg:flex-row">
                     {
                         maintainers.map((maintainer) => {
                             let description;
