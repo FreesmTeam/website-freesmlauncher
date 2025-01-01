@@ -18,7 +18,7 @@
     },
     "about": {
       "title": "About",
-      "description": ""
+      "description": "We created Freesm Launcher to make it possible to play Minecraft with the conveniences that Prism Launcher provides, without requiring an online account."
     },
     "hero": {
       "title": "Download Freesm Launcher for",
@@ -29,7 +29,7 @@
       "first-title": "Open Source",
       "first-description": "Freesm Launcher is an open source fork of Prism Launcher. All launcher code is available under the GPL-3.0 license.",
       "second-title": "DRM-free",
-      "second-description": "Easily play Minecraft without any restrictions, even if you don't have an account."
+      "second-description": "Easily play Minecraft without any restrictions, even if you don't have an online account."
     },
     "launcher": {
       "windstone_": "windstone_",

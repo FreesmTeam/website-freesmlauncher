@@ -13,6 +13,9 @@ export default function About() {
             <p className="text-center text-balance text-2xl text-gray-400">
                 {translate('about.description')}
             </p>
+            <div className="flex gap-2 rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-2">
+                1234
+            </div>
         </div>
     );
 }

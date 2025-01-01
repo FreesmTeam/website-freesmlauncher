@@ -18,7 +18,7 @@
     },
     "about": {
       "title": "О нас",
-      "description": ""
+      "description": "Мы создали Freesm Launcher для того, чтобы сделать возможной игру в Minecraft с теми удобствами, которые предоставляет Prism Launcher, не требуя при этом лицензионного аккаунта."
     },
     "hero": {
       "title": "Установите Freesm Launcher для",
@@ -29,7 +29,7 @@
       "first-title": "Открытый исходный код",
       "first-description": "Freesm Launcher - это форк Prism Launcher с открытым исходным кодом, который находится под лицензией GPL-3.0.",
       "second-title": "Без DRM",
-      "second-description": "С лёгкостью играйте в Майнкрафт без каких-либо ограничений, даже если у Вас нет аккаунта."
+      "second-description": "С лёгкостью играйте в Майнкрафт без каких-либо ограничений, даже если у Вас нет лицензионного аккаунта."
     },
     "launcher": {
       "windstone_": "windstone_",
