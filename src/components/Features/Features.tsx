@@ -8,7 +8,7 @@ export default function Features() {
     const translate = useTranslations('Translations');
 
     return (
-        <div className="flex flex-col lg:flex-row gap-8 justify-between items-start mt-12 max-w-[960px] px-4 mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8 justify-between items-start mt-12 max-w-[960px] px-8 mx-auto">
             {
                 FEATURES_SECTIONS.map((feature) => {
                     return (
@@ -26,7 +26,7 @@ export default function Features() {
                                     {translate(feature.title)}
                                 </p>
                             </div>
-                            <p className="text-justify text-sm sm:text-xl text-gray-300">
+                            <p className="text-justify text-[16px] sm:text-xl text-gray-300">
                                 {translate(feature.description)}
                             </p>
                         </div>
