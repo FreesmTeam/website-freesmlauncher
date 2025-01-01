@@ -48,7 +48,7 @@ export default function MenuBar() {
         <div
             ref={menuBarRef}
             onContextMenu={handleRightClick}
-            className="relative flex justify-between p-2.5 h-14 w-full bg-[#11111b]"
+            className="relative flex justify-between p-2.5 h-fit sm:h-14 w-full bg-[#11111b]"
         >
             <div
                 ref={ref}
@@ -65,21 +65,21 @@ export default function MenuBar() {
                         return (
                             <button
                                 onClick={() => handleBarChange(bar)}
-                                className="flex gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28]"
+                                className="flex gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28]"
                                 key={bar.name}
                             >
                                 {
                                     bar.opened ? (
                                         <div
-                                            className="rounded-md bg-[#CBA6F7] min-w-[18px] h-[18px]"
+                                            className="rounded-md bg-[#CBA6F7] min-w-4 h-4 sm:min-w-[18px] sm:h-[18px]"
                                         />
                                     ): (
                                         <div
-                                            className="rounded-md bg-transparent border-[1px] border-[#606060] min-w-[18px] h-[18px]"
+                                            className="rounded-md bg-transparent border-[1px] border-[#606060] min-w-4 sm:min-w-[18px] h-4 sm:h-[18px]"
                                         />
                                     )
                                 }
-                                <p className="select-none text-nowrap text-[13px] text-[#cdd6f4]">
+                                <p className="select-none text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                                     {translate(bar.name)}
                                 </p>
                             </button>
@@ -87,7 +87,7 @@ export default function MenuBar() {
                     })
                 }
             </div>
-            <div className="flex items-stretch gap-2">
+            <div className="flex flex-wrap sm:flex-nowrap items-stretch gap-2">
                 {
                     !hasLockBars && (
                         <div className="cursor-move w-[5px] rounded-full bg-[#dbcafe]"/>
@@ -98,11 +98,11 @@ export default function MenuBar() {
                         return (
                             <button
                                 key={tab?.name ?? ''}
-                                className="px-2 rounded-md flex items-center gap-1 hover:bg-[#211e2f]  active:bg-[#171721]"
+                                className="px-1 sm:px-2 py-1 sm:py-0 rounded-md flex items-center gap-1 hover:bg-[#211e2f]  active:bg-[#171721]"
                             >
                                 {tab.icon}
                                 {tab?.name && (
-                                    <p className="text-[13px] text-[#cdd6f4]">
+                                    <p className="text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                                         {translate(tab.name)}
                                     </p>
                                 )}
