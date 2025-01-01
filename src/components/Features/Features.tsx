@@ -11,7 +11,7 @@ export default function Features() {
             <div className="flex-1 flex flex-col gap-2">
                 <div className="flex items-center text-white gap-2">
                     <Icon height={32} icon="fluent:people-community-16-regular"/>
-                    <p className="text-justify text-3xl text-white font-semibold">
+                    <p className="text-justify text-xl sm:text-3xl text-white font-semibold">
                         {translate('features.first-title')}
                     </p>
                 </div>
@@ -22,7 +22,7 @@ export default function Features() {
             <div className="flex-1 flex flex-col gap-2">
                 <div className="flex items-center text-white gap-2">
                     <Icon height={32} icon="fluent:lock-open-16-regular"/>
-                    <p className="text-justify text-3xl text-white font-semibold">
+                    <p className="text-justify text-xl sm:text-3xl text-white font-semibold">
                         {translate('features.second-title')}
                     </p>
                 </div>
