@@ -1,11 +1,38 @@
 import {HeaderExternalLinkType} from "@/types/HeaderExternalLink.type";
 import {HeaderItemType} from "@/types/HeaderItem.type";
+import { NavbarItemType } from "@/types/NavbarItem.type";
 
 export const GITHUB_LINK = "https://github.com/FreesmTeam/FreesmLauncher";
 export const TELEGRAM_LINK = "https://t.me/freesmteam";
 export const HOME_LINK = '/';
 export const DOWNLOADS_LINK = '/downloads';
 export const ABOUT_LINK = '/about';
+export const NAVBAR_ITEMS: NavbarItemType[] = [
+    {
+        name: 'navbar.home',
+        icon: 'fluent:home-16-regular',
+        selectedIcon: 'fluent:home-16-filled',
+        link: HOME_LINK,
+    },
+    {
+        name: 'navbar.downloads',
+        icon: 'fluent:arrow-download-16-regular',
+        selectedIcon: 'fluent:arrow-download-16-filled',
+        link: DOWNLOADS_LINK,
+    },
+    {
+        name: 'navbar.about',
+        icon: 'fluent:info-16-regular',
+        selectedIcon: 'fluent:info-16-filled',
+        link: ABOUT_LINK,
+    },
+    {
+        name: 'navbar.other',
+        icon: 'fluent:more-horizontal-16-regular',
+        selectedIcon: 'fluent:more-horizontal-16-regular',
+        isAction: true,
+    }
+];
 export const HEADER_LINKS: HeaderExternalLinkType[] = [
     {
         link: GITHUB_LINK,

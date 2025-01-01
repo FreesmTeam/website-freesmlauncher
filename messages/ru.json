@@ -8,6 +8,12 @@
       "download": "Скачать",
       "about": "О нас"
     },
+    "navbar": {
+      "home": "Главная",
+      "downloads": "Скачать",
+      "about": "О нас",
+      "other": "Прочее"
+    },
     "downloads": {
       "title": "Загрузки",
       "description": "Скачайте Freesm Launcher под Вашу операционную систему.",

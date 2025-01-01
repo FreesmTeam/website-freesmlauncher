@@ -8,6 +8,12 @@
       "download": "Download",
       "about": "About"
     },
+    "navbar": {
+      "home": "Home",
+      "downloads": "Download",
+      "about": "About",
+      "other": "Other"
+    },
     "downloads": {
       "title": "Downloads",
       "description": "Download Freesm Launcher for your specific platform.",
