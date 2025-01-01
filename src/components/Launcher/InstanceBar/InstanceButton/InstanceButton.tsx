@@ -54,7 +54,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                 }}
             >
                 <div className="cursor-default flex justify-center items-center gap-4 w-full p-1 text-[#9DA3BD]">
-                    <p className="select-none text-nowrap text-center text-[13px]">
+                    <p className="select-none text-nowrap text-center text-[10px] sm:text-[13px]">
                         {currentInstance.name}
                     </p>
                 </div>
@@ -62,11 +62,11 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                     LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS.map((item: LauncherInstanceBarItemType) => {
                         return (
                             <div
-                                className="flex items-center gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28] text-[#cdd6f4]"
+                                className="flex items-center gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28] text-[#cdd6f4]"
                                 key={item.name}
                             >
                                 {item.icon}
-                                <p className="select-none text-nowrap text-[13px]">
+                                <p className="select-none text-nowrap text-[10px] sm:text-[13px]">
                                     {translate(item.name)}
                                 </p>
                             </div>
@@ -76,7 +76,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
             </div>
             <Image width={48} src={instance.icon} alt="Grass svg icon"/>
             <p
-                className="text-[13px] text-[#CDD6F4] text-center w-full"
+                className="text-[10px] sm:text-[13px] text-[#CDD6F4] text-center w-full"
                 style={{
                     background: instance.name === currentInstance.name ? "#a285c6" : "#040407"
                 }}

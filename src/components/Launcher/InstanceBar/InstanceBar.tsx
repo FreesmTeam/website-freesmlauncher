@@ -61,7 +61,7 @@ export default function InstanceBar() {
             <div className="rounded-b-md w-full flex flex-col p-4 gap-2 bg-[#0c0c13]">
                 <button
                     onClick={() => setHidden((hidden: boolean) => !hidden)}
-                    className="select-none flex gap-2 items-center text-[#80859A] text-[12px]"
+                    className="select-none flex gap-2 items-center text-[#80859A] text-[10px] sm:text-[12px]"
                 >
                     <Icon
                         height={28}
@@ -76,7 +76,7 @@ export default function InstanceBar() {
                 </button>
                 {
                     !hidden && (
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 flex-wrap sm:flex-nowrap">
                             {
                                 LAUNCHER_INSTANCES.map((instance: LauncherInstanceType) => {
                                     return (
