@@ -76,7 +76,9 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
                                 className="flex flex-nowrap items-center gap-2 hover:text-[#cba6f7] transition"
                             >
                                 <Icon fontSize={16} icon={link.icon} />
-                                {link.name}
+                                <p className="text-nowrap">
+                                    {link.name}
+                                </p>
                             </Link>
                         );
                     })
