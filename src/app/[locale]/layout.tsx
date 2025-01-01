@@ -44,7 +44,7 @@ export default async function LocaleLayout({
 
     return (
         <html lang={locale}>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+            <body className={`${geistSans.variable} ${geistMono.variable} antialiased pb-28 sm:pb-8`}>
                 <TanstackQueryProviders>
                     <NextIntlClientProvider messages={messages}>
                         <NextTopLoader

@@ -8,7 +8,6 @@
 }
 
 body {
-    padding-bottom: 32px;
     overflow-x: hidden;
     background-image: linear-gradient(var(--background-one), var(--background-two));
     background-repeat: no-repeat;
