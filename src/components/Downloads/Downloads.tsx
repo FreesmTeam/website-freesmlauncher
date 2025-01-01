@@ -16,13 +16,13 @@ export default function Downloads() {
 
     return (
         <div className="flex flex-col gap-8 mt-12 max-w-[960px] px-4 mx-auto">
-            <p className="text-center font-bold text-balance text-7xl text-white">
+            <p className="text-center font-bold text-balance text-5xl sm:text-7xl text-white">
                 {translate('downloads.title')}
             </p>
-            <p className="text-center text-balance text-2xl text-gray-400">
+            <p className="text-center text-balance text-lg sm:text-2xl text-gray-400">
                 {translate('downloads.description')}
             </p>
-            <div className="flex gap-2 rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-2">
+            <div className="flex flex-wrap gap-2 rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-2">
                 {
                     DOWNLOADS_OPTIONS.map((option) => {
                         if (option === selectedPlatform) {
@@ -50,8 +50,8 @@ export default function Downloads() {
                 }
             </div>
             <div className="rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-2 min-h-[360px]">
-                <div className="flex flex-col gap-8 py-8 items-center">
-                    <p className="text-3xl font-semibold text-white">
+                <div className="flex flex-col gap-8 p-8 items-center">
+                    <p className="text-center text-3xl font-semibold text-white">
                         {translate('downloads.packages-for')}{' '}
                         <span className="text-[#cba6f7]">
                             {selectedPlatform}

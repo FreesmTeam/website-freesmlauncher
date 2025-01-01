@@ -96,7 +96,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     return (
         <>
-            <div className="w-full flex gap-8 items-start">
+            <div className="w-full flex gap-8 flex-wrap items-start">
                 <div className="flex flex-col flex-1 items-center justify-center gap-4">
                     <p className="text-xl text-gray-400">
                         Windows 64-bit

@@ -8,7 +8,7 @@ export default function Features() {
     const translate = useTranslations('Translations');
 
     return (
-        <div className="flex gap-8 justify-between items-start mt-12 max-w-[960px] px-4 mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8 justify-between items-start mt-12 max-w-[960px] px-4 mx-auto">
             {
                 FEATURES_SECTIONS.map((feature) => {
                     return (
