@@ -7,6 +7,9 @@ import {useTranslations} from "next-intl";
 
 export default function ReleaseLinks({ platform }: { platform: string; }) {
     const translate = useTranslations('Translations');
+    const info = useTranslations('Info');
+    const locale = info('locale');
+
     const { isPending, error, data }: {
         isPending: boolean;
         error: Error | null;
@@ -57,7 +60,10 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
             <div className="flex flex-col items-center justify-center gap-4">
                 {
                     currentBuilds?.map((build) => {
-                        const formattedName = getReleaseName(build.name);
+                        const formattedName = getReleaseName({
+                            name: build.name,
+                            locale: locale,
+                        });
 
                         if (formattedName === null) {
                             return;
@@ -88,11 +94,14 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
             <div className="w-full flex gap-8 items-start">
                 <div className="flex flex-col flex-1 items-center justify-center gap-4">
                     <p className="text-xl text-gray-400">
-                        Windows 64bit
+                        Windows 64-bit
                     </p>
                     {
                         currentBuilds?.filter((build) => !build.name.toLowerCase().includes('arm64')).map((build) => {
-                            const formattedName = getReleaseName(build.name);
+                            const formattedName = getReleaseName({
+                                name: build.name,
+                                locale: locale,
+                            });
 
                             if (formattedName === null) {
                                 return;
@@ -120,7 +129,10 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                     </p>
                     {
                         currentBuilds?.filter((build) => build.name.toLowerCase().includes('arm64')).map((build) => {
-                            const formattedName = getReleaseName(build.name);
+                            const formattedName = getReleaseName({
+                                name: build.name,
+                                locale: locale,
+                            });
 
                             if (formattedName === null) {
                                 return;

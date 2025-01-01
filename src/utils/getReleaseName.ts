@@ -1,18 +1,33 @@
-export default function getReleaseName(name: string): {
+export default function getReleaseName({ name, locale }: { name: string; locale: string; }): {
     displayName: string;
     extension: string;
 } | null {
+    let PORTABLE_NAME;
+    let SETUP_NAME;
+
+    switch (locale) {
+        case "ru":
+            PORTABLE_NAME = 'Портативная версия';
+            SETUP_NAME = 'Установщик';
+            break;
+        case "en":
+        default:
+            PORTABLE_NAME = 'Portable';
+            SETUP_NAME = 'Setup';
+            break;
+    }
+
     const lowerCaseName = name.toLowerCase();
 
     if (lowerCaseName.includes('linux')) {
         if (lowerCaseName.includes('qt5')) {
             return {
-                displayName: 'Qt5 - Portable',
+                displayName: `Qt5 - ${PORTABLE_NAME}`,
                 extension: '(.tar.gz)'
             };
         } else if (lowerCaseName.includes('qt6')) {
             return {
-                displayName: 'Qt6 - Portable',
+                displayName: `Qt6 - ${PORTABLE_NAME}`,
                 extension: '(.tar.gz)'
             };
         } else if (lowerCaseName.includes('zsync')) {
@@ -20,7 +35,7 @@ export default function getReleaseName(name: string): {
         }
 
         return {
-            displayName: 'Portable',
+            displayName: PORTABLE_NAME,
             extension: '(.AppImage)'
         };
     }
@@ -37,21 +52,21 @@ export default function getReleaseName(name: string): {
 
     if (lowerCaseName.includes('portable')) {
         return {
-            displayName: prefix + 'Portable',
+            displayName: prefix + PORTABLE_NAME,
             extension: '(.zip)'
         };
     }
 
     if (lowerCaseName.includes('setup')) {
         return {
-            displayName: prefix + 'Setup',
+            displayName: prefix + SETUP_NAME,
             extension: '(.exe)'
         };
     }
 
     if (lowerCaseName.includes('macos')) {
         return {
-            displayName: prefix + 'Release',
+            displayName: prefix + SETUP_NAME,
             extension: '(.zip)'
         };
     }
