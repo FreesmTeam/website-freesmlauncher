@@ -60,7 +60,7 @@ export default function About() {
                                         <p className="text-[#cba6f7] font-semibold text-[18px] sm:text-[24px]">
                                             {maintainer.name}
                                         </p>
-                                        <p className="text-justify text-white text-[12px] sm:text-[22px]">
+                                        <p className="text-justify text-white text-[16px] sm:text-[22px]">
                                             {description}
                                         </p>
                                     </div>
@@ -89,7 +89,7 @@ export default function About() {
                                         src={contributor.avatar ?? deletedAvatar}
                                         alt={`${contributor.name}'s avatar`}
                                     />
-                                    <p className="text-xs sm:text-[16px] max-w-24 text-center text-wrap break-words text-gray-300">
+                                    <p className="text-[14px] sm:text-[16px] max-w-16 sm:max-w-24 text-center text-wrap break-words text-gray-300">
                                         {contributor.name}
                                     </p>
                                 </Link>

@@ -98,7 +98,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
         <>
             <div className="w-full flex gap-8 flex-wrap items-start">
                 <div className="flex flex-col flex-1 items-center justify-center gap-4">
-                    <p className="text-xl text-gray-400">
+                    <p className="text-xl text-center text-gray-400">
                         Windows 64-bit
                     </p>
                     {
@@ -129,7 +129,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                     }
                 </div>
                 <div className="flex flex-col flex-1 items-center justify-center gap-4">
-                    <p className="text-xl text-gray-400">
+                    <p className="text-xl text-center text-gray-400">
                         Windows ARM64
                     </p>
                     {
