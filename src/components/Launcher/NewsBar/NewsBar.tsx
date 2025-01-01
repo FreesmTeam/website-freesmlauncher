@@ -25,7 +25,7 @@ export default function NewsBar() {
             </div>
             <div className="w-fit flex items-center gap-1 px-1 rounded-md flex-nowrap text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4] hover:bg-[#1a1723]">
                 <Icon fontSize={16} icon="fluent:news-16-regular" />
-                <p className="w-fit text-nowrap">
+                <p className="min-w-20 text-nowrap">
                     {translate('launcher.more-news')}
                 </p>
             </div>
