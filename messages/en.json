@@ -18,7 +18,9 @@
     },
     "about": {
       "title": "About",
-      "description": "We created Freesm Launcher to make it possible to play Minecraft with the conveniences that Prism Launcher provides, without requiring an online account."
+      "description": "We created Freesm Launcher to make it possible to play Minecraft with the conveniences that Prism Launcher provides, without requiring an online account.",
+      "maintainers": "Maintainers",
+      "contributors": "Contributors"
     },
     "hero": {
       "title": "Download Freesm Launcher for",

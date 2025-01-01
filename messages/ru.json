@@ -18,7 +18,9 @@
     },
     "about": {
       "title": "О нас",
-      "description": "Мы создали Freesm Launcher для того, чтобы сделать возможной игру в Minecraft с теми удобствами, которые предоставляет Prism Launcher, не требуя при этом лицензионного аккаунта."
+      "description": "Мы создали Freesm Launcher для того, чтобы сделать возможной игру в Minecraft с теми удобствами, которые предоставляет Prism Launcher, не требуя при этом лицензионного аккаунта.",
+      "maintainers": "Сопровождающие проекта",
+      "contributors": "Внесли вклад"
     },
     "hero": {
       "title": "Установите Freesm Launcher для",

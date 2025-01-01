@@ -4,12 +4,14 @@ import {useTranslations} from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import community from '@/configs/community.json';
+import deletedAvatar from '../../../public/deleted_avatar.webp';
 
 export default function About() {
     const translate = useTranslations('Translations');
     const info = useTranslations('Info');
     const locale = info('locale');
     const maintainers = community.maintainers;
+    const contributors = community.contributors;
 
     return (
         <div className="flex flex-col gap-8 mt-12 max-w-[960px] px-4 mx-auto">
@@ -22,7 +24,7 @@ export default function About() {
             <div
                 className="flex flex-col items-center gap-8 rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-8">
                 <p className="text-3xl font-semibold text-white">
-                    Maintainers
+                    {translate('about.maintainers')}
                 </p>
                 <div className="w-full flex gap-4 justify-center">
                     {
@@ -51,7 +53,7 @@ export default function About() {
                                         width={96}
                                         height={96}
                                         src={maintainer.avatar}
-                                        alt={'windstone avatar'}
+                                        alt={`${maintainer.name}'s avatar`}
                                     />
                                     <div className="flex flex-col">
                                         <p className="text-[#cba6f7] font-semibold text-[24px]">
@@ -67,10 +69,32 @@ export default function About() {
                     }
                 </div>
                 <p className="text-3xl font-semibold text-white">
-                    Contributors
+                    {translate('about.contributors')}
                 </p>
-                <div className="flex justify-center items-center">
-                    1234
+                <div className="flex justify-center items-center gap-2">
+                    {
+                        contributors.map((contributor) => {
+                            return (
+                                <Link
+                                    target="_blank"
+                                    className="w-24 flex flex-col items-center justify-center gap-2 rounded-full transition hover:grayscale"
+                                    key={contributor.name}
+                                    href={contributor.link}
+                                >
+                                    <Image
+                                        className="rounded-full"
+                                        width={64}
+                                        height={64}
+                                        src={contributor.avatar ?? deletedAvatar}
+                                        alt={`${contributor.name}'s avatar`}
+                                    />
+                                    <p className="max-w-24 text-center text-wrap break-words text-gray-300">
+                                        {contributor.name}
+                                    </p>
+                                </Link>
+                            );
+                        })
+                    }
                 </div>
             </div>
         </div>
