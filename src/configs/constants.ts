@@ -1,6 +1,5 @@
 import {HeaderExternalLinkType} from "@/types/HeaderExternalLink.type";
 import {HeaderItemType} from "@/types/HeaderItem.type";
-import {Icon} from "@iconify/react";
 
 export const GITHUB_LINK = "https://github.com/FreesmTeam/FreesmLauncher";
 export const TELEGRAM_LINK = "https://t.me/freesmteam";
