@@ -20,7 +20,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     if (isPending) {
         return (
-            <div>
+            <div className="text-gray-400">
                 {translate('downloads.loading')}
             </div>
         );
@@ -28,8 +28,8 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     if (error) {
         return (
-            <div>
-                {translate('downloads.error')}:{' '}
+            <div className="text-gray-400">
+                {translate('downloads.error')}{' '}
                 {error.message}.{' '}
                 {translate('downloads.try-to-refresh')}
             </div>
@@ -57,9 +57,9 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
             <div className="flex flex-col items-center justify-center gap-4">
                 {
                     currentBuilds?.map((build) => {
-                        const displayName = getReleaseName(build.name);
+                        const formattedName = getReleaseName(build.name);
 
-                        if (displayName === null) {
+                        if (formattedName === null) {
                             return;
                         }
 
@@ -70,7 +70,10 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                 target="_blank" 
                                 href={build.browser_download_url}
                             >
-                                {displayName}
+                                {formattedName.displayName}{' '}
+                                <span className="text-gray-400">
+                                        {formattedName.extension}
+                                    </span>
                             </Link>
                         );
                     })
@@ -89,9 +92,9 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                     </p>
                     {
                         currentBuilds?.filter((build) => !build.name.toLowerCase().includes('arm64')).map((build) => {
-                            const displayName = getReleaseName(build.name);
+                            const formattedName = getReleaseName(build.name);
 
-                            if (displayName === null) {
+                            if (formattedName === null) {
                                 return;
                             }
 
@@ -102,7 +105,10 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                     target="_blank" 
                                     href={build.browser_download_url}
                                 >
-                                    {displayName}
+                                    {formattedName.displayName}{' '}
+                                    <span className="text-gray-400">
+                                        {formattedName.extension}
+                                    </span>
                                 </Link>
                             );
                         })
@@ -114,9 +120,9 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                     </p>
                     {
                         currentBuilds?.filter((build) => build.name.toLowerCase().includes('arm64')).map((build) => {
-                            const displayName = getReleaseName(build.name);
+                            const formattedName = getReleaseName(build.name);
 
-                            if (displayName === null) {
+                            if (formattedName === null) {
                                 return;
                             }
 
@@ -127,7 +133,10 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                     target="_blank" 
                                     href={build.browser_download_url}
                                 >
-                                    {displayName}
+                                    {formattedName.displayName}{' '}
+                                    <span className="text-gray-400">
+                                        {formattedName.extension}
+                                    </span>
                                 </Link>
                             );
                         })

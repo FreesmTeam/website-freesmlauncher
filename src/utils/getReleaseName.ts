@@ -1,16 +1,28 @@
-export default function getReleaseName(name: string) {
+export default function getReleaseName(name: string): {
+    displayName: string;
+    extension: string;
+} | null {
     const lowerCaseName = name.toLowerCase();
 
     if (lowerCaseName.includes('linux')) {
         if (lowerCaseName.includes('qt5')) {
-            return 'Qt5 - Portable (.tar.gz)';
+            return {
+                displayName: 'Qt5 - Portable',
+                extension: '(.tar.gz)'
+            };
         } else if (lowerCaseName.includes('qt6')) {
-            return 'Qt6 - Portable (.tar.gz)';
+            return {
+                displayName: 'Qt6 - Portable',
+                extension: '(.tar.gz)'
+            };
         } else if (lowerCaseName.includes('zsync')) {
             return null;
         }
 
-        return 'Portable (.AppImage)';
+        return {
+            displayName: 'Portable',
+            extension: '(.AppImage)'
+        };
     }
 
     let prefix = '';
@@ -24,15 +36,24 @@ export default function getReleaseName(name: string) {
     }
 
     if (lowerCaseName.includes('portable')) {
-        return prefix + 'Portable (.zip)';
+        return {
+            displayName: prefix + 'Portable',
+            extension: '(.zip)'
+        };
     }
 
     if (lowerCaseName.includes('setup')) {
-        return prefix + 'Setup (.exe)';
+        return {
+            displayName: prefix + 'Setup',
+            extension: '(.exe)'
+        };
     }
 
     if (lowerCaseName.includes('macos')) {
-        return prefix + 'Release (.zip)';
+        return {
+            displayName: prefix + 'Release',
+            extension: '(.zip)'
+        };
     }
 
     return null;
