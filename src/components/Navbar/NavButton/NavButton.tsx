@@ -2,6 +2,7 @@ import { NavbarItemType } from "@/types/NavbarItem.type";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { useRouter } from 'nextjs-toploader/app';
 
 export default function NavButton({ item }: { item: NavbarItemType }) {
     const {
@@ -11,6 +12,7 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
         isAction,
         link,
     } = item;
+    const router = useRouter();
     const translate = useTranslations('Translations');
     const info = useTranslations('Info');
     const locale = info('locale');
@@ -20,8 +22,17 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
 
     const isCurrentPage = formattedLink === filteredPathname;
 
+    function handleNavigation() {
+        if (isAction || !link) {
+            return;
+        }
+
+        router.push(link);
+    }
+
     return (
         <button 
+            onClick={handleNavigation}
             className="flex items-center flex-col gap-1"
         >
             <div 
