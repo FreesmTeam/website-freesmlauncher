@@ -16,6 +16,10 @@
       "loading": "Получаем данные...",
       "try-to-refresh": "Попробуйте перезагрузить страницу."
     },
+    "about": {
+      "title": "О нас",
+      "description": ""
+    },
     "hero": {
       "title": "Установите Freesm Launcher для",
       "description": "Freesm Launcher - это кастомный лаунчер для Майнкрафта, который позволяет играть в него бесплатно.",
