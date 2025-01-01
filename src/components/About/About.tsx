@@ -19,19 +19,32 @@ export default function About() {
             <p className="text-center text-balance text-2xl text-gray-400">
                 {translate('about.description')}
             </p>
-            <div className="flex flex-col items-center gap-8 rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-8">
+            <div
+                className="flex flex-col items-center gap-8 rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-8">
                 <p className="text-3xl font-semibold text-white">
                     Maintainers
                 </p>
-                <div className="flex gap-4 justify-center">
+                <div className="w-full flex gap-4 justify-center">
                     {
                         maintainers.map((maintainer) => {
+                            let description;
+
+                            switch (locale) {
+                                case 'ru':
+                                    description = maintainer.descriptionRu;
+                                    break;
+                                case 'en':
+                                default:
+                                    description = maintainer.descriptionEn;
+                                    break;
+                            }
+
                             return (
                                 <Link
                                     key={maintainer.name}
                                     target="_blank"
                                     href={maintainer.link}
-                                    className="transition hover:grayscale rounded-md p-2 flex flex-1 gap-4 items-start"
+                                    className="transition hover:grayscale p-2 flex flex-1 gap-4 items-start"
                                 >
                                     <Image
                                         className="rounded-full"
@@ -45,13 +58,19 @@ export default function About() {
                                             {maintainer.name}
                                         </p>
                                         <p className="text-justify text-white">
-                                            {maintainer.descriptionEn}
+                                            {description}
                                         </p>
                                     </div>
                                 </Link>
                             );
                         })
                     }
+                </div>
+                <p className="text-3xl font-semibold text-white">
+                    Contributors
+                </p>
+                <div className="flex justify-center items-center">
+                    1234
                 </div>
             </div>
         </div>
