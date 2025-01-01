@@ -26,7 +26,7 @@ export default function InstanceBar() {
         <div className="w-full min-h-40 items-stretch flex flex-nowrap gap-0 rounded-b-md">
             {
                 instanceBar?.opened && (
-                    <div className="rounded-bl-md p-2.5 flex flex-col gap-2 w-[168px] bg-[#0a0a10]">
+                    <div className="rounded-bl-md p-2.5 flex flex-col gap-2 w-[128px] sm:w-[168px] bg-[#0a0a10]">
                         {
                             !hasLockBars && (
                                 <div className="cursor-move rounded-full h-[5px] w-full bg-[#dbcafe]" />
@@ -36,7 +36,7 @@ export default function InstanceBar() {
                             <Image width={80} src={currentInstance.icon} alt="Grass svg icon" />
                         </div>
                         <div className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]">
-                            <p className="text-center text-[13px] text-[#CDD6F4]">
+                            <p className="text-center text-[10px] sm:text-[13px] text-[#CDD6F4]">
                                 {currentInstance.name}
                             </p>
                         </div>
@@ -45,10 +45,10 @@ export default function InstanceBar() {
                                 return (
                                     <div
                                         key={item.name}
-                                        className="select-none px-1 py-0.5 flex gap-1 items-center rounded-md hover:bg-[#1b1825] text-[#CDD6F4]"
+                                        className="select-none px-1 py-0.5 flex gap-1 items-start sm:items-center rounded-md hover:bg-[#1b1825] text-[#CDD6F4]"
                                     >
                                         {item.icon}
-                                        <p className="text-[13px]">
+                                        <p className="text-[10px] sm:text-[13px]">
                                             {translate(item.name)}
                                         </p>
                                     </div>

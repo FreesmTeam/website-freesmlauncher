@@ -84,39 +84,39 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
 export const LAUNCHER_INSTANCE_BAR_ITEMS: LauncherInstanceBarItemType[] = [
     {
         name: 'launcher.instance.launch',
-        icon: <Icon height={14} icon="fluent:triangle-right-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:triangle-right-16-regular" />
     },
     {
         name: 'launcher.instance.kill',
-        icon: <Icon height={14} icon="fluent:dismiss-circle-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:dismiss-circle-16-regular" />
     },
     {
         name: 'launcher.instance.edit',
-        icon: <Icon height={14} icon="fluent:settings-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:settings-16-regular" />
     },
     {
         name: 'launcher.instance.change-group',
-        icon: <Icon height={14} icon="fluent:tag-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:tag-16-regular" />
     },
     {
         name: 'launcher.instance.folder',
-        icon: <Icon height={14} icon="fluent:folder-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:folder-16-regular" />
     },
     {
         name: 'launcher.instance.export',
-        icon: <Icon height={14} icon="fluent:folder-arrow-right-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:folder-arrow-right-16-regular" />
     },
     {
         name: 'launcher.instance.copy',
-        icon: <Icon height={14} icon="fluent:copy-arrow-right-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:copy-arrow-right-16-regular" />
     },
     {
         name: 'launcher.instance.delete',
-        icon: <Icon height={14} icon="fluent:delete-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:delete-16-regular" />
     },
     {
         name: 'launcher.instance.create-shortcut',
-        icon: <Icon height={14} icon="fluent:link-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:link-16-regular" />
     },
 ];
 export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
