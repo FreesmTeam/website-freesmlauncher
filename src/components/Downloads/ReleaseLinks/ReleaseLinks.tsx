@@ -39,6 +39,12 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
         );
     }
 
+    // build name is in the next format:
+    // "Freesm Launcher 9.2-free-2"
+    const buildName = data?.data?.name;
+    const buildNameArr =  buildName?.split(' ');
+    const buildVersion = buildNameArr?.pop()?.split('-')?.[0];
+
     const assets = data?.data?.assets;
     let currentBuilds;
 
@@ -73,10 +79,10 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                             <Link
                                 key={build.name}
                                 className="text-center w-fit text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
-                                target="_blank" 
+                                target="_blank"
                                 href={build.browser_download_url}
                             >
-                                {formattedName.displayName}{' '}
+                                {formattedName.displayName}{' - v'}{buildVersion}{' '}
                                 <span className="text-gray-400">
                                         {formattedName.extension}
                                     </span>
@@ -90,7 +96,6 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     return (
         <>
-            
             <div className="w-full flex gap-8 items-start">
                 <div className="flex flex-col flex-1 items-center justify-center gap-4">
                     <p className="text-xl text-gray-400">
@@ -114,7 +119,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                     target="_blank" 
                                     href={build.browser_download_url}
                                 >
-                                    {formattedName.displayName}{' '}
+                                    {formattedName.displayName}{' - v'}{buildVersion}{' '}
                                     <span className="text-gray-400">
                                         {formattedName.extension}
                                     </span>
@@ -145,7 +150,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                     target="_blank" 
                                     href={build.browser_download_url}
                                 >
-                                    {formattedName.displayName}{' '}
+                                    {formattedName.displayName}{' - v'}{buildVersion}{' '}
                                     <span className="text-gray-400">
                                         {formattedName.extension}
                                     </span>
