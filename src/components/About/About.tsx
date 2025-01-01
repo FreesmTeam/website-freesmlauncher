@@ -47,7 +47,7 @@ export default function About() {
                                     key={maintainer.name}
                                     target="_blank"
                                     href={maintainer.link}
-                                    className="box-border min-w-[40%] transition hover:grayscale hover:scale-105 p-2 flex flex-1 gap-4 items-start"
+                                    className="box-border min-w-[40%] transition hover:grayscale hover:scale-105 p-2 flex flex-1 gap-8 items-start"
                                 >
                                     <Image
                                         className="rounded-full w-16 h-16 sm:w-24 sm:h-24"
