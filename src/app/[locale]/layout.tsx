@@ -10,6 +10,7 @@ import {NextIntlClientProvider} from "next-intl";
 import {LocaleType} from "@/types/Locale.type";
 import { Analytics } from "@vercel/analytics/react"
 import TanstackQueryProviders from "@/utils/Providers/TanstackQueryProviders";
+import Navbar from "@/components/Navbar/Navbar";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -53,6 +54,7 @@ export default async function LocaleLayout({
                             color="#cba6f7"
                         />
                         <Header />
+                        <Navbar />
                         {children}
                     </NextIntlClientProvider>
                     <Analytics />
