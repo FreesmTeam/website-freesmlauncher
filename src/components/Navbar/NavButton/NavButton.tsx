@@ -1,8 +1,11 @@
+import { HEADER_LINKS } from "@/configs/constants";
+import { HeaderExternalLinkType } from "@/types/HeaderExternalLink.type";
 import { NavbarItemType } from "@/types/NavbarItem.type";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useClickOutside } from "@mantine/hooks";
 import { useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { usePathname } from "@/i18n/routing";
 import { useRouter } from 'nextjs-toploader/app';
 import { useEffect, useState } from "react";
 
@@ -22,10 +25,7 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
     const info = useTranslations('Info');
     const locale = info('locale');
     const pathname = usePathname();
-    const filteredPathname = pathname.split('/').filter((value) => value !== locale).join('');
-    const formattedLink = link?.split('/')?.join('');
-
-    const isCurrentPage = formattedLink === filteredPathname;
+    const isCurrentPage = pathname === link;
 
     function handleClick() {
         if (isAction || !link) {
@@ -35,6 +35,21 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
         }
 
         router.push(link);
+    }
+
+    let redirectLocale;
+    let currentLanguageFlag;
+
+    switch (locale) {
+        case "ru":
+            redirectLocale = "en";
+            currentLanguageFlag = "🇷🇺";
+            break;
+        case "en":
+        default:
+            redirectLocale = "ru";
+            currentLanguageFlag = "🇺🇸";
+            break;
     }
 
     useEffect(() => {
@@ -47,9 +62,34 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
                 opened && (
                     <div 
                         ref={ref}
-                        className="absolute bottom-14 right-4 bg-[#1e1e2e] rounded-md p-2 border-[1px] border-[#181825] drop-shadow-lg text-white text-sm"
+                        className="absolute bottom-14 right-4 flex flex-col gap-2 bg-[#1e1e2e] rounded-md p-2 border-[1px] border-[#181825] drop-shadow-lg text-white text-sm"
                     >
-                        1234
+                        {
+                            HEADER_LINKS.map((link: HeaderExternalLinkType) => {
+                                return (
+                                    <Link
+                                        target="_blank"
+                                        href={link.link}
+                                        key={link.name}
+                                        className="flex flex-nowrap items-center gap-2 hover:text-[#cba6f7] transition"
+                                    >
+                                        <Icon fontSize={16} icon="fluent:arrow-circle-up-right-16-regular" />
+                                        {link.name}
+                                    </Link>
+                                );
+                            })
+                        }
+                        <Link
+                            href={`/${redirectLocale}${pathname}`}
+                            className="flex flex-nowrap items-center gap-2 hover:text-[#cba6f7] transition"
+                        >
+                            <p className="text-xs">
+                                {currentLanguageFlag}
+                            </p>
+                            <p className="text-nowrap">
+                                {translate('navbar.change-language')}
+                            </p>
+                        </Link>
                     </div>
                 )
             }

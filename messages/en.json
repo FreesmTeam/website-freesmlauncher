@@ -12,7 +12,8 @@
       "home": "Home",
       "downloads": "Download",
       "about": "About",
-      "other": "Other"
+      "other": "Other",
+      "change-language": "Change Language"
     },
     "downloads": {
       "title": "Downloads",

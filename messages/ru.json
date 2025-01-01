@@ -12,7 +12,8 @@
       "home": "Главная",
       "downloads": "Скачать",
       "about": "О нас",
-      "other": "Прочее"
+      "other": "Прочее",
+      "change-language": "Сменить язык"
     },
     "downloads": {
       "title": "Загрузки",

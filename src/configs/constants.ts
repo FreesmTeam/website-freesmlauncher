@@ -35,11 +35,13 @@ export const NAVBAR_ITEMS: NavbarItemType[] = [
 ];
 export const HEADER_LINKS: HeaderExternalLinkType[] = [
     {
+        name: 'Github',
         link: GITHUB_LINK,
         icon: "mdi:github",
         height: 24,
     },
     {
+        name: 'Telegram',
         link: TELEGRAM_LINK,
         icon: "mdi:telegram",
         height: 20,
