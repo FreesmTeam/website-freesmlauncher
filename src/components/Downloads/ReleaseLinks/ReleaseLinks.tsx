@@ -3,8 +3,10 @@ import getLatestRelease from "@/utils/getLatestRelease";
 import getReleaseName from "@/utils/getReleaseName";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import {useTranslations} from "next-intl";
 
 export default function ReleaseLinks({ platform }: { platform: string; }) {
+    const translate = useTranslations('Translations');
     const { isPending, error, data }: {
         isPending: boolean;
         error: Error | null;
@@ -19,7 +21,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
     if (isPending) {
         return (
             <div>
-                Loading...
+                {translate('downloads.loading')}
             </div>
         );
     }
@@ -27,7 +29,9 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
     if (error) {
         return (
             <div>
-                Error: {error.message}
+                {translate('downloads.error')}:{' '}
+                {error.message}.{' '}
+                {translate('downloads.try-to-refresh')}
             </div>
         );
     }

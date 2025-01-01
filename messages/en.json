@@ -11,7 +11,10 @@
     "downloads": {
       "title": "Downloads",
       "description": "Download Freesm Launcher for your specific platform.",
-      "packages-for": "Packages for"
+      "packages-for": "Packages for",
+      "error": "Error:",
+      "loading": "Fetching data...",
+      "try-to-refresh": "Try refreshing the page."
     },
     "hero": {
       "title": "Download Freesm Launcher for",
