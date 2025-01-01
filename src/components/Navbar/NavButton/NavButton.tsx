@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useRouter } from 'nextjs-toploader/app';
+import { useEffect, useState } from "react";
 
 export default function NavButton({ item }: { item: NavbarItemType }) {
     const {
@@ -12,6 +13,7 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
         isAction,
         link,
     } = item;
+    const [opened, setOpened] = useState(false);
     const router = useRouter();
     const translate = useTranslations('Translations');
     const info = useTranslations('Info');
@@ -22,38 +24,53 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
 
     const isCurrentPage = formattedLink === filteredPathname;
 
-    function handleNavigation() {
+    function handleClick() {
         if (isAction || !link) {
+            setOpened((state) => !state)
+
             return;
         }
 
         router.push(link);
     }
 
+    useEffect(() => {
+        setOpened(false);
+    }, [pathname])
+
     return (
-        <button 
-            onClick={handleNavigation}
-            className="flex items-center flex-col gap-1"
-        >
-            <div 
-                className="flex items-center justify-center rounded-full w-16 py-1"
-                style={{
-                    background: isCurrentPage ? '#313244' : 'transparent'
-                }}
+        <div className="relative">
+            {
+                opened && (
+                    <div className="absolute bottom-14 right-4 bg-[#1e1e2e] rounded-md p-2 border-[1px] border-[#181825] drop-shadow-lg text-white">
+                        1234
+                    </div>
+                )
+            }
+            <button 
+                onClick={handleClick}
+                className="flex items-center flex-col gap-1"
             >
-                <Icon 
-                    className="text-white w-5 h-5"
-                    icon={isCurrentPage ? selectedIcon : icon}
-                />
-            </div>
-            <p 
-                className="text-white text-center text-xs"
-                style={{
-                    fontWeight: isCurrentPage ? 600 : 400
-                }}
-            >
-                {translate(name)}
-            </p>
-        </button>
+                <div 
+                    className="flex items-center justify-center rounded-full w-16 py-1"
+                    style={{
+                        background: isCurrentPage ? '#313244' : 'transparent'
+                    }}
+                >
+                    <Icon 
+                        className="text-white w-5 h-5"
+                        icon={isCurrentPage ? selectedIcon : icon}
+                    />
+                </div>
+                <p 
+                    className="text-white text-center text-xs"
+                    style={{
+                        fontWeight: isCurrentPage ? 600 : 400
+                    }}
+                >
+                    {translate(name)}
+                </p>
+            </button>
+        </div>
     );
 }
