@@ -26,7 +26,7 @@ export default function About() {
                 <p className="text-3xl font-semibold text-white">
                     {translate('about.maintainers')}
                 </p>
-                <div className="w-full flex gap-4 justify-center">
+                <div className="w-full flex gap-8 justify-center">
                     {
                         maintainers.map((maintainer) => {
                             let description;
@@ -46,7 +46,7 @@ export default function About() {
                                     key={maintainer.name}
                                     target="_blank"
                                     href={maintainer.link}
-                                    className="transition hover:grayscale p-2 flex flex-1 gap-4 items-start"
+                                    className="transition hover:grayscale hover:scale-105 p-2 flex flex-1 gap-4 items-start"
                                 >
                                     <Image
                                         className="rounded-full"
@@ -77,7 +77,7 @@ export default function About() {
                             return (
                                 <Link
                                     target="_blank"
-                                    className="w-24 flex flex-col items-center justify-center gap-2 rounded-full transition hover:grayscale"
+                                    className="w-24 flex flex-col items-center justify-center gap-2 rounded-full transition hover:grayscale hover:scale-105"
                                     key={contributor.name}
                                     href={contributor.link}
                                 >
