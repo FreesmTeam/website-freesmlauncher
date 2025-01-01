@@ -34,7 +34,7 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
             return;
         }
 
-        router.push(link);
+        router.push(`/${locale}${link}`);
     }
 
     let redirectLocale;
