@@ -1,3 +1,5 @@
+'use client';
+
 import { NAVBAR_ITEMS } from "@/configs/constants";
 import { NavbarItemType } from "@/types/NavbarItem.type";
 import NavButton from "./NavButton/NavButton";
