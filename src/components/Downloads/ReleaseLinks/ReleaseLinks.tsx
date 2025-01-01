@@ -72,7 +72,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                         return (
                             <Link
                                 key={build.name}
-                                className="text-center w-fit text-balance transition border-b-[1px] border-transparent hover:border-white"
+                                className="text-center w-fit text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
                                 target="_blank" 
                                 href={build.browser_download_url}
                             >
@@ -110,7 +110,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                             return (
                                 <Link
                                     key={build.name}
-                                    className="w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white"
+                                    className="w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
                                     target="_blank" 
                                     href={build.browser_download_url}
                                 >
@@ -141,7 +141,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                             return (
                                 <Link
                                     key={build.name}
-                                    className="w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white"
+                                    className="w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
                                     target="_blank" 
                                     href={build.browser_download_url}
                                 >

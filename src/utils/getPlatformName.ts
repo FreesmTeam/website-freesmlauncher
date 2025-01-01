@@ -1,20 +1,14 @@
-export default function getPlatformName(platform: string) {
-    let displayPlatform;
+import {LINUX_NAME, MACOS_NAME, WINDOWS_NAME} from "@/configs/constants";
 
+export default function getPlatformName(platform: string): 'macOS' | 'Windows' | 'Linux' {
     switch (true) {
         case platform.includes('mac'):
-            displayPlatform = 'macOS';
-            break;
+            return MACOS_NAME;
         case platform.includes('win'):
-            displayPlatform = 'Windows';
-            break
+            return WINDOWS_NAME;
         case platform.includes('linux'):
-            displayPlatform = 'Linux';
-            break;
+            return LINUX_NAME;
         default:
-            displayPlatform = 'Windows'
-            break;
+            return WINDOWS_NAME
     }
-
-    return displayPlatform;
 }
