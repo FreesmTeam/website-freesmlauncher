@@ -8,6 +8,8 @@ import getPlatformName from "@/utils/getPlatformName";
 import {Icon} from "@iconify/react";
 
 export default function Hero() {
+    const info = useTranslations('Info');
+    const locale = info('locale');
     const translate = useTranslations('Translations');
     const platform = navigator.platform.toLowerCase();
     const displayPlatform = getPlatformName(platform);
@@ -44,7 +46,7 @@ export default function Hero() {
                 {translate('hero.description')}
             </p>
             <div className="flex gap-2 justify-center">
-                <Link href={DOWNLOADS_LINK} className="bg-[#cba6f7] flex gap-2 items-center py-2 px-4 rounded-md font-bold text-[18px] text-black transition hover:bg-[#8839ef] hover:text-white">
+                <Link href={`/${locale}${DOWNLOADS_LINK}`} className="bg-[#cba6f7] flex gap-2 items-center py-2 px-4 rounded-md font-bold text-[18px] text-black transition hover:bg-[#8839ef] hover:text-white">
                     {icon}
                     {translate('hero.download-now')}
                 </Link>
