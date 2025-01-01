@@ -8,12 +8,57 @@
 
 ## ⬇️ Self-Hosting
 
+### Local
+
+<details>
+<summary>Expand steps</summary>
+
+> [!NOTE]
+> I will provide terminal commands only for [bun](https://bun.sh/), but you can use any other [node.js](https://nodejs.org/) package manager.
+
+Firstly, you need to clone this repository:
+
+```sh
+git clone https://github.com/FreesmTeam/website-freesmlauncher
+```
+
+And open it:
+
+```sh
+cd website-freesmlauncher
+```
+
+Secondly, install all dependencies using next command:
+
+```sh
+bun i
+```
+
+After that, you can start the project either in development mode:
+
+```sh
+bun dev
+```
+
+or in production mode:
+
+```sh
+bun run build
+bun start
+```
+
+</details>
+
+
+### Vercel
+
+<details>
+<summary>Expand steps</summary>
+
+Click the button
+
+[![Vercel](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fnotwindstone%2Fanisun)
+
+</details>
+
 ## 💬 Contact
-
-
-// using next websites as references for design:
-https://blitzjs.com/
-https://modrinth.com/app
-https://polymc.org/
-https://multimc.org/
-https://prismlauncher.org/
