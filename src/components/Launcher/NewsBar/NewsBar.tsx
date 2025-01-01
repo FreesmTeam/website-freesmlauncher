@@ -17,13 +17,13 @@ export default function NewsBar() {
                 )
             }
             <div
-                className="w-full px-1 flex items-center gap-1 rounded-md text-nowrap text-[13px] text-[#cdd6f4] hover:bg-[#1a1723]">
+                className="w-full px-1 flex items-center gap-1 rounded-md text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4] hover:bg-[#1a1723]">
                 <Icon fontSize={16} icon="fluent:news-16-regular" />
                 <p className="text-nowrap">
                     Next.js is awesome
                 </p>
             </div>
-            <div className="w-fit flex items-center gap-1 px-1 rounded-md text-nowrap text-[13px] text-[#cdd6f4] hover:bg-[#1a1723]">
+            <div className="w-fit flex items-center gap-1 px-1 rounded-md text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4] hover:bg-[#1a1723]">
                 <Icon fontSize={16} icon="fluent:news-16-regular" />
                 <p className="text-nowrap">
                     {translate('launcher.more-news')}
