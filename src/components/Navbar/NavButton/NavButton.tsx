@@ -58,49 +58,49 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
 
     return (
         <div className="relative">
-            {
-                opened && (
-                    <div 
-                        ref={ref}
-                        className="absolute bottom-14 right-4 flex flex-col gap-2 bg-[#1e1e2e] rounded-md p-2 border-[1px] border-[#181825] drop-shadow-lg text-white text-sm"
-                    >
-                        {
-                            HEADER_LINKS.map((link: HeaderExternalLinkType) => {
-                                return (
-                                    <Link
-                                        target="_blank"
-                                        href={link.link}
-                                        key={link.name}
-                                        className="flex flex-nowrap items-center gap-2 hover:text-[#cba6f7] transition"
-                                    >
-                                        <Icon fontSize={16} icon="fluent:arrow-circle-up-right-16-regular" />
-                                        {link.name}
-                                    </Link>
-                                );
-                            })
-                        }
-                        <Link
-                            href={`/${redirectLocale}${pathname}`}
-                            className="flex flex-nowrap items-center gap-2 hover:text-[#cba6f7] transition"
-                        >
-                            <p className="text-xs">
-                                {currentLanguageFlag}
-                            </p>
-                            <p className="text-nowrap">
-                                {translate('navbar.change-language')}
-                            </p>
-                        </Link>
-                    </div>
-                )
-            }
+            <div 
+                ref={ref}
+                className="transition absolute bottom-14 right-4 flex flex-col gap-2 bg-[#1e1e2e] rounded-md p-2 border-[1px] border-[#181825] drop-shadow-lg text-white text-sm"
+                style={{
+                    opacity: opened ? 1 : 0,
+                    visibility: opened ? 'visible' : 'hidden'
+                }}
+            >
+                {
+                    HEADER_LINKS.map((link: HeaderExternalLinkType) => {
+                        return (
+                            <Link
+                                target="_blank"
+                                href={link.link}
+                                key={link.name}
+                                className="flex flex-nowrap items-center gap-2 hover:text-[#cba6f7] transition"
+                            >
+                                <Icon fontSize={16} icon={link.icon} />
+                                {link.name}
+                            </Link>
+                        );
+                    })
+                }
+                <Link
+                    href={`/${redirectLocale}${pathname}`}
+                    className="flex flex-nowrap items-center gap-2 hover:text-[#cba6f7] transition"
+                >
+                    <p className="text-xs">
+                        {currentLanguageFlag}
+                    </p>
+                    <p className="text-nowrap">
+                        {translate('navbar.change-language')}
+                    </p>
+                </Link>
+            </div>
             <button 
                 onClick={handleClick}
                 className="flex items-center flex-col gap-1"
             >
                 <div 
-                    className="flex items-center justify-center rounded-full w-16 py-1"
+                    className="transition flex items-center justify-center rounded-full w-16 py-1"
                     style={{
-                        background: isCurrentPage ? '#313244' : 'transparent'
+                        background: isCurrentPage ? '#313244' : 'unset'
                     }}
                 >
                     <Icon 
