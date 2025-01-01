@@ -13,6 +13,11 @@
       "descriptionEn": "OSS Enthusiast, creator of the idea. Nix stuff maintainer also known as hand7s",
       "descriptionRu": "OSS-энтузиаст, автор идеи. Мейнтейнер связанного с Nix контента, также известный как hand7s",
       "link": "https://github.com/s0me1newithhand7s/"
+    },
+    {
+      "name": "Kaeeraa",
+      "avatar": "https://avatars.githubusercontent.com/u/99148867?v=4",
+      "link": "https://github.com/kaeeraa/"
     }
   ],
   "contributors": [
@@ -30,11 +35,6 @@
       "name": "so5iso4ka",
       "avatar": "https://avatars.githubusercontent.com/u/170882094?v=4",
       "link": "https://github.com/so5iso4ka/"
-    },
-    {
-      "name": "Kaeeraa",
-      "avatar": "https://avatars.githubusercontent.com/u/99148867?v=4",
-      "link": "https://github.com/kaeeraa/"
     }
   ]
 }
