@@ -16,6 +16,7 @@ export default function getDisabledProperty({
 }) {
     let disabled;
     let action = () => {};
+
     const handleLaunchSpecified = (launched: string | null) => (
         handleLaunch({
             launched: launched,

@@ -92,7 +92,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                         if (disabled) {
                             return (
                                 <div
-                                    className="flex items-center gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28] text-[#cdd6f4]"
+                                    className="cursor-default flex items-center gap-3 sm:gap-4 w-full p-1 text-[#9298b6]"
                                     key={item.name}
                                 >
                                     {item.icon}
@@ -104,7 +104,8 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                         }
 
                         return (
-                            <button
+                            <div
+                                onClick={action}
                                 className="flex items-center gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28] text-[#cdd6f4]"
                                 key={item.name}
                             >
@@ -112,7 +113,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                                 <p className="select-none text-nowrap text-[10px] sm:text-[13px]">
                                 {translate(item.name)}
                                 </p>
-                            </button>
+                            </div>
                         );
                     })
                 }
