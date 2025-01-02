@@ -1,6 +1,6 @@
 import {useInstanceStore, useLauncherBarsStore} from "@/utils/stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
-import {DELETED, LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES} from "@/configs/launcher";
+import {DELETED, LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES, UNKNOWN_INSTANCE} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
@@ -32,7 +32,7 @@ export default function InstanceBar() {
             setFilteredInstancesList((list: LauncherInstanceType[]) => list.filter((item: LauncherInstanceType) => item.name !== currentInstance.name));
 
             updateCurrentInstance({
-                ...currentInstance,
+                ...UNKNOWN_INSTANCE,
                 deleted: DELETED.NO,
             })
         }
@@ -49,7 +49,14 @@ export default function InstanceBar() {
                             )
                         }
                         <div className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]">
-                            <Image width={80} src={currentInstance.icon} alt="Grass svg icon" />
+                            <Image
+                                width={80}
+                                src={currentInstance.icon}
+                                alt="Grass svg icon"
+                                style={{
+                                    filter: currentInstance?.grayscale ? 'grayscale(100%)' : ''
+                                }}
+                            />
                         </div>
                         <div className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]">
                             <p className="text-center text-[10px] sm:text-[13px] text-[#CDD6F4]">

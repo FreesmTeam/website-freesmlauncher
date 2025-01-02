@@ -145,6 +145,13 @@ export const LAUNCHER_INSTANCE_BAR_ITEMS: LauncherInstanceBarItemType[] = [
         action: LAUNCHER_ACTIONS.CREATE_SHORTCUT,
     },
 ];
+export const UNKNOWN_INSTANCE: LauncherInstanceType = {
+    name: 'Unknown',
+    icon: grassSvg,
+    launched: null,
+    deleted: DELETED.NO,
+    grayscale: true,
+};
 export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
         name: '1.21',
