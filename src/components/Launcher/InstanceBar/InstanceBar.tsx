@@ -1,6 +1,6 @@
 import {useInstanceStore, useLauncherBarsStore} from "@/utils/stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
-import {LAUNCHER_ACTIONS, LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES} from "@/configs/launcher";
+import {LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
@@ -8,6 +8,8 @@ import Image from "next/image";
 import {Icon} from "@iconify/react";
 import {useState} from "react";
 import InstanceButton from "@/components/Launcher/InstanceBar/InstanceButton/InstanceButton";
+import getDisabledProperty from "@/utils/getDisabledProperty";
+import handleLaunch from '@/utils/handleLaunch';
 
 export default function InstanceBar() {
     const translate = useTranslations('Translations');
@@ -21,13 +23,6 @@ export default function InstanceBar() {
     const instanceBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.instance-toolbar');
     const lastIndex = launcherBarsStore.entries.length - 1;
     const hasLockBars = launcherBarsStore.entries[lastIndex].opened;
-
-    function handleLaunch(launched: string | null): void {
-        updateCurrentInstance({
-            ...currentInstance,
-            launched: launched,
-        });
-    }
 
     return (
         <div className="w-full min-h-40 items-stretch flex flex-nowrap gap-0 rounded-b-md">
@@ -49,31 +44,12 @@ export default function InstanceBar() {
                         </div>
                         {
                             LAUNCHER_INSTANCE_BAR_ITEMS.map((item: LauncherInstanceBarItemType) => {
-                                let disabled = false;
-                                let action = () => {};
-
-                                switch (item.action) {
-                                    case LAUNCHER_ACTIONS.LAUNCH:
-                                        disabled = currentInstance.launched === currentInstance.name;
-                                        action = () => handleLaunch(currentInstance.name);
-
-                                        break;
-                                    case LAUNCHER_ACTIONS.KILL:
-                                        disabled = currentInstance.launched !== currentInstance.name;
-                                        action = () => handleLaunch(null);
-
-                                        break;
-                                    case LAUNCHER_ACTIONS.EDIT:
-                                        break;
-                                    case LAUNCHER_ACTIONS.CHANGE_GROUP:
-                                        break;
-                                    case LAUNCHER_ACTIONS.DELETE:
-                                        break;
-                                    default:
-                                        disabled = true;
-
-                                        break;
-                                }
+                                const { disabled, action } = getDisabledProperty({
+                                    item,
+                                    currentInstance,
+                                    updateCurrentInstance,
+                                    handleLaunch,
+                                });
 
                                 if (disabled) {
                                     return (
@@ -97,7 +73,7 @@ export default function InstanceBar() {
                                     >
                                         {item.icon}
                                         <p className="text-[10px] sm:text-[13px]">
-                                        {translate(item.name)}
+                                            {translate(item.name)}
                                         </p>
                                     </button>
                                 );

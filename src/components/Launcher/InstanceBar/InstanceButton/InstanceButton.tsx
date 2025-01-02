@@ -7,6 +7,8 @@ import {LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 import {Icon} from "@iconify/react";
+import getDisabledProperty from "@/utils/getDisabledProperty";
+import handleLaunch from '@/utils/handleLaunch';
 
 export default function InstanceButton(instance: LauncherInstanceType) {
     const translate = useTranslations('Translations');
@@ -80,16 +82,37 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                 </div>
                 {
                     LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS.map((item: LauncherInstanceBarItemType) => {
+                        const { disabled, action } = getDisabledProperty({
+                            item,
+                            currentInstance,
+                            updateCurrentInstance,
+                            handleLaunch,
+                        });
+
+                        if (disabled) {
+                            return (
+                                <div
+                                    className="flex items-center gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28] text-[#cdd6f4]"
+                                    key={item.name}
+                                >
+                                    {item.icon}
+                                    <p className="select-none text-nowrap text-[10px] sm:text-[13px]">
+                                        {translate(item.name)}
+                                    </p>
+                                </div>
+                            );
+                        }
+
                         return (
-                            <div
+                            <button
                                 className="flex items-center gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28] text-[#cdd6f4]"
                                 key={item.name}
                             >
                                 {item.icon}
                                 <p className="select-none text-nowrap text-[10px] sm:text-[13px]">
-                                    {translate(item.name)}
+                                {translate(item.name)}
                                 </p>
-                            </div>
+                            </button>
                         );
                     })
                 }
