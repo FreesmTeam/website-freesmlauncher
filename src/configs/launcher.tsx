@@ -11,6 +11,7 @@ import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
 import diamondSvg from "../../public/diamond.svg";
 
+export const ANIMATION_NAME = 'animate-shake';
 export const DELETED = {
     PROCESS: 'in-the-process',
     NO: 'no',
