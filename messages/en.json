@@ -7,7 +7,8 @@
       "home": "Home",
       "download": "Download",
       "about": "About",
-      "seconds-short": "s"
+      "seconds-short": "s",
+      "minutes-short": "min"
     },
     "navbar": {
       "home": "Home",
@@ -46,6 +47,7 @@
       "hand7s": "hand7s",
       "kaeeraa": "kaeeraa",
       "time-played": "Time played",
+      "specific-time-played": "total played for",
       "ungrouped": "Ungrouped",
       "confirm-deletion": "Confirm Deletion",
       "add-instance": "Add Instance",

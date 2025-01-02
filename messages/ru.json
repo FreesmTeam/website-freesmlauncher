@@ -7,7 +7,8 @@
       "home": "Главная",
       "download": "Скачать",
       "about": "О нас",
-      "seconds-short": "с"
+      "seconds-short": "с",
+      "minutes-short": "мин"
     },
     "navbar": {
       "home": "Главная",
@@ -46,6 +47,7 @@
       "hand7s": "hand7s",
       "kaeeraa": "kaeeraa",
       "time-played": "Всего наиграно",
+      "specific-time-played": "сыграно за всё время",
       "ungrouped": "Без группы",
       "confirm-deletion": "Подтвердить удаление",
       "add-instance": "Добавить сборку...",

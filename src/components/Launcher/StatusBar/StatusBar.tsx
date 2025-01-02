@@ -31,8 +31,7 @@ export default function StatusBar() {
 
         return interval.stop;
     }, [interval, currentInstance]);
-
-
+    console.log(seconds)
     return (
         <div className="rounded-b-md select-none p-2 gap-2 flex justify-between items-center h-9 w-full bg-[#09090e]">
             <div
