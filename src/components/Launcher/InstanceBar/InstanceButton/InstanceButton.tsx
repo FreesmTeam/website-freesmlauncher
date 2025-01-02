@@ -87,7 +87,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
             <div
                 aria-label={LAUNCHER_ACTIONS._TYPE}
                 ref={ref}
-                className="transition z-[1000] absolute flex flex-col gap-1 border-[#181822] border-[1px] p-1 bg-[#11111B]"
+                className="cursor-default transition z-[1000] absolute flex flex-col gap-1 border-[#181822] border-[1px] p-1 bg-[#11111B]"
                 style={{
                     top: mouseCoordinates.y,
                     left: mouseCoordinates.x,
@@ -137,7 +137,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                             <div
                                 aria-label={LAUNCHER_ACTIONS._TYPE}
                                 onClick={action}
-                                className="flex items-center gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28] text-[#cdd6f4]"
+                                className="cursor-pointer flex items-center gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28] text-[#cdd6f4]"
                                 key={item.name}
                             >
                                 {item.icon}
