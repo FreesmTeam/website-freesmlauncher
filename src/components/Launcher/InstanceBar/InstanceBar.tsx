@@ -1,6 +1,6 @@
 import {useInstanceStore, useLauncherBarsStore} from "@/utils/stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
-import {LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES} from "@/configs/launcher";
+import {ACTION_LAUNCH, LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
@@ -15,12 +15,19 @@ export default function InstanceBar() {
     const [hidden, setHidden] = useState(false);
 
     const instancesStore = useInstanceStore((state) => state);
-    const { currentInstance } = instancesStore;
+    const { currentInstance, updateCurrentInstance } = instancesStore;
 
     const launcherBarsStore = useLauncherBarsStore((state) => state);
     const instanceBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.instance-toolbar');
     const lastIndex = launcherBarsStore.entries.length - 1;
     const hasLockBars = launcherBarsStore.entries[lastIndex].opened;
+
+    function handleLaunch() {
+        updateCurrentInstance({
+            ...currentInstance,
+            launched: currentInstance.name,
+        });
+    }
 
     return (
         <div className="w-full min-h-40 items-stretch flex flex-nowrap gap-0 rounded-b-md">
@@ -42,16 +49,41 @@ export default function InstanceBar() {
                         </div>
                         {
                             LAUNCHER_INSTANCE_BAR_ITEMS.map((item: LauncherInstanceBarItemType) => {
+                                let disabled = false;
+                                let action = () => {};
+
+                                switch (item.action) {
+                                    case ACTION_LAUNCH:
+                                        disabled = currentInstance.launched !== null;
+                                        action = () => handleLaunch();
+                                        break;
+                                }
+
+                                if (disabled) {
+                                    return (
+                                        <div
+                                            key={item.name}
+                                            className="select-none px-1 py-0.5 flex gap-1 items-start sm:items-center text-[#9DA3BD]"
+                                        >
+                                            {item.icon}
+                                            <p className="text-[10px] sm:text-[13px]">
+                                                {translate(item.name)}
+                                            </p>
+                                        </div>
+                                    );
+                                }
+
                                 return (
-                                    <div
+                                    <button
+                                        onClick={action}
                                         key={item.name}
                                         className="select-none px-1 py-0.5 flex gap-1 items-start sm:items-center rounded-md hover:bg-[#1b1825] text-[#CDD6F4]"
                                     >
                                         {item.icon}
                                         <p className="text-[10px] sm:text-[13px]">
-                                            {translate(item.name)}
+                                        {translate(item.name)}
                                         </p>
-                                    </div>
+                                    </button>
                                 );
                             })
                         }
@@ -84,6 +116,7 @@ export default function InstanceBar() {
                                             key={instance.name}
                                             name={instance.name}
                                             icon={instance.icon}
+                                            launched={null}
                                         />
                                     );
                                 })

@@ -11,6 +11,7 @@ import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
 import diamondSvg from "../../public/diamond.svg";
 
+export const ACTION_LAUNCH = 'launch';
 export const LAUNCHER_TABS: TabNameType[] = [
     {
         icon: (
@@ -84,7 +85,8 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
 export const LAUNCHER_INSTANCE_BAR_ITEMS: LauncherInstanceBarItemType[] = [
     {
         name: 'launcher.instance.launch',
-        icon: <Icon fontSize={14} icon="fluent:triangle-right-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:triangle-right-16-regular" />,
+        action: ACTION_LAUNCH,
     },
     {
         name: 'launcher.instance.kill',
@@ -124,16 +126,19 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
         name: '1.21',
         group: 'Vanilla',
         icon: grassSvg,
+        launched: null,
     },
     {
         name: '1.12.2',
         group: 'Vanilla',
         icon: stoneSvg,
+        launched: null,
     },
     {
         name: 'Some 1.16.5 modpack with a long name',
         group: 'Fabric',
         icon: diamondSvg,
+        launched: null,
     }
 ];
 export const LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS: LauncherInstanceBarItemType[] = [

@@ -4,4 +4,5 @@ export type LauncherInstanceType = {
     name: string;
     group?: string;
     icon: StaticImageData;
+    launched: string | null,
 };

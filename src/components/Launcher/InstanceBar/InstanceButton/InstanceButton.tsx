@@ -6,6 +6,7 @@ import {useClickOutside} from "@mantine/hooks";
 import {LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
+import {Icon} from "@iconify/react";
 
 export default function InstanceButton(instance: LauncherInstanceType) {
     const translate = useTranslations('Translations');
@@ -35,13 +36,26 @@ export default function InstanceButton(instance: LauncherInstanceType) {
         updateCurrentInstance(instance);
     }
 
+    function handleDoubleClick() {
+        updateCurrentInstance({
+            ...instance,
+            launched: instance.name,
+        });
+    }
+
     return (
         <button
             ref={instanceRef}
             onContextMenu={handleRightClick}
             className="relative h-fit flex flex-col items-center justify-start gap-2 w-[100px]"
             onClick={handleLeftClick}
+            onDoubleClick={handleDoubleClick}
         >
+            {
+                currentInstance.launched === instance.name && (
+                    <Icon fontSize={28} className="absolute right-0 top-0 text-[#dcdff2]" icon="fluent:play-circle-16-filled" />
+                )
+            }
             <div
                 aria-label="context-menu"
                 ref={ref}
