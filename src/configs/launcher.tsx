@@ -14,6 +14,13 @@ import diamondSvg from "../../public/diamond.svg";
 export const LAUNCHER_ACTIONS = {
     LAUNCH: 'launch',
     KILL: 'kill',
+    EDIT: 'edit',
+    CHANGE_GROUP: 'change_group',
+    FOLDER: 'folder',
+    EXPORT: 'export',
+    COPY: 'copy',
+    DELETE: 'delete',
+    CREATE_SHORTCUT: 'create_shortcut',
 };
 export const LAUNCHER_TABS: TabNameType[] = [
     {
@@ -98,31 +105,38 @@ export const LAUNCHER_INSTANCE_BAR_ITEMS: LauncherInstanceBarItemType[] = [
     },
     {
         name: 'launcher.instance.edit',
-        icon: <Icon fontSize={14} icon="fluent:settings-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:settings-16-regular" />,
+        action: LAUNCHER_ACTIONS.EDIT,
     },
     {
         name: 'launcher.instance.change-group',
-        icon: <Icon fontSize={14} icon="fluent:tag-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:tag-16-regular" />,
+        action: LAUNCHER_ACTIONS.CHANGE_GROUP,
     },
     {
         name: 'launcher.instance.folder',
-        icon: <Icon fontSize={14} icon="fluent:folder-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:folder-16-regular" />,
+        action: LAUNCHER_ACTIONS.FOLDER,
     },
     {
         name: 'launcher.instance.export',
-        icon: <Icon fontSize={14} icon="fluent:folder-arrow-right-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:folder-arrow-right-16-regular" />,
+        action: LAUNCHER_ACTIONS.EXPORT,
     },
     {
         name: 'launcher.instance.copy',
-        icon: <Icon fontSize={14} icon="fluent:copy-arrow-right-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:copy-arrow-right-16-regular" />,
+        action: LAUNCHER_ACTIONS.COPY,
     },
     {
         name: 'launcher.instance.delete',
-        icon: <Icon fontSize={14} icon="fluent:delete-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:delete-16-regular" />,
+        action: LAUNCHER_ACTIONS.DELETE,
     },
     {
         name: 'launcher.instance.create-shortcut',
-        icon: <Icon fontSize={14} icon="fluent:link-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:link-16-regular" />,
+        action: LAUNCHER_ACTIONS.CREATE_SHORTCUT,
     },
 ];
 export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [

@@ -33,7 +33,10 @@ export default function InstanceButton(instance: LauncherInstanceType) {
     }
 
     function handleLeftClick() {
-        updateCurrentInstance(instance);
+        updateCurrentInstance({
+            ...instance,
+            launched: currentInstance.launched,
+        });
     }
 
     function handleDoubleClick() {

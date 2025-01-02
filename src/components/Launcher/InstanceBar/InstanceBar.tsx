@@ -63,13 +63,23 @@ export default function InstanceBar() {
                                         action = () => handleLaunch(null);
 
                                         break;
+                                    case LAUNCHER_ACTIONS.EDIT:
+                                        break;
+                                    case LAUNCHER_ACTIONS.CHANGE_GROUP:
+                                        break;
+                                    case LAUNCHER_ACTIONS.DELETE:
+                                        break;
+                                    default:
+                                        disabled = true;
+
+                                        break;
                                 }
 
                                 if (disabled) {
                                     return (
                                         <div
                                             key={item.name}
-                                            className="select-none px-1 py-0.5 flex gap-1 items-start sm:items-center text-[#9DA3BD]"
+                                            className="select-none px-1 py-0.5 flex gap-1 items-start sm:items-center text-[#9298b6]"
                                         >
                                             {item.icon}
                                             <p className="text-[10px] sm:text-[13px]">
