@@ -115,7 +115,7 @@ export default function InstanceBar() {
                         }
                     />
                     <div className="flex-shrink-0 font-bold">
-                        Без группы
+                        {translate('launcher.ungrouped')}
                     </div>
                     <div className="w-full h-[2px] bg-[#15161e]" />
                 </button>
