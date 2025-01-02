@@ -3,7 +3,7 @@ import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import {useInstanceStore} from "@/utils/stores";
 import {useRef, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
-import {LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS} from "@/configs/launcher";
+import {LAUNCHER_ACTIONS, LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 import {Icon} from "@iconify/react";
@@ -37,7 +37,19 @@ export default function InstanceButton(instance: LauncherInstanceType) {
         setOpened(true);
     }
 
-    function handleLeftClick() {
+    function handleLeftClick(event: React.MouseEvent) {
+        // because I don't use React portals for context menus
+        // clicking on any element in them triggers <InstanceButton />'s
+        // onClick event, which triggers updateCurrentInstance, which triggers
+        // React re-render, etc. which leads to nullifying any context menu action
+        if ('ariaLabel' in event.target) {
+            const ariaLabel = event.target.ariaLabel;
+
+            if (ariaLabel === LAUNCHER_ACTIONS._TYPE) {
+                return;
+            }
+        }
+
         updateCurrentInstance({
             ...instance,
             launched: currentInstance.launched,
@@ -92,11 +104,15 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                         if (disabled) {
                             return (
                                 <div
+                                    aria-label={LAUNCHER_ACTIONS._TYPE}
                                     className="cursor-default flex items-center gap-3 sm:gap-4 w-full p-1 text-[#9298b6]"
                                     key={item.name}
                                 >
                                     {item.icon}
-                                    <p className="select-none text-nowrap text-[10px] sm:text-[13px]">
+                                    <p
+                                        aria-label={LAUNCHER_ACTIONS._TYPE}
+                                        className="select-none text-nowrap text-[10px] sm:text-[13px]"
+                                    >
                                         {translate(item.name)}
                                     </p>
                                 </div>
@@ -105,12 +121,16 @@ export default function InstanceButton(instance: LauncherInstanceType) {
 
                         return (
                             <div
+                                aria-label={LAUNCHER_ACTIONS._TYPE}
                                 onClick={action}
                                 className="flex items-center gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28] text-[#cdd6f4]"
                                 key={item.name}
                             >
                                 {item.icon}
-                                <p className="select-none text-nowrap text-[10px] sm:text-[13px]">
+                                <p
+                                    aria-label={LAUNCHER_ACTIONS._TYPE}
+                                    className="select-none text-nowrap text-[10px] sm:text-[13px]"
+                                >
                                 {translate(item.name)}
                                 </p>
                             </div>
