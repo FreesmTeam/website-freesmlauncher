@@ -1,7 +1,8 @@
-import {LAUNCHER_ACTIONS} from "@/configs/launcher";
+import {DELETED, LAUNCHER_ACTIONS} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
-import {HandleLaunchType} from "@/types/HandleLaunch.type";
+import {HandleActionType} from "@/types/HandleAction.type";
+import handleDelete from "@/utils/handleDelete";
 
 export default function getDisabledProperty({
     item,
@@ -12,7 +13,7 @@ export default function getDisabledProperty({
     item: LauncherInstanceBarItemType;
     currentInstance: LauncherInstanceType;
     updateCurrentInstance: (instance: LauncherInstanceType) => void;
-    handleLaunch: (data: HandleLaunchType) => void;
+    handleLaunch: (data: HandleActionType) => void;
 }) {
     let disabled;
     let action = () => {};
@@ -20,6 +21,14 @@ export default function getDisabledProperty({
     const handleLaunchSpecified = (launched: string | null) => (
         handleLaunch({
             launched: launched,
+            updateCurrentInstance: updateCurrentInstance,
+            currentInstance: currentInstance,
+        })
+    );
+
+    const handleDeleteWrapper = () => (
+        handleDelete({
+            deleted: DELETED.PROCESS,
             updateCurrentInstance: updateCurrentInstance,
             currentInstance: currentInstance,
         })
@@ -47,8 +56,8 @@ export default function getDisabledProperty({
 
             break;
         case LAUNCHER_ACTIONS.DELETE:
-            // TODO
             disabled = true;
+            action = () => handleDeleteWrapper();
 
             break;
         default:

@@ -5,4 +5,5 @@ export type LauncherInstanceType = {
     group?: string;
     icon: StaticImageData;
     launched: string | null,
+    deleted: string;
 };

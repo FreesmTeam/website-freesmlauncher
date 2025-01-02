@@ -11,6 +11,11 @@ import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
 import diamondSvg from "../../public/diamond.svg";
 
+export const DELETED = {
+    PROCESS: 'in-the-process',
+    NO: 'no',
+    YES: 'yes',
+};
 export const LAUNCHER_ACTIONS = {
     _TYPE: 'launcher-actions-property',
     LAUNCH: 'launch',
@@ -146,18 +151,21 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
         group: 'Vanilla',
         icon: grassSvg,
         launched: null,
+        deleted: DELETED.NO,
     },
     {
         name: '1.12.2',
         group: 'Vanilla',
         icon: stoneSvg,
         launched: null,
+        deleted: DELETED.NO,
     },
     {
         name: 'Some 1.16.5 modpack with a long name',
         group: 'Fabric',
         icon: diamondSvg,
         launched: null,
+        deleted: DELETED.NO,
     }
 ];
 export const LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS: LauncherInstanceBarItemType[] = [

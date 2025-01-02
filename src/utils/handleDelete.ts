@@ -1,12 +1,12 @@
 import {HandleActionType} from "@/types/HandleAction.type";
 
-export default function handleLaunch({
-    launched,
+export default function handleDelete({
+    deleted,
     updateCurrentInstance,
     currentInstance,
 }: HandleActionType): void {
     updateCurrentInstance({
         ...currentInstance,
-        launched: launched ?? currentInstance.launched,
+        deleted: deleted ?? currentInstance.deleted,
     });
 }
