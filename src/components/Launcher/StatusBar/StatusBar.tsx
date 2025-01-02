@@ -8,7 +8,7 @@ export default function StatusBar() {
     const { currentInstance } = instancesStore;
 
     return (
-        <div className="select-none p-2 gap-2 flex justify-between items-center h-9 w-full bg-[#09090e]">
+        <div className="rounded-b-md select-none p-2 gap-2 flex justify-between items-center h-9 w-full bg-[#09090e]">
             <div
                 className="px-4 text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                 <p className="w-fit text-nowrap">

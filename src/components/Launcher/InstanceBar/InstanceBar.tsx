@@ -39,10 +39,10 @@ export default function InstanceBar() {
     }, [currentInstance.deleted, currentInstance.name, updateCurrentInstance]);
 
     return (
-        <div className="w-full min-h-40 items-stretch flex flex-nowrap gap-0 rounded-b-md">
+        <div className="w-full min-h-40 items-stretch flex flex-nowrap gap-0">
             {
                 instanceBar?.opened && (
-                    <div className="rounded-bl-md p-2.5 flex flex-col gap-2 w-[128px] sm:w-[168px] bg-[#0a0a10]">
+                    <div className="p-2.5 flex flex-col gap-2 w-[128px] sm:w-[168px] bg-[#0a0a10]">
                         {
                             !hasLockBars && (
                                 <div className="cursor-move rounded-full h-[5px] w-full bg-[#dbcafe]" />
@@ -105,7 +105,7 @@ export default function InstanceBar() {
                     </div>
                 )
             }
-            <div className="rounded-b-md w-full flex flex-col p-4 gap-2 bg-[#0c0c13]">
+            <div className="w-full flex flex-col p-4 gap-2 bg-[#0c0c13]">
                 <button
                     onClick={() => setHidden((hidden: boolean) => !hidden)}
                     className="select-none flex gap-2 items-center text-[#80859A] text-[10px] sm:text-[12px]"
