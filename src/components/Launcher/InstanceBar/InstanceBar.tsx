@@ -1,6 +1,6 @@
 import {useInstanceStore, useLauncherBarsStore} from "@/utils/stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
-import {LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES} from "@/configs/launcher";
+import {DELETED, LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
@@ -10,6 +10,7 @@ import {useState} from "react";
 import InstanceButton from "@/components/Launcher/InstanceBar/InstanceButton/InstanceButton";
 import getDisabledProperty from "@/utils/getDisabledProperty";
 import handleLaunch from '@/utils/handleLaunch';
+import React from "react";
 
 export default function InstanceBar() {
     const translate = useTranslations('Translations');
@@ -23,7 +24,7 @@ export default function InstanceBar() {
     const instanceBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.instance-toolbar');
     const lastIndex = launcherBarsStore.entries.length - 1;
     const hasLockBars = launcherBarsStore.entries[lastIndex].opened;
-
+console.log(currentInstance, LAUNCHER_INSTANCES)
     return (
         <div className="w-full min-h-40 items-stretch flex flex-nowrap gap-0 rounded-b-md">
             {
@@ -103,6 +104,12 @@ export default function InstanceBar() {
                         <div className="flex gap-2 flex-wrap sm:flex-nowrap">
                             {
                                 LAUNCHER_INSTANCES.map((instance: LauncherInstanceType) => {
+                                    if (currentInstance.deleted === DELETED.YES && instance.name === currentInstance.name) {
+                                        return (
+                                            <React.Fragment key={instance.name} />
+                                        );
+                                    }
+
                                     return (
                                         <InstanceButton
                                             key={instance.name}
