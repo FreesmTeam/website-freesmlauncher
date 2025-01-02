@@ -95,10 +95,26 @@ export default function MenuBar() {
                 }
                 {
                     LAUNCHER_TABS.map((tab) => {
+                        if (tab.disabled){
+                            return (
+                                <div
+                                    key={tab?.name ?? ''}
+                                    className="select-none px-1 sm:px-2 py-1 sm:py-0 flex items-center gap-1 text-[#9298b6]"
+                                >
+                                    {tab.icon}
+                                    {tab?.name && (
+                                        <p className="text-nowrap text-[10px] sm:text-[13px] text-[#9298b6]">
+                                            {translate(tab.name)}
+                                        </p>
+                                    )}
+                                </div>
+                            );
+                        }
+
                         return (
                             <button
                                 key={tab?.name ?? ''}
-                                className="px-1 sm:px-2 py-1 sm:py-0 rounded-md flex items-center gap-1 hover:bg-[#211e2f]  active:bg-[#171721]"
+                                className="select-none px-1 sm:px-2 py-1 sm:py-0 rounded-md flex items-center gap-1 hover:bg-[#211e2f] active:bg-[#171721]"
                             >
                                 {tab.icon}
                                 {tab?.name && (
@@ -107,7 +123,7 @@ export default function MenuBar() {
                                     </p>
                                 )}
                             </button>
-                        )
+                        );
                     })
                 }
             </div>

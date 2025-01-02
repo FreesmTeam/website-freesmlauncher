@@ -38,9 +38,10 @@ export const LAUNCHER_TABS: TabNameType[] = [
     },
     {
         icon: (
-            <Icon className="h-4 sm:h-8" color="#fff" fontSize={24} icon="fluent:folder-24-regular" />
+            <Icon className="h-4 sm:h-8" color="#9298b6" fontSize={24} icon="fluent:folder-24-regular" />
         ),
-        name: 'launcher.folders'
+        name: 'launcher.folders',
+        disabled: true,
     },
     {
         icon: (
@@ -56,9 +57,10 @@ export const LAUNCHER_TABS: TabNameType[] = [
     },
     {
         icon: (
-            <Icon className="h-4 sm:h-8" color="#fff" fontSize={24} icon="fluent:phone-update-24-regular" />
+            <Icon className="h-4 sm:h-8" color="#9298b6" fontSize={24} icon="fluent:phone-update-24-regular" />
         ),
-        name: 'launcher.update'
+        name: 'launcher.update',
+        disabled: true,
     },
     {
         icon: (
