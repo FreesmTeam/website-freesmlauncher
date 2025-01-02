@@ -1,7 +1,13 @@
 import Image from "next/image";
 import freesmLogo from "../../../../public/favicon.webp";
 
-export default function WindowHeader({ name }: { name: string; }) {
+export default function WindowHeader({
+    name,
+    onClose,
+}: {
+    name: string;
+    onClose?: () => void
+}) {
     return (
         <div className="flex rounded-t-md justify-between items-center w-full h-6 sm:h-8 bg-[#11111b]">
             <div className="select-none px-1 sm:px-2 flex gap-2 items-center">
@@ -25,7 +31,10 @@ export default function WindowHeader({ name }: { name: string; }) {
                         className="transition w-[8px] sm:w-[10px] h-[8px] sm:h-[10px] border-[1px] border-[#999] group-hover:border-[#000]"
                     />
                 </div>
-                <div className="group flex justify-center items-center transition w-8 sm:w-12 hover:bg-[#e81123] rounded-tr-md">
+                <div
+                    onClick={onClose}
+                    className="group flex justify-center items-center transition w-8 sm:w-12 hover:bg-[#e81123] rounded-tr-md"
+                >
                     <div className="relative right-[6px]">
                         <div
                             className="absolute top-[50%] left-[50%] rotate-45 transition w-[10px] sm:w-[13px] h-[1px] bg-[#999] group-hover:bg-[#fff]"
