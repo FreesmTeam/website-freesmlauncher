@@ -9,10 +9,12 @@ import InstanceBar from "@/components/Launcher/InstanceBar/InstanceBar";
 import Modals from "@/components/Launcher/Modals/Modals";
 import {useState} from "react";
 import {ANIMATION_NAME} from "@/configs/launcher";
+import StatusBar from "@/components/Launcher/StatusBar/StatusBar";
 
 export default function Launcher() {
     const launcherBarsStore = useLauncherBarsStore((state) => state);
     const newsBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.news-toolbar');
+    const statusBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.status-bar');
     const [animation, setAnimation] = useState('');
 
     function onClose() {
@@ -43,6 +45,11 @@ export default function Launcher() {
                         )
                     }
                     <InstanceBar />
+                    {
+                        statusBar?.opened && (
+                            <StatusBar />
+                        )
+                    }
                 </div>
             </div>
             <Modals />
