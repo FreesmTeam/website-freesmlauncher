@@ -45,7 +45,7 @@ export default function StatusBar() {
             <div
                 className="px-4 text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                 <p className="w-fit text-nowrap">
-                    Minecraft {currentInstance.name}, {translate('launcher.specific-time-played')}
+                    Minecraft {currentInstance.version}, {translate('launcher.specific-time-played')}
                     {' '}
                     {
                         instanceMinutes > 0 && `${instanceMinutes}${translate('general.minutes-short')}`

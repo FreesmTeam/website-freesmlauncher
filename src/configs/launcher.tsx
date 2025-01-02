@@ -164,6 +164,7 @@ export const UNKNOWN_INSTANCE: LauncherInstanceType = {
 export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
         name: '1.21',
+        version: '1.21',
         group: 'Vanilla',
         icon: grassSvg,
         launched: null,
@@ -171,6 +172,7 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     },
     {
         name: '1.12.2',
+        version: '1.12.2',
         group: 'Vanilla',
         icon: stoneSvg,
         launched: null,
@@ -178,6 +180,7 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     },
     {
         name: 'Some 1.16.5 modpack with a long name',
+        version: '1.16.5',
         group: 'Fabric',
         icon: diamondSvg,
         launched: null,
