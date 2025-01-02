@@ -36,7 +36,7 @@ export default function InstanceBar() {
                 deleted: DELETED.NO,
             })
         }
-    }, [currentInstance.deleted]);
+    }, [currentInstance.deleted, currentInstance.name, updateCurrentInstance]);
 
     return (
         <div className="w-full min-h-40 items-stretch flex flex-nowrap gap-0 rounded-b-md">

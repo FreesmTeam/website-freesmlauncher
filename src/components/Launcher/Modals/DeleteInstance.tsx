@@ -1,8 +1,7 @@
 import {useInstanceStore} from "@/utils/stores";
-import {DELETED, LAUNCHER_INSTANCES} from "@/configs/launcher";
+import {DELETED} from "@/configs/launcher";
 import WindowHeader from "@/components/Launcher/WindowHeader/WindowHeader";
 import {useTranslations} from "next-intl";
-import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 
 export default function DeleteInstanceModal() {
     const instancesStore = useInstanceStore((state) => state);
