@@ -22,6 +22,8 @@ export default function StatusBar() {
         };
     }), 1000);
 
+    const totalSeconds = Object.values(seconds).reduce((accumulator: number, currentValue) => currentValue + accumulator, 0);
+
     useEffect(() => {
         if (currentInstance.launched !== null) {
             interval.start();
@@ -31,20 +33,22 @@ export default function StatusBar() {
 
         return interval.stop;
     }, [interval, currentInstance]);
-    console.log(seconds)
+
     return (
         <div className="rounded-b-md select-none p-2 gap-2 flex justify-between items-center h-9 w-full bg-[#09090e]">
             <div
                 className="px-4 text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                 <p className="w-fit text-nowrap">
-                    Minecraft {currentInstance.name}
+                    Minecraft {currentInstance.name}, {translate('launcher.specific-time-played')}{' '}
+                    {seconds[currentInstance.name] ?? 0}
+                    {translate('general.seconds-short')}
                 </p>
             </div>
             <div
                 className="px-4 text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                 <p className="w-fit text-nowrap">
                     {translate('launcher.time-played')}:{' '}
-                    {seconds[currentInstance.name] ?? 0}
+                    {totalSeconds}
                     {translate('general.seconds-short')}
                 </p>
             </div>
