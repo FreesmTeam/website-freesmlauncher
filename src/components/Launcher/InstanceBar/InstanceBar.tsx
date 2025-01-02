@@ -1,6 +1,6 @@
 import {useInstanceStore, useLauncherBarsStore} from "@/utils/stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
-import {ACTION_LAUNCH, LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES} from "@/configs/launcher";
+import {LAUNCHER_ACTIONS, LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
@@ -22,10 +22,10 @@ export default function InstanceBar() {
     const lastIndex = launcherBarsStore.entries.length - 1;
     const hasLockBars = launcherBarsStore.entries[lastIndex].opened;
 
-    function handleLaunch() {
+    function handleLaunch(launched: string | null): void {
         updateCurrentInstance({
             ...currentInstance,
-            launched: currentInstance.name,
+            launched: launched,
         });
     }
 
@@ -53,9 +53,15 @@ export default function InstanceBar() {
                                 let action = () => {};
 
                                 switch (item.action) {
-                                    case ACTION_LAUNCH:
+                                    case LAUNCHER_ACTIONS.LAUNCH:
                                         disabled = currentInstance.launched !== null;
-                                        action = () => handleLaunch();
+                                        action = () => handleLaunch(currentInstance.name);
+
+                                        break;
+                                    case LAUNCHER_ACTIONS.KILL:
+                                        disabled = currentInstance.launched === null;
+                                        action = () => handleLaunch(null);
+
                                         break;
                                 }
 

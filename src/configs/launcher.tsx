@@ -11,7 +11,10 @@ import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
 import diamondSvg from "../../public/diamond.svg";
 
-export const ACTION_LAUNCH = 'launch';
+export const LAUNCHER_ACTIONS = {
+    LAUNCH: 'launch',
+    KILL: 'kill',
+};
 export const LAUNCHER_TABS: TabNameType[] = [
     {
         icon: (
@@ -86,11 +89,12 @@ export const LAUNCHER_INSTANCE_BAR_ITEMS: LauncherInstanceBarItemType[] = [
     {
         name: 'launcher.instance.launch',
         icon: <Icon fontSize={14} icon="fluent:triangle-right-16-regular" />,
-        action: ACTION_LAUNCH,
+        action: LAUNCHER_ACTIONS.LAUNCH,
     },
     {
         name: 'launcher.instance.kill',
-        icon: <Icon fontSize={14} icon="fluent:dismiss-circle-16-regular" />
+        icon: <Icon fontSize={14} icon="fluent:dismiss-circle-16-regular" />,
+        action: LAUNCHER_ACTIONS.KILL,
     },
     {
         name: 'launcher.instance.edit',
