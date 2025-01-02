@@ -156,6 +156,7 @@ export const LAUNCHER_INSTANCE_BAR_ITEMS: LauncherInstanceBarItemType[] = [
 ];
 export const UNKNOWN_INSTANCE: LauncherInstanceType = {
     name: 'Unknown',
+    version: 'unknown',
     icon: grassSvg,
     launched: null,
     deleted: DELETED.NO,

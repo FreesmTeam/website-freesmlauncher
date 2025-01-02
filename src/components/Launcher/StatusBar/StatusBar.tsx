@@ -2,6 +2,7 @@ import {useTranslations} from "next-intl";
 import {useInstanceStore} from "@/utils/stores";
 import {useEffect, useState} from "react";
 import {useInterval} from "@mantine/hooks";
+import {UNKNOWN_INSTANCE} from "@/configs/launcher";
 
 export default function StatusBar() {
     const translate = useTranslations('Translations');
@@ -45,14 +46,22 @@ export default function StatusBar() {
             <div
                 className="px-4 text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                 <p className="w-fit text-nowrap">
-                    Minecraft {currentInstance.version}, {translate('launcher.specific-time-played')}
-                    {' '}
                     {
-                        instanceMinutes > 0 && `${instanceMinutes}${translate('general.minutes-short')}`
+                        currentInstance.name === UNKNOWN_INSTANCE.name ? (
+                            <>
+                                {translate('launcher.no-selection')}
+                            </>
+                        ) : (
+                            <>
+                                Minecraft {currentInstance.version}, {translate('launcher.specific-time-played')}
+                                {' '}
+                                {instanceMinutes > 0 && `${instanceMinutes}${translate('general.minutes-short')}`}
+                                {' '}
+                                {instanceSecondsRemaining}
+                                {translate('general.seconds-short')}
+                            </>
+                        )
                     }
-                    {' '}
-                    {instanceSecondsRemaining}
-                    {translate('general.seconds-short')}
                 </p>
             </div>
             <div
