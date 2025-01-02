@@ -11,6 +11,7 @@ import {LocaleType} from "@/types/Locale.type";
 import { Analytics } from "@vercel/analytics/react"
 import TanstackQueryProviders from "@/utils/Providers/TanstackQueryProviders";
 import Navbar from "@/components/Navbar/Navbar";
+import Head from "next/head";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -44,6 +45,9 @@ export default async function LocaleLayout({
 
     return (
         <html lang={locale}>
+            <Head>
+                <meta name="robots" content="NOODP" key="NOODP" />
+            </Head>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased pb-28 sm:pb-8`}>
                 <TanstackQueryProviders>
                     <NextIntlClientProvider messages={messages}>
