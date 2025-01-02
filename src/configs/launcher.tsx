@@ -84,6 +84,14 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
         hotkey: "Maintainer",
     },
     {
+        skin: hand7sSkinAvatar,
+        icon: (
+            <Image height={16} width={16} src={hand7sSkinAvatar} alt={"kaeeraa skin avatar"}/>
+        ),
+        name: "launcher.kaeeraa",
+        hotkey: "Maintainer",
+    },
+    {
         skin: monochromeSteveSkinAvatar,
         icon: (
             <Image height={16} width={16} src={monochromeSteveSkinAvatar} alt={"Monochrome Steve avatar"}/>

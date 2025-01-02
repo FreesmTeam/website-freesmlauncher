@@ -41,10 +41,11 @@
       "second-description": "С лёгкостью играйте в Майнкрафт без каких-либо ограничений, даже если у Вас нет лицензионного аккаунта."
     },
     "launcher": {
-      "ungrouped": "Без группы",
-      "confirm-deletion": "Подтвердить удаление",
       "windstone_": "windstone_",
       "hand7s": "hand7s",
+      "kaeeraa": "kaeeraa",
+      "ungrouped": "Без группы",
+      "confirm-deletion": "Подтвердить удаление",
       "add-instance": "Добавить сборку...",
       "folders": "Папки",
       "settings": "Настройки...",
