@@ -54,12 +54,12 @@ export default function InstanceBar() {
 
                                 switch (item.action) {
                                     case LAUNCHER_ACTIONS.LAUNCH:
-                                        disabled = currentInstance.launched !== null;
+                                        disabled = currentInstance.launched === currentInstance.name;
                                         action = () => handleLaunch(currentInstance.name);
 
                                         break;
                                     case LAUNCHER_ACTIONS.KILL:
-                                        disabled = currentInstance.launched === null;
+                                        disabled = currentInstance.launched !== currentInstance.name;
                                         action = () => handleLaunch(null);
 
                                         break;

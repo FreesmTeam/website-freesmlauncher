@@ -20,7 +20,10 @@ export default function InstanceButton(instance: LauncherInstanceType) {
     const instanceRef = useRef<HTMLButtonElement>(null);
 
     function handleRightClick(event: React.MouseEvent) {
-        updateCurrentInstance(instance);
+        updateCurrentInstance({
+            ...instance,
+            launched: currentInstance.launched,
+        });
 
         if (!opened) {
             setMouseCoordinates({
