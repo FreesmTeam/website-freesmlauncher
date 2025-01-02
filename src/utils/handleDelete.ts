@@ -5,8 +5,10 @@ export default function handleDelete({
     updateCurrentInstance,
     currentInstance,
 }: HandleActionType): void {
+    const safeDeleted = deleted === undefined ? currentInstance.deleted : deleted;
+
     updateCurrentInstance({
         ...currentInstance,
-        deleted: deleted ?? currentInstance.deleted,
+        deleted: safeDeleted,
     });
 }

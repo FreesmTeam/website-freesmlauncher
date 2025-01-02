@@ -5,8 +5,10 @@ export default function handleLaunch({
     updateCurrentInstance,
     currentInstance,
 }: HandleActionType): void {
+    const safeLaunched = launched === undefined ? currentInstance.launched : launched;
+
     updateCurrentInstance({
         ...currentInstance,
-        launched: launched ?? currentInstance.launched,
+        launched: safeLaunched,
     });
 }
