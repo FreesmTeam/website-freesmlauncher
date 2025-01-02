@@ -155,7 +155,14 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                     })
                 }
             </div>
-            <Image width={48} src={instance.icon} alt="Grass svg icon"/>
+            <Image
+                width={48}
+                src={instance.icon}
+                alt="Grass svg icon"
+                style={{
+                    filter: instance.name === currentInstance.name ? "saturate(200%) contrast(20%) brightness(125%)" : "",
+                }}
+            />
             <p
                 className="text-[10px] sm:text-[13px] text-[#CDD6F4] text-center w-full"
                 style={{
