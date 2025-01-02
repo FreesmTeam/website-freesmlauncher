@@ -9,14 +9,14 @@ export default function WindowHeader({
     onClose?: () => void
 }) {
     return (
-        <div className="flex rounded-t-md justify-between items-center w-full h-6 sm:h-8 bg-[#11111b]">
-            <div className="select-none px-1 sm:px-2 flex gap-2 items-center">
+        <div className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-[#11111b]">
+            <div className="select-none px-1 sm:px-2 flex flex-nowrap gap-2 items-center">
                 <Image
                     className="w-4 h-4 sm:h-5 sm:w-5"
                     src={freesmLogo}
-                    alt={""}
+                    alt={"Freesm Launcher logo"}
                 />
-                <div className="text-xs sm:text-sm text-white">
+                <div className="text-xs text-nowrap sm:text-sm text-white">
                     {name}
                 </div>
             </div>
