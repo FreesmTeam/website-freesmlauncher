@@ -1,7 +1,7 @@
 import Image from "next/image";
 import freesmLogo from "../../../../public/favicon.webp";
 
-export default function WindowHeader() {
+export default function WindowHeader({ name }: { name: string; }) {
     return (
         <div className="flex rounded-t-md justify-between items-center w-full h-6 sm:h-8 bg-[#11111b]">
             <div className="select-none px-1 sm:px-2 flex gap-2 items-center">
@@ -11,7 +11,7 @@ export default function WindowHeader() {
                     alt={""}
                 />
                 <div className="text-xs sm:text-sm text-white">
-                    Freesm Launcher
+                    {name}
                 </div>
             </div>
             <div className="flex h-full gap-0 items-stretch">

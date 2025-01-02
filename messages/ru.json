@@ -41,6 +41,7 @@
       "second-description": "С лёгкостью играйте в Майнкрафт без каких-либо ограничений, даже если у Вас нет лицензионного аккаунта."
     },
     "launcher": {
+      "confirm-deletion": "Подтвердить удаление",
       "windstone_": "windstone_",
       "hand7s": "hand7s",
       "add-instance": "Добавить сборку...",
