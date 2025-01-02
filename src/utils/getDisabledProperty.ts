@@ -1,4 +1,4 @@
-import {DELETED, LAUNCHER_ACTIONS} from "@/configs/launcher";
+import {DELETED, LAUNCHER_ACTIONS, UNKNOWN_INSTANCE} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import {HandleActionType} from "@/types/HandleAction.type";
@@ -17,6 +17,13 @@ export default function getDisabledProperty({
 }) {
     let disabled;
     let action = () => {};
+
+    if (currentInstance.name === UNKNOWN_INSTANCE.name) {
+        return {
+            disabled: true,
+            action,
+        }
+    }
 
     const handleLaunchSpecified = (launched: string | null) => (
         handleLaunch({

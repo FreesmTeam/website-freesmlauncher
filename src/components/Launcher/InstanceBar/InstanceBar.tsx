@@ -54,7 +54,9 @@ export default function InstanceBar() {
                                 src={currentInstance.icon}
                                 alt="Grass svg icon"
                                 style={{
-                                    filter: currentInstance?.grayscale ? 'grayscale(100%)' : ''
+                                    filter: currentInstance?.grayscale
+                                        ? 'grayscale(100%) contrast(40%) '
+                                        : ''
                                 }}
                             />
                         </div>
