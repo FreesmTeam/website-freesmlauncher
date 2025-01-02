@@ -45,7 +45,7 @@ export default function StatusBar() {
                 className="px-4 text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                 <p className="w-fit text-nowrap">
                     {translate('launcher.time-played')}:{' '}
-                    {seconds[currentInstance.name]}
+                    {seconds[currentInstance.name] ?? 0}
                     {translate('general.seconds-short')}
                 </p>
             </div>
