@@ -1,9 +1,9 @@
 import Image from "next/image";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import {useInstanceStore} from "@/utils/stores";
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
-import {LAUNCHER_ACTIONS, LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS} from "@/configs/launcher";
+import {DELETED, LAUNCHER_ACTIONS, LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 import {Icon} from "@iconify/react";

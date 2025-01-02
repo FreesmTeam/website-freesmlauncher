@@ -6,7 +6,7 @@ import {useTranslations} from "next-intl";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import Image from "next/image";
 import {Icon} from "@iconify/react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import InstanceButton from "@/components/Launcher/InstanceBar/InstanceButton/InstanceButton";
 import getDisabledProperty from "@/utils/getDisabledProperty";
 import handleLaunch from '@/utils/handleLaunch';
@@ -14,6 +14,8 @@ import React from "react";
 
 export default function InstanceBar() {
     const translate = useTranslations('Translations');
+
+    const [filteredInstancesList, setFilteredInstancesList] = useState<LauncherInstanceType[]>(LAUNCHER_INSTANCES);
 
     const [hidden, setHidden] = useState(false);
 
@@ -24,7 +26,18 @@ export default function InstanceBar() {
     const instanceBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.instance-toolbar');
     const lastIndex = launcherBarsStore.entries.length - 1;
     const hasLockBars = launcherBarsStore.entries[lastIndex].opened;
-console.log(currentInstance, LAUNCHER_INSTANCES)
+
+    useEffect(() => {
+        if (currentInstance.deleted === DELETED.YES) {
+            setFilteredInstancesList((list: LauncherInstanceType[]) => list.filter((item: LauncherInstanceType) => item.name !== currentInstance.name));
+
+            updateCurrentInstance({
+                ...currentInstance,
+                deleted: DELETED.NO,
+            })
+        }
+    }, [currentInstance.deleted]);
+
     return (
         <div className="w-full min-h-40 items-stretch flex flex-nowrap gap-0 rounded-b-md">
             {
@@ -103,7 +116,7 @@ console.log(currentInstance, LAUNCHER_INSTANCES)
                     !hidden && (
                         <div className="flex gap-2 flex-wrap sm:flex-nowrap">
                             {
-                                LAUNCHER_INSTANCES.map((instance: LauncherInstanceType) => {
+                                filteredInstancesList.map((instance: LauncherInstanceType) => {
                                     if (currentInstance.deleted === DELETED.YES && instance.name === currentInstance.name) {
                                         return (
                                             <React.Fragment key={instance.name} />
