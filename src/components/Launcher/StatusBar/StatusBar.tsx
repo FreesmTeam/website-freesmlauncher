@@ -22,7 +22,13 @@ export default function StatusBar() {
         };
     }), 1000);
 
-    const totalSeconds = Object.values(seconds).reduce((accumulator: number, currentValue) => currentValue + accumulator, 0);
+    const overallSeconds = Object.values(seconds).reduce((accumulator: number, currentValue) => currentValue + accumulator, 0);
+    const overallMinutes = Math.floor(overallSeconds / 60);
+    const overallSecondsRemaining = overallSeconds % 60;
+
+    const instanceSeconds = seconds[currentInstance.name] ?? 0;
+    const instanceMinutes = Math.floor(instanceSeconds / 60);
+    const instanceSecondsRemaining = instanceSeconds % 60;
 
     useEffect(() => {
         if (currentInstance.launched !== null) {
@@ -39,16 +45,26 @@ export default function StatusBar() {
             <div
                 className="px-4 text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                 <p className="w-fit text-nowrap">
-                    Minecraft {currentInstance.name}, {translate('launcher.specific-time-played')}{' '}
-                    {seconds[currentInstance.name] ?? 0}
+                    Minecraft {currentInstance.name}, {translate('launcher.specific-time-played')}
+                    {' '}
+                    {
+                        instanceMinutes > 0 && `${instanceMinutes}${translate('general.minutes-short')}`
+                    }
+                    {' '}
+                    {instanceSecondsRemaining}
                     {translate('general.seconds-short')}
                 </p>
             </div>
             <div
                 className="px-4 text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                 <p className="w-fit text-nowrap">
-                    {translate('launcher.time-played')}:{' '}
-                    {totalSeconds}
+                    {translate('launcher.time-played')}:
+                    {' '}
+                    {
+                        overallMinutes > 0 && `${overallMinutes}${translate('general.minutes-short')}`
+                    }
+                    {' '}
+                    {overallSecondsRemaining}
                     {translate('general.seconds-short')}
                 </p>
             </div>
