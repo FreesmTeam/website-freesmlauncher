@@ -56,7 +56,15 @@ export default function InstanceButton(instance: LauncherInstanceType) {
         });
     }
 
-    function handleDoubleClick() {
+    function handleDoubleClick(event: React.MouseEvent) {
+        if ('ariaLabel' in event.target) {
+            const ariaLabel = event.target.ariaLabel;
+
+            if (ariaLabel === LAUNCHER_ACTIONS._TYPE) {
+                return;
+            }
+        }
+
         updateCurrentInstance({
             ...instance,
             launched: instance.name,
@@ -77,7 +85,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                 )
             }
             <div
-                aria-label="context-menu"
+                aria-label={LAUNCHER_ACTIONS._TYPE}
                 ref={ref}
                 className="transition z-[1000] absolute flex flex-col gap-1 border-[#181822] border-[1px] p-1 bg-[#11111B]"
                 style={{
@@ -87,8 +95,14 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                     visibility: opened ? 'visible' : 'hidden'
                 }}
             >
-                <div className="cursor-default flex justify-center items-center gap-4 w-full p-1 text-[#9DA3BD]">
-                    <p className="select-none text-nowrap text-center text-[10px] sm:text-[13px]">
+                <div
+                    aria-label={LAUNCHER_ACTIONS._TYPE}
+                    className="cursor-default flex justify-center items-center gap-4 w-full p-1 text-[#9DA3BD]"
+                >
+                    <p
+                        aria-label={LAUNCHER_ACTIONS._TYPE}
+                        className="select-none text-nowrap text-center text-[10px] sm:text-[13px]"
+                    >
                         {currentInstance.name}
                     </p>
                 </div>
