@@ -22,7 +22,7 @@ export default function Launcher() {
 
         setAnimation(ANIMATION_NAME);
 
-        setTimeout(() => setAnimation(''), 1000)
+        setTimeout(() => setAnimation(''), 820)
     }
 
     return (
