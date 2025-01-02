@@ -25,6 +25,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
         updateCurrentInstance({
             ...instance,
             launched: currentInstance.launched,
+            deleted: currentInstance.deleted,
         });
 
         if (!opened) {
@@ -53,6 +54,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
         updateCurrentInstance({
             ...instance,
             launched: currentInstance.launched,
+            deleted: currentInstance.deleted,
         });
     }
 
@@ -68,6 +70,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
         updateCurrentInstance({
             ...instance,
             launched: instance.name,
+            deleted: currentInstance.deleted,
         });
     }
 
