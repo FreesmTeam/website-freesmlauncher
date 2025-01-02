@@ -6,7 +6,8 @@
     "general": {
       "home": "Главная",
       "download": "Скачать",
-      "about": "О нас"
+      "about": "О нас",
+      "seconds-short": "с"
     },
     "navbar": {
       "home": "Главная",

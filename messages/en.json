@@ -6,7 +6,8 @@
     "general": {
       "home": "Home",
       "download": "Download",
-      "about": "About"
+      "about": "About",
+      "seconds-short": "s"
     },
     "navbar": {
       "home": "Home",
