@@ -6,6 +6,7 @@ import NewsBar from "@/components/Launcher/NewsBar/NewsBar";
 import {useLauncherBarsStore} from "@/utils/stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
 import InstanceBar from "@/components/Launcher/InstanceBar/InstanceBar";
+import Modals from "@/components/Launcher/Modals/Modals";
 
 export default function Launcher() {
     const launcherBarsStore = useLauncherBarsStore((state) => state);
@@ -28,6 +29,7 @@ export default function Launcher() {
                     <InstanceBar />
                 </div>
             </div>
+            <Modals />
         </div>
     );
 }

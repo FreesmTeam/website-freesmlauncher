@@ -56,7 +56,7 @@ export default function getDisabledProperty({
 
             break;
         case LAUNCHER_ACTIONS.DELETE:
-            disabled = true;
+            disabled = currentInstance.deleted === DELETED.YES;
             action = () => handleDeleteWrapper();
 
             break;

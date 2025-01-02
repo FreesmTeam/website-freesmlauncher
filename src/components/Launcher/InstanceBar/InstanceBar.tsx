@@ -109,6 +109,7 @@ export default function InstanceBar() {
                                             name={instance.name}
                                             icon={instance.icon}
                                             launched={null}
+                                            deleted={instance.deleted}
                                         />
                                     );
                                 })
