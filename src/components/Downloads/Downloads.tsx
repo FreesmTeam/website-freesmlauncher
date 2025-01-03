@@ -22,7 +22,7 @@ export default function Downloads() {
         }
 
         setSelectedPlatform(displayPlatform);
-    }, [platform]);
+    }, [definedNavigator, displayPlatform]);
 
     return (
         <div className="flex flex-col gap-8 mt-12 max-w-[960px] px-4 mx-auto">

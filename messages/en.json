@@ -23,6 +23,7 @@
       "packages-for": "Packages for",
       "error": "Error:",
       "loading": "Fetching data...",
+      "getting-platform": "Getting your platform...",
       "try-to-refresh": "Try refreshing the page."
     },
     "about": {

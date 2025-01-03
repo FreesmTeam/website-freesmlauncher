@@ -4,6 +4,7 @@ import getReleaseName from "@/utils/getReleaseName";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
+import {PLACEHOLDER_OS} from "@/configs/constants";
 
 export default function ReleaseLinks({ platform }: { platform: string; }) {
     const translate = useTranslations('Translations');
@@ -21,10 +22,18 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
         },
     });
 
+    if (platform === PLACEHOLDER_OS) {
+        return (
+            <div className="text-gray-400">
+                {translate('downloads.getting-platform')}
+            </div>
+        )
+    }
+
     if (isPending) {
         return (
             <div className="text-gray-400">
-                {translate('downloads.loading')}
+            {translate('downloads.loading')}
             </div>
         );
     }
