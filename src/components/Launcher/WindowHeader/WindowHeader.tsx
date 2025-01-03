@@ -3,10 +3,14 @@ import freesmLogo from "../../../../public/favicon.webp";
 
 export default function WindowHeader({
     name,
+    onMinimize,
+    onMaximize,
     onClose,
 }: {
     name: string;
-    onClose?: () => void
+    onMinimize?: () => void;
+    onMaximize?: () => void;
+    onClose?: () => void;
 }) {
     return (
         <div className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-[#11111b]">
@@ -21,12 +25,18 @@ export default function WindowHeader({
                 </div>
             </div>
             <div className="flex h-full gap-0 items-stretch">
-                <div className="group flex justify-center items-center transition w-8 sm:w-12 hover:bg-[#e5e5e5]">
+                <div
+                    onClick={onMinimize}
+                    className="group flex justify-center items-center transition w-8 sm:w-12 hover:bg-[#e5e5e5]"
+                >
                     <div
                         className="transition w-[8px] sm:w-[10px] h-[1px] bg-[#999] group-hover:bg-[#000]"
                     />
                 </div>
-                <div className="group flex justify-center items-center transition w-8 sm:w-12 hover:bg-[#e5e5e5]">
+                <div
+                    onClick={onMaximize}
+                    className="group flex justify-center items-center transition w-8 sm:w-12 hover:bg-[#e5e5e5]"
+                >
                     <div
                         className="transition w-[8px] sm:w-[10px] h-[8px] sm:h-[10px] border-[1px] border-[#999] group-hover:border-[#000]"
                     />

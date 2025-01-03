@@ -27,6 +27,10 @@ export default function Launcher() {
         setTimeout(() => setAnimation(''), 820)
     }
 
+    function onMaximize() {
+
+    }
+
     return (
         <div
             onContextMenu={(event) => event.preventDefault()}
@@ -34,6 +38,8 @@ export default function Launcher() {
         >
             <WindowHeader
                 name={"Freesm Launcher"}
+                onMinimize={onClose}
+                onMaximize={onMaximize}
                 onClose={onClose}
             />
             <div>
