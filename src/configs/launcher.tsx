@@ -1,8 +1,9 @@
 import {Icon} from "@iconify/react";
 import {TabNameType} from "@/types/TabName.type";
 import {ProfileItemType} from "@/types/ProfileItem.type";
-import windstoneSkinAvatar from "../../public/windstone_profile_skin.png";
+import windstoneSkinAvatar from "../../public/windstone_skin_avatar.png";
 import hand7sSkinAvatar from "../../public/hand7s_skin_avatar.png";
+import kaeeraaSkinAvatar from "../../public/kaeeraa_skin_avatar.png";
 import monochromeSteveSkinAvatar from "../../public/monochrome_steve.png";
 import Image from "next/image";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
@@ -86,9 +87,9 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
         hotkey: "Maintainer",
     },
     {
-        skin: hand7sSkinAvatar,
+        skin: kaeeraaSkinAvatar,
         icon: (
-            <Image height={16} width={16} src={hand7sSkinAvatar} alt={"kaeeraa skin avatar"}/>
+            <Image height={16} width={16} src={kaeeraaSkinAvatar} alt={"kaeeraa skin avatar"}/>
         ),
         name: "launcher.kaeeraa",
         hotkey: "Maintainer",
