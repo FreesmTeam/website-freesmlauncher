@@ -33,7 +33,7 @@
       "packages-for": "Packages for",
       "error": "Error:",
       "loading": "Fetching data...",
-      "getting-platform": "Getting your platform...",
+      "getting-platform": "Getting your platform... You can also manually select your platform just above!",
       "try-to-refresh": "Try refreshing the page."
     },
     "about": {
