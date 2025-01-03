@@ -24,7 +24,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     if (platform === PLACEHOLDER_OS) {
         return (
-            <div className="text-gray-400">
+            <div className="text-center text-gray-400">
                 {translate('downloads.getting-platform')}
             </div>
         )
@@ -32,7 +32,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     if (isPending) {
         return (
-            <div className="text-gray-400">
+            <div className="text-center text-gray-400">
             {translate('downloads.loading')}
             </div>
         );
@@ -40,7 +40,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     if (error) {
         return (
-            <div className="text-gray-400">
+            <div className="text-center text-gray-400">
                 {translate('downloads.error')}{' '}
                 {error.message}.{' '}
                 {translate('downloads.try-to-refresh')}
