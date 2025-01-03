@@ -25,9 +25,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: APP_NAME,
+    category: "website",
+    generator: "Next.js",
+    formatDetection: {
+        telephone: false,
+    },
+    icons: {
+        icon: "/favicon.webp"
+    },
+    title: {
+        template: `%s - ${APP_NAME}`,
+        default: APP_NAME,
+    },
     description: APP_DESCRIPTION,
     applicationName: APP_NAME,
+    openGraph: {
+        images: "/favicon.webp",
+        siteName: APP_NAME,
+        type: "website",
+        title: APP_NAME,
+        description: APP_DESCRIPTION,
+    },
+    twitter: {
+        card: "summary",
+        title: APP_NAME,
+        description: APP_DESCRIPTION,
+    },
 };
 
 export default async function LocaleLayout({
