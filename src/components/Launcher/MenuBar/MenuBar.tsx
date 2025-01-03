@@ -48,7 +48,7 @@ export default function MenuBar() {
         <div
             ref={menuBarRef}
             onContextMenu={handleRightClick}
-            className="relative flex justify-between p-2.5 h-fit sm:h-14 w-full bg-[#11111b]"
+            className="relative flex justify-between p-2.5 h-fit w-full bg-[#11111b]"
         >
             <div
                 ref={ref}
@@ -87,7 +87,7 @@ export default function MenuBar() {
                     })
                 }
             </div>
-            <div className="flex flex-wrap sm:flex-nowrap items-stretch gap-2">
+            <div className="flex flex-wrap items-stretch gap-2">
                 {
                     !hasLockBars && (
                         <div className="cursor-move w-[5px] rounded-full bg-[#dbcafe]"/>
