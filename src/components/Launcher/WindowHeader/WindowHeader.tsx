@@ -1,5 +1,6 @@
 import Image from "next/image";
 import freesmLogo from "../../../../public/favicon.webp";
+import {APP_NAME} from "@/configs/constants";
 
 export default function WindowHeader({
     name,
@@ -22,7 +23,7 @@ export default function WindowHeader({
                 <Image
                     className="w-4 h-4 sm:h-5 sm:w-5"
                     src={freesmLogo}
-                    alt={"Freesm Launcher logo"}
+                    alt={`${APP_NAME} logo`}
                 />
                 <div className="text-xs text-nowrap sm:text-sm text-white">
                     {name}

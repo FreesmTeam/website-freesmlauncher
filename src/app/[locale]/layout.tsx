@@ -12,6 +12,7 @@ import { Analytics } from "@vercel/analytics/react"
 import TanstackQueryProviders from "@/utils/Providers/TanstackQueryProviders";
 import Navbar from "@/components/Navbar/Navbar";
 import Head from "next/head";
+import {APP_DESCRIPTION, APP_NAME} from "@/configs/constants";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -24,8 +25,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Freesm Launcher",
-    description: "Prism Launcher fork aimed to provide a free way to play Minecraft.",
+    title: APP_NAME,
+    description: APP_DESCRIPTION,
+    applicationName: APP_NAME,
 };
 
 export default async function LocaleLayout({
