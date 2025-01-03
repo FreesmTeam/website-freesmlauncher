@@ -10,6 +10,16 @@
       "seconds-short": "s",
       "minutes-short": "min"
     },
+    "pages": {
+      "downloads": {
+        "title": "Downloads",
+        "description": "Download Freesm Launcher for your platform for free, no ads, no viruses, no SMS, no registration, no calls, no glowies. Or don't do it, it's up to you!"
+      },
+      "about": {
+        "title": "About",
+        "description": "Find out more about the Freesm Launcher development team and all the contributors here."
+      }
+    },
     "navbar": {
       "home": "Home",
       "downloads": "Download",
