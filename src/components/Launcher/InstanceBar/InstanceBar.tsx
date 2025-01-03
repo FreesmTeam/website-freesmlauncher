@@ -12,7 +12,11 @@ import getDisabledProperty from "@/utils/getDisabledProperty";
 import handleLaunch from '@/utils/handleLaunch';
 import React from "react";
 
-export default function InstanceBar() {
+export default function InstanceBar({
+    maximized,
+}: {
+    maximized?: boolean;
+}) {
     const translate = useTranslations('Translations');
 
     const [filteredInstancesList, setFilteredInstancesList] = useState<LauncherInstanceType[]>(LAUNCHER_INSTANCES);
@@ -41,7 +45,7 @@ export default function InstanceBar() {
 
     return (
         <div 
-            className="w-full min-h-40 items-stretch flex flex-nowrap gap-0"
+            className={`w-full min-h-40 items-stretch flex flex-nowrap gap-0 ${maximized ? "h-full" : ""}`}
             style={{
                 borderBottomLeftRadius: statusBar?.opened ? "0" : "0.375rem",
                 borderBottomRightRadius: statusBar?.opened ? "0" : "0.375rem",
