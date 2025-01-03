@@ -39,6 +39,7 @@ export default function DeleteInstanceModal() {
             <WindowHeader
                 name={translate('launcher.confirm-deletion')}
                 onClose={onClose}
+                onlyCloseButton={true}
             />
             <div className="p-2 bg-[#11111b] rounded-b-md">
                 Вы собираетесь удалить {currentInstance.name}
