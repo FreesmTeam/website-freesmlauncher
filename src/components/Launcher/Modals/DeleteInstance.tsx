@@ -37,13 +37,20 @@ export default function DeleteInstanceModal() {
             }}
         >
             <WindowHeader
-                name={translate('launcher.confirm-deletion')}
+                name={translate('launcher.confirm-deletion.title')}
                 onClose={onClose}
                 onlyCloseButton={true}
             />
             <div className="px-2 pb-2 rounded-b-md">
-                <div className="">
-                    Вы собираетесь удалить {currentInstance.name}
+                <div className="whitespace-pre-wrap">
+                    {
+                        translate(
+                            'launcher.confirm-deletion.description',
+                            {
+                                instanceName: currentInstance.name
+                            }
+                        )
+                    }
                 </div>
                 <button
                     onClick={onConfirmation}

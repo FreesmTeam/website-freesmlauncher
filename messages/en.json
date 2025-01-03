@@ -8,7 +8,9 @@
       "download": "Download",
       "about": "About",
       "seconds-short": "s",
-      "minutes-short": "min"
+      "minutes-short": "min",
+      "yes": "Yes",
+      "no": "No"
     },
     "pages": {
       "downloads": {
@@ -61,7 +63,10 @@
       "time-played": "Time played",
       "specific-time-played": "total played for",
       "ungrouped": "Ungrouped",
-      "confirm-deletion": "Confirm Deletion",
+      "confirm-deletion": {
+        "title": "Confirm Deletion",
+        "description": "You are about to delete «{instanceName}».\nThis may be permanent and will completely delete the instance.\n\nAre you sure?"
+      },
       "add-instance": "Add Instance",
       "folders": "Folders",
       "settings": "Settings",

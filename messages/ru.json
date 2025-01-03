@@ -8,7 +8,9 @@
       "download": "Скачать",
       "about": "О нас",
       "seconds-short": "с",
-      "minutes-short": "мин"
+      "minutes-short": "мин",
+      "yes": "Да",
+      "no": "Нет"
     },
     "pages": {
       "downloads": {
@@ -61,7 +63,10 @@
       "time-played": "Всего наиграно",
       "specific-time-played": "сыграно за всё время",
       "ungrouped": "Без группы",
-      "confirm-deletion": "Подтвердить удаление",
+      "confirm-deletion": {
+        "title": "Подтвердить удаление",
+        "description": "Вы собираетесь удалить «{instanceName}».\nЭто действие необратимо и полностью удалит сборку.\n\nВы уверены?"
+      },
       "add-instance": "Добавить сборку...",
       "folders": "Папки",
       "settings": "Настройки...",
