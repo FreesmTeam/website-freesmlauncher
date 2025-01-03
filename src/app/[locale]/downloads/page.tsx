@@ -1,7 +1,7 @@
 import Downloads from "@/components/Downloads/Downloads";
 import {Metadata} from "next";
 import {getTranslations} from "next-intl/server";
-import {APP_DESCRIPTION, APP_NAME} from "@/configs/constants";
+import {APP_NAME} from "@/configs/constants";
 
 export async function generateMetadata(): Promise<Metadata> {
     const translate = await getTranslations('Translations');
