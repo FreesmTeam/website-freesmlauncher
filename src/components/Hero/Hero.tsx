@@ -6,13 +6,15 @@ import {DOWNLOADS_LINK, GITHUB_LINK} from "@/configs/constants";
 import {useTranslations} from "next-intl";
 import getPlatformName from "@/utils/getPlatformName";
 import {Icon} from "@iconify/react";
+import {useEffect, useState} from "react";
 
 export default function Hero() {
+    const [definedNavigator, setDefinedNavigator] = useState<Navigator | null>(null);
     const info = useTranslations('Info');
     const locale = info('locale');
     const translate = useTranslations('Translations');
-    const platform = navigator.platform.toLowerCase();
-    const displayPlatform = getPlatformName(platform);
+    const platform = definedNavigator?.platform.toLowerCase();
+    const displayPlatform = getPlatformName(platform ?? '');
 
     let icon;
 
@@ -33,6 +35,10 @@ export default function Hero() {
             )
             break;
     }
+
+    useEffect(() => {
+        setDefinedNavigator(navigator);
+    }, []);
 
     return (
         <div className="flex flex-col gap-8 mt-12 max-w-[960px] px-4 mx-auto">
