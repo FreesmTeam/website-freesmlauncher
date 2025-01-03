@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     description: APP_DESCRIPTION,
     applicationName: APP_NAME,
     openGraph: {
-        images: "/favicon.webp",
+        images: "/banner.webp",
         siteName: APP_NAME,
         type: "website",
         title: APP_NAME,

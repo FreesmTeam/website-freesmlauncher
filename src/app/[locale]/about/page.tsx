@@ -13,11 +13,17 @@ export async function generateMetadata(): Promise<Metadata> {
         title: title,
         description: description,
         openGraph: {
+            images: "/banner.webp",
             siteName: APP_NAME,
             type: "website",
             title: title,
             description: description,
-        }
+        },
+        twitter: {
+            card: "summary",
+            title: title,
+            description: description,
+        },
     };
 }
 
