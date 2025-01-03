@@ -24,7 +24,7 @@ export default function DeleteInstanceModal() {
 
     return (
         <div
-            className="z-[1500] top-[50%] left-[50%] absolute transition text-white flex flex-col gap-0"
+            className="z-[1500] top-[50%] left-[50%] absolute transition text-white flex flex-col gap-0  rounded-md bg-[#11111b]"
             style={{
                 transform: currentInstance.deleted === DELETED.PROCESS ? (
                     `translateX(-50%) translateY(-50%) scale(100%)`
@@ -41,19 +41,21 @@ export default function DeleteInstanceModal() {
                 onClose={onClose}
                 onlyCloseButton={true}
             />
-            <div className="p-2 bg-[#11111b] rounded-b-md">
-                Вы собираетесь удалить {currentInstance.name}
+            <div className="px-2 pb-2 rounded-b-md">
+                <div className="">
+                    Вы собираетесь удалить {currentInstance.name}
+                </div>
+                <button
+                    onClick={onConfirmation}
+                >
+                    Да
+                </button>
+                <button
+                    onClick={onClose}
+                >
+                    Нет
+                </button>
             </div>
-            <button
-                onClick={onConfirmation}
-            >
-                Да
-            </button>
-            <button
-                onClick={onClose}
-            >
-                Нет
-            </button>
         </div>
     );
 }
