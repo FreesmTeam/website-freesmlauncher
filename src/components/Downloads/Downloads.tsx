@@ -17,8 +17,12 @@ export default function Downloads() {
     const [selectedPlatform, setSelectedPlatform] = useState(displayPlatform);
 
     useEffect(() => {
-        setDefinedNavigator(navigator);
-    }, []);
+        if (definedNavigator === null) {
+            return setDefinedNavigator(navigator);
+        }
+
+        setSelectedPlatform(displayPlatform);
+    }, [platform]);
 
     return (
         <div className="flex flex-col gap-8 mt-12 max-w-[960px] px-4 mx-auto">

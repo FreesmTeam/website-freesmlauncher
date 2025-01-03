@@ -22,17 +22,22 @@ export default function Hero() {
         case 'windows':
             icon = (
                 <Icon height={24} icon='mdi:microsoft-windows' />
-            )
+            );
             break;
         case 'linux':
             icon = (
                 <Icon height={24} icon='mdi:linux' />
-            )
+            );
             break;
         case 'macos':
             icon = (
                 <Icon height={24} icon='mdi:apple' />
-            )
+            );
+            break;
+        default:
+            icon = (
+                <Icon height={24} icon="mdi:devices" />
+            );
             break;
     }
 

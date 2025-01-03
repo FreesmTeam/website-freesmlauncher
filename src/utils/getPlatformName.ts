@@ -1,6 +1,6 @@
-import {LINUX_NAME, MACOS_NAME, WINDOWS_NAME} from "@/configs/constants";
+import {LINUX_NAME, MACOS_NAME, PLACEHOLDER_OS, WINDOWS_NAME} from "@/configs/constants";
 
-export default function getPlatformName(platform: string): 'macOS' | 'Windows' | 'Linux' {
+export default function getPlatformName(platform: string): 'macOS' | 'Windows' | 'Linux' | 'OS' {
     switch (true) {
         case platform.includes('mac'):
             return MACOS_NAME;
@@ -9,6 +9,6 @@ export default function getPlatformName(platform: string): 'macOS' | 'Windows' |
         case platform.includes('linux'):
             return LINUX_NAME;
         default:
-            return WINDOWS_NAME
+            return PLACEHOLDER_OS;
     }
 }

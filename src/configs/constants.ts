@@ -2,6 +2,7 @@ import {HeaderExternalLinkType} from "@/types/HeaderExternalLink.type";
 import {HeaderItemType} from "@/types/HeaderItem.type";
 import { NavbarItemType } from "@/types/NavbarItem.type";
 
+export const PLACEHOLDER_OS = 'OS';
 export const GITHUB_LINK = "https://github.com/FreesmTeam/FreesmLauncher";
 export const TELEGRAM_LINK = "https://t.me/freesmteam";
 export const HOME_LINK = '/';
