@@ -42,6 +42,7 @@ export default function Launcher() {
                 onMinimize={onClose}
                 onMaximize={onMaximize}
                 onClose={onClose}
+                maximized={maximized}
             />
             <div className={`${maximized ? "h-[100svh] " : ''} w-full flex flex-col gap-0`}>
                 <MenuBar />
