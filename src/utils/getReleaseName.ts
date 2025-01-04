@@ -44,10 +44,6 @@ export default function getReleaseName({ name, locale }: { name: string; locale:
     let prefix = '';
 
     if (lowerCaseName.includes('mingw')) {
-        if (lowerCaseName.includes('setup')) {
-            return null;
-        }
-
         prefix = 'MinGW - ';
     } else if (lowerCaseName.includes('msvc')) {
         prefix = 'MSVC - ';
