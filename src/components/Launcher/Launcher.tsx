@@ -7,7 +7,7 @@ import {useLauncherBarsStore} from "@/utils/Stores/Stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
 import InstanceBar from "@/components/Launcher/InstanceBar/InstanceBar";
 import Modals from "@/components/Launcher/Modals/Modals";
-import {useState} from "react";
+import {memo, useMemo, useState} from "react";
 import {ANIMATION_NAME} from "@/configs/launcher";
 import StatusBar from "@/components/Launcher/StatusBar/StatusBar";
 import {WindowContext} from "@/utils/Contexts/Contexts";
@@ -34,6 +34,26 @@ export default function Launcher() {
         setMaximized((state) => !state);
     }
 
+    const MemoizedLauncher = useMemo(() => (
+        <>
+            <div className={`${maximized ? "h-[100svh] " : ''} w-full flex flex-col gap-0`}>
+                <MenuBar/>
+                {
+                    newsBar?.opened && (
+                        <NewsBar/>
+                    )
+                }
+                <InstanceBar maximized={maximized}/>
+                {
+                    statusBar?.opened && (
+                        <StatusBar/>
+                    )
+                }
+            </div>
+            <Modals/>
+        </>
+    ), [newsBar?.opened, statusBar?.opened, maximized])
+
     return (
         <div
             onContextMenu={(event) => event.preventDefault()}
@@ -50,21 +70,7 @@ export default function Launcher() {
             >
                 <WindowHeader />
             </WindowContext.Provider>
-            <div className={`${maximized ? "h-[100svh] " : ''} w-full flex flex-col gap-0`}>
-                <MenuBar />
-                {
-                    newsBar?.opened && (
-                        <NewsBar />
-                    )
-                }
-                <InstanceBar maximized={maximized} />
-                {
-                    statusBar?.opened && (
-                        <StatusBar />
-                    )
-                }
-            </div>
-            <Modals />
+            {MemoizedLauncher}
         </div>
     );
 }
