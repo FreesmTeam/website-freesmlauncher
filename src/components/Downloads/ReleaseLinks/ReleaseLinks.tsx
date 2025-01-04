@@ -52,8 +52,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
     // Freesm Launcher 9.2-free-2
     const buildName = data?.data?.name;
     const buildNameArr =  buildName?.split(' ');
-    const buildVersion = buildNameArr?.pop()?.split('-')?.[0];
-
+    const buildVersion = buildNameArr?.pop();
     const assets = data?.data?.assets;
     let currentBuilds;
 
