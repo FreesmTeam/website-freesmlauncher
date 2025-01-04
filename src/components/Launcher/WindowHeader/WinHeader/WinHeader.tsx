@@ -1,22 +1,19 @@
 import Image from "next/image";
 import freesmLogo from "../../../../../public/favicon.webp";
 import {APP_NAME} from "@/configs/constants";
+import {useContext} from "react";
+import {WindowContext} from "@/utils/Contexts/Contexts";
 
-export default function WinHeader({
-    name,
-    onMinimize,
-    onMaximize,
-    onClose,
-    maximized,
-    onlyCloseButton,
-}: {
-    name: string;
-    onMinimize?: () => void;
-    onMaximize?: () => void;
-    onClose?: () => void;
-    maximized?: boolean;
-    onlyCloseButton?: boolean;
-}) {
+export default function WinHeader() {
+    const {
+        name,
+        maximized,
+        onlyCloseButton,
+        onClose,
+        onMinimize,
+        onMaximize,
+    } = useContext(WindowContext);
+
     return (
         <div
             className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-[#11111b]">
