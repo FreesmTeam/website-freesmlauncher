@@ -2,6 +2,7 @@ import {useTranslations} from "next-intl";
 import {Icon} from "@iconify/react";
 import {useLauncherBarsStore} from "@/utils/Stores/Stores";
 import {LauncherBarsStateType} from "@/types/LauncherBarsState.type";
+import {useMemo} from "react";
 
 export default function NewsBar() {
     const translate = useTranslations('Translations');
@@ -9,7 +10,9 @@ export default function NewsBar() {
     const lastIndex = launcherMenuBarsStore.entries.length - 1;
     const hasLockBars = launcherMenuBarsStore.entries[lastIndex].opened;
 
-    return (
+    const translatedMoreNews = translate('launcher.more-news');
+
+    return useMemo(() => (
         <div className="select-none p-2.5 gap-2 flex justify-stretch items-stretch h-10 w-full bg-[#09090e]">
             {
                 !hasLockBars && (
@@ -26,9 +29,9 @@ export default function NewsBar() {
             <div className="w-fit flex items-center gap-1 px-1 rounded-md flex-nowrap text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4] hover:bg-[#1a1723]">
                 <Icon fontSize={16} icon="fluent:news-16-regular" />
                 <p className="min-w-20 text-nowrap">
-                    {translate('launcher.more-news')}
+                    {translatedMoreNews}
                 </p>
             </div>
         </div>
-    );
+    ), [hasLockBars, translatedMoreNews]);
 }
