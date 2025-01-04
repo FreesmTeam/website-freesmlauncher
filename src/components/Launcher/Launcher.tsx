@@ -34,25 +34,26 @@ export default function Launcher() {
         setMaximized((state) => !state);
     }
 
-    const MemoizedLauncher = useMemo(() => (
+    const MemoizedBars = useMemo(() => (
         <>
-            <div className={`${maximized ? "h-[100svh] " : ''} w-full flex flex-col gap-0`}>
-                <MenuBar/>
-                {
-                    newsBar?.opened && (
-                        <NewsBar/>
-                    )
-                }
-                <InstanceBar maximized={maximized}/>
-                {
-                    statusBar?.opened && (
-                        <StatusBar/>
-                    )
-                }
-            </div>
-            <Modals/>
+            <MenuBar/>
+            {
+                newsBar?.opened && (
+                    <NewsBar/>
+                )
+            }
+            <InstanceBar maximized={maximized}/>
+            {
+                statusBar?.opened && (
+                    <StatusBar/>
+                )
+            }
         </>
-    ), [newsBar?.opened, statusBar?.opened, maximized])
+    ), [newsBar?.opened, statusBar?.opened]);
+
+    const MemoizedModals = memo(() => (
+        <Modals/>
+    ));
 
     return (
         <div
@@ -68,9 +69,12 @@ export default function Launcher() {
                     maximized: maximized,
                 }}
             >
-                <WindowHeader />
+                <WindowHeader/>
             </WindowContext.Provider>
-            {MemoizedLauncher}
+            <div className={`${maximized ? "h-[100svh] " : ''} w-full flex flex-col gap-0`}>
+                {MemoizedBars}
+            </div>
+            <MemoizedModals/>
         </div>
     );
 }
