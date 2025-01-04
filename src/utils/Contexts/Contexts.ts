@@ -1,0 +1,1 @@
+const WindowContext = React.createContext({});

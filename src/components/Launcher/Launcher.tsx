@@ -38,13 +38,9 @@ export default function Launcher() {
             onContextMenu={(event) => event.preventDefault()}
             className={`${animation}${maximized ? " fixed top-0 left-0 right-0 bottom-0 z-[6000]" : ''} w-full flex flex-col gap-0 border-[1px] border-[#181825] rounded-md drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)]`}
         >
-            <WindowHeader
-                name={APP_NAME}
-                onMinimize={onClose}
-                onMaximize={onMaximize}
-                onClose={onClose}
-                maximized={maximized}
-            />
+            <WindowContext.Provider value={{}}>
+                <WindowHeader />
+            </WindowContext.Provider>
             <div className={`${maximized ? "h-[100svh] " : ''} w-full flex flex-col gap-0`}>
                 <MenuBar />
                 {
