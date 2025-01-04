@@ -10,6 +10,9 @@ export const TELEGRAM_LINK = "https://t.me/freesmteam";
 export const HOME_LINK = '/';
 export const DOWNLOADS_LINK = '/downloads';
 export const ABOUT_LINK = '/about';
+export const WINDOWS_X64 = 'Windows 64-bit';
+export const WINDOWS_ARM64 = 'Windows ARM64';
+export const WINDOWS_PLATFORMS = [WINDOWS_X64, WINDOWS_ARM64];
 export const NAVBAR_ITEMS: NavbarItemType[] = [
     {
         name: 'navbar.home',
