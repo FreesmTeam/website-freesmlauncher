@@ -36,7 +36,8 @@
       "error": "Error:",
       "loading": "Fetching data...",
       "getting-platform": "Getting your platform... You can also manually select your platform just above!",
-      "try-to-refresh": "Try refreshing the page."
+      "try-to-refresh": "Try refreshing the page.",
+      "requires": "requires"
     },
     "about": {
       "title": "About",

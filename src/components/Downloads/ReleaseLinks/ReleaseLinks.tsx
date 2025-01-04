@@ -113,7 +113,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
         <>
             <div className="w-full flex gap-8 flex-wrap items-start">
                 <div className="flex flex-col flex-1 items-center justify-center gap-4">
-                    <p className="text-xl text-center text-gray-400">
+                    <p className="text-lg sm:text-xl text-center text-gray-400">
                         Windows 64-bit
                     </p>
                     {
@@ -142,7 +142,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                             </span>
                                         </p>
                                         <p className="text-gray-400 text-[12px] sm:text-[14px]">
-                                            (requires Visual C++ Redistributable)
+                                            ({translate('downloads.requires')} Visual C++ Redistributable)
                                         </p>
                                     </Link>
                                 )
@@ -166,7 +166,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                     }
                 </div>
                 <div className="flex flex-col flex-1 items-center justify-center gap-4">
-                    <p className="text-xl text-center text-gray-400">
+                    <p className="text-lg sm:text-xl text-center text-gray-400">
                         Windows ARM64
                     </p>
                     {
@@ -195,7 +195,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                             </span>
                                         </p>
                                         <p className="text-gray-400 text-[12px] sm:text-[14px]">
-                                            (requires Visual C++ Redistributable)
+                                            ({translate('downloads.requires')} Visual C++ Redistributable)
                                         </p>
                                     </Link>
                                 )
