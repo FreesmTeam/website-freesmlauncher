@@ -99,8 +99,8 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                 }{' '}
                                 {formattedName.displayName}{' - v'}{buildVersion}{' '}
                                 <span className="text-gray-400">
-                                        {formattedName.extension}
-                                    </span>
+                                    {formattedName.extension}
+                                </span>
                             </Link>
                         );
                     })
@@ -150,8 +150,8 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                                     <p>
                                                         {formattedName.displayName}{' - v'}{buildVersion}{' '}
                                                         <span className="text-gray-400">
-                                                {formattedName.extension}
-                                            </span>
+                                                            {formattedName.extension}
+                                                        </span>
                                                     </p>
                                                     <p className="text-gray-400 text-[12px] sm:text-[14px]">
                                                         ({translate('downloads.requires')} Visual C++ Redistributable)
@@ -167,11 +167,11 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                                 target="_blank"
                                                 href={build.browser_download_url}
                                             >
-                                                {formattedName?.type?.includes('setup') && '⭐'}{' '}
+                                                {formattedName?.type?.includes('MSVC - setup') && '⭐'}{' '}
                                                 {formattedName.displayName}{' - v'}{buildVersion}{' '}
                                                 <span className="text-gray-400">
-                                        {formattedName.extension}
-                                    </span>
+                                                    {formattedName.extension}
+                                                </span>
                                             </Link>
                                         );
                                     })

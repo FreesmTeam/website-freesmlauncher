@@ -65,7 +65,7 @@ export default function getReleaseName({ name, locale }: { name: string; locale:
         return {
             displayName: prefix + SETUP_NAME,
             extension: '(.exe)',
-            type: 'setup',
+            type: prefix + 'setup',
         };
     }
 
