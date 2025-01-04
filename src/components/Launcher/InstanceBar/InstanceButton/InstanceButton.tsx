@@ -1,14 +1,14 @@
 import Image from "next/image";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
-import {useInstanceStore} from "@/utils/stores";
+import {useInstanceStore} from "@/utils/Stores/Stores";
 import {useRef, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import {LAUNCHER_ACTIONS, LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 import {Icon} from "@iconify/react";
-import getDisabledProperty from "@/utils/getDisabledProperty";
-import handleLaunch from '@/utils/handleLaunch';
+import getDisabledProperty from "@/utils/Helpers/getDisabledProperty";
+import handleLaunch from '@/utils/Helpers/handleLaunch';
 
 export default function InstanceButton(instance: LauncherInstanceType) {
     const translate = useTranslations('Translations');

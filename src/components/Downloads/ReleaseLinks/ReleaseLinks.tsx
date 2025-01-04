@@ -1,6 +1,6 @@
 import { GithubReleaseType } from "@/types/GithubRelease.type";
-import getLatestRelease from "@/utils/getLatestRelease";
-import getReleaseName from "@/utils/getReleaseName";
+import getLatestRelease from "@/utils/Helpers/getLatestRelease";
+import getReleaseName from "@/utils/Helpers/getReleaseName";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import {useTranslations} from "next-intl";

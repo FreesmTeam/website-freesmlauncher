@@ -1,5 +1,5 @@
 import {useTranslations} from "next-intl";
-import {useInstanceStore} from "@/utils/stores";
+import {useInstanceStore} from "@/utils/Stores/Stores";
 import {useEffect, useState} from "react";
 import {useInterval} from "@mantine/hooks";
 import {UNKNOWN_INSTANCE} from "@/configs/launcher";

@@ -3,7 +3,7 @@ import {useTranslations} from "next-intl";
 import {useRef, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import ProfileButton from "@/components/Launcher/MenuBar/ProfileButton/ProfileButton";
-import {useLauncherBarsStore} from "@/utils/stores";
+import {useLauncherBarsStore} from "@/utils/Stores/Stores";
 import {LauncherBarsStateType} from "@/types/LauncherBarsState.type";
 import {LauncherBarType} from "@/types/LauncherBar.type";
 

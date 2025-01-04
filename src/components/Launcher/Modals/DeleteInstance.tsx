@@ -1,4 +1,4 @@
-import {useInstanceStore} from "@/utils/stores";
+import {useInstanceStore} from "@/utils/Stores/Stores";
 import {DELETED} from "@/configs/launcher";
 import WindowHeader from "@/components/Launcher/WindowHeader/WindowHeader";
 import {useTranslations} from "next-intl";

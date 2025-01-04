@@ -1,7 +1,7 @@
 "use client";
 
 import { DOWNLOADS_OPTIONS } from "@/configs/constants";
-import getPlatformName from "@/utils/getPlatformName";
+import getPlatformName from "@/utils/Helpers/getPlatformName";
 import { useTranslations } from "next-intl";
 import {useEffect, useState} from "react";
 import ReleaseLinks from "./ReleaseLinks/ReleaseLinks";

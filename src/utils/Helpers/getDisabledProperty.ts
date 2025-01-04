@@ -2,7 +2,7 @@ import {DELETED, LAUNCHER_ACTIONS, UNKNOWN_INSTANCE} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import {HandleActionType} from "@/types/HandleAction.type";
-import handleDelete from "@/utils/handleDelete";
+import handleDelete from "@/utils/Helpers/handleDelete";
 
 export default function getDisabledProperty({
     item,

@@ -4,7 +4,7 @@ import {useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import {LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS} from "@/configs/launcher";
 import {ProfileItemType} from "@/types/ProfileItem.type";
-import {useProfileStore} from "@/utils/stores";
+import {useProfileStore} from "@/utils/Stores/Stores";
 import {ProfileStateType} from "@/types/ProfileState.type";
 
 export default function ProfileButton() {

@@ -4,7 +4,7 @@ import Launcher from "@/components/Launcher/Launcher";
 import Link from "next/link";
 import {DOWNLOADS_LINK, GITHUB_LINK} from "@/configs/constants";
 import {useTranslations} from "next-intl";
-import getPlatformName from "@/utils/getPlatformName";
+import getPlatformName from "@/utils/Helpers/getPlatformName";
 import {Icon} from "@iconify/react";
 import {useEffect, useState} from "react";
 

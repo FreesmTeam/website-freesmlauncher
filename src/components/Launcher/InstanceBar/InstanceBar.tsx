@@ -1,4 +1,4 @@
-import {useInstanceStore, useLauncherBarsStore} from "@/utils/stores";
+import {useInstanceStore, useLauncherBarsStore} from "@/utils/Stores/Stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
 import {DELETED, LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES, UNKNOWN_INSTANCE} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
@@ -8,8 +8,8 @@ import Image from "next/image";
 import {Icon} from "@iconify/react";
 import {useEffect, useState} from "react";
 import InstanceButton from "@/components/Launcher/InstanceBar/InstanceButton/InstanceButton";
-import getDisabledProperty from "@/utils/getDisabledProperty";
-import handleLaunch from '@/utils/handleLaunch';
+import getDisabledProperty from "@/utils/Helpers/getDisabledProperty";
+import handleLaunch from '@/utils/Helpers/handleLaunch';
 import React from "react";
 
 export default function InstanceBar({
