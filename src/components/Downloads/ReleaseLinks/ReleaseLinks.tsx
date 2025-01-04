@@ -24,7 +24,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     if (platform === PLACEHOLDER_OS) {
         return (
-            <div className="text-center text-gray-400">
+            <div className="text-[14px] sm:text-[16px] text-center text-gray-400">
                 {translate('downloads.getting-platform')}
             </div>
         )
@@ -32,7 +32,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     if (isPending) {
         return (
-            <div className="text-center text-gray-400">
+            <div className="text-[14px] sm:text-[16px] text-center text-gray-400">
             {translate('downloads.loading')}
             </div>
         );
@@ -40,7 +40,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     if (error) {
         return (
-            <div className="text-center text-gray-400">
+            <div className="text-[14px] sm:text-[16px] text-center text-gray-400">
                 {translate('downloads.error')}{' '}
                 {error.message}.{' '}
                 {translate('downloads.try-to-refresh')}
@@ -86,10 +86,17 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                         return (
                             <Link
                                 key={build.name}
-                                className="text-center w-fit text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
+                                className="text-[14px] sm:text-[16px] text-center w-fit text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
                                 target="_blank"
                                 href={build.browser_download_url}
                             >
+                                {
+                                    (
+                                        // sorry, i'm lazy
+                                        formattedName?.displayName?.includes('Universal')
+                                        || formattedName?.extension.includes('.AppImage')
+                                    ) && '⭐'
+                                }{' '}
                                 {formattedName.displayName}{' - v'}{buildVersion}{' '}
                                 <span className="text-gray-400">
                                         {formattedName.extension}
@@ -120,13 +127,35 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                 return;
                             }
 
+                            if (formattedName.type?.includes('msvc')) {
+                                return (
+                                    <Link
+                                        key={build.name}
+                                        className="text-[14px] sm:text-[16px] flex flex-col w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
+                                        target="_blank"
+                                        href={build.browser_download_url}
+                                    >
+                                        <p>
+                                            {formattedName.displayName}{' - v'}{buildVersion}{' '}
+                                            <span className="text-gray-400">
+                                                {formattedName.extension}
+                                            </span>
+                                        </p>
+                                        <p className="text-gray-400 text-[12px] sm:text-[14px]">
+                                            (requires Visual C++ Redistributable)
+                                        </p>
+                                    </Link>
+                                )
+                            }
+
                             return (
                                 <Link
                                     key={build.name}
-                                    className="w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
+                                    className="text-[14px] sm:text-[16px] w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
                                     target="_blank" 
                                     href={build.browser_download_url}
                                 >
+                                    {formattedName?.type?.includes('setup') && '⭐'}{' '}
                                     {formattedName.displayName}{' - v'}{buildVersion}{' '}
                                     <span className="text-gray-400">
                                         {formattedName.extension}
@@ -151,13 +180,35 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                 return;
                             }
 
+                            if (formattedName.type?.includes('msvc')) {
+                                return (
+                                    <Link
+                                        key={build.name}
+                                        className="text-[14px] sm:text-[16px] flex flex-col w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
+                                        target="_blank"
+                                        href={build.browser_download_url}
+                                    >
+                                        <p>
+                                            {formattedName.displayName}{' - v'}{buildVersion}{' '}
+                                            <span className="text-gray-400">
+                                                {formattedName.extension}
+                                            </span>
+                                        </p>
+                                        <p className="text-gray-400 text-[12px] sm:text-[14px]">
+                                            (requires Visual C++ Redistributable)
+                                        </p>
+                                    </Link>
+                                )
+                            }
+
                             return (
                                 <Link
                                     key={build.name}
-                                    className="w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
+                                    className="text-[14px] sm:text-[16px] w-fit text-center text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
                                     target="_blank" 
                                     href={build.browser_download_url}
                                 >
+                                    {formattedName?.type?.includes('setup') && '⭐'}{' '}
                                     {formattedName.displayName}{' - v'}{buildVersion}{' '}
                                     <span className="text-gray-400">
                                         {formattedName.extension}

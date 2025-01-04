@@ -1,6 +1,7 @@
 export default function getReleaseName({ name, locale }: { name: string; locale: string; }): {
     displayName: string;
     extension: string;
+    type?: string;
 } | null {
     let PORTABLE_NAME;
     let SETUP_NAME;
@@ -43,24 +44,32 @@ export default function getReleaseName({ name, locale }: { name: string; locale:
     let prefix = '';
 
     if (lowerCaseName.includes('mingw')) {
+        if (lowerCaseName.includes('setup')) {
+            return null;
+        }
+
         prefix = 'MinGW - ';
     } else if (lowerCaseName.includes('msvc')) {
         prefix = 'MSVC - ';
     } else if (lowerCaseName.includes('legacy')) {
         prefix = 'Legacy - ';
+    } else if (lowerCaseName.includes('macos')) {
+        prefix = 'Universal - ';
     }
 
     if (lowerCaseName.includes('portable')) {
         return {
             displayName: prefix + PORTABLE_NAME,
-            extension: '(.zip)'
+            extension: '(.zip)',
+            type: prefix.toLowerCase(),
         };
     }
 
     if (lowerCaseName.includes('setup')) {
         return {
             displayName: prefix + SETUP_NAME,
-            extension: '(.exe)'
+            extension: '(.exe)',
+            type: 'setup',
         };
     }
 
