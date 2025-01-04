@@ -7,7 +7,7 @@ import {useLauncherBarsStore} from "@/utils/Stores/Stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
 import InstanceBar from "@/components/Launcher/InstanceBar/InstanceBar";
 import Modals from "@/components/Launcher/Modals/Modals";
-import {memo, useMemo, useState} from "react";
+import {useMemo, useState} from "react";
 import {ANIMATION_NAME} from "@/configs/launcher";
 import StatusBar from "@/components/Launcher/StatusBar/StatusBar";
 import {WindowContext} from "@/utils/Contexts/Contexts";
@@ -34,8 +34,11 @@ export default function Launcher() {
         setMaximized((state) => !state);
     }
 
+    const MemoizedModals = useMemo(() => (
+        <Modals/>
+    ), []);
     const MemoizedBars = useMemo(() => (
-        <>
+        <div className={`${maximized ? "h-[100svh] " : ''} w-full flex flex-col gap-0`}>
             <MenuBar/>
             {
                 newsBar?.opened && (
@@ -48,12 +51,12 @@ export default function Launcher() {
                     <StatusBar/>
                 )
             }
-        </>
-    ), [newsBar?.opened, statusBar?.opened]);
-
-    const MemoizedModals = memo(() => (
-        <Modals/>
-    ));
+        </div>
+    ), [
+        newsBar?.opened,
+        statusBar?.opened,
+        maximized
+    ]);
 
     return (
         <div
@@ -71,10 +74,8 @@ export default function Launcher() {
             >
                 <WindowHeader/>
             </WindowContext.Provider>
-            <div className={`${maximized ? "h-[100svh] " : ''} w-full flex flex-col gap-0`}>
-                {MemoizedBars}
-            </div>
-            <MemoizedModals/>
+            {MemoizedBars}
+            {MemoizedModals}
         </div>
     );
 }

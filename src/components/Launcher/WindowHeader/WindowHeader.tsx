@@ -1,6 +1,3 @@
-import Image from "next/image";
-import freesmLogo from "../../../../public/favicon.webp";
-import {APP_NAME} from "@/configs/constants";
 import React, {useEffect, useState} from "react";
 import getPlatformName from "@/utils/Helpers/getPlatformName";
 import WinHeader from "@/components/Launcher/WindowHeader/WinHeader/WinHeader";
