@@ -27,8 +27,7 @@ export default React.memo(function WindowHeader() {
         case "OS":
         default:
             return (
-                <LinuxHeader />
-                //<WinHeader />
+                <WinHeader />
             );
     }
 });
