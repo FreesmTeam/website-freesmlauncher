@@ -2,6 +2,7 @@ import {useInstanceStore} from "@/utils/Stores/Stores";
 import {DELETED} from "@/configs/launcher";
 import WindowHeader from "@/components/Launcher/WindowHeader/WindowHeader";
 import {useTranslations} from "next-intl";
+import {WindowContext} from "@/utils/Contexts/Contexts";
 
 export default function DeleteInstanceModal() {
     const instancesStore = useInstanceStore((state) => state);
@@ -36,11 +37,15 @@ export default function DeleteInstanceModal() {
                 visibility: currentInstance.deleted === DELETED.PROCESS ? 'visible' : 'hidden',
             }}
         >
-            <WindowHeader
-                name={translate('launcher.confirm-deletion.title')}
-                onClose={onClose}
-                onlyCloseButton={true}
-            />
+            <WindowContext.Provider
+                value={{
+                    name: translate('launcher.confirm-deletion.title'),
+                    onClose: onClose,
+                    onlyCloseButton: true,
+                }}
+            >
+                <WindowHeader />
+            </WindowContext.Provider>
             <div className="px-2 pb-2 rounded-b-md">
                 <div className="whitespace-pre-wrap">
                     {

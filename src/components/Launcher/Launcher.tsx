@@ -10,6 +10,7 @@ import Modals from "@/components/Launcher/Modals/Modals";
 import {useState} from "react";
 import {ANIMATION_NAME} from "@/configs/launcher";
 import StatusBar from "@/components/Launcher/StatusBar/StatusBar";
+import {WindowContext} from "@/utils/Contexts/Contexts";
 import {APP_NAME} from "@/configs/constants";
 
 export default function Launcher() {
@@ -38,7 +39,15 @@ export default function Launcher() {
             onContextMenu={(event) => event.preventDefault()}
             className={`${animation}${maximized ? " fixed top-0 left-0 right-0 bottom-0 z-[6000]" : ''} w-full flex flex-col gap-0 border-[1px] border-[#181825] rounded-md drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)]`}
         >
-            <WindowContext.Provider value={{}}>
+            <WindowContext.Provider
+                value={{
+                    name: APP_NAME,
+                    onMaximize: onMaximize,
+                    onMinimize: onClose,
+                    onClose: onClose,
+                    maximized: maximized,
+                }}
+            >
                 <WindowHeader />
             </WindowContext.Provider>
             <div className={`${maximized ? "h-[100svh] " : ''} w-full flex flex-col gap-0`}>
