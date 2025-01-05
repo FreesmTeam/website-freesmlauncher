@@ -10,11 +10,11 @@
 
 ### Local
 
-<details>
-<summary>Expand steps</summary>
-
 > [!NOTE]
 > I will provide terminal commands only for [bun](https://bun.sh/), but you can use any other [node.js](https://nodejs.org/) package manager.
+
+<details>
+<summary>Expand steps</summary>
 
 Firstly, you need to clone this repository:
 
