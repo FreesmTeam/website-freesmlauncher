@@ -12,6 +12,7 @@ import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
 import diamondSvg from "../../public/diamond.svg";
 
+export const EAGLERCRAFT_INSTANCE_NAME = 'EaglerCraft 1.5.2';
 export const EAGLERCRAFT_EMBED_URL = 'https://sd592g.github.io/zj684od4lfg/';
 export const ANIMATION_NAME = 'animate-shake';
 export const DELETED = {
@@ -168,7 +169,7 @@ export const UNKNOWN_INSTANCE: LauncherInstanceType = {
 };
 export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
-        name: 'EaglerCraft 1.5.2',
+        name: EAGLERCRAFT_INSTANCE_NAME,
         version: '1.5.2',
         group: 'Vanilla',
         icon: grassSvg,

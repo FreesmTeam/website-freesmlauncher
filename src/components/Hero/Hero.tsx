@@ -7,7 +7,6 @@ import {useTranslations} from "next-intl";
 import getPlatformName from "@/utils/Helpers/getPlatformName";
 import {Icon} from "@iconify/react";
 import {useEffect, useState} from "react";
-import EaglerCraft from "@/components/Launcher/Modals/DeleteInstance/EaglerCraft/EaglerCraft";
 
 export default function Hero() {
     const [definedNavigator, setDefinedNavigator] = useState<Navigator | null>(null);
@@ -66,7 +65,6 @@ export default function Hero() {
                     Github
                 </Link>
             </div>
-            <EaglerCraft />
             <Launcher />
         </div>
     )
