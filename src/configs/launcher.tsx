@@ -167,6 +167,14 @@ export const UNKNOWN_INSTANCE: LauncherInstanceType = {
 };
 export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
+        name: 'EaglerCraft 1.5.2',
+        version: '1.5.2',
+        group: 'Vanilla',
+        icon: grassSvg,
+        launched: null,
+        deleted: DELETED.NO,
+    },
+    {
         name: '1.21',
         version: '1.21',
         group: 'Vanilla',

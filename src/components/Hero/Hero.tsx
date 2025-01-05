@@ -7,6 +7,7 @@ import {useTranslations} from "next-intl";
 import getPlatformName from "@/utils/Helpers/getPlatformName";
 import {Icon} from "@iconify/react";
 import {useEffect, useState} from "react";
+import ClassicMinecraft from "@/components/Launcher/Modals/DeleteInstance/ClassicMinecraft/ClassicMinecraft";
 
 export default function Hero() {
     const [definedNavigator, setDefinedNavigator] = useState<Navigator | null>(null);
@@ -65,6 +66,7 @@ export default function Hero() {
                     Github
                 </Link>
             </div>
+            <ClassicMinecraft />
             <Launcher />
         </div>
     )
