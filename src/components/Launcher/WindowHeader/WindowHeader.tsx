@@ -24,10 +24,24 @@ export default React.memo(function WindowHeader() {
                 <LinuxHeader />
             );
         case "Windows":
-        case "OS":
-        default:
             return (
                 <WinHeader />
+            );
+        case "OS":
+        default:
+            // If Next.js hydration was successful, but navigator.platform
+            // gives some random shit which is not handled by getPlatformName() util
+            // then just show Windows title bar
+            if (definedNavigator) {
+                return (
+                    <WinHeader />
+                );
+            }
+
+            return (
+                <div
+                    className="w-full h-6 sm:h-8 bg-[#11111b]"
+                />
             );
     }
 });
