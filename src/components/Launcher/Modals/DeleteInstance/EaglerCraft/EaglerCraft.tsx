@@ -43,10 +43,10 @@ export default function EaglerCraft() {
     }
 
     return (
-        <div className="absolute top-[24px] sm:top-[32px] z-[6000] transition w-full px-[64px] sm:px-[128px]">
+        <div className="absolute top-[24px] left-[50%] translate-x-[-50%] sm:top-[32px] z-[6000] transition w-full px-2 max-w-[80vw]">
             <div
                 onContextMenu={(event) => event.preventDefault()}
-                className={`${animation} transition w-full flex flex-col gap-0 border-[1px] border-[#181825] rounded-md drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)] box-border`}
+                className={`${animation} transition w-full flex flex-col gap-0 border-[1px] border-[#181825] rounded-md drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)] box-border bg-[#11111b]`}
             >
                 <WindowContext.Provider
                     value={{
