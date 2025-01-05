@@ -1,15 +1,26 @@
 "use client";
 
 import WindowHeader from "@/components/Launcher/WindowHeader/WindowHeader";
-import {useState} from "react";
+import {useMemo, useState} from "react";
 import {ANIMATION_NAME, EAGLERCRAFT_EMBED_URL} from "@/configs/launcher";
 import {WindowContext} from "@/utils/Contexts/Contexts";
+import {useInstanceStore} from "@/utils/Stores/Stores";
 
 export default function EaglerCraft() {
     const [animation, setAnimation] = useState('');
     const [maximized, setMaximized] = useState(false);
 
+    const instancesStore = useInstanceStore((state) => state);
+    const { currentInstance, updateCurrentInstance } = instancesStore;
+
     function onClose() {
+        updateCurrentInstance({
+            ...currentInstance,
+            launched: null,
+        });
+    }
+
+    function onMinimize() {
         if (animation === ANIMATION_NAME) {
             return;
         }
@@ -23,6 +34,15 @@ export default function EaglerCraft() {
         setMaximized((state) => !state);
     }
 
+    const MemoizedMinecraft = useMemo(() => (
+        <iframe
+            className={`w-full ${maximized ? "h-full" : "aspect-video"} rounded-b-md focus:outline-none`}
+            src={EAGLERCRAFT_EMBED_URL}
+        >
+            Your browser does not support iframes.
+        </iframe>
+    ), [maximized]);
+
     return (
         <div
             onContextMenu={(event) => event.preventDefault()}
@@ -30,21 +50,16 @@ export default function EaglerCraft() {
         >
             <WindowContext.Provider
                 value={{
-                    name: '',
+                    name: currentInstance.name,
                     onClose: onClose,
-                    onMinimize: onClose,
+                    onMinimize: onMinimize,
                     onMaximize: onMaximize,
                     maximized: maximized,
                 }}
             >
                 <WindowHeader />
             </WindowContext.Provider>
-            <iframe
-                className={`w-full ${maximized ? "h-full" : "aspect-video"}  focus:outline-none`}
-                src={EAGLERCRAFT_EMBED_URL}
-            >
-                Your browser does not support iframes.
-            </iframe>
+            {MemoizedMinecraft}
         </div>
     );
 }
