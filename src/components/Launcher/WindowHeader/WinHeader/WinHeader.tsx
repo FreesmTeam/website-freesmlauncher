@@ -16,7 +16,8 @@ export default function WinHeader() {
 
     return (
         <div
-            className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-[#11111b]">
+            className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-[#11111b]"
+        >
             <div className="select-none px-1 sm:px-2 flex flex-nowrap gap-2 items-center">
                 <Image
                     className="w-4 h-4 sm:h-5 sm:w-5"

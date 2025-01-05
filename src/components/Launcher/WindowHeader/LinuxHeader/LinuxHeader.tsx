@@ -15,10 +15,13 @@ export default function LinuxHeader() {
         onMaximize,
     } = useContext(WindowContext);
 
+    const LogoWrapperSizeClassName = onlyCloseButton ? "w-[24px] sm:w-8" : "w-[72px] sm:w-24";
+
     return (
         <div
-            className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-[#11111b]">
-            <div className="select-none px-1 sm:px-2 flex flex-nowrap justify-start gap-2 items-center w-[72px] sm:w-24">
+            className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-[#11111b]"
+        >
+            <div className={`select-none pl-1 sm:pl-2 flex flex-nowrap justify-start gap-2 items-center ${LogoWrapperSizeClassName}`}>
                 <Image
                     className="w-4 h-4 sm:h-5 sm:w-5"
                     src={freesmLogo}

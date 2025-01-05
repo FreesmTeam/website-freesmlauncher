@@ -13,7 +13,8 @@ export default function MacHeader() {
 
     return (
         <div
-            className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-[#11111b]">
+            className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-[#11111b]"
+        >
             <div className="flex h-full gap-0 items-stretch">
                 <div
                     onClick={onClose}
@@ -61,7 +62,13 @@ export default function MacHeader() {
                     {name}
                 </div>
             </div>
-            <div className="w-[72px] sm:w-24"/>
+            {
+                onlyCloseButton ? (
+                    <div className="w-[24px] sm:w-8"/>
+                ) : (
+                    <div className="w-[72px] sm:w-24"/>
+                )
+            }
         </div>
     );
 }
