@@ -12,6 +12,7 @@ import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
 import diamondSvg from "../../public/diamond.svg";
 
+export const EAGLERCRAFT_EMBED_URL = 'https://sd592g.github.io/zj684od4lfg/';
 export const ANIMATION_NAME = 'animate-shake';
 export const DELETED = {
     PROCESS: 'in-the-process',

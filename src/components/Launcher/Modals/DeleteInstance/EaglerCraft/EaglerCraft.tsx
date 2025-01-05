@@ -1,9 +1,11 @@
+"use client";
+
 import WindowHeader from "@/components/Launcher/WindowHeader/WindowHeader";
 import {useState} from "react";
-import {ANIMATION_NAME} from "@/configs/launcher";
+import {ANIMATION_NAME, EAGLERCRAFT_EMBED_URL} from "@/configs/launcher";
 import {WindowContext} from "@/utils/Contexts/Contexts";
 
-export default function ClassicMinecraft() {
+export default function EaglerCraft() {
     const [animation, setAnimation] = useState('');
     const [maximized, setMaximized] = useState(false);
 
@@ -39,9 +41,9 @@ export default function ClassicMinecraft() {
             </WindowContext.Provider>
             <iframe
                 className={`w-full ${maximized ? "h-full" : "aspect-video"}  focus:outline-none`}
-                src="https://sd592g.github.io/zj684od4lfg/"
+                src={EAGLERCRAFT_EMBED_URL}
             >
-                Your browser doesn't support iframes.
+                Your browser does not support iframes.
             </iframe>
         </div>
     );
