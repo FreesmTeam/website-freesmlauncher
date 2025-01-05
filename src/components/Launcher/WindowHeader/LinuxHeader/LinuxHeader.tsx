@@ -37,7 +37,8 @@ export default function LinuxHeader() {
                                 className="group flex justify-center items-center transition w-6 sm:w-8"
                             >
                                 <div
-                                    className="flex justify-center items-center transition rounded-full text-[#999] group-hover:text-[#11111b] group-hover:bg-white w-4 h-4 sm:w-5 sm:h-5">
+                                    className="flex justify-center items-center transition rounded-full text-[#999] group-hover:text-[#11111b] group-hover:bg-white w-4 h-4 sm:w-5 sm:h-5"
+                                >
                                     <Icon className="w-4 h-4 sm:w-5 sm:h-5" icon="mdi:chevron-down"/>
                                 </div>
                             </div>
@@ -46,7 +47,8 @@ export default function LinuxHeader() {
                                 className="group flex justify-center items-center transition w-6 sm:w-8"
                             >
                                 <div
-                                    className={`flex justify-center items-center transition rounded-full text-[#999] group-hover:text-[#11111b] group-hover:bg-white w-4 h-4 sm:w-5 sm:h-5 ${maximized ? 'bg-white text-[#11111b]' : ''}`}>
+                                    className={`flex justify-center items-center transition rounded-full text-[#999] group-hover:text-[#11111b] group-hover:bg-white w-4 h-4 sm:w-5 sm:h-5 ${maximized ? 'bg-white text-[#11111b]' : ''}`}
+                                >
                                     <Icon className="w-4 h-4 sm:w-5 sm:h-5" icon="mdi:chevron-up"/>
                                 </div>
                             </div>
@@ -58,7 +60,8 @@ export default function LinuxHeader() {
                     className="group flex justify-center items-center transition w-6 sm:w-8"
                 >
                     <div
-                        className="flex justify-center items-center transition rounded-full text-[#999] group-hover:text-[#11111b] group-hover:bg-white w-4 h-4 sm:w-5 sm:h-5">
+                        className="flex justify-center items-center transition rounded-full text-[#999] group-hover:text-[#11111b] group-hover:bg-white w-4 h-4 sm:w-5 sm:h-5"
+                    >
                         <Icon className="w-3 h-3 sm:w-4 sm:h-4" icon="mdi:close" />
                     </div>
                 </div>
