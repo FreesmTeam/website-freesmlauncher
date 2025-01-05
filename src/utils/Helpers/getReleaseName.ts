@@ -71,7 +71,7 @@ export default function getReleaseName({ name, locale }: { name: string; locale:
 
     if (lowerCaseName.includes('macos')) {
         return {
-            displayName: prefix + SETUP_NAME,
+            displayName: prefix + PORTABLE_NAME,
             extension: '(.zip)'
         };
     }
