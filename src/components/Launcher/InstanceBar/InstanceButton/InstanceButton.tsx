@@ -82,11 +82,14 @@ export default function InstanceButton(instance: LauncherInstanceType) {
             onClick={handleLeftClick}
             onDoubleClick={handleDoubleClick}
         >
-            {
-                currentInstance.launched === instance.name && (
-                    <Icon fontSize={28} className="absolute right-0 top-0 text-[#dcdff2]" icon="fluent:play-circle-16-filled" />
-                )
-            }
+            <Icon
+                fontSize={28}
+                className="absolute right-0 top-0 text-[#dcdff2]"
+                icon="fluent:play-circle-16-filled"
+                style={{
+                    display: currentInstance.launched === instance.name ? "block" : "none"
+                }}
+            />
             <div
                 aria-label={LAUNCHER_ACTIONS._TYPE}
                 ref={ref}
