@@ -92,15 +92,15 @@ export default function InstanceBar({
 
                                 if (disabled) {
                                     return (
-                                        <div
+                                        <button
                                             key={item.name}
-                                            className="select-none px-1 py-0.5 flex gap-1 items-start sm:items-center text-[#9298b6]"
+                                            className="cursor-default select-none px-1 py-0.5 flex gap-1 items-start sm:items-center text-[#9298b6]"
                                         >
                                             {item.icon}
                                             <p className="text-[10px] sm:text-[13px]">
                                                 {translate(item.name)}
                                             </p>
-                                        </div>
+                                        </button>
                                     );
                                 }
 
