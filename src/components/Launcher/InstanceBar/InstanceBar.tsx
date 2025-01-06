@@ -1,6 +1,12 @@
 import {useInstanceStore, useLauncherBarsStore} from "@/utils/Stores/Stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
-import {DELETED, LAUNCHER_INSTANCE_BAR_ITEMS, LAUNCHER_INSTANCES, UNKNOWN_INSTANCE} from "@/configs/launcher";
+import {
+    DELETED,
+    LAUNCHER_GROUPS,
+    LAUNCHER_INSTANCE_BAR_ITEMS,
+    LAUNCHER_INSTANCES,
+    UNKNOWN_INSTANCE
+} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
@@ -128,46 +134,57 @@ export default function InstanceBar({
                     borderBottomRightRadius: statusBar?.opened ? "0" : "0.375rem",
                 }}
             >
-                <button
-                    onClick={() => setHidden((hidden: boolean) => !hidden)}
-                    className="select-none flex gap-2 items-center text-[#80859A] text-[10px] sm:text-[12px]"
-                >
-                    <Icon
-                        height={28}
-                        icon={
-                            hidden ? "fluent:chevron-right-16-filled" : "fluent:chevron-down-16-filled"
-                        }
-                    />
-                    <div className="flex-shrink-0 font-bold">
-                        {translate('launcher.ungrouped')}
-                    </div>
-                    <div className="w-full h-[2px] bg-[#15161e]" />
-                </button>
                 {
-                    !hidden && (
-                        <div className="flex gap-2 flex-wrap sm:flex-nowrap">
-                            {
-                                filteredInstancesList.map((instance: LauncherInstanceType) => {
-                                    if (currentInstance.deleted === DELETED.YES && instance.name === currentInstance.name) {
-                                        return (
-                                            <React.Fragment key={instance.name} />
-                                        );
-                                    }
+                    LAUNCHER_GROUPS.map((group: string) => {
+                        return (
+                            <React.Fragment key={group}>
+                                <button
+                                    onClick={() => setHidden((hidden: boolean) => !hidden)}
+                                    className="select-none flex gap-2 items-center text-[#80859A] text-[10px] sm:text-[12px]"
+                                >
+                                    <Icon
+                                        height={28}
+                                        icon={
+                                            hidden ? "fluent:chevron-right-16-filled" : "fluent:chevron-down-16-filled"
+                                        }
+                                    />
+                                    <div className="flex-shrink-0 font-bold">
+                                        {translate(group)}
+                                    </div>
+                                    <div className="w-full h-[2px] bg-[#15161e]"/>
+                                </button>
+                                {
+                                    !hidden && (
+                                        <div className="flex gap-2 flex-wrap sm:flex-nowrap">
+                                            {
+                                                filteredInstancesList.filter((instance: LauncherInstanceType) => {
+                                                    return instance.group === group;
+                                                }).map((instance: LauncherInstanceType) => {
+                                                    if (currentInstance.deleted === DELETED.YES && instance.name === currentInstance.name) {
+                                                        return (
+                                                            <React.Fragment key={instance.name} />
+                                                        );
+                                                    }
 
-                                    return (
-                                        <InstanceButton
-                                            key={instance.name}
-                                            name={instance.name}
-                                            icon={instance.icon}
-                                            launched={null}
-                                            deleted={instance.deleted}
-                                            version={instance.version}
-                                        />
-                                    );
-                                })
-                            }
-                        </div>
-                    )
+                                                    return (
+                                                        <InstanceButton
+                                                            key={instance.name}
+                                                            name={instance.name}
+                                                            icon={instance.icon}
+                                                            launched={null}
+                                                            deleted={instance.deleted}
+                                                            version={instance.version}
+                                                            group={instance.group}
+                                                        />
+                                                    );
+                                                })
+                                            }
+                                        </div>
+                                    )
+                                }
+                            </React.Fragment>
+                        );
+                    })
                 }
             </div>
         </div>

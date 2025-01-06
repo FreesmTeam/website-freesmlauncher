@@ -12,6 +12,8 @@ import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
 import diamondSvg from "../../public/diamond.svg";
 
+export const PLACEHOLDER_GROUP = 'launcher.placeholder-group';
+export const NO_GROUP = 'launcher.ungrouped';
 export const EAGLERCRAFT_INSTANCE_NAME = 'EaglerCraft 1.5.2';
 export const EAGLERCRAFT_EMBED_URL = 'https://sd592g.github.io/zj684od4lfg/';
 export const ANIMATION_NAME = 'animate-shake';
@@ -162,15 +164,20 @@ export const LAUNCHER_INSTANCE_BAR_ITEMS: LauncherInstanceBarItemType[] = [
 export const UNKNOWN_INSTANCE: LauncherInstanceType = {
     name: 'Unknown',
     version: 'unknown',
+    group: NO_GROUP,
     icon: grassSvg,
     launched: null,
     deleted: DELETED.NO,
     grayscale: true,
 };
+export const LAUNCHER_GROUPS: string[] = [
+    NO_GROUP, PLACEHOLDER_GROUP
+];
 export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
         name: EAGLERCRAFT_INSTANCE_NAME,
         version: '1.5.2',
+        group: NO_GROUP,
         icon: grassSvg,
         launched: null,
         deleted: DELETED.NO,
@@ -178,7 +185,7 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
         name: '1.21',
         version: '1.21',
-        group: 'Placeholders',
+        group: PLACEHOLDER_GROUP,
         icon: grassSvg,
         launched: null,
         deleted: DELETED.NO,
@@ -186,7 +193,7 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
         name: '1.12.2',
         version: '1.12.2',
-        group: 'Placeholders',
+        group: PLACEHOLDER_GROUP,
         icon: stoneSvg,
         launched: null,
         deleted: DELETED.NO,
@@ -194,7 +201,7 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
         name: 'Some 1.16.5 modpack with a long name',
         version: '1.16.5',
-        group: 'Placeholders',
+        group: PLACEHOLDER_GROUP,
         icon: diamondSvg,
         launched: null,
         deleted: DELETED.NO,

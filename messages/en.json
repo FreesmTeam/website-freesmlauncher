@@ -64,6 +64,7 @@
       "time-played": "Time played",
       "specific-time-played": "total played for",
       "ungrouped": "Ungrouped",
+      "placeholder-group": "Placeholders",
       "confirm-deletion": {
         "title": "Confirm Deletion",
         "description": "You are about to delete «{instanceName}».\nThis may be permanent and will completely delete the instance.\n\nAre you sure?"

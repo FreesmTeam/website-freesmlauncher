@@ -64,6 +64,7 @@
       "time-played": "Всего наиграно",
       "specific-time-played": "сыграно за всё время",
       "ungrouped": "Без группы",
+      "placeholder-group": "Остальное",
       "confirm-deletion": {
         "title": "Подтвердить удаление",
         "description": "Вы собираетесь удалить «{instanceName}».\nЭто действие необратимо и полностью удалит сборку.\n\nВы уверены?"
