@@ -18,6 +18,12 @@ import getDisabledProperty from "@/utils/Helpers/getDisabledProperty";
 import handleLaunch from '@/utils/Helpers/handleLaunch';
 import React from "react";
 
+const LAUNCHER_GROUPS_OBJ: { [name: string]: boolean } = {};
+
+LAUNCHER_GROUPS.forEach((value: string) => {
+    LAUNCHER_GROUPS_OBJ[value] = false;
+});
+
 export default function InstanceBar({
     maximized,
 }: {
@@ -27,7 +33,9 @@ export default function InstanceBar({
 
     const [filteredInstancesList, setFilteredInstancesList] = useState<LauncherInstanceType[]>(LAUNCHER_INSTANCES);
 
-    const [hidden, setHidden] = useState(false);
+    const [hidden, setHidden] = useState<{
+        [name: string]: boolean,
+    }>(LAUNCHER_GROUPS_OBJ);
 
     const instancesStore = useInstanceStore((state) => state);
     const { currentInstance, updateCurrentInstance } = instancesStore;
@@ -37,6 +45,15 @@ export default function InstanceBar({
     const statusBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.status-bar');
     const lastIndex = launcherBarsStore.entries.length - 1;
     const hasLockBars = launcherBarsStore.entries[lastIndex].opened;
+
+    function toggleGroup(group: string) {
+        setHidden((obj) => {
+            return {
+                ...obj,
+                [group]: !obj[group],
+            };
+        });
+    }
 
     useEffect(() => {
         if (currentInstance.deleted === DELETED.YES) {
@@ -139,13 +156,13 @@ export default function InstanceBar({
                         return (
                             <React.Fragment key={group}>
                                 <button
-                                    onClick={() => setHidden((hidden: boolean) => !hidden)}
+                                    onClick={() => toggleGroup(group)}
                                     className="select-none flex gap-2 items-center text-[#80859A] text-[10px] sm:text-[12px]"
                                 >
                                     <Icon
                                         height={28}
                                         icon={
-                                            hidden ? "fluent:chevron-right-16-filled" : "fluent:chevron-down-16-filled"
+                                            hidden[group] ? "fluent:chevron-right-16-filled" : "fluent:chevron-down-16-filled"
                                         }
                                     />
                                     <div className="flex-shrink-0 font-bold">
@@ -154,7 +171,7 @@ export default function InstanceBar({
                                     <div className="w-full h-[2px] bg-[#15161e]"/>
                                 </button>
                                 {
-                                    !hidden && (
+                                    !hidden[group] && (
                                         <div className="flex gap-2 flex-wrap sm:flex-nowrap">
                                             {
                                                 filteredInstancesList.filter((instance: LauncherInstanceType) => {
