@@ -171,7 +171,6 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
         name: EAGLERCRAFT_INSTANCE_NAME,
         version: '1.5.2',
-        group: 'Vanilla',
         icon: grassSvg,
         launched: null,
         deleted: DELETED.NO,
@@ -179,7 +178,7 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
         name: '1.21',
         version: '1.21',
-        group: 'Vanilla',
+        group: 'Placeholders',
         icon: grassSvg,
         launched: null,
         deleted: DELETED.NO,
@@ -187,7 +186,7 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
         name: '1.12.2',
         version: '1.12.2',
-        group: 'Vanilla',
+        group: 'Placeholders',
         icon: stoneSvg,
         launched: null,
         deleted: DELETED.NO,
@@ -195,7 +194,7 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
     {
         name: 'Some 1.16.5 modpack with a long name',
         version: '1.16.5',
-        group: 'Fabric',
+        group: 'Placeholders',
         icon: diamondSvg,
         launched: null,
         deleted: DELETED.NO,
