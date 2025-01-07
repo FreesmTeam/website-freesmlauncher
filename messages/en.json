@@ -26,6 +26,10 @@
         "description": "You have successfully logged in to Freesm Launcher using your Microsoft account!"
       }
     },
+    "successful-login": {
+      "title": "Successful Login",
+      "description": "You have successfully logged in to Freesm Launcher using your Microsoft account. You can close this window now. Have a good time!"
+    },
     "navbar": {
       "home": "Home",
       "downloads": "Download",

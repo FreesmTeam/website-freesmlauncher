@@ -26,6 +26,10 @@
         "description": "Вы успешно вошли в Freesm Launcher через Microsoft аккаунт!"
       }
     },
+    "successful-login": {
+      "title": "Успешный вход",
+      "description": "Вы успешно вошли в Freesm Launcher через Microsoft аккаунт. Теперь Вы можете закрыть данное окно. Приятной игры!"
+    },
     "navbar": {
       "home": "Главная",
       "downloads": "Скачать",

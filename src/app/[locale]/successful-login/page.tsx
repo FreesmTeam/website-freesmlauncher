@@ -1,6 +1,7 @@
 import {Metadata} from "next";
 import {getTranslations} from "next-intl/server";
 import {APP_NAME} from "@/configs/constants";
+import SuccessfulLogin from "@/components/SuccessfulLogin/SuccessfulLogin";
 
 export async function generateMetadata(): Promise<Metadata> {
     const translate = await getTranslations('Translations');
@@ -28,8 +29,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Page() {
     return (
-        <>
-            success
-        </>
+        <div className="text-white">
+            <SuccessfulLogin />
+        </div>
     );
 }
