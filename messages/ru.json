@@ -20,6 +20,10 @@
       "about": {
         "title": "О нас",
         "description": "Узнайте больше о команде Freesm Launcher'а и всех, кто внёс вклад, здесь."
+      },
+      "successful-login": {
+        "title": "Успешный вход",
+        "description": "Вы успешно вошли в Freesm Launcher через Microsoft аккаунт!"
       }
     },
     "navbar": {

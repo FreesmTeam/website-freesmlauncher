@@ -20,6 +20,10 @@
       "about": {
         "title": "About",
         "description": "Find out more about the Freesm Launcher development team and all the contributors here."
+      },
+      "successful-login": {
+        "title": "Successful Login",
+        "description": "You have successfully logged in to Freesm Launcher using your Microsoft account!"
       }
     },
     "navbar": {
