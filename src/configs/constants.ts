@@ -1,6 +1,7 @@
 import {HeaderExternalLinkType} from "@/types/HeaderExternalLink.type";
 import {HeaderItemType} from "@/types/HeaderItem.type";
 import { NavbarItemType } from "@/types/NavbarItem.type";
+import {FooterLinksType} from "@/types/FooterLinks.type";
 
 export const APP_NAME = 'Freesm Launcher';
 export const APP_DESCRIPTION = 'Prism Launcher fork aimed to provide a free way to play Minecraft.';
@@ -86,4 +87,57 @@ export const FEATURES_SECTIONS = [
         description: "features.second-description",
         icon: "fluent:lock-open-16-regular",
     },
+];
+export const FOOTER_LINKS: FooterLinksType = [
+    {
+        title: "About",
+        links: [
+            {
+                name: "Contribute",
+                link: "",
+            },
+            {
+                name: "About Freesm Launcher",
+                link: "",
+            },
+            {
+                name: "Download",
+                link: "",
+            }
+        ],
+    },
+    {
+        title: "Community",
+        links: [
+            {
+                name: "Telegram Channel",
+                link: "",
+            },
+            {
+                name: "Telegram Chat",
+                link: "",
+            },
+            {
+                name: "Follow on Github",
+                link: "",
+            },
+        ],
+    },
+    {
+        title: "Project",
+        links: [
+            {
+                name: "Source Code",
+                link: "",
+            },
+            {
+                name: "Github Issues",
+                link: "",
+            },
+            {
+                name: "Github Organization",
+                link: "",
+            },
+        ],
+    }
 ];
