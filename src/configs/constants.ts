@@ -34,9 +34,9 @@ export const NAVBAR_ITEMS: NavbarItemType[] = [
         link: ABOUT_LINK,
     },
     {
-        name: 'navbar.other',
-        icon: 'fluent:more-horizontal-16-regular',
-        selectedIcon: 'fluent:more-horizontal-16-regular',
+        name: 'navbar.change-language',
+        icon: 'placeholder',
+        selectedIcon: 'placeholder',
         isAction: true,
     }
 ];
