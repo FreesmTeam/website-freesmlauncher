@@ -3,7 +3,7 @@
     {
       "name": "windstone",
       "avatar": "https://avatars.githubusercontent.com/u/91563727?v=4",
-      "descriptionEn": "Next.js (frontend) developer who enjoys creating Web-designs and also maintains Freesm Launcher",
+      "descriptionEn": "(FrontendK) Next.js developer who enjoys creating Web-designs and also maintains Freesm Launcher",
       "descriptionRu": "(Frontend) Next.js-разработчик, который любит Web-дизайн и поддерживает Freesm Launcher",
       "link": "https://github.com/notwindstone/"
     },
@@ -20,6 +20,13 @@
       "descriptionEn": "Problem-solver at heart, passionate about Linux (NixOS) and open-source apps.",
       "descriptionRu": "Страстный problem-solver, увлечён Linux (NixOS) и приложениями с открытым исходным кодом.",
       "link": "https://github.com/kaeeraa/"
+    },
+    {
+      "name": "so5iso4ka",
+      "avatar": "https://avatars.githubusercontent.com/u/170882094?v=4",
+      "descriptionEn": "C++ Enjoyer",
+      "descriptionRu": "Любитель C++",
+      "link": "https://github.com/so5iso4ka/"
     }
   ],
   "contributors": [
@@ -32,11 +39,6 @@
       "name": "SophrTemin",
       "avatar": null,
       "link": "https://github.com/SophrTemin/"
-    },
-    {
-      "name": "so5iso4ka",
-      "avatar": "https://avatars.githubusercontent.com/u/170882094?v=4",
-      "link": "https://github.com/so5iso4ka/"
     },
     {
       "name": "m3oweezed",
