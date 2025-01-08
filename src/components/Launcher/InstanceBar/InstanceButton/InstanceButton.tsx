@@ -16,7 +16,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
     const instancesStore = useInstanceStore((state) => state);
     const { currentInstance, updateCurrentInstance } = instancesStore;
 
-    const [debouncedRename, setDebouncedRename] = useDebouncedState<string | null>(currentInstance.name, 200);
+    const [debouncedRename, setDebouncedRename] = useDebouncedState<string | null>(instance.name, 200);
 
     const renamesStore = useRenamesStore((state) => state);
     const { currentRenames, updateCurrentRenames } = renamesStore;
