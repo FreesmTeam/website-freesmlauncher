@@ -37,6 +37,31 @@
       "other": "Прочее",
       "change-language": "Сменить язык"
     },
+    "footer": {
+      "about": {
+        "title": "О лаунчере",
+        "links": {
+          "contribute": "Внести вклад",
+          "about": "О команде",
+          "download": "Скачать"
+        }
+      },
+      "community": {
+        "title": "Сообщество",
+        "links": {
+          "telegram-channel": "Telegram-канал",
+          "telegram-chat": "Telegram-чат",
+          "follow-on-github": "Подписаться на Github"
+        }
+      },
+      "project": {
+        "title": "Проект",
+        "links": {
+          "source-code": "Исходный код",
+          "github-issues": "Github Issues"
+        }
+      }
+    },
     "downloads": {
       "title": "Загрузки",
       "description": "Скачайте Freesm Launcher под Вашу операционную систему.",

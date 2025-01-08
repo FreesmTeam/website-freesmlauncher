@@ -94,48 +94,48 @@ export const FEATURES_SECTIONS = [
 ];
 export const FOOTER_LINKS: FooterLinksType = [
     {
-        title: "About",
+        title: "footer.about.title",
         links: [
             {
-                name: "Contribute",
+                name: "footer.about.links.contribute",
                 link: GITHUB_CONTRIBUTE_LINK,
             },
             {
-                name: "About Freesm Launcher",
+                name: "footer.about.links.about",
                 link: ABOUT_LINK,
             },
             {
-                name: "Download",
+                name: "footer.about.links.download",
                 link: DOWNLOADS_LINK,
             }
         ],
     },
     {
-        title: "Community",
+        title: "footer.community.title",
         links: [
             {
-                name: "Telegram Channel",
+                name: "footer.community.links.telegram-channel",
                 link: TELEGRAM_GROUP_LINK,
             },
             {
-                name: "Telegram Chat",
+                name: "footer.community.links.telegram-chat",
                 link: TELEGRAM_CHAT_LINK,
             },
             {
-                name: "Follow on Github",
+                name: "footer.community.links.follow-on-github",
                 link: GITHUB_ORGANIZATION_LINK,
             },
         ],
     },
     {
-        title: "Project",
+        title: "footer.project.title",
         links: [
             {
-                name: "Source Code",
+                name: "footer.project.links.source-code",
                 link: GITHUB_LINK,
             },
             {
-                name: "Github Issues",
+                name: "footer.project.links.github-issues",
                 link: GITHUB_ISSUES_LINK,
             },
         ],

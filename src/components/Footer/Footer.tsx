@@ -2,8 +2,11 @@ import Image from "next/image";
 import websiteLogo from '../../../public/freesm-launcher-logo.webp';
 import {FOOTER_LINKS} from "@/configs/constants";
 import Link from "next/link";
+import {useTranslations} from "next-intl";
 
 export default function Footer() {
+    const translate = useTranslations('Translations');
+
     return (
         <>
             <div className="-z-50 h-[300px] sm:h-[200px]" />
@@ -28,7 +31,7 @@ export default function Footer() {
                                         className="select-none px-4 flex flex-1 flex-col gap-2 items-center sm:items-start"
                                     >
                                         <p className="text-white font-semibold text-[14px] sm:text-[18px]">
-                                            {item.title}
+                                            {translate(item.title)}
                                         </p>
                                         <div className="flex flex-row sm:flex-col gap-2 items-center sm:items-start">
                                             {
@@ -40,7 +43,7 @@ export default function Footer() {
                                                             key={link.name}
                                                             className="text-center sm:text-start leading-5 text-wrap text-gray-400 text-[12px] sm:text-[16px] underline-offset-[5px] hover:underline"
                                                         >
-                                                            {link.name}
+                                                            {translate(link.name)}
                                                         </Link>
                                                     );
                                                 })

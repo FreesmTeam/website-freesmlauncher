@@ -37,6 +37,31 @@
       "other": "Other",
       "change-language": "Change Language"
     },
+    "footer": {
+      "about": {
+        "title": "About",
+        "links": {
+          "contribute": "Contribute",
+          "about": "About",
+          "download": "Download"
+        }
+      },
+      "community": {
+        "title": "Community",
+        "links": {
+          "telegram-channel": "Telegram Channel",
+          "telegram-chat": "Telegram Chat",
+          "follow-on-github": "Follow on Github"
+        }
+      },
+      "project": {
+        "title": "Project",
+        "links": {
+          "source-code": "Source Code",
+          "github-issues": "Github Issues"
+        }
+      }
+    },
     "downloads": {
       "title": "Downloads",
       "description": "Download Freesm Launcher for your specific platform.",
