@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function Footer() {
     return (
         <>
-            <div className="-z-50 h-[200px]" />
-            <div className="flex justify-center bg-[#1b1b2a] h-[312px] sm:h-[232px] w-full px-4 pt-8 fixed bottom-0 pb-[112px] sm:pb-8 z-0">
+            <div className="-z-50 h-[300px] sm:h-[200px]" />
+            <div className="flex justify-center bg-[#1b1b2a] h-[412px] sm:h-[232px] w-full px-8 pt-8 fixed bottom-0 pb-[112px] sm:pb-8 z-0 overflow-y-auto max-h-[100svh] scroll-pb-24">
                 <div className="max-w-[1280px] w-full flex flex-col flex-nowrap sm:flex-row sm:justify-between gap-4">
                     <div className="select-none flex flex-col gap-2 items-center sm:items-start">
                         <Image
@@ -19,7 +19,7 @@ export default function Footer() {
                             Another way to play Minecraft for free.
                         </p>
                     </div>
-                    <div className="flex gap-0 flex-col sm:flex-row">
+                    <div className="flex gap-4 flex-col sm:flex-row">
                         {
                             FOOTER_LINKS.map((item) => {
                                 return (
@@ -27,23 +27,25 @@ export default function Footer() {
                                         key={item.title}
                                         className="select-none px-4 flex flex-1 flex-col gap-2 items-center sm:items-start"
                                     >
-                                        <p className="text-white font-semibold text-[16px] sm:text-[18px]">
+                                        <p className="text-white font-semibold text-[14px] sm:text-[18px]">
                                             {item.title}
                                         </p>
-                                        {
-                                            item.links.map((link) => {
-                                                return (
-                                                    <Link
-                                                        href={link.link}
-                                                        target="_blank"
-                                                        key={link.name}
-                                                        className="leading-5 text-wrap text-gray-400 text-[14px] sm:text-[16px] underline-offset-[5px] hover:underline"
-                                                    >
-                                                        {link.name}
-                                                    </Link>
-                                                );
-                                            })
-                                        }
+                                        <div className="flex flex-row sm:flex-col gap-2 items-center sm:items-start">
+                                            {
+                                                item.links.map((link) => {
+                                                    return (
+                                                        <Link
+                                                            href={link.link}
+                                                            target="_blank"
+                                                            key={link.name}
+                                                            className="text-center sm:text-start leading-5 text-wrap text-gray-400 text-[12px] sm:text-[16px] underline-offset-[5px] hover:underline"
+                                                        >
+                                                            {link.name}
+                                                        </Link>
+                                                    );
+                                                })
+                                            }
+                                        </div>
                                     </div>
                                 );
                             })
