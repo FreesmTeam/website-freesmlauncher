@@ -11,6 +11,7 @@ import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
 import diamondSvg from "../../public/diamond.svg";
+import {LauncherRenamesType} from "@/types/LauncherRenames.type";
 
 export const PLACEHOLDER_GROUP = 'launcher.placeholder-group';
 export const NO_GROUP = 'launcher.ungrouped';
@@ -208,6 +209,24 @@ export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
         deleted: DELETED.NO,
     }
 ];
+export const LAUNCHER_RENAMES: LauncherRenamesType = {
+    [EAGLERCRAFT_INSTANCE_NAME]: {
+        name: null,
+        isBeingRenamed: false,
+    },
+    '1.21': {
+        name: null,
+        isBeingRenamed: false,
+    },
+    '1.12.2': {
+        name: null,
+        isBeingRenamed: false,
+    },
+    'Some 1.16.5 modpack with a long name': {
+        name: null,
+        isBeingRenamed: false,
+    },
+};
 export const LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS: LauncherInstanceBarItemType[] = [
     {
         name: 'launcher.instance.rename',
