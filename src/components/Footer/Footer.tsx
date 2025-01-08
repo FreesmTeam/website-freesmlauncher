@@ -19,7 +19,7 @@ export default function Footer() {
                             alt={"Freesm Launcher logo"}
                         />
                         <p className="text-gray-400 text-[14px] sm:text-[16px]">
-                            Another way to play Minecraft for free.
+                            {translate('footer.short-description')}
                         </p>
                     </div>
                     <div className="flex gap-4 flex-col sm:flex-row">

@@ -38,6 +38,7 @@
       "change-language": "Сменить язык"
     },
     "footer": {
+      "short-description": "Играйте в майнкрафт без ограничений.",
       "about": {
         "title": "О лаунчере",
         "links": {
