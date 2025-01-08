@@ -1,4 +1,4 @@
-import {useInstanceStore, useLauncherBarsStore, useRenamesStore} from "@/utils/Stores/Stores";
+import {useCatPackStore, useInstanceStore, useLauncherBarsStore, useRenamesStore} from "@/utils/Stores/Stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
 import {
     DELETED,
@@ -43,6 +43,9 @@ export default function InstanceBar({
     const renamesStore = useRenamesStore((state) => state);
     const { currentRenames, updateCurrentRenames } = renamesStore;
     const renamedInstance = currentRenames[currentInstance.name].name;
+
+    const catPackStore = useCatPackStore((state) => state);
+    const { enabled: catPackEnabled } = catPackStore;
 
     const launcherBarsStore = useLauncherBarsStore((state) => state);
     const instanceBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.instance-toolbar');
@@ -170,7 +173,10 @@ export default function InstanceBar({
                 style={{
                     borderBottomLeftRadius: (instanceBar?.opened || statusBar?.opened) ? "0" : "0.375rem",
                     borderBottomRightRadius: statusBar?.opened ? "0" : "0.375rem",
-                    backgroundImage: "url(/banner.webp)",
+                    backgroundImage: catPackEnabled ? "url(/MiSide-screenshot-for-website-with-opacity.png)" : "",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center center",
+                    backgroundRepeat: "no-repeat",
                 }}
             >
                 {

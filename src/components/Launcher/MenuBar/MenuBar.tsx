@@ -19,7 +19,7 @@ export default function MenuBar() {
     const updateMenuBars = launcherMenuBarsStore.updateEntries;
 
     const catPackStore = useCatPackStore((state) => state);
-    const { enabled, updateEnabled } = catPackStore;
+    const { enabled: catPackEnabled, updateEnabled: updateCatPackEnabled } = catPackStore;
 
     const lastIndex = launcherMenuBarsStore.entries.length - 1;
     const hasLockBars = launcherMenuBarsStore.entries[lastIndex].opened;
@@ -49,7 +49,7 @@ export default function MenuBar() {
 
     function handleTabClick(name: string | undefined) {
         if (!name) {
-            updateEnabled(!enabled);
+            updateCatPackEnabled(!catPackEnabled);
         }
     }
 
@@ -124,7 +124,7 @@ export default function MenuBar() {
                             <button
                                 onClick={() => handleTabClick(tab.name)}
                                 key={tab?.name ?? ''}
-                                className={`select-none px-1 sm:px-2 py-1 sm:py-0 rounded-md flex items-center gap-1 hover:bg-[#211e2f] active:bg-[#171721] ${!tab?.name && enabled ? "bg-[#211e2f]" : ""}`}
+                                className={`select-none px-1 sm:px-2 py-1 sm:py-0 rounded-md flex items-center gap-1 hover:bg-[#211e2f] active:bg-[#171721] ${!tab?.name && catPackEnabled ? "bg-[#211e2f]" : ""}`}
                             >
                                 {tab.icon}
                                 {tab?.name && (
