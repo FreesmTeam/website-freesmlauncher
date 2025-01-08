@@ -226,6 +226,10 @@ export const LAUNCHER_RENAMES: LauncherRenamesType = {
         name: null,
         isBeingRenamed: false,
     },
+    'Unknown': {
+        name: null,
+        isBeingRenamed: false,
+    }
 };
 export const LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS: LauncherInstanceBarItemType[] = [
     {

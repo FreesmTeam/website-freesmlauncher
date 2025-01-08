@@ -91,7 +91,9 @@ export default function InstanceBar({
                                 <div className="cursor-move rounded-full h-[5px] w-full bg-[#dbcafe]" />
                             )
                         }
-                        <div className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]">
+                        <div
+                            className={`select-none flex justify-center items-center rounded-md ${currentInstance.name === UNKNOWN_INSTANCE.name ? "" : "hover:bg-[#1b1825]"}`}
+                        >
                             <Image
                                 width={80}
                                 src={currentInstance.icon}
@@ -104,14 +106,18 @@ export default function InstanceBar({
                             />
                         </div>
                         <div
-                            onClick={() => updateCurrentRenames({
-                                ...currentRenames,
-                                [currentInstance.name]: {
-                                    name: currentRenames[currentInstance.name].name,
-                                    isBeingRenamed: true,
+                            onClick={() => {
+                                if (currentInstance.name !== UNKNOWN_INSTANCE.name) {
+                                    updateCurrentRenames({
+                                        ...currentRenames,
+                                        [currentInstance.name]: {
+                                            name: currentRenames[currentInstance.name].name,
+                                            isBeingRenamed: true,
+                                        }
+                                    })
                                 }
-                            })}
-                            className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]"
+                            }}
+                            className={`select-none flex justify-center items-center rounded-md ${currentInstance.name === UNKNOWN_INSTANCE.name ? "" : "hover:bg-[#1b1825]"}`}
                         >
                             <p className="text-center text-[10px] sm:text-[13px] text-[#CDD6F4]">
                                 {renamedInstance ?? currentInstance.name}
