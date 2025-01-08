@@ -205,6 +205,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                                 handleRenamingExit();
                             }
                         }}
+                        autoFocus={true}
                     />
                 ) : (
                     <p
