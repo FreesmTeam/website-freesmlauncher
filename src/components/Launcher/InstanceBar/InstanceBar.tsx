@@ -103,7 +103,16 @@ export default function InstanceBar({
                                 }}
                             />
                         </div>
-                        <div className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]">
+                        <div
+                            onClick={() => updateCurrentRenames({
+                                ...currentRenames,
+                                [currentInstance.name]: {
+                                    name: currentRenames[currentInstance.name].name,
+                                    isBeingRenamed: true,
+                                }
+                            })}
+                            className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]"
+                        >
                             <p className="text-center text-[10px] sm:text-[13px] text-[#CDD6F4]">
                                 {renamedInstance ?? currentInstance.name}
                             </p>
