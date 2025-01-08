@@ -32,7 +32,7 @@ export default function Header() {
 
     return (
         <>
-            <div className="w-full h-[80px] absolute top-0 bg-[#09090e]" />
+            <div className="w-full h-[80px] absolute top-0 bg-[#09090e] hidden sm:block" />
             <header
                 className="hidden sm:block z-[2000] sticky top-0 bg-[#09090e] lg:bg-[#09090ebb] lg:backdrop-blur border-b-[1px] border-[#181825] select-none p-4 w-full">
                 <div className="mx-auto max-w-[1280px] flex justify-between items-center h-12 w-full">
