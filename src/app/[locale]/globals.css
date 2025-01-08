@@ -13,6 +13,8 @@ body {
 }
 
 .global-overlay {
+    position: relative;
+    z-index: 100;
     background-image: linear-gradient(var(--background-one), var(--background-two));
     background-repeat: no-repeat;
     padding-bottom: 32px;

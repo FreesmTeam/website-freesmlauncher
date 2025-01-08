@@ -98,11 +98,11 @@ export const FOOTER_LINKS: FooterLinksType = [
             },
             {
                 name: "About Freesm Launcher",
-                link: "",
+                link: ABOUT_LINK,
             },
             {
                 name: "Download",
-                link: "",
+                link: DOWNLOADS_LINK,
             }
         ],
     },
