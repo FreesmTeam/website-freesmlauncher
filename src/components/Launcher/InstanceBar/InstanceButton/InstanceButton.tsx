@@ -92,7 +92,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
     }
 
     useEffect(() => {
-        if (opened && currentRename.isBeingRenamed) {
+        if (currentRename.isBeingRenamed) {
             setOpened(false)
         }
     }, [currentRename.isBeingRenamed]);
