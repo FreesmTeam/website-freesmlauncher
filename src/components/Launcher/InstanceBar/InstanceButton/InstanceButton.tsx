@@ -84,6 +84,10 @@ export default function InstanceButton(instance: LauncherInstanceType) {
             }
         }
 
+        if (currentRename.isBeingRenamed){
+            return;
+        }
+
         updateCurrentInstance({
             ...instance,
             launched: instance.name,
@@ -96,6 +100,18 @@ export default function InstanceButton(instance: LauncherInstanceType) {
             setOpened(false)
         }
     }, [currentRename.isBeingRenamed]);
+
+    useEffect(() => {
+        if (currentRename.name === '') {
+            updateCurrentRenames({
+                ...currentRenames,
+                [instance.name]: {
+                    name: null,
+                    isBeingRenamed: false,
+                },
+            });
+        }
+    }, [currentRename.name]);
 
     return (
         <button
