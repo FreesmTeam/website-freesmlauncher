@@ -1,8 +1,8 @@
 import Image from "next/image";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import {useInstanceStore, useRenamesStore} from "@/utils/Stores/Stores";
-import {useRef, useState} from "react";
-import {useClickOutside} from "@mantine/hooks";
+import {useEffect, useRef, useState} from "react";
+import {useClickOutside, useDebouncedState} from "@mantine/hooks";
 import {LAUNCHER_ACTIONS, LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
@@ -16,6 +16,8 @@ export default function InstanceButton(instance: LauncherInstanceType) {
     const instancesStore = useInstanceStore((state) => state);
     const { currentInstance, updateCurrentInstance } = instancesStore;
 
+    const [debouncedRename, setDebouncedRename] = useDebouncedState<string | null>(null, 200);
+
     const renamesStore = useRenamesStore((state) => state);
     const { currentRenames, updateCurrentRenames } = renamesStore;
     const currentRename = currentRenames[instance.name];
@@ -23,7 +25,18 @@ export default function InstanceButton(instance: LauncherInstanceType) {
     const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 });
     const [opened, setOpened] = useState(false);
     const ref = useClickOutside(() => setOpened(false));
+    const renamingRef = useClickOutside(() => handleRenamingExit());
     const instanceRef = useRef<HTMLButtonElement>(null);
+
+    function handleRenamingExit() {
+        updateCurrentRenames({
+            ...currentRenames,
+            [instance.name]: {
+                name: debouncedRename,
+                isBeingRenamed: false,
+            },
+        })
+    }
 
     function handleRightClick(event: React.MouseEvent) {
         updateCurrentInstance({
@@ -78,6 +91,12 @@ export default function InstanceButton(instance: LauncherInstanceType) {
         });
     }
 
+    useEffect(() => {
+        if (opened && currentRename.isBeingRenamed) {
+            setOpened(false)
+        }
+    }, [currentRename.isBeingRenamed]);
+
     return (
         <button
             ref={instanceRef}
@@ -113,7 +132,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                         aria-label={LAUNCHER_ACTIONS._TYPE}
                         className="select-none text-nowrap text-center text-[10px] sm:text-[13px]"
                     >
-                        {currentInstance.name}
+                        {currentRename.name ?? currentInstance.name}
                     </p>
                 </div>
                 {
@@ -175,8 +194,17 @@ export default function InstanceButton(instance: LauncherInstanceType) {
             {
                 currentRename.isBeingRenamed ? (
                     <textarea
-                        className="w-[100px] resize-none outline-none text-center text-white bg-[#0C0C13] border-[1px] border-[#CBA6F7]"
+                        ref={renamingRef}
+                        className="w-[100px] text-[13px] px-0.5 resize-none outline-none text-center text-white bg-[#0C0C13] border-[1px] border-[#CBA6F7]"
                         placeholder={instance.name}
+                        defaultValue={debouncedRename ?? ''}
+                        onChange={(event) => setDebouncedRename(event.currentTarget.value)}
+                        onKeyDown={(event) => {
+                            if (event.key === 'Enter') {
+                                event.preventDefault();
+                                handleRenamingExit();
+                            }
+                        }}
                     />
                 ) : (
                     <p
@@ -185,7 +213,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                             background: instance.name === currentInstance.name ? "#a285c6" : "#040407"
                         }}
                     >
-                        {instance.name}
+                        {currentRename.name ?? instance.name}
                     </p>
                 )
             }
