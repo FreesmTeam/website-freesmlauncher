@@ -14,7 +14,7 @@ export default function About() {
     const contributors = community.contributors;
 
     return (
-        <div className="flex flex-col gap-8 mt-12 max-w-[960px] px-4 mx-auto">
+        <div className="flex flex-col gap-8 pt-12 max-w-[960px] px-4 mx-auto">
             <p className="text-center font-bold text-balance text-5xl text-white sm:text-7xl">
                 {translate('about.title')}
             </p>

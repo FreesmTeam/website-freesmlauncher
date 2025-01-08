@@ -9,9 +9,12 @@
 
 body {
     overflow-x: hidden;
+    background-color: var(--background-two);
+}
+
+.global-overlay {
     background-image: linear-gradient(var(--background-one), var(--background-two));
     background-repeat: no-repeat;
-    background-color: var(--background-two);
 }
 
 .animate-shake {

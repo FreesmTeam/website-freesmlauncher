@@ -46,7 +46,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <div className="flex flex-col gap-8 mt-12 max-w-[960px] px-4 mx-auto">
+        <div className="flex flex-col gap-8 pt-12 max-w-[960px] px-4 mx-auto">
             <p className="text-center font-bold text-balance text-5xl text-white sm:text-7xl">
                 {translate('hero.title')}{' '}
                 <span className="text-[#cba6f7]">

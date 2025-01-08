@@ -13,6 +13,7 @@ import TanstackQueryProviders from "@/utils/Providers/TanstackQueryProviders";
 import Navbar from "@/components/Navbar/Navbar";
 import Head from "next/head";
 import {APP_DESCRIPTION, APP_NAME} from "@/configs/constants";
+import Footer from "@/components/Footer/Footer";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -84,7 +85,10 @@ export default async function LocaleLayout({
                         />
                         <Header />
                         <Navbar />
-                        {children}
+                        <div className="global-overlay">
+                            {children}
+                        </div>
+                        <Footer />
                     </NextIntlClientProvider>
                     <Analytics />
                 </TanstackQueryProviders>
