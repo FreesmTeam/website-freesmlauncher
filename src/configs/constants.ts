@@ -7,7 +7,11 @@ export const APP_NAME = 'Freesm Launcher';
 export const APP_DESCRIPTION = 'Prism Launcher fork aimed to provide a free way to play Minecraft.';
 export const PLACEHOLDER_OS = 'OS';
 export const GITHUB_LINK = "https://github.com/FreesmTeam/FreesmLauncher";
-export const TELEGRAM_LINK = "https://t.me/freesmteam";
+export const GITHUB_ISSUES_LINK = "https://github.com/FreesmTeam/FreesmLauncher/issues";
+export const GITHUB_CONTRIBUTE_LINK = "https://github.com/FreesmTeam/FreesmLauncher/blob/develop/CONTRIBUTING.md";
+export const GITHUB_ORGANIZATION_LINK = "https://github.com/FreesmTeam/";
+export const TELEGRAM_GROUP_LINK = "https://t.me/freesmteam";
+export const TELEGRAM_CHAT_LINK = "https://t.me/+ibDmmJF4TXo2Y2Ey";
 export const HOME_LINK = '/';
 export const DOWNLOADS_LINK = '/downloads';
 export const ABOUT_LINK = '/about';
@@ -49,7 +53,7 @@ export const HEADER_LINKS: HeaderExternalLinkType[] = [
     },
     {
         name: 'Telegram',
-        link: TELEGRAM_LINK,
+        link: TELEGRAM_GROUP_LINK,
         icon: "mdi:telegram",
         height: 20,
     }
@@ -94,7 +98,7 @@ export const FOOTER_LINKS: FooterLinksType = [
         links: [
             {
                 name: "Contribute",
-                link: "",
+                link: GITHUB_CONTRIBUTE_LINK,
             },
             {
                 name: "About Freesm Launcher",
@@ -111,15 +115,15 @@ export const FOOTER_LINKS: FooterLinksType = [
         links: [
             {
                 name: "Telegram Channel",
-                link: "",
+                link: TELEGRAM_GROUP_LINK,
             },
             {
                 name: "Telegram Chat",
-                link: "",
+                link: TELEGRAM_CHAT_LINK,
             },
             {
                 name: "Follow on Github",
-                link: "",
+                link: GITHUB_ORGANIZATION_LINK,
             },
         ],
     },
@@ -128,15 +132,11 @@ export const FOOTER_LINKS: FooterLinksType = [
         links: [
             {
                 name: "Source Code",
-                link: "",
+                link: GITHUB_LINK,
             },
             {
                 name: "Github Issues",
-                link: "",
-            },
-            {
-                name: "Github Organization",
-                link: "",
+                link: GITHUB_ISSUES_LINK,
             },
         ],
     }
