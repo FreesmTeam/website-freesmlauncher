@@ -3,7 +3,7 @@ import Features from "@/components/Features/Features";
 
 export default async function Home() {
     return (
-        <div>
+        <div className="text-white">
             <Hero />
             <Features />
         </div>
