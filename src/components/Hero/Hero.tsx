@@ -57,11 +57,11 @@ export default function Hero() {
                 {translate('hero.description')}
             </p>
             <div className="flex gap-2 justify-center">
-                <Link href={`/${locale}${DOWNLOADS_LINK}`} className="bg-[#cba6f7] flex gap-2 items-center py-2 px-4 rounded-md font-bold text-[18px] text-black transition hover:bg-[#8839ef] hover:text-white">
+                <Link href={`/${locale}${DOWNLOADS_LINK}`} className="text-center text-balance bg-[#cba6f7] flex gap-2 items-center py-2 px-4 rounded-md font-bold text-[18px] text-black transition hover:bg-[#8839ef] hover:text-white">
                     {icon}
                     {translate('hero.download-now')}
                 </Link>
-                <Link target="_blank" href={GITHUB_LINK} className="transition border-white border-[1px] bg-transparent py-2 px-4 rounded-md font-bold text-[18px] text-white hover:text-[#cba6f7] hover:border-[#cba6f7]">
+                <Link target="_blank" href={GITHUB_LINK} className="text-center text-balance transition border-white border-[1px] bg-transparent py-2 px-4 rounded-md font-bold text-[18px] text-white hover:text-[#cba6f7] hover:border-[#cba6f7]">
                     Github
                 </Link>
             </div>

@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <>
             <div className="-z-50 h-[300px] sm:h-[200px]" />
-            <div className="flex justify-center bg-[#1b1b2a] h-[412px] sm:h-[232px] w-full px-8 pt-8 fixed bottom-0 pb-[112px] sm:pb-8 z-0 overflow-y-auto max-h-[100svh] scroll-pb-24">
+            <div className="flex justify-center bg-[#1b1b2a] h-[412px] sm:h-[232px] w-full px-8 pt-8 fixed bottom-0 pb-[112px] sm:pb-8 z-0">
                 <div className="max-w-[1280px] w-full flex flex-col flex-nowrap sm:flex-row sm:justify-between gap-4">
                     <div className="select-none flex flex-col gap-2 items-center sm:items-start">
                         <Image
