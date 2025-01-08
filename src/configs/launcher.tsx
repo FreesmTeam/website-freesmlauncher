@@ -24,6 +24,7 @@ export const DELETED = {
 };
 export const LAUNCHER_ACTIONS = {
     _TYPE: 'launcher-actions-property',
+    RENAME: 'rename',
     LAUNCH: 'launch',
     KILL: 'kill',
     EDIT: 'edit',
@@ -215,6 +216,7 @@ export const LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS: LauncherInstanceBarItemType[]
             icon="fluent:edit-16-regular"
             aria-label={LAUNCHER_ACTIONS._TYPE}
         />,
+        action: LAUNCHER_ACTIONS.RENAME,
     },
     {
         name: 'launcher.instance.change-icon',

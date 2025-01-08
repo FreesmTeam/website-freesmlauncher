@@ -3,6 +3,7 @@ import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type"
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import {HandleActionType} from "@/types/HandleAction.type";
 import handleDelete from "@/utils/Helpers/handleDelete";
+import handleRename from "@/utils/Helpers/handleRename";
 
 export default function getDisabledProperty({
     item,
@@ -50,6 +51,14 @@ export default function getDisabledProperty({
         case LAUNCHER_ACTIONS.KILL:
             disabled = currentInstance.launched !== currentInstance.name;
             action = () => handleLaunchSpecified(null);
+
+            break;
+        case LAUNCHER_ACTIONS.RENAME:
+            disabled = false;
+            action = () => handleRename({
+                currentInstance,
+                updateCurrentInstance,
+            });
 
             break;
         case LAUNCHER_ACTIONS.EDIT:
