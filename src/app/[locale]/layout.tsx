@@ -83,10 +83,12 @@ export default async function LocaleLayout({
                             showSpinner={false}
                             color="#cba6f7"
                         />
-                        <Header />
-                        <Navbar />
-                        <div className="global-overlay">
-                            {children}
+                        <div className="relative z-10">
+                            <Header />
+                            <Navbar />
+                            <div className="global-overlay">
+                                {children}
+                            </div>
                         </div>
                         <Footer />
                     </NextIntlClientProvider>
