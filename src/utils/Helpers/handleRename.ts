@@ -1,11 +1,19 @@
-import {LauncherInstanceType} from "@/types/LauncherInstance.type";
+import {LauncherRenamesType} from "@/types/LauncherRenames.type";
 
 export default function handleRename({
-    currentInstance,
-    updateCurrentInstance
+    instanceName,
+    currentRenames,
+    updateCurrentRenames,
 }: {
-    currentInstance: LauncherInstanceType;
-    updateCurrentInstance: (instance: LauncherInstanceType) => void;
+    instanceName: string;
+    currentRenames: LauncherRenamesType;
+    updateCurrentRenames: (instance: LauncherRenamesType) => void;
 }) {
-    return;
+    updateCurrentRenames({
+        ...currentRenames,
+        [instanceName]: {
+            name: currentRenames[instanceName].name,
+            isBeingRenamed: !currentRenames[instanceName].isBeingRenamed,
+        }
+    });
 }

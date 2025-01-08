@@ -4,17 +4,22 @@ import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import {HandleActionType} from "@/types/HandleAction.type";
 import handleDelete from "@/utils/Helpers/handleDelete";
 import handleRename from "@/utils/Helpers/handleRename";
+import {LauncherRenamesType} from "@/types/LauncherRenames.type";
 
 export default function getDisabledProperty({
     item,
     currentInstance,
     updateCurrentInstance,
     handleLaunch,
+    currentRenames,
+    updateCurrentRenames,
 }: {
     item: LauncherInstanceBarItemType;
     currentInstance: LauncherInstanceType;
     updateCurrentInstance: (instance: LauncherInstanceType) => void;
     handleLaunch: (data: HandleActionType) => void;
+    currentRenames: LauncherRenamesType;
+    updateCurrentRenames: (instance: LauncherRenamesType) => void;
 }) {
     let disabled;
     let action = () => {};
@@ -56,8 +61,9 @@ export default function getDisabledProperty({
         case LAUNCHER_ACTIONS.RENAME:
             disabled = false;
             action = () => handleRename({
-                currentInstance,
-                updateCurrentInstance,
+                instanceName: currentInstance.name,
+                currentRenames,
+                updateCurrentRenames,
             });
 
             break;

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import {LauncherInstanceType} from "@/types/LauncherInstance.type";
-import {useInstanceStore} from "@/utils/Stores/Stores";
+import {useInstanceStore, useRenamesStore} from "@/utils/Stores/Stores";
 import {useRef, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import {LAUNCHER_ACTIONS, LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS} from "@/configs/launcher";
@@ -15,6 +15,10 @@ export default function InstanceButton(instance: LauncherInstanceType) {
 
     const instancesStore = useInstanceStore((state) => state);
     const { currentInstance, updateCurrentInstance } = instancesStore;
+
+    const renamesStore = useRenamesStore((state) => state);
+    const { currentRenames, updateCurrentRenames } = renamesStore;
+    const currentRename = currentRenames[instance.name];
 
     const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 });
     const [opened, setOpened] = useState(false);
@@ -114,11 +118,13 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                 </div>
                 {
                     LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS.map((item: LauncherInstanceBarItemType) => {
-                        const { disabled, action } = getDisabledProperty({
+                        const {disabled, action} = getDisabledProperty({
                             item,
                             currentInstance,
                             updateCurrentInstance,
                             handleLaunch,
+                            currentRenames,
+                            updateCurrentRenames,
                         });
 
                         if (disabled) {
@@ -151,7 +157,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                                     aria-label={LAUNCHER_ACTIONS._TYPE}
                                     className="select-none text-nowrap text-[10px] sm:text-[13px]"
                                 >
-                                {translate(item.name)}
+                                    {translate(item.name)}
                                 </p>
                             </div>
                         );
@@ -166,14 +172,23 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                     filter: instance.name === currentInstance.name ? "saturate(200%) contrast(20%) brightness(125%)" : "",
                 }}
             />
-            <p
-                className="text-[10px] sm:text-[13px] text-[#CDD6F4] text-center w-full"
-                style={{
-                    background: instance.name === currentInstance.name ? "#a285c6" : "#040407"
-                }}
-            >
-                {instance.name}
-            </p>
+            {
+                currentRename.isBeingRenamed ? (
+                    <textarea
+                        className="w-[100px] resize-none outline-none text-center text-white bg-[#0C0C13] border-[1px] border-[#CBA6F7]"
+                        placeholder={instance.name}
+                    />
+                ) : (
+                    <p
+                        className="text-[10px] sm:text-[13px] text-[#CDD6F4] text-center w-full"
+                        style={{
+                            background: instance.name === currentInstance.name ? "#a285c6" : "#040407"
+                        }}
+                    >
+                        {instance.name}
+                    </p>
+                )
+            }
         </button>
     );
 }

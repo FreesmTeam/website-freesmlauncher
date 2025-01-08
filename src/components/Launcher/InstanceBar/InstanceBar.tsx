@@ -1,4 +1,4 @@
-import {useInstanceStore, useLauncherBarsStore} from "@/utils/Stores/Stores";
+import {useInstanceStore, useLauncherBarsStore, useRenamesStore} from "@/utils/Stores/Stores";
 import {LauncherBarType} from "@/types/LauncherBar.type";
 import {
     DELETED,
@@ -39,6 +39,10 @@ export default function InstanceBar({
 
     const instancesStore = useInstanceStore((state) => state);
     const { currentInstance, updateCurrentInstance } = instancesStore;
+
+    const renamesStore = useRenamesStore((state) => state);
+    const { currentRenames, updateCurrentRenames } = renamesStore;
+    const renamedInstance = currentRenames[currentInstance.name].name;
 
     const launcherBarsStore = useLauncherBarsStore((state) => state);
     const instanceBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.instance-toolbar');
@@ -101,7 +105,7 @@ export default function InstanceBar({
                         </div>
                         <div className="select-none flex justify-center items-center rounded-md hover:bg-[#1b1825]">
                             <p className="text-center text-[10px] sm:text-[13px] text-[#CDD6F4]">
-                                {currentInstance.name}
+                                {renamedInstance ?? currentInstance.name}
                             </p>
                         </div>
                         {
@@ -111,6 +115,8 @@ export default function InstanceBar({
                                     currentInstance,
                                     updateCurrentInstance,
                                     handleLaunch,
+                                    currentRenames,
+                                    updateCurrentRenames,
                                 });
 
                                 if (disabled) {
