@@ -165,11 +165,12 @@ export default function InstanceBar({
                     </div>
                 )
             }
-            <div 
+            <div
                 className="w-full flex flex-col p-4 gap-2 bg-[#0c0c13]"
                 style={{
                     borderBottomLeftRadius: (instanceBar?.opened || statusBar?.opened) ? "0" : "0.375rem",
                     borderBottomRightRadius: statusBar?.opened ? "0" : "0.375rem",
+                    backgroundImage: "url(/banner.webp)",
                 }}
             >
                 {

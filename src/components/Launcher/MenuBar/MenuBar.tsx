@@ -3,7 +3,7 @@ import {useTranslations} from "next-intl";
 import {useRef, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import ProfileButton from "@/components/Launcher/MenuBar/ProfileButton/ProfileButton";
-import {useLauncherBarsStore} from "@/utils/Stores/Stores";
+import {useCatPackStore, useLauncherBarsStore} from "@/utils/Stores/Stores";
 import {LauncherBarsStateType} from "@/types/LauncherBarsState.type";
 import {LauncherBarType} from "@/types/LauncherBar.type";
 
@@ -17,6 +17,9 @@ export default function MenuBar() {
     const launcherMenuBarsStore = useLauncherBarsStore((state: LauncherBarsStateType) => state);
     const menuBars = launcherMenuBarsStore.entries;
     const updateMenuBars = launcherMenuBarsStore.updateEntries;
+
+    const catPackStore = useCatPackStore((state) => state);
+    const { enabled, updateEnabled } = catPackStore;
 
     const lastIndex = launcherMenuBarsStore.entries.length - 1;
     const hasLockBars = launcherMenuBarsStore.entries[lastIndex].opened;
@@ -42,6 +45,12 @@ export default function MenuBar() {
         updateMenuBars([
             ...menuBars,
         ])
+    }
+
+    function handleTabClick(name: string | undefined) {
+        if (!name) {
+            updateEnabled(!enabled);
+        }
     }
 
     return (
@@ -95,7 +104,7 @@ export default function MenuBar() {
                 }
                 {
                     LAUNCHER_TABS.map((tab) => {
-                        if (tab.disabled){
+                        if (tab.disabled) {
                             return (
                                 <div
                                     key={tab?.name ?? ''}
@@ -113,8 +122,9 @@ export default function MenuBar() {
 
                         return (
                             <button
+                                onClick={() => handleTabClick(tab.name)}
                                 key={tab?.name ?? ''}
-                                className="select-none px-1 sm:px-2 py-1 sm:py-0 rounded-md flex items-center gap-1 hover:bg-[#211e2f] active:bg-[#171721]"
+                                className={`select-none px-1 sm:px-2 py-1 sm:py-0 rounded-md flex items-center gap-1 hover:bg-[#211e2f] active:bg-[#171721] ${!tab?.name && enabled ? "bg-[#211e2f]" : ""}`}
                             >
                                 {tab.icon}
                                 {tab?.name && (

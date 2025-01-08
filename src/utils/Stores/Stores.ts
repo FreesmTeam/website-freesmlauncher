@@ -8,6 +8,7 @@ import {LauncherInstanceType} from "@/types/LauncherInstance.type";
 import {LauncherInstancesStateType} from "@/types/LauncherInstancesState.type";
 import {LauncherRenamesStateType} from "@/types/LauncherRenamesState.type";
 import {LauncherRenamesType} from "@/types/LauncherRenames.type";
+import {LauncherCatPackStateType} from "@/types/LauncherCatPackState.type";
 
 export const useProfileStore = create<ProfileStateType>((set) => ({
     currentProfile: LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS[0],
@@ -46,4 +47,9 @@ export const useInstanceStore = create<LauncherInstancesStateType>((set) => ({
 export const useRenamesStore = create<LauncherRenamesStateType>((set) => ({
     currentRenames: LAUNCHER_RENAMES,
     updateCurrentRenames: (renames: LauncherRenamesType) => set({ currentRenames: renames})
+}));
+
+export const useCatPackStore = create<LauncherCatPackStateType>((set) => ({
+    enabled: false,
+    updateEnabled: (enabled: boolean) => set({ enabled })
 }));
