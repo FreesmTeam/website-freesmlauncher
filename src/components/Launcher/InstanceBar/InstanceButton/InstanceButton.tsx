@@ -95,12 +95,23 @@ export default function InstanceButton(instance: LauncherInstanceType) {
         });
     }
 
+    // hide context menu on rename
+    // && update instance rename on debounced value change
     useEffect(() => {
         if (currentRename.isBeingRenamed) {
             setOpened(false)
+        } else {
+            updateCurrentRenames({
+                ...currentRenames,
+                [instance.name]: {
+                    name: debouncedRename,
+                    isBeingRenamed: currentRename.isBeingRenamed,
+                },
+            })
         }
-    }, [currentRename.isBeingRenamed]);
+    }, [currentRename.isBeingRenamed, debouncedRename]);
 
+    // set instance name to default if renamed value is empty
     useEffect(() => {
         if (currentRename.name === '') {
             updateCurrentRenames({
@@ -225,7 +236,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                     />
                 ) : (
                     <p
-                        className="text-[10px] sm:text-[13px] text-[#CDD6F4] text-center w-full"
+                        className="break-words text-[10px] sm:text-[13px] text-[#CDD6F4] text-center w-full"
                         style={{
                             background: instance.name === currentInstance.name ? "#a285c6" : "#040407"
                         }}
