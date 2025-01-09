@@ -27,6 +27,11 @@
       "descriptionEn": "C++ Enjoyer",
       "descriptionRu": "Любитель C++",
       "link": "https://github.com/so5iso4ka/"
+    },
+    {
+      "name": "m3oweezed",
+      "avatar": "https://avatars.githubusercontent.com/u/76707795?v=4",
+      "link": "https://github.com/m3oweezed"
     }
   ],
   "contributors": [
@@ -39,11 +44,6 @@
       "name": "SophrTemin",
       "avatar": null,
       "link": "https://github.com/SophrTemin/"
-    },
-    {
-      "name": "m3oweezed",
-      "avatar": "https://avatars.githubusercontent.com/u/76707795?v=4",
-      "link": "https://github.com/itsLameni"
     },
     {
       "name": "snip",
