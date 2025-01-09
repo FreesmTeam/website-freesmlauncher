@@ -4,6 +4,7 @@ import {ProfileItemType} from "@/types/ProfileItem.type";
 import windstoneSkinAvatar from "../../public/windstone_skin_avatar.png";
 import hand7sSkinAvatar from "../../public/hand7s_skin_avatar.png";
 import kaeeraaSkinAvatar from "../../public/kaeeraa_skin_avatar.png";
+import so5iso4kaSkinAvatar from '../../public/so5iso4ka_skin_avatar.png';
 import monochromeSteveSkinAvatar from "../../public/monochrome_steve.png";
 import Image from "next/image";
 import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
@@ -98,6 +99,14 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
             <Image height={16} width={16} src={kaeeraaSkinAvatar} alt={"kaeeraa skin avatar"}/>
         ),
         name: "launcher.kaeeraa",
+        hotkey: "Maintainer",
+    },
+    {
+        skin: so5iso4kaSkinAvatar,
+        icon: (
+            <Image height={16} width={16} src={so5iso4kaSkinAvatar} alt={"so5iso4ka skin avatar"} />
+        ),
+        name: "launcher.so5iso4ka",
         hotkey: "Maintainer",
     },
     {
