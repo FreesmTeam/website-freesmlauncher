@@ -11,30 +11,25 @@
 ### Local
 
 > [!NOTE]
-> I will provide terminal commands only for [bun](https://bun.sh/), but you can use any other [node.js](https://nodejs.org/) package manager.
+> I will provide the terminal commands only for [bun](https://bun.sh/), but you can use any other [node.js](https://nodejs.org/) package manager.
 
 <details>
 <summary>Expand steps</summary>
 
-Firstly, you need to clone this repository:
+First, you need to clone this repository and open it:
 
 ```sh
 git clone https://github.com/FreesmTeam/website-freesmlauncher
-```
-
-And open it:
-
-```sh
 cd website-freesmlauncher
 ```
 
-Secondly, install all dependencies using next command:
+Second, install all dependencies with the following command:
 
 ```sh
 bun i
 ```
 
-After that, you can start the project either in development mode:
+After that you can start the project either in development mode:
 
 ```sh
 bun dev
@@ -55,7 +50,7 @@ bun start
 <details>
 <summary>Expand steps</summary>
 
-Click the button
+Just click the button. You need to register first!
 
 [![Vercel](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fnotwindstone%2Fanisun)
 
