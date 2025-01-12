@@ -8,10 +8,30 @@
 
 ## ⬇️ Self-Hosting
 
-### Local
-
 > [!NOTE]
-> I will provide the terminal commands only for [bun](https://bun.sh/), but you can use any other [node.js](https://nodejs.org/) package manager.
+> I will provide the terminal commands only for [bun](https://bun.sh/), but you can use any other [Node.js](https://nodejs.org/) package manager.
+
+### Requirements
+
+<details>
+<summary>Expand list</summary>
+
+- [Node.js](https://nodejs.org/en/)
+- Any Node.js-compatible package manager, like [bun](https://bun.sh/)
+- Git is recommended (to clone the repository)
+
+</details>
+
+### Local - Windows
+
+<details>
+<summary>Expand steps</summary>
+
+test
+
+</details>
+
+### Local - Linux
 
 <details>
 <summary>Expand steps</summary>
@@ -44,6 +64,14 @@ bun start
 
 </details>
 
+### Local - Android (Termux)
+
+<details>
+<summary>Expand steps</summary>
+
+test
+
+</details>
 
 ### Vercel
 
