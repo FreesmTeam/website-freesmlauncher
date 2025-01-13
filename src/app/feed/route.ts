@@ -4,12 +4,11 @@ import prismNews from '@/configs/prismNews.json';
 export const dynamic = "force-dynamic";
 
 // sorry i don't wanna use another library to generate fucking feed.xml file for launcher
-// and i really hate .xml files so i won't bother with the quality of my code
+// and i really hate .xml files so i didn't bother with the quality of my code
 export async function GET() {
+    const githubContents = await fetch("https://api.github.com/repos/freesmteam/news/contents/feed.md");
 
-    const feedResponse = await fetch("https://api.github.com/repos/freesmteam/news/contents/feed.md");
-
-    const news = await feedResponse.text();
+    const news = await githubContents.text();
     const parsedNews = JSON.parse(news);
     const decodedNews = nextBase64.decode(parsedNews?.content);
     const decodedNewsArr = decodedNews.split('---');
@@ -26,11 +25,30 @@ export async function GET() {
             content: properties.slice(3).join('\n'),
         };
     });
-console.log(decodedNewsProperties)
-    const response = new Response(prismNews.beforeContent + prismNews.afterContent, {
-        status: 200,
-        statusText: "ok",
-    });
+
+    const xmlNews = decodedNewsProperties.map((entry) => {
+        return (
+            `
+                <entry>
+                    <title>${entry.title}</title>
+                    <link href="${entry.link}" />
+                    <updated>${entry.date}</updated>
+                    <id>${entry.id}</id>
+                    <content type="html">
+                        ${entry.content}
+                    </content>
+                </entry>
+            `
+        );
+    }).join('');
+
+    const response = new Response(
+        prismNews.beforeContent + xmlNews + prismNews.afterContent,
+        {
+            status: 200,
+            statusText: "ok",
+        }
+    );
 
     response.headers.append("content-type", "text/xml");
 
