@@ -22,7 +22,7 @@ export async function GET() {
             link: properties[1],
             id: properties[1],
             date: properties[2],
-            content: properties.slice(3).join('\n'),
+            content: properties.slice(3).join('\n '),
         };
     });
 
