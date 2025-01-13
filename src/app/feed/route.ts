@@ -1,3 +1,5 @@
+import { toBytes } from "fast-base64";
+
 export const dynamic = "force-dynamic";
 
 export async function GET() {
@@ -9,6 +11,8 @@ export async function GET() {
         status: 200,
         statusText: "ok",
     });
+
+    let bytes = await toBytes('SGVsbG8sIHdvcmxkIQ==');
 
     response.headers.append("content-type", "text/xml");
 
