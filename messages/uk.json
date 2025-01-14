@@ -1,6 +1,8 @@
 {
   "Info": {
-    "locale": "uk"
+    "locale": "uk",
+    "name": "Українська",
+    "emoji": "\uD83C\uDDFA\uD83C\uDDE6"
   },
   "Translations": {
     "general": {

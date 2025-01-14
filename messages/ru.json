@@ -1,6 +1,8 @@
 {
   "Info": {
-    "locale": "ru"
+    "locale": "ru",
+    "name": "Русский",
+    "emoji": "\uD83C\uDDF7\uD83C\uDDFA"
   },
   "Translations": {
     "general": {
