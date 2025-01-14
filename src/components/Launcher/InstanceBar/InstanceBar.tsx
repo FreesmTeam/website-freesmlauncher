@@ -173,7 +173,7 @@ export default function InstanceBar({
                 style={{
                     borderBottomLeftRadius: (instanceBar?.opened || statusBar?.opened) ? "0" : "0.375rem",
                     borderBottomRightRadius: statusBar?.opened ? "0" : "0.375rem",
-                    backgroundImage: catPackEnabled ? "url(/MiSide-screenshot-for-website-with-opacity.png)" : "",
+                    backgroundImage: catPackEnabled ? "url(/MiSide-screenshot-for-website-with-opacity.webp)" : "",
                     backgroundSize: "cover",
                     backgroundPosition: "center center",
                     backgroundRepeat: "no-repeat",
