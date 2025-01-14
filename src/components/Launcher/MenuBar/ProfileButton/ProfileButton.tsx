@@ -40,6 +40,22 @@ export default function ProfileButton() {
             >
                 {
                     LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS.map((item: ProfileItemType) => {
+                        if (!item.hotkey) {
+                            return (
+                                <div
+                                    className="select-none flex gap-2 sm:gap-4 items-center p-1"
+                                    key={item.name}
+                                >
+                                    {item.icon}
+                                    <div className="w-80 flex justify-between items-center gap-2">
+                                        <p className="text-nowrap text-[10px] sm:text-[13px] text-[#939AB8]">
+                                            {translate(item.name)}
+                                        </p>
+                                    </div>
+                                </div>
+                            );
+                        }
+
                         return (
                             <div
                                 onClick={() => handleProfileChange(item)}
