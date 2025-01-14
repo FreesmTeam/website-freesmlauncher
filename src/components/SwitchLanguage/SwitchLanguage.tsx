@@ -1,14 +1,15 @@
-import {Icon} from "@iconify/react";
 import Link from "next/link";
 import locales from '@/configs/locales.json';
 import {useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import {useTranslations} from "next-intl";
+import {usePathname} from "@/i18n/routing";
 
 export default function SwitchLanguage() {
     const [opened, setOpened] = useState(false);
     const ref = useClickOutside(() => setOpened(false));
 
+    const pathname = usePathname();
     const info = useTranslations('Info');
 
     function handleClick() {
@@ -30,7 +31,7 @@ export default function SwitchLanguage() {
                             <Link
                                 className="group flex flex-nowrap items-center gap-2 transition"
                                 key={locale.code}
-                                href={locale.code}
+                                href={`/${locale.code}${pathname}`}
                             >
                                 <p className="text-white">
                                     {locale.flag}
@@ -48,7 +49,9 @@ export default function SwitchLanguage() {
                 className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244] overflow-clip text-white"
             >
                 {
-                    locales.find((locale) => locale.code === info('locale'))?.flag
+                    locales.find(
+                            (locale) => locale.code === info('locale')
+                        )?.flag
                 }
             </button>
         </div>
