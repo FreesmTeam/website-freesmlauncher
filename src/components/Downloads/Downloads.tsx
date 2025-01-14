@@ -19,6 +19,12 @@ export default function Downloads() {
         setPlatform(UAParser().os.name?.toLowerCase() ?? "");
     }, []);
 
+    useEffect(() => {
+        if (platform !== null) {
+            setSelectedPlatform(displayPlatform)
+        }
+    }, [platform]);
+
     return (
         <div className="flex flex-col gap-8 pt-12 max-w-[960px] px-4 mx-auto">
             <p className="text-center font-bold text-balance text-5xl sm:text-7xl text-white">
