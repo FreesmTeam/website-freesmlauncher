@@ -1,14 +1,25 @@
 import Image from "next/image";
 import {useTranslations} from "next-intl";
 import {useState} from "react";
-import {useClickOutside} from "@mantine/hooks";
+import {useClickOutside, useHotkeys} from "@mantine/hooks";
 import {LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS} from "@/configs/launcher";
 import {ProfileItemType} from "@/types/ProfileItem.type";
 import {useProfileStore} from "@/utils/Stores/Stores";
 import {ProfileStateType} from "@/types/ProfileState.type";
 
+const PROFILE_UNSELECT_HOTKEY = 'ctrl+0';
+
 export default function ProfileButton() {
     const translate = useTranslations('Translations');
+
+    useHotkeys(
+        [[PROFILE_UNSELECT_HOTKEY, () => handleProfileChange(
+            LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS.find(
+                (profile) => profile.hotkey?.toLowerCase() === PROFILE_UNSELECT_HOTKEY
+            ) ?? LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS[0]
+        )]],
+        ['INPUT', 'TEXTAREA']
+    );
 
     const currentProfile = useProfileStore((state: ProfileStateType) => state.currentProfile);
     const updateCurrentProfile = useProfileStore((state: ProfileStateType) => state.updateCurrentProfile);
