@@ -14,6 +14,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Head from "next/head";
 import {APP_DESCRIPTION, APP_NAME} from "@/configs/constants";
 import Footer from "@/components/Footer/Footer";
+import {SpeedInsights} from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -91,6 +92,7 @@ export default async function LocaleLayout({
                             </div>
                         </div>
                         <Footer />
+                        <SpeedInsights />
                     </NextIntlClientProvider>
                     <Analytics />
                 </TanstackQueryProviders>
