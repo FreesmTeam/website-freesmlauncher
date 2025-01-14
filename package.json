@@ -21,6 +21,7 @@
     "nextjs-toploader": "^3.7.15",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "ua-parser-js": "^2.0.0",
     "zustand": "^5.0.2"
   },
   "devDependencies": {

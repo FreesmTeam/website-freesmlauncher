@@ -6,15 +6,15 @@ import {DOWNLOADS_LINK, GITHUB_LINK} from "@/configs/constants";
 import {useTranslations} from "next-intl";
 import getPlatformName from "@/utils/Helpers/getPlatformName";
 import {Icon} from "@iconify/react";
+import {UAParser} from "ua-parser-js";
 import {useEffect, useState} from "react";
 
 export default function Hero() {
-    const [definedNavigator, setDefinedNavigator] = useState<Navigator | null>(null);
     const info = useTranslations('Info');
     const locale = info('locale');
     const translate = useTranslations('Translations');
-    const platform = definedNavigator?.platform.toLowerCase();
-    const displayPlatform = getPlatformName(platform ?? '');
+    const [platform, setPlatform] = useState<string | null>(null);
+    const displayPlatform = getPlatformName(platform ?? "");
 
     let icon;
 
@@ -42,7 +42,7 @@ export default function Hero() {
     }
 
     useEffect(() => {
-        setDefinedNavigator(navigator);
+        setPlatform(UAParser().os.name?.toLowerCase() ?? "");
     }, []);
 
     return (

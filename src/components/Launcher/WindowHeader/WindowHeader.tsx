@@ -1,17 +1,18 @@
+"use client";
+
 import React, {useEffect, useState} from "react";
 import getPlatformName from "@/utils/Helpers/getPlatformName";
 import WinHeader from "@/components/Launcher/WindowHeader/WinHeader/WinHeader";
 import MacHeader from "@/components/Launcher/WindowHeader/MacHeader/MacHeader";
 import LinuxHeader from "@/components/Launcher/WindowHeader/LinuxHeader/LinuxHeader";
+import { UAParser } from 'ua-parser-js';
 
 export default React.memo(function WindowHeader() {
-    const [definedNavigator, setDefinedNavigator] = useState<Navigator | null>(null);
-
-    const platform = definedNavigator?.platform.toLowerCase();
-    const displayPlatform = getPlatformName(platform ?? '');
+    const [platform, setPlatform] = useState<string | null>(null);
+    const displayPlatform = getPlatformName(platform ?? "");
 
     useEffect(() => {
-        setDefinedNavigator(navigator);
+        setPlatform(UAParser().os.name?.toLowerCase() ?? "");
     }, []);
 
     switch (displayPlatform) {
@@ -29,19 +30,16 @@ export default React.memo(function WindowHeader() {
             );
         case "OS":
         default:
-            // If Next.js hydration was successful, but navigator.platform
-            // gives some random shit which is not handled by getPlatformName() util
-            // then just show Windows title bar
-            if (definedNavigator) {
+            // If next.js hydration is still in the process
+            // show just some blank header
+            if (platform === null) {
                 return (
-                    <WinHeader />
+                    <div className="w-full h-6 sm:h-8 bg-[#11111b]" />
                 );
             }
 
             return (
-                <div
-                    className="w-full h-6 sm:h-8 bg-crust"
-                />
+                <WinHeader />
             );
     }
 });

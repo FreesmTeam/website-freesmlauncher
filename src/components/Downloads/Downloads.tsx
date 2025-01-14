@@ -5,24 +5,19 @@ import getPlatformName from "@/utils/Helpers/getPlatformName";
 import { useTranslations } from "next-intl";
 import {useEffect, useState} from "react";
 import ReleaseLinks from "./ReleaseLinks/ReleaseLinks";
+import {UAParser} from "ua-parser-js";
 
 export default function Downloads() {
-    const [definedNavigator, setDefinedNavigator] = useState<Navigator | null>(null);
-
     const translate = useTranslations('Translations');
 
-    const platform = definedNavigator?.platform.toLowerCase();
-    const displayPlatform = getPlatformName(platform ?? '');
+    const [platform, setPlatform] = useState<string | null>(null);
+    const displayPlatform = getPlatformName(platform ?? "");
 
     const [selectedPlatform, setSelectedPlatform] = useState(displayPlatform);
 
     useEffect(() => {
-        if (definedNavigator === null) {
-            return setDefinedNavigator(navigator);
-        }
-
-        setSelectedPlatform(displayPlatform);
-    }, [definedNavigator, displayPlatform]);
+        setPlatform(UAParser().os.name?.toLowerCase() ?? "");
+    }, []);
 
     return (
         <div className="flex flex-col gap-8 pt-12 max-w-[960px] px-4 mx-auto">
