@@ -9,6 +9,7 @@ import {useTranslations} from "next-intl";
 import {usePathname} from "@/i18n/routing";
 import {HeaderItemType} from "@/types/HeaderItem.type";
 import {HeaderExternalLinkType} from "@/types/HeaderExternalLink.type";
+import SwitchLanguage from "@/components/SwitchLanguage/SwitchLanguage";
 
 export default function Header() {
     const translate = useTranslations('Translations');
@@ -72,6 +73,7 @@ export default function Header() {
                                 );
                             })
                         }
+                        <SwitchLanguage />
                         <Link
                             className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244]"
                             href={`/${redirectLocale}${pathname}`}
