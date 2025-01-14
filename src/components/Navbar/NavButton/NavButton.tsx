@@ -3,6 +3,10 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { useRouter } from 'nextjs-toploader/app';
+import {useState} from "react";
+import {useClickOutside} from "@mantine/hooks";
+import locales from "@/configs/locales.json";
+import Link from "next/link";
 
 export default function NavButton({ item }: { item: NavbarItemType }) {
     const {
@@ -12,6 +16,10 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
         isAction,
         link,
     } = item;
+
+    const [opened, setOpened] = useState(false);
+    const ref = useClickOutside(() => setOpened(false));
+
     const router = useRouter();
     const translate = useTranslations('Translations');
     const info = useTranslations('Info');
@@ -19,24 +27,9 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
     const pathname = usePathname();
     const isCurrentPage = pathname === link;
 
-    let redirectLocale: string;
-    let currentLanguageFlag: string;
-
-    switch (locale) {
-        case "ru":
-            redirectLocale = "en";
-            currentLanguageFlag = "🇷🇺";
-            break;
-        case "en":
-        default:
-            redirectLocale = "ru";
-            currentLanguageFlag = "🇺🇸";
-            break;
-    }
-
     function handleClick() {
         if (isAction) {
-            router.push(`/${redirectLocale}${pathname}`);
+            setOpened((state) => !state);
 
             return;
         }
@@ -45,12 +38,38 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
     }
 
     return (
-        <div className="relative">
-            <button 
+        <div ref={ref} className="relative">
+            <div
+                className="z-[4000] transition flex flex-col gap-2 bg-[#181825] rounded-md p-2 border-[1px] border-[#313244] drop-shadow-lg text-xs absolute text-white bottom-14 right-0"
+                style={{
+                    opacity: opened ? 1 : 0,
+                    visibility: opened ? 'visible' : 'hidden'
+                }}
+            >
+                {
+                    locales.map((locale) => {
+                        return (
+                            <Link
+                                className="group flex flex-nowrap items-center gap-2 transition"
+                                key={locale.code}
+                                href={`/${locale.code}${pathname}`}
+                            >
+                                <p className="text-white">
+                                    {locale.flag}
+                                </p>
+                                <p className="text-white group-hover:text-[#cba6f7] transition">
+                                    {locale.name}
+                                </p>
+                            </Link>
+                        );
+                    })
+                }
+            </div>
+            <button
                 onClick={handleClick}
                 className="flex items-center flex-col gap-1"
             >
-                <div 
+                <div
                     className="transition flex items-center justify-center rounded-full w-16 py-1"
                     style={{
                         background: isCurrentPage ? '#313244' : 'unset'
@@ -59,7 +78,11 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
                     {
                         isAction ? (
                             <div className="text-white w-5 h-5 flex justify-center items-center">
-                                {currentLanguageFlag}
+                                {
+                                    locales.find(
+                                        (locale) => locale.code === info('locale')
+                                    )?.flag
+                                }
                             </div>
                         ) : (
                             <Icon
@@ -69,7 +92,7 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
                         )
                     }
                 </div>
-                <p 
+                <p
                     className="text-white text-center text-xs"
                     style={{
                         fontWeight: isCurrentPage ? 600 : 400
