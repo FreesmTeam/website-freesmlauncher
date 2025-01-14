@@ -46,7 +46,7 @@ export default function DeleteInstanceModal() {
             >
                 <WindowHeader />
             </WindowContext.Provider>
-            <div className="px-2 pb-2 rounded-b-md">
+            <div className="px-1.5 pb-1.5 pt-0.5 sm:px-2 sm:pb-2 rounded-b-md text-xs sm:text-sm flex flex-col gap-4 text-[#cdd6f4]">
                 <div className="whitespace-pre-wrap">
                     {
                         translate(
@@ -57,16 +57,20 @@ export default function DeleteInstanceModal() {
                         )
                     }
                 </div>
-                <button
-                    onClick={onConfirmation}
-                >
-                    Да
-                </button>
-                <button
-                    onClick={onClose}
-                >
-                    Нет
-                </button>
+                <div className="flex justify-end items-center gap-2">
+                    <button
+                        className="flex items-center justify-center bg-[#1E1C2A] hover:bg-[#2e283e] transition w-14 h-7 rounded-md"
+                        onClick={onConfirmation}
+                    >
+                        Да
+                    </button>
+                    <button
+                        className="flex items-center justify-center bg-[#1E1C2A] hover:bg-[#2e283e] transition w-14 h-7 rounded-md"
+                        onClick={onClose}
+                    >
+                        Нет
+                    </button>
+                </div>
             </div>
         </div>
     );
