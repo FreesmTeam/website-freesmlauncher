@@ -6,6 +6,17 @@
   <img alt="TailwindCSS Logo" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white">
 </div>
 
+// temporary
+how to add languages:
+
+use [ISO 639-1](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2_ISO_639-1) code names
+
+create `YOUR-LANG-CODE.json` file in `messages/`
+
+add `YOUR-LANG-CODE` to `src/configs/locales.json`
+
+add `YOUR-LANG-CODE` to `src/types/Locale.type.ts`
+
 ## ⬇️ Self-Hosting
 
 > [!NOTE]
