@@ -23,7 +23,7 @@ export default function SwitchLanguage() {
     return (
         <div ref={ref} className="relative">
             <div
-                className="z-[4000] transition flex flex-col gap-2 bg-[#181825] rounded-md p-2 border-[1px] border-[#313244] drop-shadow-lg text-md absolute text-white top-10 right-0"
+                className="z-[4000] transition flex flex-col gap-2 bg-mantle rounded-md p-2 border-[1px] border-surfaceZero drop-shadow-lg text-md absolute text-white top-10 right-0"
                 style={{
                     opacity: opened ? 1 : 0,
                     visibility: opened ? 'visible' : 'hidden'
@@ -50,7 +50,7 @@ export default function SwitchLanguage() {
             </div>
             <button
                 onClick={handleClick}
-                className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244] overflow-clip text-white"
+                className="w-8 h-8 transition flex justify-center items-center bg-mantle rounded-full hover:bg-surfaceZero overflow-clip text-white"
             >
                 {
                     locales.find(

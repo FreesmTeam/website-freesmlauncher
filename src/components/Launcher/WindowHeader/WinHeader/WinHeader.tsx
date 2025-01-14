@@ -16,7 +16,7 @@ export default function WinHeader() {
 
     return (
         <div
-            className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-[#11111b]"
+            className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-crust"
         >
             <div className="select-none px-1 sm:px-2 flex flex-nowrap gap-2 items-center">
                 <Image
@@ -48,7 +48,7 @@ export default function WinHeader() {
                                     maximized ? (
                                         <div className="relative">
                                             <div
-                                                className="absolute transition top-[calc(50%-2px)] left-[calc(50%-5px)] w-[6px] sm:w-[8px] h-[6px] sm:h-[8px] border-[1px] border-[#999] bg-[#11111b] group-hover:bg-[#e5e5e5] z-[2] group-hover:border-[#000]"
+                                                className="absolute transition top-[calc(50%-2px)] left-[calc(50%-5px)] w-[6px] sm:w-[8px] h-[6px] sm:h-[8px] border-[1px] border-[#999] bg-crust group-hover:bg-[#e5e5e5] z-[2] group-hover:border-[#000]"
                                             />
                                             <div
                                                 className="absolute transition top-[calc(50%-4px)] left-[calc(50%-3px)] w-[6px] sm:w-[8px] h-[6px] sm:h-[8px] border-[1px] border-[#999] group-hover:border-[#000]"

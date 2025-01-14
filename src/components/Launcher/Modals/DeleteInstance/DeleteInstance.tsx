@@ -25,7 +25,7 @@ export default function DeleteInstanceModal() {
 
     return (
         <div
-            className="z-[1500] top-[50%] left-[50%] absolute transition text-white flex flex-col gap-0  rounded-md bg-[#11111b]"
+            className="z-[1500] top-[50%] left-[50%] absolute transition text-white flex flex-col gap-0  rounded-md bg-crust"
             style={{
                 transform: currentInstance.deleted === DELETED.PROCESS ? (
                     `translateX(-50%) translateY(-50%) scale(100%)`

@@ -40,7 +40,7 @@ export default React.memo(function WindowHeader() {
 
             return (
                 <div
-                    className="w-full h-6 sm:h-8 bg-[#11111b]"
+                    className="w-full h-6 sm:h-8 bg-crust"
                 />
             );
     }

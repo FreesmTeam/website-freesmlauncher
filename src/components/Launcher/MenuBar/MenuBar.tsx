@@ -57,11 +57,11 @@ export default function MenuBar() {
         <div
             ref={menuBarRef}
             onContextMenu={handleRightClick}
-            className="relative flex justify-between p-2.5 h-fit w-full bg-[#11111b]"
+            className="relative flex justify-between p-2.5 h-fit w-full bg-crust"
         >
             <div
                 ref={ref}
-                className="transition z-[1000] absolute flex flex-col gap-2 border-[#181822] border-[1px] p-1 bg-[#11111B]"
+                className="transition z-[1000] absolute flex flex-col gap-2 border-[#181822] border-[1px] p-1 bg-crust"
                 style={{
                     top: mouseCoordinates.y,
                     left: mouseCoordinates.x,

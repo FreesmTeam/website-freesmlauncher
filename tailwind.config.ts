@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         mauve: "#cba6f7",
+        mantle: "#181825",
+        surfaceZero: "#313244",
+        crust: "#11111b"
       },
     },
   },

@@ -32,7 +32,7 @@ export default function Downloads() {
             <p className="text-center text-balance text-lg sm:text-2xl text-gray-400">
                 {translate('downloads.description')}
             </p>
-            <div className="flex flex-wrap gap-2 rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-2">
+            <div className="flex flex-wrap gap-2 rounded-md border-[1px] border-mantle w-full bg-crust p-2">
                 {
                     DOWNLOADS_OPTIONS.map((option) => {
                         if (option === selectedPlatform) {
@@ -59,7 +59,7 @@ export default function Downloads() {
                     })
                 }
             </div>
-            <div className="rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-2 min-h-[360px]">
+            <div className="rounded-md border-[1px] border-mantle w-full bg-crust p-2 min-h-[360px]">
                 <div className="flex flex-col gap-8 p-8 items-center">
                     <p className="text-center text-2xl sm:text-3xl font-semibold text-white">
                         {translate('downloads.packages-for')}{' '}

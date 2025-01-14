@@ -143,7 +143,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
             <div
                 aria-label={LAUNCHER_ACTIONS._TYPE}
                 ref={ref}
-                className="cursor-default transition z-[1000] absolute flex flex-col gap-1 border-[#181822] border-[1px] p-1 bg-[#11111B]"
+                className="cursor-default transition z-[1000] absolute flex flex-col gap-1 border-[#181822] border-[1px] p-1 bg-crust"
                 style={{
                     top: mouseCoordinates.y,
                     left: mouseCoordinates.x,

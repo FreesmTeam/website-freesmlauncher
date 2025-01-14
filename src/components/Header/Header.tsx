@@ -19,7 +19,7 @@ export default function Header() {
         <>
             <div className="w-full h-[80px] absolute top-0 bg-[#09090e] hidden sm:block" />
             <header
-                className="hidden sm:block z-[2000] sticky top-0 bg-[#09090e] lg:bg-[#09090ebb] lg:backdrop-blur border-b-[1px] border-[#181825] select-none p-4 w-full">
+                className="hidden sm:block z-[2000] sticky top-0 bg-[#09090e] lg:bg-[#09090ebb] lg:backdrop-blur border-b-[1px] border-mantle select-none p-4 w-full">
                 <div className="mx-auto max-w-[1280px] flex justify-between items-center h-12 w-full">
                     <Link href={`/${locale}`}>
                         <Image height={48} src={freesmLogo} alt="FreesmLauncher logo"/>
@@ -44,7 +44,7 @@ export default function Header() {
                                 return (
                                     <Link
                                         key={link.link}
-                                        className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244]"
+                                        className="w-8 h-8 transition flex justify-center items-center bg-mantle rounded-full hover:bg-surfaceZero"
                                         target="_blank"
                                         href={link.link}
                                     >

@@ -22,7 +22,7 @@ export default function About() {
                 {translate('about.description')}
             </p>
             <div
-                className="flex flex-col items-center gap-8 rounded-md border-[1px] border-[#181825] w-full bg-[#11111b] p-8"
+                className="flex flex-col items-center gap-8 rounded-md border-[1px] border-mantle w-full bg-crust p-8"
             >
                 <p className="text-xl sm:text-3xl text-center font-semibold text-white">
                     {translate('about.maintainers')}

@@ -44,7 +44,7 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
     return (
         <div ref={ref} className="relative">
             <div
-                className="z-[4000] transition flex flex-col gap-2 bg-[#181825] rounded-md p-2 border-[1px] border-[#313244] drop-shadow-lg text-xs absolute text-white bottom-14 right-0"
+                className="z-[4000] transition flex flex-col gap-2 bg-mantle rounded-md p-2 border-[1px] border-surfaceZero drop-shadow-lg text-xs absolute text-white bottom-14 right-0"
                 style={{
                     opacity: opened ? 1 : 0,
                     visibility: opened ? 'visible' : 'hidden'
