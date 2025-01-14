@@ -74,7 +74,7 @@ export default function MenuBar() {
                         return (
                             <button
                                 onClick={() => handleBarChange(bar)}
-                                className="flex gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28]"
+                                className="transition flex gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28]"
                                 key={bar.name}
                             >
                                 {
@@ -124,7 +124,7 @@ export default function MenuBar() {
                             <button
                                 onClick={() => handleTabClick(tab.name)}
                                 key={tab?.name ?? ''}
-                                className={`select-none px-1 sm:px-2 py-1 sm:py-0 rounded-md flex items-center gap-1 hover:bg-[#211e2f] active:bg-[#171721] ${!tab?.name && catPackEnabled ? "bg-[#211e2f]" : ""}`}
+                                className={`transition select-none px-1 sm:px-2 py-1 sm:py-0 rounded-md flex items-center gap-1 hover:bg-[#211e2f] active:bg-[#171721] ${!tab?.name && catPackEnabled ? "bg-[#211e2f]" : ""}`}
                             >
                                 {tab.icon}
                                 {tab?.name && (

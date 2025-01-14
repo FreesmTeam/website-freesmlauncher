@@ -95,7 +95,7 @@ export default function InstanceBar({
                             )
                         }
                         <div
-                            className={`select-none flex justify-center items-center rounded-md ${currentInstance.name === UNKNOWN_INSTANCE.name ? "" : "hover:bg-[#1b1825]"}`}
+                            className={`transition select-none flex justify-center items-center rounded-md ${currentInstance.name === UNKNOWN_INSTANCE.name ? "" : "hover:bg-[#1b1825]"}`}
                         >
                             <Image
                                 width={80}
@@ -120,7 +120,7 @@ export default function InstanceBar({
                                     })
                                 }
                             }}
-                            className={`select-none flex justify-center items-center rounded-md ${currentInstance.name === UNKNOWN_INSTANCE.name ? "" : "hover:bg-[#1b1825]"}`}
+                            className={`transition select-none flex justify-center items-center rounded-md ${currentInstance.name === UNKNOWN_INSTANCE.name ? "" : "hover:bg-[#1b1825]"}`}
                         >
                             <p className="text-center text-[10px] sm:text-[13px] text-[#CDD6F4]">
                                 {renamedInstance ?? currentInstance.name}
@@ -155,7 +155,7 @@ export default function InstanceBar({
                                     <button
                                         onClick={action}
                                         key={item.name}
-                                        className="select-none px-1 py-0.5 flex gap-1 items-start sm:items-center rounded-md hover:bg-[#1b1825] text-[#CDD6F4]"
+                                        className="transition select-none px-1 py-0.5 flex gap-1 items-start sm:items-center rounded-md hover:bg-[#1b1825] text-[#CDD6F4]"
                                     >
                                         {item.icon}
                                         <p className="text-[10px] sm:text-[13px]">

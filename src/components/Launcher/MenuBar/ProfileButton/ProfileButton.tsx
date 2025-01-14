@@ -43,7 +43,7 @@ export default function ProfileButton() {
                         return (
                             <div
                                 onClick={() => handleProfileChange(item)}
-                                className="flex gap-2 sm:gap-4 items-center rounded-md p-1 hover:bg-[#1D1A28]"
+                                className="transition flex gap-2 sm:gap-4 items-center rounded-md p-1 hover:bg-[#1D1A28]"
                                 key={item.name}
                             >
                                 {item.icon}
@@ -62,7 +62,7 @@ export default function ProfileButton() {
             </div>
             <button
                 onClick={handleLeftClick}
-                className="flex-wrap sm:flex-nowrap justify-center sm:justify-normal w-full h-full px-2 rounded-md flex items-center gap-2 hover:bg-[#211e2f] focus:bg-[#171721]"
+                className="transition flex-wrap sm:flex-nowrap justify-center sm:justify-normal w-full h-full px-2 rounded-md flex items-center gap-2 hover:bg-[#211e2f] focus:bg-[#171721]"
             >
                 <Image height={24} src={currentProfile.skin} alt={"Profile avatar"}/>
                 {(

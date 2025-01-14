@@ -195,7 +195,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                             <div
                                 aria-label={LAUNCHER_ACTIONS._TYPE}
                                 onClick={action}
-                                className="cursor-pointer flex items-center gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28] text-[#cdd6f4]"
+                                className="transition cursor-pointer flex items-center gap-3 sm:gap-4 w-full rounded-md p-1 hover:bg-[#1D1A28] text-[#cdd6f4]"
                                 key={item.name}
                             >
                                 {item.icon}
