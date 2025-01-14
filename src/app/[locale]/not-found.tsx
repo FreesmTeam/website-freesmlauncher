@@ -15,10 +15,11 @@ export default function NotFound() {
             <p className="text-sm sm:text-lg">
                 {translate('pages.not-found.description')}
             </p>
-            <Link href="/">
-                <p>
-                    {translate('pages.not-found.go-to-home')}
-                </p>
+            <Link
+                className="text-center text-balance bg-[#cba6f7] flex gap-2 items-center py-1 px-2 sm:py-2 sm:px-4 rounded-md font-bold text-[12px] sm:text-[18px] text-black transition hover:bg-[#8839ef] hover:text-white mt-2"
+                href="/"
+            >
+                {translate('pages.not-found.go-to-home').toUpperCase()}
             </Link>
         </div>
     );
