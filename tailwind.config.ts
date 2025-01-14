@@ -11,6 +11,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        mauve: "#cba6f7",
       },
     },
   },

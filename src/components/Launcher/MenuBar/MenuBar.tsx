@@ -80,7 +80,7 @@ export default function MenuBar() {
                                 {
                                     bar.opened ? (
                                         <div
-                                            className="rounded-md bg-[#CBA6F7] min-w-4 h-4 sm:min-w-[18px] sm:h-[18px]"
+                                            className="rounded-md bg-mauve min-w-4 h-4 sm:min-w-[18px] sm:h-[18px]"
                                         />
                                     ): (
                                         <div

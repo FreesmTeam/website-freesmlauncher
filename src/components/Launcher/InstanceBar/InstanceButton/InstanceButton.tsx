@@ -222,7 +222,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                 currentRename.isBeingRenamed ? (
                     <textarea
                         ref={renamingRef}
-                        className="w-[100px] text-[10px] sm:text-[13px] px-0.5 resize-none outline-none text-center text-white bg-[#0C0C13] border-[1px] border-[#CBA6F7]"
+                        className="w-[100px] text-[10px] sm:text-[13px] px-0.5 resize-none outline-none text-center text-white bg-[#0C0C13] border-[1px] border-mauve"
                         placeholder={instance.name}
                         defaultValue={debouncedRename ?? ''}
                         onChange={(event) => setDebouncedRename(event.currentTarget.value)}

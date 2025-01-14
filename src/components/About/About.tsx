@@ -57,7 +57,7 @@ export default function About() {
                                         alt={`${maintainer.name}'s avatar`}
                                     />
                                     <div className="flex flex-col">
-                                        <p className="text-[#cba6f7] font-semibold text-[18px] sm:text-[24px]">
+                                        <p className="text-mauve font-semibold text-[18px] sm:text-[24px]">
                                             {maintainer.name}
                                         </p>
                                         <p className="text-justify text-white text-[16px] sm:text-[22px]">

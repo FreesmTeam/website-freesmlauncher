@@ -40,7 +40,7 @@ export default function SwitchLanguage() {
                                 <p className="text-white">
                                     {locale.flag}
                                 </p>
-                                <p className="text-white group-hover:text-[#cba6f7] transition">
+                                <p className="text-white group-hover:text-mauve transition">
                                     {locale.name}
                                 </p>
                             </Link>

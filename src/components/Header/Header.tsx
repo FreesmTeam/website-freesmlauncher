@@ -30,7 +30,7 @@ export default function Header() {
                                 return (
                                     <Link
                                         key={item.name}
-                                        className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-[#cba6f7]"
+                                        className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-mauve"
                                         href={`/${locale}${item.link}`}
                                     >
                                         {translate(item.name)}
@@ -38,7 +38,7 @@ export default function Header() {
                                 );
                             })
                         }
-                        <div className="w-[2px] bg-[#cba6f7]"/>
+                        <div className="w-[2px] bg-mauve"/>
                         {
                             HEADER_LINKS.map((link: HeaderExternalLinkType) => {
                                 return (
