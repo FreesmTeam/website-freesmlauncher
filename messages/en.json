@@ -24,6 +24,12 @@
       "successful-login": {
         "title": "Successful Login",
         "description": "You have successfully logged in to Freesm Launcher using your Microsoft account!"
+      },
+      "not-found": {
+        "title": "Oops!",
+        "subtitle": "Page not found",
+        "description": "The page you are looking for might have been removed, had its name changed or is temporarily unavailable.",
+        "go-to-home": "Go to homepage"
       }
     },
     "successful-login": {

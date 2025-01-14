@@ -24,6 +24,12 @@
       "successful-login": {
         "title": "Успешный вход",
         "description": "Вы успешно вошли в Freesm Launcher через Microsoft аккаунт!"
+      },
+      "not-found": {
+        "title": "Ой!",
+        "subtitle": "Страница не найдена",
+        "description": "Страницы, которую вы открыли, не существует, либо её название было изменено, либо она временно недоступна.",
+        "go-to-home": "Вернуться домой"
       }
     },
     "successful-login": {

@@ -24,6 +24,12 @@
       "successful-login": {
         "title": "Успішний вхід",
         "description": "Ви успішно увійшли у Freesm Launcher через обліковий запис Microsoft!"
+      },
+      "not-found": {
+        "title": "Ой!",
+        "subtitle": "Сторінка не знайдена",
+        "description": "Сторінка, яку ви шукаєте, могла бути видалена, її назва змінена або тимчасово недоступна.",
+        "go-to-home": "Повернутися додому"
       }
     },
     "successful-login": {
