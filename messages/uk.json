@@ -1,0 +1,135 @@
+{
+  "Info": {
+    "locale": "uk"
+  },
+  "Translations": {
+    "general": {
+      "home": "Головна",
+      "download": "Завантажити",
+      "about": "Про нас",
+      "seconds-short": "с",
+      "minutes-short": "хв",
+      "yes": "Так",
+      "no": "Ні"
+    },
+    "pages": {
+      "downloads": {
+        "title": "Завантаження",
+        "description": "Завантажте Freesm Launcher для вашої операційної системи безкоштовно — без реклами, вірусів, СМС, реєстрації, дзвінків чи відстеження. Або не завантажуйте, вибір за вами!"
+      },
+      "about": {
+        "title": "Про нас",
+        "description": "Дізнайтеся більше про команду Freesm Launcher і всіх, хто зробив свій внесок, тут."
+      },
+      "successful-login": {
+        "title": "Успішний вхід",
+        "description": "Ви успішно увійшли у Freesm Launcher через обліковий запис Microsoft!"
+      }
+    },
+    "successful-login": {
+      "title": "Успішний вхід",
+      "description": "Ви успішно увійшли у Freesm Launcher через обліковий запис Microsoft. Тепер Ви можете закрити це вікно. Приємної гри!"
+    },
+    "navbar": {
+      "home": "Головна",
+      "downloads": "Завантажити",
+      "about": "Про нас",
+      "other": "Інше",
+      "change-language": "Змінити мову"
+    },
+    "footer": {
+      "short-description": "Грайте в Minecraft без обмежень.",
+      "about": {
+        "title": "Про лаунчер",
+        "links": {
+          "contribute": "Зробити внесок",
+          "about": "Про команду",
+          "download": "Завантажити"
+        }
+      },
+      "community": {
+        "title": "Спільнота",
+        "links": {
+          "telegram-channel": "Telegram-канал",
+          "telegram-chat": "Telegram-чат",
+          "follow-on-github": "Стежити на Github"
+        }
+      },
+      "project": {
+        "title": "Проєкт",
+        "links": {
+          "source-code": "Вихідний код",
+          "github-issues": "Github Issues"
+        }
+      }
+    },
+    "downloads": {
+      "title": "Завантаження",
+      "description": "Завантажте Freesm Launcher для вашої операційної системи.",
+      "packages-for": "Збірки для",
+      "error": "Помилка:",
+      "loading": "Отримуємо дані...",
+      "getting-platform": "Отримуємо назву вашої платформи... Ви також можете вручну вибрати свою платформу трохи вище!",
+      "try-to-refresh": "Спробуйте перезавантажити сторінку.",
+      "requires": "вимагає"
+    },
+    "about": {
+      "title": "Про нас",
+      "description": "Ми створили Freesm Launcher, щоб зробити можливим гру в Minecraft із зручностями, які надає Prism Launcher, без необхідності мати ліцензійний обліковий запис.",
+      "maintainers": "Супроводжуючі проєкту",
+      "contributors": "Ті, хто зробили внесок"
+    },
+    "hero": {
+      "title": "Встановіть Freesm Launcher для",
+      "description": "Freesm Launcher — це кастомний лаунчер для Minecraft, який дозволяє грати з офлайн-акаунтом без будь-яких обмежень.",
+      "download-now": "Завантажити"
+    },
+    "features": {
+      "first-title": "Відкритий вихідний код",
+      "first-description": "Freesm Launcher — це форк Prism Launcher з відкритим вихідним кодом, який знаходиться під ліцензією GPL-3.0.",
+      "second-title": "Без DRM",
+      "second-description": "Легко грайте в Minecraft без обмежень, навіть якщо у вас немає онлайн-акаунту."
+    },
+    "launcher": {
+      "windstone_": "windstone_",
+      "hand7s": "hand7s",
+      "kaeeraa": "kaeeraa",
+      "so5iso4ka": "so5iso4ka",
+      "m3oweezed": "m3oweezed",
+      "no-selection": "Не вибрано збірку",
+      "time-played": "Усього награно",
+      "specific-time-played": "загальний час гри",
+      "ungrouped": "Без групи",
+      "placeholder-group": "Інше",
+      "confirm-deletion": {
+        "title": "Підтвердити видалення",
+        "description": "Ви збираєтеся видалити «{instanceName}».\nЦя дія є незворотною та повністю видалить збірку.\n\nВи впевнені?"
+      },
+      "add-instance": "Додати збірку...",
+      "folders": "Папки",
+      "settings": "Налаштування...",
+      "help": "Допомога",
+      "update": "Оновити",
+      "news-toolbar": "Панель новин",
+      "instance-toolbar": "Панель встановлення гри",
+      "status-bar": "Панель стану",
+      "lock-toolbars": "Заблокувати панель інструментів",
+      "no-default-account": "Немає облікового запису за замовчуванням",
+      "manage-accounts": "Управління обліковими записами...",
+      "more-news": "Усі новини",
+      "instance": {
+        "launch": "Запустити",
+        "kill": "Зупинити",
+        "edit": "Редагувати...",
+        "change-group": "Змінити групу",
+        "folder": "Папка",
+        "export": "Експортувати...",
+        "copy": "Копіювати...",
+        "delete": "Видалити",
+        "create-shortcut": "Створити ярлик",
+        "rename": "Перейменувати",
+        "change-icon": "Вибрати іконку"
+      }
+    }
+  }
+}
