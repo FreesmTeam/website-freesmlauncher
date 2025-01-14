@@ -47,7 +47,7 @@ export default function ProfileButton() {
                                 key={item.name}
                             >
                                 {item.icon}
-                                <div className="w-72 flex justify-between items-center gap-2">
+                                <div className="w-80 flex justify-between items-center gap-2">
                                     <p className="select-none text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                                         {translate(item.name)}
                                     </p>
