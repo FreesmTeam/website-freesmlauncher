@@ -1,6 +1,6 @@
 import Link from "next/link";
 import locales from '@/configs/locales.json';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import {useTranslations} from "next-intl";
 import {usePathname} from "@/i18n/routing";
@@ -15,6 +15,10 @@ export default function SwitchLanguage() {
     function handleClick() {
         setOpened((state) => !state);
     }
+
+    useEffect(() => {
+        setOpened(false);
+    }, [pathname])
 
     return (
         <div ref={ref} className="relative">

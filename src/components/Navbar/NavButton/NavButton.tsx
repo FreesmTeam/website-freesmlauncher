@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { useRouter } from 'nextjs-toploader/app';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import locales from "@/configs/locales.json";
 import Link from "next/link";
@@ -36,6 +36,10 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
 
         router.push(`/${locale}${link}`);
     }
+
+    useEffect(() => {
+        setOpened(false);
+    }, [pathname])
 
     return (
         <div ref={ref} className="relative">
