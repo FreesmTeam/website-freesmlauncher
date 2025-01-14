@@ -1,6 +1,10 @@
 import {defineRouting} from 'next-intl/routing';
 import {createNavigation} from 'next-intl/navigation';
-import locales from '@/configs/locales.json';
+import localesInfo from '@/configs/locales.json';
+
+const locales = localesInfo.map((locale) => {
+    return locale.code;
+})
 
 export const routing = defineRouting({
     // A list of all locales that are supported

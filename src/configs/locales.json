@@ -1,5 +1,17 @@
 [
-  "en",
-  "ru",
-  "uk"
+  {
+    "code": "en",
+    "name": "English",
+    "flag": "\uD83C\uDDFA\uD83C\uDDF8"
+  },
+  {
+    "code": "ru",
+    "name": "Русский",
+    "flag": "\uD83C\uDDF7\uD83C\uDDFA"
+  },
+  {
+    "code": "uk",
+    "name": "Українська",
+    "flag": "\uD83C\uDDFA\uD83C\uDDE6"
+  }
 ]

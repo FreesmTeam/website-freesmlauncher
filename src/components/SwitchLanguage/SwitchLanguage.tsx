@@ -28,15 +28,15 @@ export default function SwitchLanguage() {
                     locales.map((locale) => {
                         return (
                             <Link
-                                className="flex flex-nowrap items-center gap-2 hover:text-[#cba6f7] transition"
-                                key={locale}
-                                href={locale}
+                                className="group flex flex-nowrap items-center gap-2 transition"
+                                key={locale.code}
+                                href={locale.code}
                             >
-                                <p>
-                                    🇺🇦
+                                <p className="text-white">
+                                    {locale.flag}
                                 </p>
-                                <p>
-                                    {locale}
+                                <p className="text-white group-hover:text-[#cba6f7] transition">
+                                    {locale.name}
                                 </p>
                             </Link>
                         );
@@ -45,9 +45,11 @@ export default function SwitchLanguage() {
             </div>
             <button
                 onClick={handleClick}
-                className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244] overflow-clip"
+                className="w-8 h-8 transition flex justify-center items-center bg-[#181825] rounded-full hover:bg-[#313244] overflow-clip text-white"
             >
-                {info('emoji')}
+                {
+                    locales.find((locale) => locale.code === info('locale'))?.flag
+                }
             </button>
         </div>
     );
