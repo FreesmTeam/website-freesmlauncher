@@ -98,6 +98,14 @@
       "drm-free": {
         "title": "Без DRM",
         "description": "Легко грайте в Minecraft без обмежень, навіть якщо у вас немає онлайн-акаунту."
+      },
+      "performance": {
+        "title": "перевести - Performance",
+        "description": "перевести - Freesm Launcher has incredible speed and takes up only 30 megabytes of RAM thanks to Qt toolkit."
+      },
+      "customization": {
+        "title": "перевести - Customization",
+        "description": "перевести - Freesm Launcher has its own theme with catppuccin colors and Microsoft Fluent icons. In addition, the launcher also allows you to customize the menu, supports custom themes and backgrounds (even gifs)."
       }
     },
     "launcher": {

@@ -91,6 +91,16 @@ export const FEATURES_SECTIONS = [
         description: "features.drm-free.description",
         icon: "fluent:lock-open-16-regular",
     },
+    {
+        title: "features.performance.title",
+        description: "features.performance.description",
+        icon: "fluent:flash-16-regular",
+    },
+    {
+        title: "features.customization.title",
+        description: "features.customization.description",
+        icon: "fluent:settings-16-regular",
+    },
 ];
 export const FOOTER_LINKS: FooterLinksType = [
     {
