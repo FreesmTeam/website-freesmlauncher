@@ -8,13 +8,13 @@ export default function Features() {
     const translate = useTranslations('Translations');
 
     return (
-        <div className="flex flex-col lg:flex-row gap-8 justify-between items-start mt-12 max-w-[960px] px-8 mx-auto">
+        <div className="flex flex-col flex-wrap lg:flex-row gap-8 justify-between items-start mt-12 max-w-[960px] px-8 mx-auto">
             {
                 FEATURES_SECTIONS.map((feature) => {
                     return (
                         <div
                             key={feature.title}
-                            className="flex-1 flex flex-col gap-2"
+                            className="shrink-0 lg:max-w-[432px] flex flex-col gap-2"
                         >
                             <div className="flex items-center text-white gap-2">
                                 <Icon
