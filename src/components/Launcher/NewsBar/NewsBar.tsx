@@ -1,7 +1,7 @@
 import {useTranslations} from "next-intl";
 import {Icon} from "@iconify/react";
 import {useLauncherBarsStore} from "@/utils/Stores/Stores";
-import {LauncherBarsStateType} from "@/types/LauncherBarsState.type";
+import {LauncherBarsStateType} from "@/types/Launcher/LauncherBarsState.type";
 import {useMemo} from "react";
 
 export default function NewsBar() {

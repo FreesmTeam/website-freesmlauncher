@@ -4,7 +4,7 @@ import WindowHeader from "@/components/Launcher/WindowHeader/WindowHeader";
 import MenuBar from "@/components/Launcher/MenuBar/MenuBar";
 import NewsBar from "@/components/Launcher/NewsBar/NewsBar";
 import {useLauncherBarsStore} from "@/utils/Stores/Stores";
-import {LauncherBarType} from "@/types/LauncherBar.type";
+import {LauncherBarType} from "@/types/Launcher/LauncherBar.type";
 import InstanceBar from "@/components/Launcher/InstanceBar/InstanceBar";
 import Modals from "@/components/Launcher/Modals/Modals";
 import {useMemo, useState} from "react";

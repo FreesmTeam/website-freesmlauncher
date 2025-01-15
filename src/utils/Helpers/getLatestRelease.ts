@@ -1,4 +1,4 @@
-import { GithubReleaseType } from "@/types/GithubRelease.type";
+import { GithubReleaseType } from "@/types/Other/GithubRelease.type";
 import axios from "axios";
 
 export default async function getLatestRelease(): Promise<GithubReleaseType> {

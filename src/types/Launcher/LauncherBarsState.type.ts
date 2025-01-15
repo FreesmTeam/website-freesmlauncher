@@ -1,4 +1,4 @@
-import {LauncherBarType} from "@/types/LauncherBar.type";
+import {LauncherBarType} from "@/types/Launcher/LauncherBar.type";
 
 export type LauncherBarsStateType = {
     entries: LauncherBarType[];

@@ -1,10 +1,10 @@
 import Image from "next/image";
-import {LauncherInstanceType} from "@/types/LauncherInstance.type";
+import {LauncherInstanceType} from "@/types/Launcher/LauncherInstance.type";
 import {useInstanceStore, useRenamesStore} from "@/utils/Stores/Stores";
 import {useEffect, useRef, useState} from "react";
 import {useClickOutside, useDebouncedState} from "@mantine/hooks";
 import {LAUNCHER_ACTIONS, LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS} from "@/configs/launcher";
-import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
+import {LauncherInstanceBarItemType} from "@/types/Launcher/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
 import {Icon} from "@iconify/react";
 import getDisabledProperty from "@/utils/Helpers/getDisabledProperty";

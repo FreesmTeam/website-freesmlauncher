@@ -1,4 +1,4 @@
-import {WindowHeaderContextType} from "@/types/WindowHeaderContext.type";
+import {WindowHeaderContextType} from "@/types/Launcher/WindowHeaderContext.type";
 import React from "react";
 
 export const WindowContext = React.createContext<WindowHeaderContextType>({

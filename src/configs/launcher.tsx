@@ -1,6 +1,6 @@
 import {Icon} from "@iconify/react";
-import {TabNameType} from "@/types/TabName.type";
-import {ProfileItemType} from "@/types/ProfileItem.type";
+import {TabNameType} from "@/types/Launcher/TabName.type";
+import {ProfileItemType} from "@/types/Launcher/ProfileItem.type";
 import windstoneSkinAvatar from "../../public/windstone_skin_avatar.png";
 import hand7sSkinAvatar from "../../public/hand7s_skin_avatar.png";
 import kaeeraaSkinAvatar from "../../public/kaeeraa_skin_avatar.png";
@@ -8,12 +8,12 @@ import so5iso4kaSkinAvatar from '../../public/so5iso4ka_skin_avatar.png';
 import m3oweezedSkinAvatar from '../../public/m3oweezedSkinAvatar.png';
 import monochromeSteveSkinAvatar from "../../public/monochrome_steve.png";
 import Image from "next/image";
-import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
-import {LauncherInstanceType} from "@/types/LauncherInstance.type";
+import {LauncherInstanceBarItemType} from "@/types/Launcher/LauncherInstanceBarItem.type";
+import {LauncherInstanceType} from "@/types/Launcher/LauncherInstance.type";
 import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
 import diamondSvg from "../../public/diamond.svg";
-import {LauncherRenamesType} from "@/types/LauncherRenames.type";
+import {LauncherRenamesType} from "@/types/Launcher/LauncherRenames.type";
 
 export const PLACEHOLDER_GROUP = 'launcher.placeholder-group';
 export const NO_GROUP = 'launcher.ungrouped';

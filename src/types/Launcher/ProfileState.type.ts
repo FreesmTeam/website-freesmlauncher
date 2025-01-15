@@ -1,4 +1,4 @@
-import {ProfileItemType} from "@/types/ProfileItem.type";
+import {ProfileItemType} from "@/types/Launcher/ProfileItem.type";
 
 export type ProfileStateType = {
     currentProfile: ProfileItemType;

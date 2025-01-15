@@ -1,7 +1,7 @@
-import {HeaderExternalLinkType} from "@/types/HeaderExternalLink.type";
-import {HeaderItemType} from "@/types/HeaderItem.type";
-import { NavbarItemType } from "@/types/NavbarItem.type";
-import {FooterLinksType} from "@/types/FooterLinks.type";
+import {HeaderExternalLinkType} from "@/types/Layout/HeaderExternalLink.type";
+import {HeaderItemType} from "@/types/Layout/HeaderItem.type";
+import { NavbarItemType } from "@/types/Layout/NavbarItem.type";
+import {FooterLinksType} from "@/types/Layout/FooterLinks.type";
 
 export const APP_NAME = 'Freesm Launcher';
 export const APP_DESCRIPTION = 'Prism Launcher fork aimed to provide a free way to play Minecraft.';

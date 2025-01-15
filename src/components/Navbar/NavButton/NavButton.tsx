@@ -1,4 +1,4 @@
-import { NavbarItemType } from "@/types/NavbarItem.type";
+import { NavbarItemType } from "@/types/Layout/NavbarItem.type";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/routing";

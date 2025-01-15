@@ -1,4 +1,4 @@
-import {LauncherInstanceType} from "@/types/LauncherInstance.type";
+import {LauncherInstanceType} from "@/types/Launcher/LauncherInstance.type";
 
 export type HandleActionType = {
     launched?: string | null;

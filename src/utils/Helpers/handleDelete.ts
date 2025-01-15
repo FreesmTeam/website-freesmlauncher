@@ -1,4 +1,4 @@
-import {HandleActionType} from "@/types/HandleAction.type";
+import {HandleActionType} from "@/types/Launcher/HandleAction.type";
 
 export default function handleDelete({
     deleted,

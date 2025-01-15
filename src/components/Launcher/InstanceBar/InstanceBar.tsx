@@ -1,5 +1,5 @@
 import {useCatPackStore, useInstanceStore, useLauncherBarsStore, useRenamesStore} from "@/utils/Stores/Stores";
-import {LauncherBarType} from "@/types/LauncherBar.type";
+import {LauncherBarType} from "@/types/Launcher/LauncherBar.type";
 import {
     DELETED,
     LAUNCHER_GROUPS,
@@ -7,9 +7,9 @@ import {
     LAUNCHER_INSTANCES,
     UNKNOWN_INSTANCE
 } from "@/configs/launcher";
-import {LauncherInstanceBarItemType} from "@/types/LauncherInstanceBarItem.type";
+import {LauncherInstanceBarItemType} from "@/types/Launcher/LauncherInstanceBarItem.type";
 import {useTranslations} from "next-intl";
-import {LauncherInstanceType} from "@/types/LauncherInstance.type";
+import {LauncherInstanceType} from "@/types/Launcher/LauncherInstance.type";
 import Image from "next/image";
 import {Icon} from "@iconify/react";
 import {useEffect, useState} from "react";

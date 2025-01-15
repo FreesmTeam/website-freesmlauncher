@@ -1,14 +1,14 @@
 import { create } from 'zustand'
-import {ProfileItemType} from "@/types/ProfileItem.type";
+import {ProfileItemType} from "@/types/Launcher/ProfileItem.type";
 import {LAUNCHER_INSTANCES, LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS, LAUNCHER_RENAMES} from "@/configs/launcher";
-import {ProfileStateType} from "@/types/ProfileState.type";
-import {LauncherBarsStateType} from "@/types/LauncherBarsState.type";
-import {LauncherBarType} from "@/types/LauncherBar.type";
-import {LauncherInstanceType} from "@/types/LauncherInstance.type";
-import {LauncherInstancesStateType} from "@/types/LauncherInstancesState.type";
-import {LauncherRenamesStateType} from "@/types/LauncherRenamesState.type";
-import {LauncherRenamesType} from "@/types/LauncherRenames.type";
-import {LauncherCatPackStateType} from "@/types/LauncherCatPackState.type";
+import {ProfileStateType} from "@/types/Launcher/ProfileState.type";
+import {LauncherBarsStateType} from "@/types/Launcher/LauncherBarsState.type";
+import {LauncherBarType} from "@/types/Launcher/LauncherBar.type";
+import {LauncherInstanceType} from "@/types/Launcher/LauncherInstance.type";
+import {LauncherInstancesStateType} from "@/types/Launcher/LauncherInstancesState.type";
+import {LauncherRenamesStateType} from "@/types/Launcher/LauncherRenamesState.type";
+import {LauncherRenamesType} from "@/types/Launcher/LauncherRenames.type";
+import {LauncherCatPackStateType} from "@/types/Launcher/LauncherCatPackState.type";
 
 export const useProfileStore = create<ProfileStateType>((set) => ({
     currentProfile: LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS[0],

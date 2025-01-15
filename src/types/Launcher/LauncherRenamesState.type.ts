@@ -1,4 +1,4 @@
-import {LauncherRenamesType} from "@/types/LauncherRenames.type";
+import {LauncherRenamesType} from "@/types/Launcher/LauncherRenames.type";
 
 export type LauncherRenamesStateType = {
     currentRenames: LauncherRenamesType;

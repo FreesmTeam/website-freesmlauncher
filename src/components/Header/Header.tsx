@@ -6,8 +6,8 @@ import Link from "next/link";
 import {Icon} from "@iconify/react";
 import {HEADER_ITEMS, HEADER_LINKS} from "@/configs/constants";
 import {useTranslations} from "next-intl";
-import {HeaderItemType} from "@/types/HeaderItem.type";
-import {HeaderExternalLinkType} from "@/types/HeaderExternalLink.type";
+import {HeaderItemType} from "@/types/Layout/HeaderItem.type";
+import {HeaderExternalLinkType} from "@/types/Layout/HeaderExternalLink.type";
 import SwitchLanguage from "@/components/SwitchLanguage/SwitchLanguage";
 
 export default function Header() {

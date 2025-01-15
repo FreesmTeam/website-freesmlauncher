@@ -7,7 +7,7 @@ import {routing} from "@/i18n/routing";
 import {notFound} from "next/navigation";
 import {getMessages} from "next-intl/server";
 import {NextIntlClientProvider} from "next-intl";
-import {LocaleType} from "@/types/Locale.type";
+import {LocaleType} from "@/types/Other/Locale.type";
 import { Analytics } from "@vercel/analytics/react"
 import TanstackQueryProviders from "@/utils/Providers/TanstackQueryProviders";
 import Navbar from "@/components/Navbar/Navbar";

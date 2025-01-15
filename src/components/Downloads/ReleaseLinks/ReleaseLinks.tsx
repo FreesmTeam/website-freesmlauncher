@@ -1,4 +1,4 @@
-import { GithubReleaseType } from "@/types/GithubRelease.type";
+import { GithubReleaseType } from "@/types/Other/GithubRelease.type";
 import getLatestRelease from "@/utils/Helpers/getLatestRelease";
 import getReleaseName from "@/utils/Helpers/getReleaseName";
 import { useQuery } from "@tanstack/react-query";

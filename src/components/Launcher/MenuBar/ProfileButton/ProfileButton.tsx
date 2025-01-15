@@ -3,9 +3,9 @@ import {useTranslations} from "next-intl";
 import {useState} from "react";
 import {useClickOutside, useHotkeys} from "@mantine/hooks";
 import {LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS} from "@/configs/launcher";
-import {ProfileItemType} from "@/types/ProfileItem.type";
+import {ProfileItemType} from "@/types/Launcher/ProfileItem.type";
 import {useProfileStore} from "@/utils/Stores/Stores";
-import {ProfileStateType} from "@/types/ProfileState.type";
+import {ProfileStateType} from "@/types/Launcher/ProfileState.type";
 
 const PROFILE_UNSELECT_HOTKEY = 'ctrl+0';
 
