@@ -82,13 +82,13 @@ export const DOWNLOADS_OPTIONS: ('Windows' | 'Linux' | 'macOS')[] = [
 ];
 export const FEATURES_SECTIONS = [
     {
-        title: "features.first-title",
-        description: "features.first-description",
+        title: "features.open-source.title",
+        description: "features.open-source.description",
         icon: "fluent:people-community-16-regular",
     },
     {
-        title: "features.second-title",
-        description: "features.second-description",
+        title: "features.drm-free.title",
+        description: "features.drm-free.description",
         icon: "fluent:lock-open-16-regular",
     },
 ];

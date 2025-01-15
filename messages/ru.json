@@ -91,10 +91,14 @@
       "download-now": "Скачать"
     },
     "features": {
-      "first-title": "Открытый исходный код",
-      "first-description": "Freesm Launcher - это форк Prism Launcher с открытым исходным кодом, который находится под лицензией GPL-3.0.",
-      "second-title": "Без DRM",
-      "second-description": "С лёгкостью играйте в Майнкрафт без каких-либо ограничений, даже если у Вас нет лицензионного аккаунта."
+      "open-source": {
+        "title": "Открытый исходный код",
+        "description": "Freesm Launcher - это форк Prism Launcher с открытым исходным кодом, который находится под лицензией GPL-3.0."
+      },
+      "drm-free": {
+        "title": "Без DRM",
+        "description": "С лёгкостью играйте в Майнкрафт без каких-либо ограничений, даже если у Вас нет лицензионного аккаунта."
+      }
     },
     "launcher": {
       "windstone_": "windstone_",

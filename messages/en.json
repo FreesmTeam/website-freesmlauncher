@@ -91,10 +91,14 @@
       "download-now": "Download Now"
     },
     "features": {
-      "first-title": "Open Source",
-      "first-description": "Freesm Launcher is an open source fork of Prism Launcher. All launcher code is available under the GPL-3.0 license.",
-      "second-title": "DRM-free",
-      "second-description": "Easily play Minecraft without any restrictions, even if you don't have an online account."
+      "open-source": {
+        "title": "Open Source",
+        "description": "Freesm Launcher is an open source fork of Prism Launcher. All launcher code is available under the GPL-3.0 license."
+      },
+      "drm-free": {
+        "title": "DRM-free",
+        "description": "Easily play Minecraft without any restrictions, even if you don't have an online account."
+      }
     },
     "launcher": {
       "windstone_": "windstone_",
