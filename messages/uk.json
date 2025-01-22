@@ -100,12 +100,12 @@
         "description": "Легко грайте в Minecraft без обмежень, навіть якщо у вас немає онлайн-акаунту."
       },
       "performance": {
-        "title": "перевести - Performance",
-        "description": "перевести - Freesm Launcher has incredible speed and takes up only 30 megabytes of RAM thanks to Qt toolkit."
+        "title": "Продуктивність",
+        "description": "Freesm Launcher має неймовірну швидкість і займає лише 30 мегабайт оперативної пам’яті завдяки інструментарію Qt."
       },
       "customization": {
-        "title": "перевести - Customization",
-        "description": "перевести - Freesm Launcher has its own theme with catppuccin colors and Microsoft Fluent icons. In addition, the launcher also allows you to customize the menu, supports custom themes and backgrounds (even gifs)."
+        "title": "Налаштування",
+        "description": "Freesm Launcher має власну тему з кольорами catppuccin та значками Microsoft Fluent.  Крім того, лаунчер також дозволяє налаштовувати меню, підтримує власні теми та фони (навіть gif)."
       }
     },
     "launcher": {
