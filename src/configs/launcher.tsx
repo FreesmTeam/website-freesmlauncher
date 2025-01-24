@@ -41,9 +41,10 @@ export const LAUNCHER_ACTIONS = {
 export const LAUNCHER_TABS: TabNameType[] = [
     {
         icon: (
-            <Icon className="h-4 sm:h-8" color="#fff" fontSize={24} icon="fluent:add-square-24-regular" />
+            <Icon className="h-4 sm:h-8" color="#9298b6" fontSize={24} icon="fluent:add-square-24-regular" />
         ),
         name: 'launcher.add-instance',
+        disabled: true,
     },
     {
         icon: (
@@ -54,15 +55,17 @@ export const LAUNCHER_TABS: TabNameType[] = [
     },
     {
         icon: (
-            <Icon className="h-4 sm:h-8" color="#fff" fontSize={24} icon="fluent:settings-24-regular" />
+            <Icon className="h-4 sm:h-8" color="#9298b6" fontSize={24} icon="fluent:settings-24-regular" />
         ),
-        name: 'launcher.settings'
+        name: 'launcher.settings',
+        disabled: true,
     },
     {
         icon: (
-            <Icon className="h-4 sm:h-8" color="#fff" fontSize={24} icon="fluent:chat-help-24-regular" />
+            <Icon className="h-4 sm:h-8" color="#9298b6" fontSize={24} icon="fluent:chat-help-24-regular" />
         ),
-        name: 'launcher.help'
+        name: 'launcher.help',
+        disabled: true,
     },
     {
         icon: (
