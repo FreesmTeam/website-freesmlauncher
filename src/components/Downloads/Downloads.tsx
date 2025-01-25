@@ -61,7 +61,7 @@ export default function Downloads() {
                 }
             </div>
             <div className="rounded-md border-[1px] border-mantle w-full bg-crust p-2 min-h-[360px]">
-                <div className="flex flex-col gap-8 p-8 items-center">
+                <div className="flex flex-col gap-4 p-8 items-center">
                     <p className="text-center text-2xl sm:text-3xl font-semibold text-white">
                         {translate('downloads.packages-for')}{' '}
                         <span className="text-mauve">

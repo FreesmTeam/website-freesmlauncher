@@ -48,8 +48,8 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
         );
     }
 
-    // build name is in the next format:
-    // Freesm Launcher 9.2-free-2
+    // build name is in the LauncherName + CodeName + SemVer format:
+    // Freesm Launcher Sequoia 1.0.0
     const buildName = data?.data?.name;
     const buildNameArr =  buildName?.split(' ');
     const buildVersion = buildNameArr?.pop();
@@ -68,6 +68,14 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
             currentBuilds = assets?.filter((asset) => asset.name.toLowerCase().includes('windows'));
             break;
     }
+
+    return (
+        <div className="flex flex-col items-center justify-center gap-4">
+            <p className="text-center text-xl sm:text-2xl text-gray-300 font-semibold">
+                {buildVersion}
+            </p>
+        </div>
+    );
 
     if (platform.toLowerCase() !== 'windows') {
         return (
