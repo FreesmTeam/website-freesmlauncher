@@ -48,11 +48,12 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
         );
     }
 
-    // build name is in the LauncherName + CodeName + SemVer format:
+    // build name is in the "LauncherName CodeName SemVer" format:
     // Freesm Launcher Sequoia 1.0.0
     const buildName = data?.data?.name;
     const buildNameArr =  buildName?.split(' ');
-    const buildVersion = buildNameArr?.pop();
+    const buildSemVer = buildNameArr?.[buildNameArr.length - 1];
+    const buildCodeName = buildNameArr?.[buildNameArr.length - 2];
     const assets = data?.data?.assets;
     let currentBuilds;
 
@@ -69,56 +70,44 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
             break;
     }
 
-    return (
-        <div className="flex flex-col items-center justify-center gap-4">
-            <p className="text-center text-xl sm:text-2xl text-gray-300 font-semibold">
-                {buildVersion}
-            </p>
-        </div>
-    );
+    let releaseBuilds;
 
     if (platform.toLowerCase() !== 'windows') {
-        return (
-            <div className="flex flex-col items-center justify-center gap-4">
-                {
-                    currentBuilds?.map((build) => {
-                        const formattedName = getReleaseName({
-                            name: build.name,
-                            locale: locale,
-                        });
+        releaseBuilds = (
+                currentBuilds?.map((build) => {
+                const formattedName = getReleaseName({
+                    name: build.name,
+                    locale: locale,
+                });
 
-                        if (formattedName === null) {
-                            return;
-                        }
+                if (formattedName === null) {
+                    return;
+                }
 
-                        return (
-                            <Link
-                                key={build.name}
-                                className="text-[14px] sm:text-[16px] text-center w-fit text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
-                                target="_blank"
-                                href={build.browser_download_url}
-                            >
-                                {
-                                    (
-                                        // sorry, i'm lazy
-                                        formattedName?.displayName?.includes('Universal')
-                                        || formattedName?.extension.includes('.AppImage')
-                                    ) && '⭐'
-                                }{' '}
-                                {formattedName.displayName}{' - v'}{buildVersion}{' '}
-                                <span className="text-gray-400">
+                return (
+                    <Link
+                        key={build.name}
+                        className="text-[14px] sm:text-[16px] text-center w-fit text-balance transition border-b-[1px] border-transparent hover:border-white pb-1"
+                        target="_blank"
+                        href={build.browser_download_url}
+                    >
+                        {
+                            (
+                                // sorry, i'm lazy
+                                formattedName?.displayName?.includes('Universal')
+                                || formattedName?.extension.includes('.AppImage')
+                            ) && '⭐'
+                        }{' '}
+                        {formattedName.displayName}{' '}
+                        <span className="text-gray-400">
                                     {formattedName.extension}
                                 </span>
-                            </Link>
-                        );
-                    })
-                }
-            </div>
+                    </Link>
+                );
+            })
         );
-    }
-
-    return (
-        <>
+    } else {
+        releaseBuilds = (
             <div className="w-full flex gap-8 flex-wrap items-start">
                 {
                     WINDOWS_PLATFORMS.map((platform: string) => {
@@ -156,7 +145,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                                     href={build.browser_download_url}
                                                 >
                                                     <p>
-                                                        {formattedName.displayName}{' - v'}{buildVersion}{' '}
+                                                        {formattedName.displayName}{' '}
                                                         <span className="text-gray-400">
                                                             {formattedName.extension}
                                                         </span>
@@ -176,7 +165,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                                 href={build.browser_download_url}
                                             >
                                                 {formattedName?.type?.includes('MSVC - setup') && '⭐'}{' '}
-                                                {formattedName.displayName}{' - v'}{buildVersion}{' '}
+                                                {formattedName.displayName}{' '}
                                                 <span className="text-gray-400">
                                                     {formattedName.extension}
                                                 </span>
@@ -189,6 +178,15 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                     })
                 }
             </div>
-        </>
+        );
+    }
+
+    return (
+        <div className="flex flex-col items-center justify-center gap-4">
+            <p className="text-center text-xl sm:text-2xl text-gray-400 font-semibold">
+                {buildCodeName}{' '}{buildSemVer}
+            </p>
+            {releaseBuilds}
+        </div>
     );
 }
