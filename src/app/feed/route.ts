@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
                     <updated>${(new Date()).toISOString()}</updated>
                     <id>RANDOM_${Math.floor(Math.pow(10, 10) * Math.random())}</id>
                     <content type="html">
-                        Sorry, but GitHub ratelimited our requests. Please try again in an hour. And yes, we have a cache
+                        Sorry, but GitHub ratelimited our requests (or something else happened). Please try again in an hour. And yes, we have a cache
                     </content>
                 </entry>
             ` + prismNews.afterContent,
