@@ -10,7 +10,12 @@ export const dynamic = "force-dynamic";
 export async function GET(request: NextRequest) {
     const useragent = userAgent(request).ua;
 
-    const githubContents = await fetch("https://api.github.com/repos/freesmteam/news/contents/feed.md");
+    const githubContents = await fetch("https://api.github.com/repos/freesmteam/news/contents/feed.md", {
+        next: {
+            // in seconds. 60 * 60 = 3600 seconds = 1 hour
+            revalidate: 60 * 60,
+        }
+    });
 
     if (!githubContents.ok) {
         return new Response(
@@ -21,7 +26,7 @@ export async function GET(request: NextRequest) {
                     <updated>${(new Date()).toISOString()}</updated>
                     <id>RANDOM_${Math.floor(Math.pow(10, 10) * Math.random())}</id>
                     <content type="html">
-                        Sorry, but GitHub ratelimited our requests. Please try again in an hour.
+                        Sorry, but GitHub ratelimited our requests. Please try again in an hour. And yes, we have a cache
                     </content>
                 </entry>
             ` + prismNews.afterContent,
