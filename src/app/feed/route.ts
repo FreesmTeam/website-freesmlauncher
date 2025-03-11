@@ -14,7 +14,17 @@ export async function GET(request: NextRequest) {
 
     if (!githubContents.ok) {
         return new Response(
-            prismNews.beforeContent + prismNews.afterContent,
+            prismNews.beforeContent + `
+                <entry>
+                    <title>If you see this... how?</title>
+                    <link href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429" />
+                    <updated>${(new Date()).toISOString()}</updated>
+                    <id>RANDOM_${Math.floor(Math.pow(10, 10) * Math.random())}</id>
+                    <content type="html">
+                        Sorry, but GitHub ratelimited our requests. Please try again in an hour.
+                    </content>
+                </entry>
+            ` + prismNews.afterContent,
             {
                 status: 429,
             }
