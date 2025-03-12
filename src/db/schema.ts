@@ -11,4 +11,5 @@ export const usersTable = pgTable("users", {
         withTimezone: true,
         mode: "date",
     }).notNull(),
+    timesSeen: integer('times_seen').notNull().default(1),
 });
