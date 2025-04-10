@@ -1,13 +1,11 @@
 "use server";
 
 import { cookies } from "next/headers";
-import { types } from "node:util";
-import { NextRequest, userAgent } from "next/server";
+import { NextRequest } from "next/server";
 
 export async function handleCallback({
     request,
     provider,
-    providerName,
     fetchUserProfile,
 }: {
     request: NextRequest;
@@ -16,7 +14,6 @@ export async function handleCallback({
             accessToken: () => string;
         }>;
     };
-    providerName: "github";
     fetchUserProfile: (accessToken: string) => Promise<Response>;
 }): Promise<string> {
     let tokens;
@@ -26,7 +23,7 @@ export async function handleCallback({
     const code = request.nextUrl.searchParams.get("code");
     const state = request.nextUrl.searchParams.get("state");
     const storedState = cookieStore.get('state')?.value;
-    const errorUrl = cookieStore.get("error_url")?.value ?? "/oauth2/others";
+    const errorUrl = "/oauth2/others";
 
     if (storedState === undefined) {
         return "/oauth2/different-browser";
