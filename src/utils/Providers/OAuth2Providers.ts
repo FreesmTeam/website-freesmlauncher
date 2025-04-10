@@ -6,6 +6,6 @@ export const GitHubProvider = async () => {
     return new arctic.GitHub(
         process.env.GITHUB_CLIENT_ID!,
         process.env.GITHUB_SECRET_KEY!,
-        null,
+        "https://website-freesmlauncher.vercel.app/",
     );
 };
