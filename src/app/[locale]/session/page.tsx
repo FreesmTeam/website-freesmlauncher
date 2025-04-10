@@ -1,5 +1,7 @@
 import {cookies} from "next/headers";
 import GithubOAuth2 from "@/components/GithubOAuth2/GithubOAuth2";
+import {db} from "@/db";
+import {usersTable} from "@/db/schema";
 
 export default async function Page() {
     const cookieStore = await cookies();
@@ -81,9 +83,51 @@ export default async function Page() {
     }) => member.id === user.id);
 
     if (hasUser) {
+        let launcherUsers;
+
+        try {
+            launcherUsers = await db
+                .select()
+                .from(usersTable)
+                .orderBy(usersTable.id);
+        } catch (e) {
+            console.error(e);
+
+            return (
+                <div className="flex flex-col gap-2 text-white p-8 h-[50vh]">
+                    <p>Something went wrong when fetching database...</p>
+                </div>
+            );
+        }
+
         return (
-            <div className="flex text-white p-8 h-[50vh]">
-                yay
+            <div className="flex flex-col gap-2 text-white p-8 w-full">
+                <p className="text-lg font-semibold">
+                    Total users: {launcherUsers.length}
+                </p>
+                {
+                    launcherUsers.map((launcherUser) => {
+                        return (
+                            <div key={launcherUser.id} className="min-h-8 w-full text-sm text-zinc-400 text-nowrap flex items-stretch px-2 flex-1 gap-2 border-zinc-600 border-[1px]">
+                                <p className="w-16 overflow-auto border-r-[1px] border-zinc-600 flex items-center">
+                                    {launcherUser.id}
+                                </p>
+                                <p className="w-full overflow-auto border-r-[1px] border-zinc-600 flex items-center">
+                                    {launcherUser.useragent}
+                                </p>
+                                <p className="w-48 overflow-auto border-r-[1px] border-zinc-600 flex items-center">
+                                    {(new Date(launcherUser.createdAt)).toDateString()}
+                                </p>
+                                <p className="w-48 overflow-auto border-r-[1px] border-zinc-600 flex items-center">
+                                    {(new Date(launcherUser.lastSeen)).toDateString()}
+                                </p>
+                                <p className="w-12 overflow-auto flex items-center">
+                                    {launcherUser.timesSeen}
+                                </p>
+                            </div>
+                        );
+                    })
+                }
             </div>
         );
     }
