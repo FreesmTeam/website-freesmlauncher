@@ -63,7 +63,7 @@ export async function handleCallback({
         return errorUrl;
     }
 
-    cookieStore.set("token", accessToken, {
+    cookieStore.set("accessTokenGithub", accessToken, {
         secure: process.env.NODE_ENV === "production",
         path: "/",
         httpOnly: true,
