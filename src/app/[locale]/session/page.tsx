@@ -134,7 +134,7 @@ export default async function Page() {
 
     return (
         <div className="flex text-white p-8 h-[50vh]">
-            <p>Sorry, but you don't have an access to the dashboard.</p>
+            <p>Sorry, but you don&apos;t have an access to the dashboard.</p>
             <GithubOAuth2/>
         </div>
     );
