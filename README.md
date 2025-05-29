@@ -1,3 +1,11 @@
+todo:
+
+- remove next-intl and use own i18n system
+- get user agent server-side instead of client-side
+- add more features to the home page
+- add docs page?
+- make a custom theme builder?
+
 <div align="center">
   <h1>
     <a href="https://freesmlauncher.windstone.space/">Freesm Launcher</a>
