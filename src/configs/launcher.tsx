@@ -7,7 +7,6 @@ import kaeeraaSkinAvatar from "../../public/kaeeraa_skin_avatar.png";
 import so5iso4kaSkinAvatar from '../../public/so5iso4ka_skin_avatar.png';
 import m3oweezedSkinAvatar from '../../public/m3oweezedSkinAvatar.png';
 import monochromeSteveSkinAvatar from "../../public/monochrome_steve.png";
-import Image from "next/image";
 import {LauncherInstanceBarItemType} from "@/types/Launcher/LauncherInstanceBarItem.type";
 import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
