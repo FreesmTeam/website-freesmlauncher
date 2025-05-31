@@ -9,7 +9,6 @@ import {
 } from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/Launcher/LauncherInstanceBarItem.type";
 import {LauncherInstanceType} from "@/types/Launcher/LauncherInstance.type";
-import Image from "next/image";
 import {Icon} from "@iconify/react";
 import {useContext, useEffect, useState} from "react";
 import InstanceButton from "@/components/Launcher/InstanceBar/InstanceButton/InstanceButton";
@@ -17,6 +16,7 @@ import getDisabledProperty from "@/utils/Helpers/getDisabledProperty";
 import handleLaunch from '@/utils/Helpers/handleLaunch';
 import React from "react";
 import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
+import ConfiguredImage from "@/components/ConfiguredImage/ConfiguredImage";
 
 const LAUNCHER_GROUPS_OBJ: { [name: string]: boolean } = {};
 
@@ -101,7 +101,7 @@ export default function InstanceBar({
                         <div
                             className={`transition select-none flex justify-center items-center rounded-md ${currentInstance.name === UNKNOWN_INSTANCE.name ? "" : "hover:bg-[#1b1825]"}`}
                         >
-                            <Image
+                            <ConfiguredImage
                                 width={80}
                                 src={currentInstance.icon}
                                 alt="Grass svg icon"

@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import community from '@/configs/community.json';
 import deletedAvatar from '../../../public/deleted_avatar.webp';
 import { useContext } from "react";
 import { DictionariesContext } from "@/utils/Providers/DictionariesProvider";
+import ConfiguredImage from "@/components/ConfiguredImage/ConfiguredImage";
 
 export default function About() {
     const { dictionaries } = useContext(DictionariesContext);
@@ -53,8 +53,8 @@ export default function About() {
                                     href={maintainer.link}
                                     className="box-border min-w-[40%] transition hover:grayscale hover:scale-105 p-2 flex flex-1 gap-8 items-start"
                                 >
-                                    <Image
-                                        className="rounded-full w-16 h-16 sm:w-24 sm:h-24"
+                                    <ConfiguredImage
+                                        className="transition rounded-full w-16 h-16 sm:w-24 sm:h-24"
                                         width={96}
                                         height={96}
                                         src={maintainer.avatar}
@@ -86,8 +86,8 @@ export default function About() {
                                     key={contributor.name}
                                     href={contributor.link}
                                 >
-                                    <Image
-                                        className="rounded-full w-12 h-12 sm:w-16 sm:h-16"
+                                    <ConfiguredImage
+                                        className="transition rounded-full w-12 h-12 sm:w-16 sm:h-16"
                                         width={64}
                                         height={64}
                                         src={contributor.avatar ?? deletedAvatar}

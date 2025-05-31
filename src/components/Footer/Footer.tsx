@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import websiteLogo from '../../../public/freesm-launcher-logo.webp';
 import {FOOTER_LINKS, HOME_LINK} from "@/configs/constants";
 import Link from "next/link";
 import {useContext} from "react";
 import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
+import ConfiguredImage from "@/components/ConfiguredImage/ConfiguredImage";
 
 export default function Footer() {
     const { dictionaries } = useContext(DictionariesContext);
@@ -20,7 +20,7 @@ export default function Footer() {
                 <div className="max-w-[1280px] w-full flex flex-col flex-nowrap sm:flex-row sm:justify-between gap-4">
                     <div className="select-none flex flex-col gap-2 items-center sm:items-start">
                         <Link href={HOME_LINK}>
-                            <Image
+                            <ConfiguredImage
                                 height={40}
                                 src={websiteLogo}
                                 alt={"Freesm Launcher logo"}

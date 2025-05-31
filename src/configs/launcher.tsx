@@ -13,6 +13,7 @@ import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
 import diamondSvg from "../../public/diamond.svg";
 import {LauncherRenamesType} from "@/types/Launcher/LauncherRenames.type";
+import ConfiguredImage from "@/components/ConfiguredImage/ConfiguredImage";
 
 export const PLACEHOLDER_GROUP = "placeholder-group";
 export const NO_GROUP = "ungrouped";
@@ -83,7 +84,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
     {
         skin: windstoneSkinAvatar,
         icon: (
-            <Image height={16} width={16} src={windstoneSkinAvatar} alt={"windstone_ skin avatar"}/>
+            <ConfiguredImage height={16} width={16} src={windstoneSkinAvatar} alt={"windstone_ skin avatar"}/>
         ),
         name: "windstone_",
         hotkey: "Maintainer",
@@ -91,7 +92,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
     {
         skin: hand7sSkinAvatar,
         icon: (
-            <Image height={16} width={16} src={hand7sSkinAvatar} alt={"hand7s skin avatar"}/>
+            <ConfiguredImage height={16} width={16} src={hand7sSkinAvatar} alt={"hand7s skin avatar"}/>
         ),
         name: "hand7s",
         hotkey: "Maintainer",
@@ -99,7 +100,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
     {
         skin: kaeeraaSkinAvatar,
         icon: (
-            <Image height={16} width={16} src={kaeeraaSkinAvatar} alt={"kaeeraa skin avatar"}/>
+            <ConfiguredImage height={16} width={16} src={kaeeraaSkinAvatar} alt={"kaeeraa skin avatar"}/>
         ),
         name: "kaeeraa",
         hotkey: "Maintainer",
@@ -107,7 +108,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
     {
         skin: so5iso4kaSkinAvatar,
         icon: (
-            <Image height={16} width={16} src={so5iso4kaSkinAvatar} alt={"so5iso4ka skin avatar"} />
+            <ConfiguredImage height={16} width={16} src={so5iso4kaSkinAvatar} alt={"so5iso4ka skin avatar"} />
         ),
         name: "so5iso4ka",
         hotkey: "Maintainer",
@@ -115,7 +116,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
     {
         skin: m3oweezedSkinAvatar,
         icon: (
-            <Image height={16} width={16} src={m3oweezedSkinAvatar} alt={"m3oweezed skin avatar"} />
+            <ConfiguredImage height={16} width={16} src={m3oweezedSkinAvatar} alt={"m3oweezed skin avatar"} />
         ),
         name: "m3oweezed",
         hotkey: "Maintainer",
@@ -123,7 +124,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
     {
         skin: monochromeSteveSkinAvatar,
         icon: (
-            <Image height={16} width={16} src={monochromeSteveSkinAvatar} alt={"Monochrome Steve avatar"}/>
+            <ConfiguredImage height={16} width={16} src={monochromeSteveSkinAvatar} alt={"Monochrome Steve avatar"}/>
         ),
         name: "no-default-account",
         hotkey: "Ctrl+0",
@@ -263,7 +264,7 @@ export const LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS: LauncherInstanceBarItemType[]
     },
     {
         name: 'change-icon',
-        icon: <Image
+        icon: <ConfiguredImage
             height={14}
             src={grassSvg}
             alt={"Grass svg icon"}

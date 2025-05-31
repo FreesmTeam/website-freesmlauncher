@@ -1,7 +1,9 @@
+"use client";
+
 import maxwellGif from '../../../public/maxwell-christmas.gif';
-import Image from "next/image";
 import {useContext} from "react";
 import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
+import ConfiguredImage from "@/components/ConfiguredImage/ConfiguredImage";
 
 export default function SuccessfulLogin() {
     const { dictionaries } = useContext(DictionariesContext);
@@ -16,7 +18,7 @@ export default function SuccessfulLogin() {
             <p className="text-center text-balance text-lg sm:text-2xl text-gray-400">
                 {translations?.pages?.["successful-login"]?.description}
             </p>
-            <Image src={maxwellGif} alt={"Maxwell cat rotating gif"} />
+            <ConfiguredImage src={maxwellGif} alt={"Maxwell cat rotating gif"} />
         </div>
     );
 }

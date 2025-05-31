@@ -1,9 +1,9 @@
 import {useContext} from "react";
 import {WindowContext} from "@/utils/Contexts/Contexts";
-import Image from "next/image";
 import freesmLogo from "../../../../../public/favicon.webp";
 import {APP_NAME} from "@/configs/constants";
 import {Icon} from "@iconify/react";
+import ConfiguredImage from "@/components/ConfiguredImage/ConfiguredImage";
 
 export default function LinuxHeader() {
     const {
@@ -22,8 +22,8 @@ export default function LinuxHeader() {
             className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-crust"
         >
             <div className={`select-none pl-1 sm:pl-2 flex flex-nowrap justify-start gap-2 items-center ${LogoWrapperSizeClassName}`}>
-                <Image
-                    className="w-4 h-4 sm:h-5 sm:w-5"
+                <ConfiguredImage
+                    className="transition w-4 h-4 sm:h-5 sm:w-5"
                     src={freesmLogo}
                     alt={`${APP_NAME} logo`}
                 />

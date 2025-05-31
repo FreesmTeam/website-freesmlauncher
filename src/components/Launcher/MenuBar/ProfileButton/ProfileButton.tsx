@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {useContext, useState} from "react";
 import {useClickOutside, useHotkeys} from "@mantine/hooks";
 import {LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS} from "@/configs/launcher";
@@ -6,6 +5,7 @@ import {ProfileItemType} from "@/types/Launcher/ProfileItem.type";
 import {useProfileStore} from "@/utils/Stores/Stores";
 import {ProfileStateType} from "@/types/Launcher/ProfileState.type";
 import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
+import ConfiguredImage from "@/components/ConfiguredImage/ConfiguredImage";
 
 const PROFILE_UNSELECT_HOTKEY = 'ctrl+0';
 
@@ -94,7 +94,7 @@ export default function ProfileButton() {
                 onClick={handleLeftClick}
                 className="transition flex-wrap sm:flex-nowrap justify-center sm:justify-normal w-full h-full px-2 rounded-md flex items-center gap-2 hover:bg-[#211e2f] focus:bg-[#171721]"
             >
-                <Image height={24} src={currentProfile.skin} alt={"Profile avatar"}/>
+                <ConfiguredImage height={24} src={currentProfile.skin} alt={"Profile avatar"}/>
                 {(
                     <p className="text-[10px] sm:text-[13px] text-[#cdd6f4]">
                         {translationsLauncher?.[currentProfile.name]}

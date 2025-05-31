@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import freesmLogo from '../../../public/freesm-launcher-logo.webp';
 import Link from "next/link";
 import {Icon} from "@iconify/react";
@@ -10,6 +9,7 @@ import {HeaderExternalLinkType} from "@/types/Layout/HeaderExternalLink.type";
 import SwitchLanguage from "@/components/SwitchLanguage/SwitchLanguage";
 import {useContext} from "react";
 import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
+import ConfiguredImage from "@/components/ConfiguredImage/ConfiguredImage";
 
 export default function Header() {
     const { dictionaries } = useContext(DictionariesContext);
@@ -21,7 +21,7 @@ export default function Header() {
                 className="hidden sm:block z-[2000] sticky top-0 bg-[#09090e] lg:bg-[#09090ebb] lg:backdrop-blur border-b-[1px] border-mantle select-none p-4 w-full">
                 <div className="mx-auto max-w-[1280px] flex justify-between items-center h-12 w-full">
                     <Link href={"/"}>
-                        <Image height={48} src={freesmLogo} alt="FreesmLauncher logo"/>
+                        <ConfiguredImage height={48} src={freesmLogo} alt="FreesmLauncher logo"/>
                     </Link>
                     <div className="flex gap-4">
                         {

@@ -1,8 +1,8 @@
-import Image from "next/image";
 import freesmLogo from "../../../../../public/favicon.webp";
 import {APP_NAME} from "@/configs/constants";
 import {useContext} from "react";
 import {WindowContext} from "@/utils/Contexts/Contexts";
+import ConfiguredImage from "@/components/ConfiguredImage/ConfiguredImage";
 
 export default function WinHeader() {
     const {
@@ -19,8 +19,8 @@ export default function WinHeader() {
             className="flex flex-nowrap rounded-t-md justify-between items-center gap-2 w-full h-6 sm:h-8 bg-crust"
         >
             <div className="select-none px-1 sm:px-2 flex flex-nowrap gap-2 items-center">
-                <Image
-                    className="w-4 h-4 sm:h-5 sm:w-5"
+                <ConfiguredImage
+                    className="transition w-4 h-4 sm:h-5 sm:w-5"
                     src={freesmLogo}
                     alt={`${APP_NAME} logo`}
                 />

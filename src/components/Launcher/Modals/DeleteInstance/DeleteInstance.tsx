@@ -67,13 +67,13 @@ export default function DeleteInstanceModal({
                         className="flex items-center justify-center bg-[#1E1C2A] hover:bg-[#2e283e] transition w-14 h-7 rounded-md"
                         onClick={onConfirmation}
                     >
-                        Да
+                        {translations?.general?.yes}
                     </button>
                     <button
                         className="flex items-center justify-center bg-[#1E1C2A] hover:bg-[#2e283e] transition w-14 h-7 rounded-md"
                         onClick={onClose}
                     >
-                        Нет
+                        {translations?.general?.no}
                     </button>
                 </div>
             </div>

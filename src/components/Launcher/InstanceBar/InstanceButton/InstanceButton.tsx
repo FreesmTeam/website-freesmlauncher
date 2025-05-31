@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {LauncherInstanceType} from "@/types/Launcher/LauncherInstance.type";
 import {useInstanceStore, useRenamesStore} from "@/utils/Stores/Stores";
 import {useContext, useEffect, useRef, useState} from "react";
@@ -9,6 +8,7 @@ import {Icon} from "@iconify/react";
 import getDisabledProperty from "@/utils/Helpers/getDisabledProperty";
 import handleLaunch from '@/utils/Helpers/handleLaunch';
 import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
+import ConfiguredImage from "@/components/ConfiguredImage/ConfiguredImage";
 
 export default function InstanceButton(instance: LauncherInstanceType) {
     const { dictionaries } = useContext(DictionariesContext);
@@ -213,7 +213,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                     })
                 }
             </div>
-            <Image
+            <ConfiguredImage
                 width={48}
                 src={instance.icon}
                 alt="Grass svg icon"
