@@ -3,18 +3,16 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import NextTopLoader from "nextjs-toploader";
-import {routing} from "@/i18n/routing";
-import {notFound} from "next/navigation";
-import {getMessages} from "next-intl/server";
-import {NextIntlClientProvider} from "next-intl";
-import {LocaleType} from "@/types/Other/Locale.type";
 import { Analytics } from "@vercel/analytics/react"
 import TanstackQueryProviders from "@/utils/Providers/TanstackQueryProviders";
 import Navbar from "@/components/Navbar/Navbar";
 import Head from "next/head";
-import {APP_DESCRIPTION, APP_NAME} from "@/configs/constants";
+import { APP_DESCRIPTION, APP_NAME } from "@/configs/constants";
 import Footer from "@/components/Footer/Footer";
-import {SpeedInsights} from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import {getDictionary} from "@/get-dictionary";
+import { Locale } from "@/i18n-config";
+import { DictionariesProvider } from "@/utils/Providers/DictionariesProvider";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -60,15 +58,10 @@ export default async function LocaleLayout({
     params,
 }: Readonly<{
     children: React.ReactNode;
-    params: Promise<{ locale: string; }>;
+    params: Promise<{ locale: Locale; }>;
 }>) {
     const locale = (await params).locale;
-
-    if (!routing.locales.includes(locale as LocaleType)) {
-        notFound();
-    }
-
-    const messages = await getMessages();
+    const dictionaries = await getDictionary(locale);
 
     return (
         <html lang={locale}>
@@ -77,7 +70,7 @@ export default async function LocaleLayout({
             </Head>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased pb-28 sm:pb-8`}>
                 <TanstackQueryProviders>
-                    <NextIntlClientProvider messages={messages}>
+                    <DictionariesProvider dictionaries={dictionaries}>
                         <NextTopLoader
                             zIndex={30000}
                             shadow={false}
@@ -93,7 +86,7 @@ export default async function LocaleLayout({
                         </div>
                         <Footer />
                         <SpeedInsights />
-                    </NextIntlClientProvider>
+                    </DictionariesProvider>
                     <Analytics />
                 </TanstackQueryProviders>
             </body>
