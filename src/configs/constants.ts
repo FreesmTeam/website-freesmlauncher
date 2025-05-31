@@ -94,12 +94,12 @@ export const FEATURES_SECTIONS = (dictionaries: DictionariesType) => [
     },
     {
         title: dictionaries?.Translations?.features?.["performance"]?.title,
-        description: dictionaries?.Translations?.features?.["performance"]?.title,
+        description: dictionaries?.Translations?.features?.["performance"]?.description,
         icon: "fluent:flash-16-regular",
     },
     {
         title: dictionaries?.Translations?.features?.["customization"]?.title,
-        description: dictionaries?.Translations?.features?.["customization"]?.title,
+        description: dictionaries?.Translations?.features?.["customization"]?.description,
         icon: "fluent:settings-16-regular",
     },
 ];

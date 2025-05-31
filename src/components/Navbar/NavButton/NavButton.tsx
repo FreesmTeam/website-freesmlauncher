@@ -6,6 +6,18 @@ import {useClickOutside} from "@mantine/hooks";
 import locales from "@/configs/locales.json";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
+import {setCookie} from "@/lib/cookies";
+import {CookieLocaleKey} from "@/configs/localization";
+import {getRelativeDate} from "@/utils/Helpers/getRelativeDate";
+
+const handleLocaleSwitch = async (locale: string | undefined) => {
+    await setCookie({
+        key:       CookieLocaleKey,
+        value:     JSON.stringify(locale),
+        expiresAt: getRelativeDate({ days: 365 }),
+        httpOnly:  false,
+    });
+};
 
 export default function NavButton({ item, currentLocale }: { item: NavbarItemType, currentLocale: string | undefined }) {
     const {
@@ -20,8 +32,14 @@ export default function NavButton({ item, currentLocale }: { item: NavbarItemTyp
     const ref = useClickOutside(() => setOpened(false));
 
     const router = useRouter();
-    const pathname = usePathname();
-    const isCurrentPage = pathname === link;
+
+    const currentPathname = usePathname();
+    const pathnameArray = currentPathname.split("/");
+    pathnameArray.shift();
+    pathnameArray.shift();
+    const pathnameWithoutLocale = pathnameArray.join("/");
+
+    const isCurrentPage = pathnameWithoutLocale === link;
 
     function handleClick() {
         if (isAction) {
@@ -30,12 +48,12 @@ export default function NavButton({ item, currentLocale }: { item: NavbarItemTyp
             return;
         }
 
-        router.push(`/${link}`);
+        router.push(`${link}`);
     }
 
     useEffect(() => {
         setOpened(false);
-    }, [pathname])
+    }, [currentPathname])
 
     return (
         <div ref={ref} className="relative">
@@ -50,10 +68,10 @@ export default function NavButton({ item, currentLocale }: { item: NavbarItemTyp
                     locales.map((locale) => {
                         return (
                             <Link
-                                prefetch
                                 className="group flex flex-nowrap items-center gap-2 transition"
                                 key={locale.code}
-                                href={`/${pathname}`}
+                                href={`/${locale.code}/${pathnameWithoutLocale}`}
+                                onClick={() => handleLocaleSwitch(locale.code)}
                             >
                                 <p className="text-white">
                                     {locale.flag}

@@ -1,19 +1,14 @@
 import Link from 'next/link';
-import {Locale} from "@/i18n-config";
 import {getDictionary} from "@/get-dictionary";
+import {DefaultLocale} from "@/configs/localization";
 
-export default async function NotFound({
-    params,
-}: {
-    params: Promise<{ locale: Locale }>
-}) {
-    const { locale } = await params;
+export default async function NotFound() {
     const { Translations: { pages: { "not-found": {
         title,
         description,
         "go-to-home": goToHome,
         subtitle,
-    } } } } = await getDictionary(locale);
+    } } } } = await getDictionary(DefaultLocale);
 
     return (
         <div className="flex text-balance text-center justify-center items-center h-[calc(100svh-106px)] w-full max-w-[900px] px-4 sm:px-6 mx-auto flex-col text-white gap-2">
