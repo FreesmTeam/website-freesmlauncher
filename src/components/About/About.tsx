@@ -1,31 +1,35 @@
 "use client";
 
-import {useTranslations} from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import community from '@/configs/community.json';
 import deletedAvatar from '../../../public/deleted_avatar.webp';
+import { useContext } from "react";
+import { DictionariesContext } from "@/utils/Providers/DictionariesProvider";
 
 export default function About() {
-    const translate = useTranslations('Translations');
-    const info = useTranslations('Info');
-    const locale = info('locale');
+    const { dictionaries } = useContext(DictionariesContext);
+
+    const locale = dictionaries?.Info?.locale;
+    const translations = dictionaries?.Translations;
+    const translationsAbout = translations?.about;
+
     const maintainers = community.maintainers;
     const contributors = community.contributors;
 
     return (
         <div className="flex flex-col gap-8 pt-12 max-w-[960px] px-4 mx-auto">
             <p className="text-center font-bold text-balance text-5xl text-white sm:text-7xl">
-                {translate('about.title')}
+                {translationsAbout?.title}
             </p>
             <p className="text-center text-balance text-lg sm:text-2xl text-gray-400">
-                {translate('about.description')}
+                {translationsAbout?.description}
             </p>
             <div
                 className="flex flex-col items-center gap-8 rounded-md border-[1px] border-mantle w-full bg-crust p-8"
             >
                 <p className="text-xl sm:text-3xl text-center font-semibold text-white">
-                    {translate('about.maintainers')}
+                    {translationsAbout?.maintainers}
                 </p>
                 <div className="w-full flex flex-wrap gap-8 justify-center flex-col lg:flex-row">
                     {
@@ -70,7 +74,7 @@ export default function About() {
                     }
                 </div>
                 <p className="text-xl sm:text-3xl text-center font-semibold text-white">
-                    {translate('about.contributors')}
+                    {translationsAbout?.contributors}
                 </p>
                 <div className="flex justify-center items-center gap-2">
                     {

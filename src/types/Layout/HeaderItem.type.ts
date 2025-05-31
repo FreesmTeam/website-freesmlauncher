@@ -1,4 +1,4 @@
 export type HeaderItemType = {
-    name: string;
+    name: string | undefined;
     link: string;
 };

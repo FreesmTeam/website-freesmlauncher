@@ -5,15 +5,14 @@ import freesmLogo from '../../../public/freesm-launcher-logo.webp';
 import Link from "next/link";
 import {Icon} from "@iconify/react";
 import {HEADER_ITEMS, HEADER_LINKS} from "@/configs/constants";
-import {useTranslations} from "next-intl";
 import {HeaderItemType} from "@/types/Layout/HeaderItem.type";
 import {HeaderExternalLinkType} from "@/types/Layout/HeaderExternalLink.type";
 import SwitchLanguage from "@/components/SwitchLanguage/SwitchLanguage";
+import {useContext} from "react";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 
 export default function Header() {
-    const translate = useTranslations('Translations');
-    const info = useTranslations('Info');
-    const locale = info('locale');
+    const { dictionaries } = useContext(DictionariesContext);
 
     return (
         <>
@@ -21,19 +20,20 @@ export default function Header() {
             <header
                 className="hidden sm:block z-[2000] sticky top-0 bg-[#09090e] lg:bg-[#09090ebb] lg:backdrop-blur border-b-[1px] border-mantle select-none p-4 w-full">
                 <div className="mx-auto max-w-[1280px] flex justify-between items-center h-12 w-full">
-                    <Link href={`/${locale}`}>
+                    <Link href={"/"}>
                         <Image height={48} src={freesmLogo} alt="FreesmLauncher logo"/>
                     </Link>
                     <div className="flex gap-4">
                         {
-                            HEADER_ITEMS.map((item: HeaderItemType) => {
+                            HEADER_ITEMS(dictionaries).map((item: HeaderItemType) => {
                                 return (
                                     <Link
+                                        prefetch
                                         key={item.name}
                                         className="font-semibold text-white py-1 transition border-b-2 border-transparent hover:border-mauve"
-                                        href={`/${locale}${item.link}`}
+                                        href={item.link}
                                     >
-                                        {translate(item.name)}
+                                        {item.name}
                                     </Link>
                                 );
                             })

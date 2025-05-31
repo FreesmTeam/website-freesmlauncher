@@ -7,7 +7,7 @@ export default function Page() {
             <div className="text-sm text-zinc-400">
                 Возможно, вы начали процесс входа в одном браузере (например, через встроенный в телеграм), а закончили в другом (например, открыли страницу OAuth2 провайдера в Firefox или Chrome).
             </div>
-            <div className="text-lg">
+            <div className="text-lg text-white">
                 Вам нужно использовать для авторизации только {<strong>один</strong>} браузер.
             </div>
         </div>

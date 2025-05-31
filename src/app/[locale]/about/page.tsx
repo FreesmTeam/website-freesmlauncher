@@ -1,13 +1,16 @@
 import About from "@/components/About/About";
 import {Metadata} from "next";
-import {getTranslations} from "next-intl/server";
 import {APP_NAME} from "@/configs/constants";
+import { Locale } from "@/i18n-config";
+import { getDictionary } from "@/get-dictionary";
 
-export async function generateMetadata(): Promise<Metadata> {
-    const translate = await getTranslations('Translations');
-
-    const title = translate('pages.about.title');
-    const description = translate('pages.about.description');
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: Locale }>
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const { Translations: { pages: { about: { title, description } } } } = await getDictionary(locale);
 
     return {
         title: title,

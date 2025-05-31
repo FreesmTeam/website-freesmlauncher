@@ -3,13 +3,17 @@ import getLatestRelease from "@/utils/Helpers/getLatestRelease";
 import getReleaseName from "@/utils/Helpers/getReleaseName";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import {useTranslations} from "next-intl";
 import {PLACEHOLDER_OS, WINDOWS_ARM64, WINDOWS_PLATFORMS} from "@/configs/constants";
+import {useContext} from "react";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
+import {DefaultLocale} from "@/configs/localization";
 
 export default function ReleaseLinks({ platform }: { platform: string; }) {
-    const translate = useTranslations('Translations');
-    const info = useTranslations('Info');
-    const locale = info('locale');
+    const { dictionaries } = useContext(DictionariesContext);
+
+    const locale = dictionaries?.Info?.locale ?? DefaultLocale;
+    const translations = dictionaries?.Translations;
+    const translationsDownloads = translations?.downloads;
 
     const { isPending, error, data }: {
         isPending: boolean;
@@ -25,7 +29,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
     if (platform === PLACEHOLDER_OS) {
         return (
             <div className="text-[14px] sm:text-[16px] text-center text-gray-400">
-                {translate('downloads.getting-platform')}
+                {translationsDownloads?.["getting-platform"]}
             </div>
         )
     }
@@ -33,7 +37,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
     if (isPending) {
         return (
             <div className="text-[14px] sm:text-[16px] text-center text-gray-400">
-            {translate('downloads.loading')}
+            {translationsDownloads?.loading}
             </div>
         );
     }
@@ -41,9 +45,9 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
     if (error) {
         return (
             <div className="text-[14px] sm:text-[16px] text-center text-gray-400">
-                {translate('downloads.error')}{' '}
+                {translationsDownloads?.error}{' '}
                 {error.message}.{' '}
-                {translate('downloads.try-to-refresh')}
+                {translationsDownloads?.["try-to-refresh"]}
             </div>
         );
     }
@@ -151,7 +155,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                                         </span>
                                                     </p>
                                                     <p className="text-gray-400 text-[12px] sm:text-[14px]">
-                                                        ({translate('downloads.requires')} Visual C++ Redistributable)
+                                                        ({translationsDownloads?.requires} Visual C++ Redistributable)
                                                     </p>
                                                 </Link>
                                             )

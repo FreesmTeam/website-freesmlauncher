@@ -1,11 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import websiteLogo from '../../../public/freesm-launcher-logo.webp';
 import {FOOTER_LINKS, HOME_LINK} from "@/configs/constants";
 import Link from "next/link";
-import {useTranslations} from "next-intl";
+import {useContext} from "react";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 
 export default function Footer() {
-    const translate = useTranslations('Translations');
+    const { dictionaries } = useContext(DictionariesContext);
+
+    const translations = dictionaries?.Translations;
+    const translationsFooter = translations?.footer;
 
     return (
         <>
@@ -21,7 +27,7 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-gray-400 text-[14px] sm:text-[16px]">
-                            {translate('footer.short-description')}
+                            {translationsFooter?.["short-description"]}
                         </p>
                         <Link className="text-xs sm:text-sm text-zinc-600 transition hover:text-zinc-500" href="/session">
                             sign in?
@@ -29,14 +35,14 @@ export default function Footer() {
                     </div>
                     <div className="flex gap-4 flex-col sm:flex-row">
                         {
-                            FOOTER_LINKS.map((item) => {
+                            FOOTER_LINKS(dictionaries).map((item) => {
                                 return (
                                     <div
                                         key={item.title}
                                         className="select-none px-4 flex flex-1 flex-col gap-2 items-center sm:items-start"
                                     >
                                         <p className="text-white font-semibold text-[14px] sm:text-[18px]">
-                                            {translate(item.title)}
+                                            {item.title}
                                         </p>
                                         <div className="flex flex-row sm:flex-col gap-2 items-center sm:items-start">
                                             {
@@ -48,7 +54,7 @@ export default function Footer() {
                                                             key={link.name}
                                                             className="text-center sm:text-start leading-5 text-wrap text-gray-400 text-[12px] sm:text-[16px] underline-offset-[5px] hover:underline"
                                                         >
-                                                            {translate(link.name)}
+                                                            {link.name}
                                                         </Link>
                                                     );
                                                 })

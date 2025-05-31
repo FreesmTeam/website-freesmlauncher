@@ -1,7 +1,7 @@
 export type FooterLinksType = {
-    title: string;
+    title: string | undefined;
     links: {
-        name: string;
+        name: string | undefined;
         link: string;
     }[];
 }[];

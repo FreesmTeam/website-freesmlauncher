@@ -1,16 +1,35 @@
 import Link from "next/link";
 import locales from '@/configs/locales.json';
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
-import {useTranslations} from "next-intl";
-import {usePathname} from "@/i18n/routing";
+import {usePathname} from "next/navigation";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
+import {CookieLocaleKey, DefaultLocale} from "@/configs/localization";
+import {getRelativeDate} from "@/utils/Helpers/getRelativeDate";
+import {setCookie} from "@/lib/cookies";
+
+const handleLocaleSwitch = async (locale: string | undefined) => {
+    await setCookie({
+        key:       CookieLocaleKey,
+        value:     JSON.stringify(locale),
+        expiresAt: getRelativeDate({ days: 365 }),
+        httpOnly:  false,
+    });
+};
 
 export default function SwitchLanguage() {
+    const { dictionaries } = useContext(DictionariesContext);
+
+    const currentLocale = dictionaries?.Info?.locale ?? DefaultLocale;
+
     const [opened, setOpened] = useState(false);
     const ref = useClickOutside(() => setOpened(false));
 
-    const pathname = usePathname();
-    const info = useTranslations('Info');
+    const currentPathname = usePathname();
+    const pathnameArray = currentPathname.split("/");
+    pathnameArray.shift();
+    pathnameArray.shift();
+    const pathnameWithoutLocale = pathnameArray.join("/");
 
     function handleClick() {
         setOpened((state) => !state);
@@ -18,7 +37,7 @@ export default function SwitchLanguage() {
 
     useEffect(() => {
         setOpened(false);
-    }, [pathname])
+    }, [currentPathname])
 
     return (
         <div ref={ref} className="relative">
@@ -35,7 +54,8 @@ export default function SwitchLanguage() {
                             <Link
                                 className="group flex flex-nowrap items-center gap-2 transition"
                                 key={locale.code}
-                                href={`/${locale.code}${pathname}`}
+                                href={`/${locale.code}/${pathnameWithoutLocale}`}
+                                onClick={() => handleLocaleSwitch(locale.code)}
                             >
                                 <p className="text-white">
                                     {locale.flag}
@@ -54,7 +74,7 @@ export default function SwitchLanguage() {
             >
                 {
                     locales.find(
-                            (locale) => locale.code === info('locale')
+                            (locale) => locale.code === currentLocale
                         )?.flag
                 }
             </button>

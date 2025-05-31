@@ -1,13 +1,19 @@
 import Downloads from "@/components/Downloads/Downloads";
 import {Metadata} from "next";
-import {getTranslations} from "next-intl/server";
 import {APP_NAME} from "@/configs/constants";
+import {getDictionary} from "@/get-dictionary";
+import {Locale} from "@/i18n-config";
+import {headers} from "next/headers";
+import {UAParser} from "ua-parser-js";
+import getPlatformName from "@/utils/Helpers/getPlatformName";
 
-export async function generateMetadata(): Promise<Metadata> {
-    const translate = await getTranslations('Translations');
-
-    const title = translate('pages.downloads.title');
-    const description = translate('pages.downloads.description');
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: Locale }>
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const { Translations: { pages: { downloads: { title, description } } } } = await getDictionary(locale);
 
     return {
         title: title,
@@ -27,10 +33,14 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-export default function Page() {
+export default async function Page() {
+    const headersList = await headers();
+    const { os } = UAParser(headersList.get("user-agent") ?? undefined);
+    const platform = getPlatformName(os?.name?.toLowerCase() ?? "");
+
     return (
         <div className="text-white">
-            <Downloads />
+            <Downloads platform={platform} />
         </div>
     );
 }

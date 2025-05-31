@@ -1,13 +1,16 @@
 import {Metadata} from "next";
-import {getTranslations} from "next-intl/server";
 import {APP_NAME} from "@/configs/constants";
 import SuccessfulLogin from "@/components/SuccessfulLogin/SuccessfulLogin";
+import {Locale} from "@/i18n-config";
+import {getDictionary} from "@/get-dictionary";
 
-export async function generateMetadata(): Promise<Metadata> {
-    const translate = await getTranslations('Translations');
-
-    const title = translate('pages.successful-login.title');
-    const description = translate('pages.successful-login.description');
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: Locale }>
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const { Translations: { pages: { "successful-login": { title, description } } } } = await getDictionary(locale);
 
     return {
         title: title,

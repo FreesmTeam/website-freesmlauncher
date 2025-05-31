@@ -2,6 +2,7 @@ import {HeaderExternalLinkType} from "@/types/Layout/HeaderExternalLink.type";
 import {HeaderItemType} from "@/types/Layout/HeaderItem.type";
 import { NavbarItemType } from "@/types/Layout/NavbarItem.type";
 import {FooterLinksType} from "@/types/Layout/FooterLinks.type";
+import {DictionariesType} from "@/types/Other/Dictionaries.type";
 
 export const APP_NAME = 'Freesm Launcher';
 export const APP_DESCRIPTION = 'Prism Launcher fork aimed to provide a free way to play Minecraft.';
@@ -18,27 +19,27 @@ export const ABOUT_LINK = '/about';
 export const WINDOWS_X64 = 'Windows 64-bit';
 export const WINDOWS_ARM64 = 'Windows ARM64';
 export const WINDOWS_PLATFORMS = [WINDOWS_X64, WINDOWS_ARM64];
-export const NAVBAR_ITEMS: NavbarItemType[] = [
+export const NAVBAR_ITEMS = (dictionaries: DictionariesType): NavbarItemType[] => [
     {
-        name: 'navbar.home',
+        name: dictionaries?.Translations?.navbar?.home,
         icon: 'fluent:home-16-regular',
         selectedIcon: 'fluent:home-16-filled',
         link: HOME_LINK,
     },
     {
-        name: 'navbar.downloads',
+        name: dictionaries?.Translations?.navbar?.downloads,
         icon: 'fluent:arrow-download-16-regular',
         selectedIcon: 'fluent:arrow-download-16-filled',
         link: DOWNLOADS_LINK,
     },
     {
-        name: 'navbar.about',
+        name: dictionaries?.Translations?.navbar?.about,
         icon: 'fluent:info-16-regular',
         selectedIcon: 'fluent:info-16-filled',
         link: ABOUT_LINK,
     },
     {
-        name: 'navbar.change-language',
+        name: dictionaries?.Translations?.navbar?.["change-language"],
         icon: 'placeholder',
         selectedIcon: 'placeholder',
         isAction: true,
@@ -58,17 +59,17 @@ export const HEADER_LINKS: HeaderExternalLinkType[] = [
         height: 20,
     }
 ];
-export const HEADER_ITEMS: HeaderItemType[] = [
+export const HEADER_ITEMS = (dictionaries: DictionariesType): HeaderItemType[] => [
     {
-        name: 'general.home',
+        name: dictionaries?.Translations?.general?.home,
         link: HOME_LINK,
     },
     {
-        name: 'general.download',
+        name: dictionaries?.Translations?.general?.download,
         link: DOWNLOADS_LINK,
     },
     {
-        name: 'general.about',
+        name: dictionaries?.Translations?.general?.about,
         link: ABOUT_LINK,
     }
 ];
@@ -80,72 +81,72 @@ export const DOWNLOADS_OPTIONS: ('Windows' | 'Linux' | 'macOS')[] = [
     LINUX_NAME,
     MACOS_NAME
 ];
-export const FEATURES_SECTIONS = [
+export const FEATURES_SECTIONS = (dictionaries: DictionariesType) => [
     {
-        title: "features.open-source.title",
-        description: "features.open-source.description",
+        title: dictionaries?.Translations?.features?.["open-source"]?.title,
+        description: dictionaries?.Translations?.features?.["open-source"]?.description,
         icon: "fluent:people-community-16-regular",
     },
     {
-        title: "features.drm-free.title",
-        description: "features.drm-free.description",
+        title: dictionaries?.Translations?.features?.["drm-free"]?.title,
+        description: dictionaries?.Translations?.features?.["drm-free"]?.description,
         icon: "fluent:lock-open-16-regular",
     },
     {
-        title: "features.performance.title",
-        description: "features.performance.description",
+        title: dictionaries?.Translations?.features?.["performance"]?.title,
+        description: dictionaries?.Translations?.features?.["performance"]?.title,
         icon: "fluent:flash-16-regular",
     },
     {
-        title: "features.customization.title",
-        description: "features.customization.description",
+        title: dictionaries?.Translations?.features?.["customization"]?.title,
+        description: dictionaries?.Translations?.features?.["customization"]?.title,
         icon: "fluent:settings-16-regular",
     },
 ];
-export const FOOTER_LINKS: FooterLinksType = [
+export const FOOTER_LINKS = (dictionaries: DictionariesType): FooterLinksType => [
     {
-        title: "footer.about.title",
+        title: dictionaries?.Translations?.footer?.about?.title,
         links: [
             {
-                name: "footer.about.links.contribute",
+                name: dictionaries?.Translations?.footer?.about?.links?.contribute,
                 link: GITHUB_CONTRIBUTE_LINK,
             },
             {
-                name: "footer.about.links.about",
+                name: dictionaries?.Translations?.footer?.about?.links?.about,
                 link: ABOUT_LINK,
             },
             {
-                name: "footer.about.links.download",
+                name: dictionaries?.Translations?.footer?.about?.links?.download,
                 link: DOWNLOADS_LINK,
             }
         ],
     },
     {
-        title: "footer.community.title",
+        title: dictionaries?.Translations?.footer?.community?.title,
         links: [
             {
-                name: "footer.community.links.telegram-channel",
+                name: dictionaries?.Translations?.footer?.community?.links?.["telegram-channel"],
                 link: TELEGRAM_GROUP_LINK,
             },
             {
-                name: "footer.community.links.telegram-chat",
+                name: dictionaries?.Translations?.footer?.community?.links?.["telegram-chat"],
                 link: TELEGRAM_CHAT_LINK,
             },
             {
-                name: "footer.community.links.follow-on-github",
+                name: dictionaries?.Translations?.footer?.community?.links?.["follow-on-github"],
                 link: GITHUB_ORGANIZATION_LINK,
             },
         ],
     },
     {
-        title: "footer.project.title",
+        title: dictionaries?.Translations?.footer?.project?.title,
         links: [
             {
-                name: "footer.project.links.source-code",
+                name: dictionaries?.Translations?.footer?.project?.links?.["source-code"],
                 link: GITHUB_LINK,
             },
             {
-                name: "footer.project.links.github-issues",
+                name: dictionaries?.Translations?.footer?.project?.links?.["github-issues"],
                 link: GITHUB_ISSUES_LINK,
             },
         ],

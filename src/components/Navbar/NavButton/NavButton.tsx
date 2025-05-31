@@ -1,14 +1,13 @@
 import { NavbarItemType } from "@/types/Layout/NavbarItem.type";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { useTranslations } from "next-intl";
-import { usePathname } from "@/i18n/routing";
 import { useRouter } from 'nextjs-toploader/app';
 import {useEffect, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import locales from "@/configs/locales.json";
 import Link from "next/link";
+import {usePathname} from "next/navigation";
 
-export default function NavButton({ item }: { item: NavbarItemType }) {
+export default function NavButton({ item, currentLocale }: { item: NavbarItemType, currentLocale: string | undefined }) {
     const {
         name,
         icon,
@@ -21,9 +20,6 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
     const ref = useClickOutside(() => setOpened(false));
 
     const router = useRouter();
-    const translate = useTranslations('Translations');
-    const info = useTranslations('Info');
-    const locale = info('locale');
     const pathname = usePathname();
     const isCurrentPage = pathname === link;
 
@@ -34,7 +30,7 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
             return;
         }
 
-        router.push(`/${locale}${link}`);
+        router.push(`/${link}`);
     }
 
     useEffect(() => {
@@ -54,9 +50,10 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
                     locales.map((locale) => {
                         return (
                             <Link
+                                prefetch
                                 className="group flex flex-nowrap items-center gap-2 transition"
                                 key={locale.code}
-                                href={`/${locale.code}${pathname}`}
+                                href={`/${pathname}`}
                             >
                                 <p className="text-white">
                                     {locale.flag}
@@ -84,7 +81,7 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
                             <div className="text-white w-5 h-5 flex justify-center items-center">
                                 {
                                     locales.find(
-                                        (locale) => locale.code === info('locale')
+                                        (locale) => locale.code === currentLocale
                                     )?.flag
                                 }
                             </div>
@@ -102,7 +99,7 @@ export default function NavButton({ item }: { item: NavbarItemType }) {
                         fontWeight: isCurrentPage ? 600 : 400
                     }}
                 >
-                    {translate(name)}
+                    {name}
                 </p>
             </button>
         </div>

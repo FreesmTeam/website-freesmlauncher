@@ -1,16 +1,17 @@
 'use client';
 
-import {useTranslations} from "next-intl";
 import {Icon} from "@iconify/react";
 import {FEATURES_SECTIONS} from "@/configs/constants";
+import {useContext} from "react";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 
 export default function Features() {
-    const translate = useTranslations('Translations');
+    const { dictionaries } = useContext(DictionariesContext);
 
     return (
         <div className="flex flex-col flex-wrap lg:flex-row gap-8 justify-between items-start mt-12 max-w-[960px] px-8 mx-auto">
             {
-                FEATURES_SECTIONS.map((feature) => {
+                FEATURES_SECTIONS(dictionaries).map((feature) => {
                     return (
                         <div
                             key={feature.title}
@@ -23,11 +24,11 @@ export default function Features() {
                                     icon={feature.icon}
                                 />
                                 <p className="text-justify text-xl sm:text-3xl text-white font-semibold">
-                                    {translate(feature.title)}
+                                    {feature.title}
                                 </p>
                             </div>
                             <p className="text-justify text-[16px] sm:text-xl text-gray-300">
-                                {translate(feature.description)}
+                                {feature.description}
                             </p>
                         </div>
                     );

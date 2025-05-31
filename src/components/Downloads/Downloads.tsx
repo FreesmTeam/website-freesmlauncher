@@ -2,36 +2,29 @@
 
 import { DOWNLOADS_OPTIONS } from "@/configs/constants";
 import getPlatformName from "@/utils/Helpers/getPlatformName";
-import { useTranslations } from "next-intl";
-import {useEffect, useState} from "react";
+import {useContext, useState} from "react";
 import ReleaseLinks from "./ReleaseLinks/ReleaseLinks";
-import {UAParser} from "ua-parser-js";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 
-export default function Downloads() {
-    const translate = useTranslations('Translations');
+export default function Downloads({
+    platform,
+}: {
+    platform: ReturnType<typeof getPlatformName>;
+}) {
+    const { dictionaries } = useContext(DictionariesContext);
 
-    const [platform, setPlatform] = useState<string | null>(null);
-    const displayPlatform = getPlatformName(platform ?? "");
+    const translations = dictionaries?.Translations;
+    const translationsDownloads = translations?.downloads;
 
-    const [selectedPlatform, setSelectedPlatform] = useState(displayPlatform);
-
-    useEffect(() => {
-        setPlatform(UAParser().os.name?.toLowerCase() ?? "");
-    }, []);
-
-    useEffect(() => {
-        if (platform !== null) {
-            setSelectedPlatform(displayPlatform)
-        }
-    }, [platform]);
+    const [selectedPlatform, setSelectedPlatform] = useState(platform);
 
     return (
         <div className="flex flex-col gap-8 pt-12 max-w-[960px] px-4 mx-auto">
             <p className="text-center font-bold text-balance text-5xl sm:text-7xl text-white">
-                {translate('downloads.title')}
+                {translationsDownloads?.title}
             </p>
             <p className="text-center text-balance text-lg sm:text-2xl text-gray-400">
-                {translate('downloads.description')}
+                {translationsDownloads?.description}
             </p>
             <div className="flex flex-wrap gap-2 rounded-md border-[1px] border-mantle w-full bg-crust p-2">
                 {
@@ -47,9 +40,9 @@ export default function Downloads() {
                                 </button>
                             );
                         }
-                        
+
                         return (
-                            <button 
+                            <button
                                 onClick={() => setSelectedPlatform(option)}
                                 className="transition flex justify-center items-center px-2 py-1 text-xl sm:text-2xl flex-1 rounded-md"
                                 key={option}
@@ -63,7 +56,7 @@ export default function Downloads() {
             <div className="rounded-md border-[1px] border-mantle w-full bg-crust p-2 min-h-[360px]">
                 <div className="flex flex-col gap-4 p-8 items-center">
                     <p className="text-center text-2xl sm:text-3xl font-semibold text-white">
-                        {translate('downloads.packages-for')}{' '}
+                        {translationsDownloads?.["packages-for"]}{' '}
                         <span className="text-mauve">
                             {selectedPlatform}
                         </span>
