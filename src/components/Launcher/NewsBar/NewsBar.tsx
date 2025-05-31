@@ -1,16 +1,20 @@
-import {useTranslations} from "next-intl";
 import {Icon} from "@iconify/react";
 import {useLauncherBarsStore} from "@/utils/Stores/Stores";
 import {LauncherBarsStateType} from "@/types/Launcher/LauncherBarsState.type";
-import {useMemo} from "react";
+import {useContext, useMemo} from "react";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 
 export default function NewsBar() {
-    const translate = useTranslations('Translations');
+    const { dictionaries } = useContext(DictionariesContext);
+
+    const translations = dictionaries?.Translations;
+    const translationsLauncher = translations?.launcher;
+
     const launcherMenuBarsStore = useLauncherBarsStore((state: LauncherBarsStateType) => state);
     const lastIndex = launcherMenuBarsStore.entries.length - 1;
     const hasLockBars = launcherMenuBarsStore.entries[lastIndex].opened;
 
-    const translatedMoreNews = translate('launcher.more-news');
+    const translatedMoreNews = translationsLauncher?.["more-news"] as string;
 
     return useMemo(() => (
         <div className="select-none p-2.5 gap-2 flex justify-stretch items-stretch h-10 w-full bg-[#09090e]">

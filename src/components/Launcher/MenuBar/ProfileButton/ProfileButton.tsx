@@ -1,16 +1,19 @@
 import Image from "next/image";
-import {useTranslations} from "next-intl";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {useClickOutside, useHotkeys} from "@mantine/hooks";
 import {LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS} from "@/configs/launcher";
 import {ProfileItemType} from "@/types/Launcher/ProfileItem.type";
 import {useProfileStore} from "@/utils/Stores/Stores";
 import {ProfileStateType} from "@/types/Launcher/ProfileState.type";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 
 const PROFILE_UNSELECT_HOTKEY = 'ctrl+0';
 
 export default function ProfileButton() {
-    const translate = useTranslations('Translations');
+    const { dictionaries } = useContext(DictionariesContext);
+
+    const translations = dictionaries?.Translations;
+    const translationsLauncher = translations?.launcher;
 
     useHotkeys(
         [[PROFILE_UNSELECT_HOTKEY, () => handleProfileChange(
@@ -60,7 +63,7 @@ export default function ProfileButton() {
                                     {item.icon}
                                     <div className="w-80 flex justify-between items-center gap-2">
                                         <p className="text-nowrap text-[10px] sm:text-[13px] text-[#939AB8]">
-                                            {translate(item.name)}
+                                            {translationsLauncher?.[item.name]}
                                         </p>
                                     </div>
                                 </div>
@@ -76,7 +79,7 @@ export default function ProfileButton() {
                                 {item.icon}
                                 <div className="w-80 flex justify-between items-center gap-2">
                                     <p className="select-none text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
-                                        {translate(item.name)}
+                                        {translationsLauncher?.[item.name]}
                                     </p>
                                     <p className="select-none text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                                         {item.hotkey}
@@ -94,7 +97,7 @@ export default function ProfileButton() {
                 <Image height={24} src={currentProfile.skin} alt={"Profile avatar"}/>
                 {(
                     <p className="text-[10px] sm:text-[13px] text-[#cdd6f4]">
-                        {translate(currentProfile.name)}
+                        {translationsLauncher?.[currentProfile.name]}
                     </p>
                 )}
             </button>

@@ -1,13 +1,22 @@
 import {useInstanceStore} from "@/utils/Stores/Stores";
 import {DELETED} from "@/configs/launcher";
 import WindowHeader from "@/components/Launcher/WindowHeader/WindowHeader";
-import {useTranslations} from "next-intl";
 import {WindowContext} from "@/utils/Contexts/Contexts";
+import getPlatformName from "@/utils/Helpers/getPlatformName";
+import {useContext} from "react";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 
-export default function DeleteInstanceModal() {
+export default function DeleteInstanceModal({
+    platform,
+}: {
+    platform: ReturnType<typeof getPlatformName>;
+}) {
     const instancesStore = useInstanceStore((state) => state);
     const { currentInstance, updateCurrentInstance } = instancesStore;
-    const translate = useTranslations('Translations');
+    const { dictionaries } = useContext(DictionariesContext);
+
+    const translations = dictionaries?.Translations;
+    const translationsLauncher = translations?.launcher;
 
     function onClose() {
         updateCurrentInstance({
@@ -39,22 +48,18 @@ export default function DeleteInstanceModal() {
         >
             <WindowContext.Provider
                 value={{
-                    name: translate('launcher.confirm-deletion.title'),
+                    name: translationsLauncher?.["confirm-deletion"]?.title as string,
                     onClose: onClose,
                     onlyCloseButton: true,
                 }}
             >
-                <WindowHeader />
+                <WindowHeader platform={platform} />
             </WindowContext.Provider>
             <div className="px-1.5 pb-1.5 pt-0.5 sm:px-2 sm:pb-2 rounded-b-md text-xs sm:text-sm flex flex-col gap-4 text-[#cdd6f4]">
                 <div className="whitespace-pre-wrap">
                     {
-                        translate(
-                            'launcher.confirm-deletion.description',
-                            {
-                                instanceName: currentInstance.name
-                            }
-                        )
+                        translationsLauncher?.["confirm-deletion"]?.description
+                            ?.replace("{instanceName}", currentInstance.name)
                     }
                 </div>
                 <div className="flex justify-end items-center gap-2">

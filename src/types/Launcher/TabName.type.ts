@@ -1,5 +1,5 @@
 export type TabNameType = {
     icon: React.ReactNode;
-    name?: string;
+    name?: "add-instance" | "folders" | "settings" | "help" | "update";
     disabled?: boolean;
 };

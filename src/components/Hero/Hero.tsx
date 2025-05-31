@@ -63,7 +63,7 @@ export default function Hero({
                     Github
                 </Link>
             </div>
-            {/*<Launcher/>*/}
+            <Launcher platform={platform} />
         </div>
     )
 }

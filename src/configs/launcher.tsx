@@ -9,14 +9,13 @@ import m3oweezedSkinAvatar from '../../public/m3oweezedSkinAvatar.png';
 import monochromeSteveSkinAvatar from "../../public/monochrome_steve.png";
 import Image from "next/image";
 import {LauncherInstanceBarItemType} from "@/types/Launcher/LauncherInstanceBarItem.type";
-import {LauncherInstanceType} from "@/types/Launcher/LauncherInstance.type";
 import grassSvg from "../../public/grass.svg";
 import stoneSvg from "../../public/stone.svg";
 import diamondSvg from "../../public/diamond.svg";
 import {LauncherRenamesType} from "@/types/Launcher/LauncherRenames.type";
 
-export const PLACEHOLDER_GROUP = 'launcher.placeholder-group';
-export const NO_GROUP = 'launcher.ungrouped';
+export const PLACEHOLDER_GROUP = "placeholder-group";
+export const NO_GROUP = "ungrouped";
 export const EAGLERCRAFT_INSTANCE_NAME = 'EaglerCraft 1.5.2';
 export const EAGLERCRAFT_EMBED_URL = 'https://sd592g.github.io/zj684od4lfg/';
 export const ANIMATION_NAME = 'animate-shake';
@@ -43,35 +42,35 @@ export const LAUNCHER_TABS: TabNameType[] = [
         icon: (
             <Icon className="h-4 sm:h-8" color="#9298b6" fontSize={24} icon="fluent:add-square-24-regular" />
         ),
-        name: 'launcher.add-instance',
+        name: 'add-instance',
         disabled: true,
     },
     {
         icon: (
             <Icon className="h-4 sm:h-8" color="#9298b6" fontSize={24} icon="fluent:folder-24-regular" />
         ),
-        name: 'launcher.folders',
+        name: 'folders',
         disabled: true,
     },
     {
         icon: (
             <Icon className="h-4 sm:h-8" color="#9298b6" fontSize={24} icon="fluent:settings-24-regular" />
         ),
-        name: 'launcher.settings',
+        name: 'settings',
         disabled: true,
     },
     {
         icon: (
             <Icon className="h-4 sm:h-8" color="#9298b6" fontSize={24} icon="fluent:chat-help-24-regular" />
         ),
-        name: 'launcher.help',
+        name: 'help',
         disabled: true,
     },
     {
         icon: (
             <Icon className="h-4 sm:h-8" color="#9298b6" fontSize={24} icon="fluent:phone-update-24-regular" />
         ),
-        name: 'launcher.update',
+        name: 'update',
         disabled: true,
     },
     {
@@ -86,7 +85,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
         icon: (
             <Image height={16} width={16} src={windstoneSkinAvatar} alt={"windstone_ skin avatar"}/>
         ),
-        name: "launcher.windstone_",
+        name: "windstone_",
         hotkey: "Maintainer",
     },
     {
@@ -94,7 +93,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
         icon: (
             <Image height={16} width={16} src={hand7sSkinAvatar} alt={"hand7s skin avatar"}/>
         ),
-        name: "launcher.hand7s",
+        name: "hand7s",
         hotkey: "Maintainer",
     },
     {
@@ -102,7 +101,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
         icon: (
             <Image height={16} width={16} src={kaeeraaSkinAvatar} alt={"kaeeraa skin avatar"}/>
         ),
-        name: "launcher.kaeeraa",
+        name: "kaeeraa",
         hotkey: "Maintainer",
     },
     {
@@ -110,7 +109,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
         icon: (
             <Image height={16} width={16} src={so5iso4kaSkinAvatar} alt={"so5iso4ka skin avatar"} />
         ),
-        name: "launcher.so5iso4ka",
+        name: "so5iso4ka",
         hotkey: "Maintainer",
     },
     {
@@ -118,7 +117,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
         icon: (
             <Image height={16} width={16} src={m3oweezedSkinAvatar} alt={"m3oweezed skin avatar"} />
         ),
-        name: "launcher.m3oweezed",
+        name: "m3oweezed",
         hotkey: "Maintainer",
     },
     {
@@ -126,7 +125,7 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
         icon: (
             <Image height={16} width={16} src={monochromeSteveSkinAvatar} alt={"Monochrome Steve avatar"}/>
         ),
-        name: "launcher.no-default-account",
+        name: "no-default-account",
         hotkey: "Ctrl+0",
     },
     {
@@ -134,57 +133,57 @@ export const LAUNCHER_MENU_BAR_PROFILE_DROPDOWN_ITEMS: ProfileItemType[] = [
         icon: (
             <Icon color="#fff" fontSize={16} icon="fluent:people-16-regular" />
         ),
-        name: "launcher.manage-accounts",
+        name: "manage-accounts",
     }
 ];
 export const LAUNCHER_INSTANCE_BAR_ITEMS: LauncherInstanceBarItemType[] = [
     {
-        name: 'launcher.instance.launch',
+        name: 'launch',
         icon: <Icon fontSize={14} icon="fluent:triangle-right-16-regular" />,
         action: LAUNCHER_ACTIONS.LAUNCH,
     },
     {
-        name: 'launcher.instance.kill',
+        name: 'kill',
         icon: <Icon fontSize={14} icon="fluent:dismiss-circle-16-regular" />,
         action: LAUNCHER_ACTIONS.KILL,
     },
     {
-        name: 'launcher.instance.edit',
+        name: 'edit',
         icon: <Icon fontSize={14} icon="fluent:settings-16-regular" />,
         action: LAUNCHER_ACTIONS.EDIT,
     },
     {
-        name: 'launcher.instance.change-group',
+        name: 'change-group',
         icon: <Icon fontSize={14} icon="fluent:tag-16-regular" />,
         action: LAUNCHER_ACTIONS.CHANGE_GROUP,
     },
     {
-        name: 'launcher.instance.folder',
+        name: 'folder',
         icon: <Icon fontSize={14} icon="fluent:folder-16-regular" />,
         action: LAUNCHER_ACTIONS.FOLDER,
     },
     {
-        name: 'launcher.instance.export',
+        name: 'export',
         icon: <Icon fontSize={14} icon="fluent:folder-arrow-right-16-regular" />,
         action: LAUNCHER_ACTIONS.EXPORT,
     },
     {
-        name: 'launcher.instance.copy',
+        name: 'copy',
         icon: <Icon fontSize={14} icon="fluent:copy-arrow-right-16-regular" />,
         action: LAUNCHER_ACTIONS.COPY,
     },
     {
-        name: 'launcher.instance.delete',
+        name: 'delete',
         icon: <Icon fontSize={14} icon="fluent:delete-16-regular" />,
         action: LAUNCHER_ACTIONS.DELETE,
     },
     {
-        name: 'launcher.instance.create-shortcut',
+        name: 'create-shortcut',
         icon: <Icon fontSize={14} icon="fluent:link-16-regular" />,
         action: LAUNCHER_ACTIONS.CREATE_SHORTCUT,
     },
 ];
-export const UNKNOWN_INSTANCE: LauncherInstanceType = {
+export const UNKNOWN_INSTANCE = {
     name: 'Unknown',
     version: 'unknown',
     group: NO_GROUP,
@@ -193,10 +192,10 @@ export const UNKNOWN_INSTANCE: LauncherInstanceType = {
     deleted: DELETED.NO,
     grayscale: true,
 };
-export const LAUNCHER_GROUPS: string[] = [
-    NO_GROUP, PLACEHOLDER_GROUP
+export const LAUNCHER_GROUPS: Array<"ungrouped" | "placeholder-group"> =  [
+    NO_GROUP, PLACEHOLDER_GROUP,
 ];
-export const LAUNCHER_INSTANCES: LauncherInstanceType[] = [
+export const LAUNCHER_INSTANCES = [
     {
         name: EAGLERCRAFT_INSTANCE_NAME,
         version: '1.5.2',
@@ -254,7 +253,7 @@ export const LAUNCHER_RENAMES: LauncherRenamesType = {
 };
 export const LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS: LauncherInstanceBarItemType[] = [
     {
-        name: 'launcher.instance.rename',
+        name: 'rename',
         icon: <Icon
             height={14}
             icon="fluent:edit-16-regular"
@@ -263,7 +262,7 @@ export const LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS: LauncherInstanceBarItemType[]
         action: LAUNCHER_ACTIONS.RENAME,
     },
     {
-        name: 'launcher.instance.change-icon',
+        name: 'change-icon',
         icon: <Image
             height={14}
             src={grassSvg}

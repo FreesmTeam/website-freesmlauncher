@@ -1,17 +1,20 @@
 import Image from "next/image";
 import {LauncherInstanceType} from "@/types/Launcher/LauncherInstance.type";
 import {useInstanceStore, useRenamesStore} from "@/utils/Stores/Stores";
-import {useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import {useClickOutside, useDebouncedState} from "@mantine/hooks";
 import {LAUNCHER_ACTIONS, LAUNCHER_INSTANCE_CONTEXT_MENU_ITEMS} from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/Launcher/LauncherInstanceBarItem.type";
-import {useTranslations} from "next-intl";
 import {Icon} from "@iconify/react";
 import getDisabledProperty from "@/utils/Helpers/getDisabledProperty";
 import handleLaunch from '@/utils/Helpers/handleLaunch';
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 
 export default function InstanceButton(instance: LauncherInstanceType) {
-    const translate = useTranslations('Translations');
+    const { dictionaries } = useContext(DictionariesContext);
+
+    const translations = dictionaries?.Translations;
+    const translationsLauncherInstance = translations?.launcher?.instance;
 
     const instancesStore = useInstanceStore((state) => state);
     const { currentInstance, updateCurrentInstance } = instancesStore;
@@ -185,7 +188,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                                         aria-label={LAUNCHER_ACTIONS._TYPE}
                                         className="select-none text-nowrap text-[10px] sm:text-[13px]"
                                     >
-                                        {translate(item.name)}
+                                        {translationsLauncherInstance?.[item.name]}
                                     </p>
                                 </div>
                             );
@@ -203,7 +206,7 @@ export default function InstanceButton(instance: LauncherInstanceType) {
                                     aria-label={LAUNCHER_ACTIONS._TYPE}
                                     className="select-none text-nowrap text-[10px] sm:text-[13px]"
                                 >
-                                    {translate(item.name)}
+                                    {translationsLauncherInstance?.[item.name]}
                                 </p>
                             </div>
                         );

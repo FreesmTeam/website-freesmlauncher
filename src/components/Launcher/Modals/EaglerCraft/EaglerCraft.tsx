@@ -5,8 +5,13 @@ import {useMemo, useState} from "react";
 import {ANIMATION_NAME, EAGLERCRAFT_EMBED_URL, EAGLERCRAFT_INSTANCE_NAME} from "@/configs/launcher";
 import {WindowContext} from "@/utils/Contexts/Contexts";
 import {useInstanceStore} from "@/utils/Stores/Stores";
+import getPlatformName from "@/utils/Helpers/getPlatformName";
 
-export default function EaglerCraft() {
+export default function EaglerCraft({
+    platform,
+}: {
+    platform: ReturnType<typeof getPlatformName>
+}) {
     const [animation, setAnimation] = useState('');
 
     const instancesStore = useInstanceStore((state) => state);
@@ -56,7 +61,7 @@ export default function EaglerCraft() {
                         onMaximize: onMinimize,
                     }}
                 >
-                    <WindowHeader/>
+                    <WindowHeader platform={platform} />
                 </WindowContext.Provider>
                 {MemoizedMinecraft}
             </div>

@@ -7,5 +7,5 @@ export type LauncherInstanceType = {
     icon: StaticImageData;
     launched: string | null,
     deleted: string;
-    grayscale?: true;
+    grayscale?: boolean;
 };

@@ -1,21 +1,17 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
+import React from "react";
 import getPlatformName from "@/utils/Helpers/getPlatformName";
 import WinHeader from "@/components/Launcher/WindowHeader/WinHeader/WinHeader";
 import MacHeader from "@/components/Launcher/WindowHeader/MacHeader/MacHeader";
 import LinuxHeader from "@/components/Launcher/WindowHeader/LinuxHeader/LinuxHeader";
-import { UAParser } from 'ua-parser-js';
 
-export default React.memo(function WindowHeader() {
-    const [platform, setPlatform] = useState<string | null>(null);
-    const displayPlatform = getPlatformName(platform ?? "");
-
-    useEffect(() => {
-        setPlatform(UAParser().os.name?.toLowerCase() ?? "");
-    }, []);
-
-    switch (displayPlatform) {
+export default React.memo(function WindowHeader({
+    platform,
+}: {
+    platform: ReturnType<typeof getPlatformName>;
+}){
+    switch (platform) {
         case "macOS":
             return (
                 <MacHeader />
@@ -28,10 +24,14 @@ export default React.memo(function WindowHeader() {
             return (
                 <WinHeader />
             );
-        case "OS":
         default:
             // If next.js hydration is still in the process
-            // show just some blank header
+            // just show some blank header
+
+            // 31.05.2025, f8c931e, update:
+            // now user platform is fetched server-side using headers
+            // so this shit should be obsolete, but i won't remove it
+            // because if it works then don't touch it
             if (platform === null) {
                 return (
                     <div className="w-full h-6 sm:h-8 bg-[#11111b]" />

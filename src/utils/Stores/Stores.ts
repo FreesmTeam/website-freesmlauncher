@@ -18,19 +18,19 @@ export const useProfileStore = create<ProfileStateType>((set) => ({
 export const useLauncherBarsStore = create<LauncherBarsStateType>((set) => ({
     entries: [
         {
-            name: 'launcher.news-toolbar',
+            name: 'news-toolbar',
             opened: true,
         },
         {
-            name: 'launcher.instance-toolbar',
+            name: 'instance-toolbar',
             opened: true,
         },
         {
-            name: 'launcher.status-bar',
+            name: 'status-bar',
             opened: true,
         },
         {
-            name: 'launcher.lock-toolbars',
+            name: 'lock-toolbars',
             opened: false,
         }
     ],

@@ -8,15 +8,15 @@ import {
     UNKNOWN_INSTANCE
 } from "@/configs/launcher";
 import {LauncherInstanceBarItemType} from "@/types/Launcher/LauncherInstanceBarItem.type";
-import {useTranslations} from "next-intl";
 import {LauncherInstanceType} from "@/types/Launcher/LauncherInstance.type";
 import Image from "next/image";
 import {Icon} from "@iconify/react";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import InstanceButton from "@/components/Launcher/InstanceBar/InstanceButton/InstanceButton";
 import getDisabledProperty from "@/utils/Helpers/getDisabledProperty";
 import handleLaunch from '@/utils/Helpers/handleLaunch';
 import React from "react";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 
 const LAUNCHER_GROUPS_OBJ: { [name: string]: boolean } = {};
 
@@ -29,7 +29,11 @@ export default function InstanceBar({
 }: {
     maximized?: boolean;
 }) {
-    const translate = useTranslations('Translations');
+    const { dictionaries } = useContext(DictionariesContext);
+
+    const translations = dictionaries?.Translations;
+    const translationsLauncher = translations?.launcher;
+    const translationsLauncherInstance = translations?.launcher?.instance;
 
     const [filteredInstancesList, setFilteredInstancesList] = useState<LauncherInstanceType[]>(LAUNCHER_INSTANCES);
 
@@ -48,8 +52,8 @@ export default function InstanceBar({
     const { enabled: catPackEnabled } = catPackStore;
 
     const launcherBarsStore = useLauncherBarsStore((state) => state);
-    const instanceBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.instance-toolbar');
-    const statusBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.status-bar');
+    const instanceBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'instance-toolbar');
+    const statusBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'status-bar');
     const lastIndex = launcherBarsStore.entries.length - 1;
     const hasLockBars = launcherBarsStore.entries[lastIndex].opened;
 
@@ -74,7 +78,7 @@ export default function InstanceBar({
     }, [currentInstance.deleted, currentInstance.name, updateCurrentInstance]);
 
     return (
-        <div 
+        <div
             className={`w-full min-h-40 items-stretch flex flex-nowrap gap-0 ${maximized ? "h-full" : ""}`}
             style={{
                 borderBottomLeftRadius: statusBar?.opened ? "0" : "0.375rem",
@@ -83,7 +87,7 @@ export default function InstanceBar({
         >
             {
                 instanceBar?.opened && (
-                    <div 
+                    <div
                         className="p-2.5 flex flex-col gap-2 w-[128px] sm:w-[168px] bg-[#0a0a10]"
                         style={{
                             borderBottomLeftRadius: statusBar?.opened ? "0" : "0.375rem",
@@ -145,7 +149,7 @@ export default function InstanceBar({
                                         >
                                             {item.icon}
                                             <p className="text-[10px] sm:text-[13px]">
-                                                {translate(item.name)}
+                                                {translationsLauncherInstance?.[item.name]}
                                             </p>
                                         </button>
                                     );
@@ -159,7 +163,7 @@ export default function InstanceBar({
                                     >
                                         {item.icon}
                                         <p className="text-[10px] sm:text-[13px]">
-                                            {translate(item.name)}
+                                            {translationsLauncherInstance?.[item.name]}
                                         </p>
                                     </button>
                                 );
@@ -180,7 +184,7 @@ export default function InstanceBar({
                 }}
             >
                 {
-                    LAUNCHER_GROUPS.map((group: string) => {
+                    LAUNCHER_GROUPS.map((group) => {
                         return (
                             <React.Fragment key={group}>
                                 <button
@@ -194,7 +198,7 @@ export default function InstanceBar({
                                         }
                                     />
                                     <div className="flex-shrink-0 font-bold">
-                                        {translate(group)}
+                                        {translationsLauncher?.[group]}
                                     </div>
                                     <div className="w-full h-[2px] bg-[#15161e]"/>
                                 </button>

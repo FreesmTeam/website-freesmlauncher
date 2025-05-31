@@ -1,11 +1,15 @@
-import {useTranslations} from "next-intl";
 import {useInstanceStore} from "@/utils/Stores/Stores";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {useInterval} from "@mantine/hooks";
 import {UNKNOWN_INSTANCE} from "@/configs/launcher";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 
 export default function StatusBar() {
-    const translate = useTranslations('Translations');
+    const { dictionaries } = useContext(DictionariesContext);
+
+    const translations = dictionaries?.Translations;
+    const translationsLauncher = translations?.launcher;
+
     const instancesStore = useInstanceStore((state) => state);
     const { currentInstance } = instancesStore;
 
@@ -49,16 +53,16 @@ export default function StatusBar() {
                     {
                         currentInstance.name === UNKNOWN_INSTANCE.name ? (
                             <>
-                                {translate('launcher.no-selection')}
+                                {translationsLauncher?.["no-selection"]}
                             </>
                         ) : (
                             <>
-                                Minecraft {currentInstance.version}, {translate('launcher.specific-time-played')}
+                                Minecraft {currentInstance.version}, {translationsLauncher?.["specific-time-played"]}
                                 {' '}
-                                {instanceMinutes > 0 && `${instanceMinutes}${translate('general.minutes-short')}`}
+                                {instanceMinutes > 0 && `${instanceMinutes}${translations?.general?.["minutes-short"]}`}
                                 {' '}
                                 {instanceSecondsRemaining}
-                                {translate('general.seconds-short')}
+                                {translations?.general?.["seconds-short"]}
                             </>
                         )
                     }
@@ -67,14 +71,14 @@ export default function StatusBar() {
             <div
                 className="px-4 text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
                 <p className="w-fit text-nowrap">
-                    {translate('launcher.time-played')}:
+                    {translationsLauncher?.["time-played"]}:
                     {' '}
                     {
-                        overallMinutes > 0 && `${overallMinutes}${translate('general.minutes-short')}`
+                        overallMinutes > 0 && `${overallMinutes}${translations?.general?.["minutes-short"]}`
                     }
                     {' '}
                     {overallSecondsRemaining}
-                    {translate('general.seconds-short')}
+                    {translations?.general?.["seconds-short"]}
                 </p>
             </div>
         </div>

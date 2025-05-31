@@ -1,4 +1,4 @@
 export type LauncherBarType = {
     opened: boolean;
-    name: string;
+    name: "news-toolbar" | "instance-toolbar" | "status-bar" | "lock-toolbars";
 }

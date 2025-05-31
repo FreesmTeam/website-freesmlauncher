@@ -1,11 +1,12 @@
 import {getDictionary} from "@/get-dictionary";
 import {DefaultLocale} from "@/configs/localization";
 import Link from "next/link";
+import {Locale} from "@/i18n-config";
 
 export default async function Page({
     params,
 }: {
-    params: Promise<{ locale: string }>;
+    params: Promise<{ locale: Locale }>;
 }) {
     const locale = (await params)?.locale ?? DefaultLocale;
     const { Translations: { pages: { "not-found": {

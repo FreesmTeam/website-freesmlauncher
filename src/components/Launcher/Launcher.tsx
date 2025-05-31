@@ -12,11 +12,16 @@ import {ANIMATION_NAME} from "@/configs/launcher";
 import StatusBar from "@/components/Launcher/StatusBar/StatusBar";
 import {WindowContext} from "@/utils/Contexts/Contexts";
 import {APP_NAME} from "@/configs/constants";
+import getPlatformName from "@/utils/Helpers/getPlatformName";
 
-export default function Launcher() {
+export default function Launcher({
+    platform,
+}: {
+    platform: ReturnType<typeof getPlatformName>;
+}) {
     const launcherBarsStore = useLauncherBarsStore((state) => state);
-    const newsBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.news-toolbar');
-    const statusBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'launcher.status-bar');
+    const newsBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'news-toolbar');
+    const statusBar = launcherBarsStore.entries.find((entry: LauncherBarType) => entry.name === 'status-bar');
     const [animation, setAnimation] = useState('');
     const [maximized, setMaximized] = useState(false);
 
@@ -35,7 +40,7 @@ export default function Launcher() {
     }
 
     const MemoizedModals = useMemo(() => (
-        <Modals/>
+        <Modals platform={platform} />
     ), []);
     const MemoizedBars = useMemo(() => (
         <div className={`${maximized ? "h-[100svh] " : ''} w-full flex flex-col gap-0`}>
@@ -72,7 +77,7 @@ export default function Launcher() {
                     maximized: maximized,
                 }}
             >
-                <WindowHeader/>
+                <WindowHeader platform={platform} />
             </WindowContext.Provider>
             {MemoizedBars}
             {MemoizedModals}

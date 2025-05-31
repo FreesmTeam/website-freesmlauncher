@@ -1,14 +1,18 @@
 import {LAUNCHER_TABS} from "@/configs/launcher";
-import {useTranslations} from "next-intl";
-import {useRef, useState} from "react";
+import {useContext, useRef, useState} from "react";
 import {useClickOutside} from "@mantine/hooks";
 import ProfileButton from "@/components/Launcher/MenuBar/ProfileButton/ProfileButton";
 import {useCatPackStore, useLauncherBarsStore} from "@/utils/Stores/Stores";
 import {LauncherBarsStateType} from "@/types/Launcher/LauncherBarsState.type";
 import {LauncherBarType} from "@/types/Launcher/LauncherBar.type";
+import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 
 export default function MenuBar() {
-    const translate = useTranslations('Translations');
+    const { dictionaries } = useContext(DictionariesContext);
+
+    const translations = dictionaries?.Translations;
+    const translationsLauncher = translations?.launcher;
+
     const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 });
     const [opened, setOpened] = useState(false);
     const ref = useClickOutside(() => setOpened(false));
@@ -89,7 +93,7 @@ export default function MenuBar() {
                                     )
                                 }
                                 <p className="select-none text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
-                                    {translate(bar.name)}
+                                    {translationsLauncher?.[bar.name]}
                                 </p>
                             </button>
                         );
@@ -113,7 +117,7 @@ export default function MenuBar() {
                                     {tab.icon}
                                     {tab?.name && (
                                         <p className="text-nowrap text-[10px] sm:text-[13px] text-[#9298b6]">
-                                            {translate(tab.name)}
+                                            {translationsLauncher?.[tab.name]}
                                         </p>
                                     )}
                                 </div>
@@ -124,12 +128,12 @@ export default function MenuBar() {
                             <button
                                 onClick={() => handleTabClick(tab.name)}
                                 key={tab?.name ?? ''}
-                                className={`transition select-none px-1 sm:px-2 py-1 sm:py-0 rounded-md flex items-center gap-1 hover:bg-[#211e2f] active:bg-[#171721] ${!tab?.name && catPackEnabled ? "bg-[#211e2f]" : ""}`}
+                                className={`transition select-none px-1 min-h-8 sm:min-h-10 sm:px-2 py-1 sm:py-0 rounded-md flex items-center gap-1 hover:bg-[#211e2f] active:bg-[#171721] ${!tab?.name && catPackEnabled ? "bg-[#211e2f]" : ""}`}
                             >
                                 {tab.icon}
                                 {tab?.name && (
                                     <p className="text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4]">
-                                        {translate(tab.name)}
+                                        {translationsLauncher?.[tab.name]}
                                     </p>
                                 )}
                             </button>
