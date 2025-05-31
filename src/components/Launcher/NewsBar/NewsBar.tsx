@@ -25,7 +25,9 @@ export default function NewsBar() {
             }
             <div
                 className="transition w-full px-1 flex items-center gap-1 rounded-md flex-nowrap text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4] hover:bg-[#1a1723]">
-                <Icon fontSize={16} icon="fluent:news-16-regular" />
+                <div className="min-w-4">
+                    <Icon fontSize={16} icon="fluent:news-16-regular" />
+                </div>
                 <p className="w-fit text-nowrap">
                     Next.js is awesome
                 </p>

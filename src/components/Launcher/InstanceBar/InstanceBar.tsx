@@ -147,7 +147,9 @@ export default function InstanceBar({
                                             key={item.name}
                                             className="cursor-default select-none px-1 py-0.5 flex gap-1 items-start sm:items-center text-[#9298b6]"
                                         >
-                                            {item.icon}
+                                            <div className="min-w-[14px]">
+                                                {item.icon}
+                                            </div>
                                             <p className="text-[10px] sm:text-[13px]">
                                                 {translationsLauncherInstance?.[item.name]}
                                             </p>
@@ -161,7 +163,10 @@ export default function InstanceBar({
                                         key={item.name}
                                         className="transition select-none px-1 py-0.5 flex gap-1 items-start sm:items-center rounded-md hover:bg-[#1b1825] text-[#CDD6F4]"
                                     >
-                                        {item.icon}
+
+                                        <div className="min-w-[14px]">
+                                            {item.icon}
+                                        </div>
                                         <p className="text-[10px] sm:text-[13px]">
                                             {translationsLauncherInstance?.[item.name]}
                                         </p>
@@ -191,12 +196,14 @@ export default function InstanceBar({
                                     onClick={() => toggleGroup(group)}
                                     className="select-none flex gap-2 items-center text-[#80859A] text-[10px] sm:text-[12px]"
                                 >
-                                    <Icon
-                                        height={28}
-                                        icon={
-                                            hidden[group] ? "fluent:chevron-right-16-filled" : "fluent:chevron-down-16-filled"
-                                        }
-                                    />
+                                    <div className="min-w-6 min-h-6">
+                                        <Icon
+                                            height={24}
+                                            icon={
+                                                hidden[group] ? "fluent:chevron-right-16-filled" : "fluent:chevron-down-16-filled"
+                                            }
+                                        />
+                                    </div>
                                     <div className="flex-shrink-0 font-bold">
                                         {translationsLauncher?.[group]}
                                     </div>

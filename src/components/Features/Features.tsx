@@ -9,7 +9,7 @@ export default function Features() {
     const { dictionaries } = useContext(DictionariesContext);
 
     return (
-        <div className="flex flex-col flex-wrap lg:flex-row gap-8 justify-between items-start mt-12 max-w-[960px] px-8 mx-auto">
+        <div className="flex flex-col flex-wrap lg:flex-row gap-8 justify-between items-start mt-12 max-w-[960px] px-8 pb-4 mx-auto">
             {
                 FEATURES_SECTIONS(dictionaries).map((feature) => {
                     return (
@@ -18,11 +18,13 @@ export default function Features() {
                             className="shrink-0 lg:max-w-[432px] flex flex-col gap-2"
                         >
                             <div className="flex items-center text-white gap-2">
-                                <Icon
-                                    className="w-6 h-6 sm:w-8 sm:h-8"
-                                    height={32}
-                                    icon={feature.icon}
-                                />
+                                <div className="min-w-6 sm:min-w-8">
+                                    <Icon
+                                        className="w-6 h-6 sm:w-8 sm:h-8"
+                                        height={32}
+                                        icon={feature.icon}
+                                    />
+                                </div>
                                 <p className="text-justify text-xl sm:text-3xl text-white font-semibold">
                                     {feature.title}
                                 </p>

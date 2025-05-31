@@ -114,7 +114,9 @@ export default function MenuBar() {
                                     key={tab?.name ?? ''}
                                     className="select-none px-1 sm:px-2 py-1 sm:py-0 flex items-center gap-1 text-[#9298b6]"
                                 >
-                                    {tab.icon}
+                                    <div className="min-w-6">
+                                        {tab.icon}
+                                    </div>
                                     {tab?.name && (
                                         <p className="text-nowrap text-[10px] sm:text-[13px] text-[#9298b6]">
                                             {translationsLauncher?.[tab.name]}
