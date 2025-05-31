@@ -64,7 +64,7 @@ export default function About() {
                                         <p className="text-mauve font-semibold text-[18px] sm:text-[24px]">
                                             {maintainer.name}
                                         </p>
-                                        <p className="text-justify text-white text-[16px] sm:text-[22px]">
+                                        <p className="text-justify text-white text-[16px] sm:text-[22px] pr-2">
                                             {description}
                                         </p>
                                     </div>
@@ -76,7 +76,7 @@ export default function About() {
                 <p className="text-xl sm:text-3xl text-center font-semibold text-white">
                     {translationsAbout?.contributors}
                 </p>
-                <div className="flex justify-center items-center gap-2">
+                <div className="flex justify-center items-center gap-2 flex-wrap">
                     {
                         contributors.map((contributor) => {
                             return (
