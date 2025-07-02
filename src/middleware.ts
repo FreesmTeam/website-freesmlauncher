@@ -46,6 +46,19 @@ function getLocale(request: NextRequest): string | undefined {
 
 export async function middleware(request: NextRequest) {
     const pathname = request.nextUrl.pathname;
+
+    switch (pathname) {
+        case "/telegram": {
+            return NextResponse.redirect("https://t.me/freesmteam");
+        }
+        case "/discord": {
+            return NextResponse.redirect("https://discord.gg/6jjw4gjy4w");
+        }
+        case "/reddit": {
+            return NextResponse.redirect("https://www.reddit.com/r/FreesmLauncher");
+        }
+    }
+
     const searchParameters = request.nextUrl.searchParams;
 
     // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
