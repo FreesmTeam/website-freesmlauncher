@@ -20,6 +20,20 @@ export default function getReleaseName({ name, locale }: { name: string; locale:
 
     const lowerCaseName = name.toLowerCase();
 
+    if (lowerCaseName.includes('arch linux')) {
+        return {
+            displayName: name,
+            extension: '(AUR)'
+        }
+    }
+
+    if (lowerCaseName.includes('debian')) {
+        return {
+            displayName: name,
+            extension: '(.deb)'
+        }
+    }
+
     if (lowerCaseName.includes('linux')) {
         if (lowerCaseName.includes('qt5')) {
             return {

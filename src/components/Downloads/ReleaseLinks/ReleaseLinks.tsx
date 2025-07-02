@@ -59,11 +59,22 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
     const buildSemVer = buildNameArr?.[buildNameArr.length - 1];
     const buildCodeName = buildNameArr?.[buildNameArr.length - 2];
     const assets = data?.data?.assets;
-    let currentBuilds;
+    let currentBuilds: Array<{
+        browser_download_url: string;
+        name: string;
+    }> | undefined;
 
     switch (platform.toLowerCase()) {
         case 'linux':
             currentBuilds = assets?.filter((asset) => asset.name.toLowerCase().includes('linux'));
+            currentBuilds?.unshift({
+                browser_download_url: "https://github.com/FreesmTeam/freesm-deb-pkgbuild",
+                name: "pkgbuild - Debian"
+            })
+            currentBuilds?.unshift({
+                browser_download_url: "https://aur.archlinux.org/packages/freesmlauncher",
+                name: "pkgbuild - Arch Linux"
+            })
             break;
         case 'macos':
             currentBuilds = assets?.filter((asset) => asset.name.toLowerCase().includes('mac'));
