@@ -3,7 +3,7 @@ import getLatestRelease from "@/utils/Helpers/getLatestRelease";
 import getReleaseName from "@/utils/Helpers/getReleaseName";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import {PLACEHOLDER_OS, WINDOWS_ARM64, WINDOWS_PLATFORMS} from "@/configs/constants";
+import {PLACEHOLDER_OS, WINDOWS_ARM64, WINDOWS_X64, WINDOWS_PLATFORMS} from "@/configs/constants";
 import {useContext} from "react";
 import {DictionariesContext} from "@/utils/Providers/DictionariesProvider";
 import {DefaultLocale} from "@/configs/localization";
@@ -168,7 +168,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
                                                 target="_blank"
                                                 href={build.browser_download_url}
                                             >
-                                                {formattedName?.type?.includes('MSVC - setup') && '⭐'}{' '}
+                                                {(platform === WINDOWS_X64 && formattedName?.type?.includes('MSVC - setup')) && '⭐'}{' '}
                                                 {formattedName.displayName}{' '}
                                                 <span className="text-gray-400">
                                                     {formattedName.extension}
