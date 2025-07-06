@@ -70,11 +70,11 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
             currentBuilds?.unshift({
                 browser_download_url: "https://github.com/FreesmTeam/freesm-deb-pkgbuild",
                 name: "pkgbuild - Debian"
-            })
+            });
             currentBuilds?.unshift({
                 browser_download_url: "https://aur.archlinux.org/packages/freesmlauncher",
                 name: "pkgbuild - Arch Linux"
-            })
+            });
             break;
         case 'macos':
             currentBuilds = assets?.filter((asset) => asset.name.toLowerCase().includes('mac'));
@@ -89,7 +89,7 @@ export default function ReleaseLinks({ platform }: { platform: string; }) {
 
     if (platform.toLowerCase() !== 'windows') {
         releaseBuilds = (
-                currentBuilds?.map((build) => {
+            currentBuilds?.map((build) => {
                 const formattedName = getReleaseName({
                     name: build.name,
                     locale: locale,
