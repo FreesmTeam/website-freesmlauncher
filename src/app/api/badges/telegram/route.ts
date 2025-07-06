@@ -1,11 +1,11 @@
 export async function GET(): Promise<Response> {
-    const offtopicUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN!}/getChatMembersCount?chat_id=-1002463432839`;
+    const supportUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN!}/getChatMembersCount?chat_id=@freesmsupport`;
     const newsUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN!}/getChatMembersCount?chat_id=@freesmteam`;
 
     let results;
 
     try {
-        const offtopicData = await fetch(offtopicUrl, {
+        const supportData = await fetch(supportUrl, {
             next: {
                 revalidate: 3600,
             },
@@ -15,11 +15,11 @@ export async function GET(): Promise<Response> {
                 revalidate: 3600,
             },
         });
-        const offtopicBody = await offtopicData.json();
+        const supportBody = await supportData.json();
         const newsBody = await newsData.json();
 
         results = {
-            offtopic: offtopicBody?.result,
+            support: supportBody?.result,
             news: newsBody?.result,
         };
     } catch (error) {
