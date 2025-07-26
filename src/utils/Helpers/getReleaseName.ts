@@ -49,6 +49,17 @@ export default function getReleaseName({ name, locale }: { name: string; locale:
             return null;
         }
 
+        if (lowerCaseName.includes("flatpak")) {
+            const flatpakPlatform = lowerCaseName.includes("aarch64")
+                ? "ARM64"
+                : "x86_64";
+
+            return {
+                displayName: `Flatpak ${flatpakPlatform}`,
+                extension: "(.zip)"
+            };
+        }
+
         return {
             displayName: PORTABLE_NAME,
             extension: '(.AppImage)'
