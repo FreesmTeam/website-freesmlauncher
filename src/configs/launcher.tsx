@@ -16,7 +16,9 @@ import ConfiguredImage from "@/components/ConfiguredImage/ConfiguredImage";
 export const PLACEHOLDER_GROUP = "placeholder-group";
 export const NO_GROUP = "ungrouped";
 export const EAGLERCRAFT_INSTANCE_NAME = 'EaglerCraft 1.5.2';
+export const CLASSIC_MINECRAFT_INSTANCE_NAME = 'Minecraft Classic';
 export const EAGLERCRAFT_EMBED_URL = 'https://sd592g.github.io/zj684od4lfg/';
+export const CLASSIC_MINECRAFT_EMBED_URL = 'http://classic.minecraft.net/';
 export const ANIMATION_NAME = 'animate-shake';
 export const DELETED = {
     PROCESS: 'in-the-process',
@@ -196,6 +198,14 @@ export const LAUNCHER_INSTANCES = [
         deleted: DELETED.NO,
     },
     {
+        name: CLASSIC_MINECRAFT_INSTANCE_NAME,
+        version: '1.0',
+        group: NO_GROUP,
+        icon: grassSvg,
+        launched: null,
+        deleted: DELETED.NO,
+    },
+    {
         name: '1.21',
         version: '1.21',
         group: PLACEHOLDER_GROUP,
@@ -222,6 +232,10 @@ export const LAUNCHER_INSTANCES = [
 ];
 export const LAUNCHER_RENAMES: LauncherRenamesType = {
     [EAGLERCRAFT_INSTANCE_NAME]: {
+        name: null,
+        isBeingRenamed: false,
+    },
+    [CLASSIC_MINECRAFT_INSTANCE_NAME]: {
         name: null,
         isBeingRenamed: false,
     },

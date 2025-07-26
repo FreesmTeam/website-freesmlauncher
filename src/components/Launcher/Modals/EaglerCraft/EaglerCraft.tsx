@@ -2,7 +2,13 @@
 
 import WindowHeader from "@/components/Launcher/WindowHeader/WindowHeader";
 import {useMemo, useState} from "react";
-import {ANIMATION_NAME, EAGLERCRAFT_EMBED_URL, EAGLERCRAFT_INSTANCE_NAME} from "@/configs/launcher";
+import {
+    ANIMATION_NAME,
+    CLASSIC_MINECRAFT_EMBED_URL,
+    CLASSIC_MINECRAFT_INSTANCE_NAME,
+    EAGLERCRAFT_EMBED_URL,
+    EAGLERCRAFT_INSTANCE_NAME,
+} from "@/configs/launcher";
 import {WindowContext} from "@/utils/Contexts/Contexts";
 import {useInstanceStore} from "@/utils/Stores/Stores";
 import getPlatformName from "@/utils/Helpers/getPlatformName";
@@ -34,16 +40,25 @@ export default function EaglerCraft({
         setTimeout(() => setAnimation(''), 820)
     }
 
+    const shouldHaveClassicMinecraft = currentInstance.name === CLASSIC_MINECRAFT_INSTANCE_NAME;
+
     const MemoizedMinecraft = useMemo(() => (
         <iframe
             className={"w-full aspect-video rounded-b-md focus:outline-none"}
-            src={EAGLERCRAFT_EMBED_URL}
+            src={
+                shouldHaveClassicMinecraft
+                    ? CLASSIC_MINECRAFT_EMBED_URL
+                    : EAGLERCRAFT_EMBED_URL
+            }
         >
             Your browser does not support iframes.
         </iframe>
-    ), []);
+    ), [shouldHaveClassicMinecraft]);
 
-    if (currentInstance.launched !== EAGLERCRAFT_INSTANCE_NAME) {
+    if (
+        currentInstance.launched !== EAGLERCRAFT_INSTANCE_NAME &&
+        currentInstance.launched !== CLASSIC_MINECRAFT_INSTANCE_NAME
+    ) {
         return;
     }
 
@@ -55,7 +70,9 @@ export default function EaglerCraft({
             >
                 <WindowContext.Provider
                     value={{
-                        name: EAGLERCRAFT_INSTANCE_NAME,
+                        name: shouldHaveClassicMinecraft
+                            ? CLASSIC_MINECRAFT_INSTANCE_NAME
+                            : EAGLERCRAFT_INSTANCE_NAME,
                         onClose: onClose,
                         onMinimize: onMinimize,
                         onMaximize: onMinimize,
