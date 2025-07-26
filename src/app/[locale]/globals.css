@@ -36,3 +36,19 @@ body {
         transform: translate3d(4px, 0, 0);
     }
 }
+
+@property --border-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: '<angle>';
+}
+
+.animate-border {
+    animation: border 8s linear infinite;;
+}
+
+@keyframes border {
+    to {
+        --border-angle: 360deg;
+    }
+}
