@@ -1,15 +1,11 @@
 import nextBase64 from 'next-base64';
 import prismNews from '@/configs/prismNews.json';
-import addUser from "@/lib/addUser";
-import {NextRequest, userAgent} from "next/server";
 
 export const dynamic = "force-dynamic";
 
 // sorry i don't wanna use another library to generate fucking feed.xml file for launcher
 // and i really hate .xml files so i didn't bother with the quality of my code
-export async function GET(request: NextRequest) {
-    const useragent = userAgent(request).ua;
-
+export async function GET() {
     const githubContents = await fetch("https://api.github.com/repos/freesmteam/news/contents/feed.md", {
         next: {
             // in seconds. 60 * 60 = 3600 seconds = 1 hour
@@ -79,14 +75,6 @@ export async function GET(request: NextRequest) {
     );
 
     response.headers.append("content-type", "text/xml");
-
-    // don't wait for database response, just return xml
-    // in case it fails we don't really care
-    addUser({
-        useragent,
-    }).catch((err) => {
-        console.error(err.message);
-    });
 
     return response;
 }
