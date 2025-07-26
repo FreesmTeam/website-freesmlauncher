@@ -29,7 +29,7 @@ export default function NewsBar() {
                     <Icon fontSize={16} icon="fluent:news-16-regular" />
                 </div>
                 <p className="w-fit text-nowrap">
-                    Next.js is awesome
+                    Reject React, embrace Vue and Svelte
                 </p>
             </div>
             <div className="transition w-fit flex items-center gap-1 px-1 rounded-md flex-nowrap text-nowrap text-[10px] sm:text-[13px] text-[#cdd6f4] hover:bg-[#1a1723]">
