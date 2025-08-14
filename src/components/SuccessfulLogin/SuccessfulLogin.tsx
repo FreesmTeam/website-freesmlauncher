@@ -18,7 +18,7 @@ export default function SuccessfulLogin() {
             <p className="text-center text-balance text-lg sm:text-2xl text-gray-400">
                 {translations?.pages?.["successful-login"]?.description}
             </p>
-            <ConfiguredImage src={maxwellGif} alt={"Maxwell cat rotating gif"} />
+            <ConfiguredImage className="h-80 w-auto transition duration-300" src={maxwellGif} alt={"Maxwell cat rotating gif"} />
         </div>
     );
 }

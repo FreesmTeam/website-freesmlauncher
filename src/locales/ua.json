@@ -23,7 +23,7 @@
       },
       "successful-login": {
         "title": "Успішний вхід",
-        "description": "Ви успішно увійшли у Freesm Launcher через обліковий запис Microsoft!"
+        "description": "Ви успішно увійшли у Freesm Launcher через обліковий запис!"
       },
       "not-found": {
         "title": "Ой!",
@@ -34,7 +34,7 @@
     },
     "successful-login": {
       "title": "Успішний вхід",
-      "description": "Ви успішно увійшли у Freesm Launcher через обліковий запис Microsoft. Тепер Ви можете закрити це вікно. Приємної гри!"
+      "description": "Ви успішно увійшли у Freesm Launcher через обліковий запис. Тепер Ви можете закрити це вікно. Приємної гри!"
     },
     "navbar": {
       "home": "Головна",
