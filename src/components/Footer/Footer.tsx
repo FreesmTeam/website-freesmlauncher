@@ -29,9 +29,6 @@ export default function Footer() {
                         <p className="text-gray-400 text-[14px] sm:text-[16px]">
                             {translationsFooter?.["short-description"]}
                         </p>
-                        <Link className="text-xs sm:text-sm text-zinc-600 transition hover:text-zinc-500" href="/session">
-                            sign in?
-                        </Link>
                     </div>
                     <div className="flex gap-4 flex-col sm:flex-row">
                         {
