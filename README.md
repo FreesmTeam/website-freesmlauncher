@@ -1,3 +1,7 @@
+# TODO
+
+rewrite in Nuxt and make a page for common launcher issues
+
 <div align="center">
   <h1>
     <a href="https://freesmlauncher.windstone.space/">Freesm Launcher</a>
