@@ -2,101 +2,47 @@
 
 rewrite in Nuxt and make a page for common launcher issues
 
+also make a theme generator
+
 <div align="center">
-  <h1>
-    <a href="https://freesmlauncher.windstone.space/">Freesm Launcher</a>
-  </h1>
-  <img alt="Next.js Logo" src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white">
-  <img alt="TailwindCSS Logo" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white">
+
+<img width="160" height="160" align="center" src="https://github.com/FreesmTeam/FreesmLauncher/raw/develop/docs/favicon.webp" alt="Favicon">
+
+<h1>
+  <a style="color:#f5c2e7" href="https://freesmlauncher.org/">Freesm Launcher Website</a>
+</h1>
+
+<img alt="Next.js Logo" src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white">
+<img alt="TailwindCSS Logo" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white">
+
+A Prism Launcher fork that **removes offline account restrictions**, adds custom auth server support, and provides more customization
+
+This fork is **not** endorsed by Prism Launcher
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+### Repositories
+
+[![repo-card]](https://github.com/freesmteam/freesmlauncher)
+
+### Credits
+
+Thank you to all the people who have contributed!
+
+<a href="https://github.com/freesmteam/website-freesmlauncher/graphs/contributors">
+  <img alt="Freesm Launcher website contributors" src="https://contrib.rocks/image?repo=freesmteam/website-freesmlauncher" width="250"/>
+</a>
+
+## License
+
+<a href="./LICENSE">
+  <img src="https://img.shields.io/github/license/PrismLauncher/PrismLauncher?label=License&logo=gnu&color=C4282D&style=for-the-badge" alt="License">
+</a>
+
 </div>
 
-// temporary
-how to add languages:
+<!-- Variables -->
 
-use [ISO 639-1](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2_ISO_639-1) code names
-
-create `YOUR-LANG-CODE.json` file in `messages/`
-
-add `YOUR-LANG-CODE` to `src/configs/locales.json`
-
-add `YOUR-LANG-CODE` to `src/types/Locale.type.ts`
-
-## ⬇️ Self-Hosting
-
-> [!NOTE]
-> I will provide the terminal commands only for [bun](https://bun.sh/), but you can use any other [Node.js](https://nodejs.org/) package manager.
-
-### Requirements
-
-<details>
-<summary>Expand list</summary>
-
-- [Node.js](https://nodejs.org/en/)
-- Any Node.js-compatible package manager, like [bun](https://bun.sh/)
-- Git is recommended (to clone the repository)
-
-</details>
-
-### Local - Windows
-
-<details>
-<summary>Expand steps</summary>
-
-test
-
-</details>
-
-### Local - Linux
-
-<details>
-<summary>Expand steps</summary>
-
-First, you need to clone this repository and open it:
-
-```sh
-git clone https://github.com/FreesmTeam/website-freesmlauncher
-cd website-freesmlauncher
-```
-
-Second, install all dependencies with the following command:
-
-```sh
-bun i
-```
-
-After that you can start the project either in development mode:
-
-```sh
-bun dev
-```
-
-or in production mode:
-
-```sh
-bun run build
-bun start
-```
-
-</details>
-
-### Local - Android (Termux)
-
-<details>
-<summary>Expand steps</summary>
-
-test
-
-</details>
-
-### Vercel
-
-<details>
-<summary>Expand steps</summary>
-
-Just click the button. You need to register first!
-
-[![Vercel](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fnotwindstone%2Fanisun)
-
-</details>
-
-## 💬 Contact
+[repo-card]: https://github-readme-stats.vercel.app/api/pin/?username=freesmteam&repo=freesmlauncher&bg_color=0c0c13&text_color=ffffff&title_color=f5c2e7&icon_color=f5c2e7&border_radius=8&hide_border=true
