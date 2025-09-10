@@ -38,7 +38,7 @@ Thank you to all the people who have contributed!
 ## License
 
 <a href="./LICENSE">
-  <img src="https://img.shields.io/github/license/PrismLauncher/PrismLauncher?label=License&logo=gnu&color=C4282D&style=for-the-badge" alt="License">
+  <img src="https://img.shields.io/github/license/freesmteam/website-freesmlauncher?label=License&logo=gnu&color=C4282D&style=for-the-badge" alt="License">
 </a>
 
 </div>
