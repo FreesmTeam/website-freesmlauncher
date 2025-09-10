@@ -1,9 +1,3 @@
-# TODO
-
-rewrite in Nuxt and make a page for common launcher issues
-
-also make a theme generator
-
 <div align="center">
 
 <img width="160" height="160" align="center" src="https://github.com/FreesmTeam/FreesmLauncher/raw/develop/docs/favicon.webp" alt="Favicon">
