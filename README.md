@@ -15,13 +15,28 @@ also make a theme generator
 <img alt="Next.js Logo" src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white">
 <img alt="TailwindCSS Logo" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white">
 
-A Prism Launcher fork that **removes offline account restrictions**, adds custom auth server support, and provides more customization
 
-This fork is **not** endorsed by Prism Launcher
+<p><!-- To add some space between badges and text --></p>
+
+<p>
+A Prism Launcher fork that <strong>removes offline account restrictions</strong>, adds custom auth server support, and provides more customization
+</p>
+
+<p>
+This fork is <strong>not</strong> endorsed by Prism Launcher
+</p>
 
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+If you want to add a new locale:
+
+- use [ISO 639-1](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2_ISO_639-1) code names
+- create `your-lang-code.json` file in `src/locales/` and fill the translations
+- add `your-lang-code` in `src/configs/locales.json` (`flag` field contains a unicode symbol for the flag)
+- add `your-lang-code` to the `Locales` type in `src/configs/localization.ts`
+- add the translations import in `src/get-dictionary.ts`
 
 ### Repositories
 
