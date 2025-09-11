@@ -1,5 +1,7 @@
 <div align="center">
 
+New website (on Vue.js): https://github.com/FreesmTeam/website
+
 <img width="160" height="160" align="center" src="https://github.com/FreesmTeam/FreesmLauncher/raw/develop/docs/favicon.webp" alt="Favicon">
 
 <h1>
