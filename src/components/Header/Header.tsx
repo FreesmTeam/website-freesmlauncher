@@ -17,6 +17,15 @@ export default function Header() {
     return (
         <>
             <div className="w-full h-[80px] absolute top-0 bg-[#09090e] hidden sm:block" />
+            <div className="sticky h-8 w-full bg-[#f3dfda] flex justify-center items-center">
+                <a
+                  href="https://new.freesmlauncher.org/"
+                  target="_blank"
+                  className="text-black font-semibold hover:text-[#f3395d]"
+                >
+                    Visit our new website
+                </a>
+            </div>
             <header
                 className="hidden sm:block z-[2000] sticky top-0 bg-[#09090e] lg:bg-[#09090ebb] lg:backdrop-blur border-b-[1px] border-mantle select-none p-4 w-full">
                 <div className="mx-auto max-w-[1280px] flex justify-between items-center h-12 w-full">
