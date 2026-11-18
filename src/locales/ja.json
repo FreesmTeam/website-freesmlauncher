@@ -1,0 +1,153 @@
+{
+  "Info": {
+    "locale": "ja"
+  },
+  "Translations": {
+    "general": {
+      "home": "ホーム",
+      "download": "ダウンロード",
+      "about": "詳細",
+      "seconds-short": "秒",
+      "minutes-short": "分",
+      "yes": "はい",
+      "no": "いいえ"
+    },
+    "pages": {
+      "downloads": {
+        "title": "ダウンロード",
+        "description": "お使いのプラットフォーム向けにFreesm Launcherを無料でダウンロードしましょう！広告なし、ウイルスなし、SMSなし、登録不要、電話なし、政府の監視なし。あるいは、ダウンロードしなくても構いません。お好みでどうぞ！"
+      },
+      "about": {
+        "title": "詳細",
+        "description": "Freesm Launcherの開発チームおよびすべての貢献者に関する詳細はこちらをご覧ください。"
+      },
+      "successful-login": {
+        "title": "ログイン成功",
+        "description": "ご登録のアカウントでFreesm Launcherへのログインに成功しました！"
+      },
+      "not-found": {
+        "title": "おっと！",
+        "subtitle": "ページが見つかりません",
+        "description": "お探しのページは、削除されたか、名前が変更されたか、または一時的に利用できない可能性があります。",
+        "go-to-home": "トップページへ"
+      }
+    },
+    "successful-login": {
+      "title": "ログイン成功",
+      "description": "アカウントを使用してFreesm Launcherへのログインに成功しました。このウィンドウを閉じて、どうぞお楽しみください！"
+    },
+    "navbar": {
+      "home": "ホーム",
+      "downloads": "ダウンロード",
+      "about": "詳細",
+      "other": "その他",
+      "change-language": "言語設定"
+    },
+    "footer": {
+      "short-description": "Minecraftを無料で楽しむもう一つの方法。",
+      "about": {
+        "title": "ランチャーについて",
+        "links": {
+          "contribute": "貢献する",
+          "about": "開発チームについて",
+          "download": "ダウンロード"
+        }
+      },
+      "community": {
+        "title": "コミュニティ",
+        "links": {
+          "telegram-channel": "テレグラムのチャンネル",
+          "telegram-chat": "テレグラムのチャット",
+          "follow-on-github": "GitHubをフォロー"
+        }
+      },
+      "project": {
+        "title": "プロジェクト",
+        "links": {
+          "source-code": "ソースコード",
+          "github-issues": "問題を報告する"
+        }
+      }
+    },
+    "downloads": {
+      "title": "ダウンロード",
+      "description": "お使いのプラットフォームに対応したFreesm Launcherをダウンロードしてください。",
+      "packages-for": "対応プラットフォーム：",
+      "error": "エラー:",
+      "loading": "データを取得中...",
+      "getting-platform": "プラットフォームの読み込み中... 上の欄から手動でプラットフォームを選択することもできます！",
+      "try-to-refresh": "ページを更新してみてください。",
+      "requires": "依存関係："
+    },
+    "about": {
+      "title": "詳細",
+      "description": "Freesm Launcherは、必ずしもオンラインアカウントを必要とせずに、Prism Launcherが提供する利便性を活かしてMinecraftをプレイできるようにするために開発されました。",
+      "maintainers": "メンテナ",
+      "contributors": "貢献者"
+    },
+    "hero": {
+      "title": "Freesm Launcherをダウンロード：",
+      "description": "Freesm Launcherは、Minecraft用のカスタムランチャーで、オフラインアカウントでも制限なくプレイすることができます。",
+      "download-now": "今すぐダウンロード！"
+    },
+    "features": {
+      "open-source": {
+        "title": "オープンソース",
+        "description": "Freesm Launcher は、Prism Launcher をフォークしたオープンソースのランチャーです。ランチャーのすべてのコードは、GPL-3.0 ライセンスの下で公開されています。"
+      },
+      "drm-free": {
+        "title": "DRMなし",
+        "description": "オンラインアカウントがなくても、制限なくMinecraftを気軽にプレイできます。"
+      },
+      "performance": {
+        "title": "パフォーマンス",
+        "description": "Freesm Launcherは、Qtツールキットのおかげで驚異的な速度を誇り、RAMの使用量はわずか30メガバイトです。"
+      },
+      "customization": {
+        "title": "カスタマイズ性",
+        "description": "Freesm Launcherには、catppuccinカラーとMicrosoft Fluentアイコンを採用した独自のテーマが用意されています。さらに、このランチャーではメニューのカスタマイズが可能で、カスタムテーマや背景（GIF画像も含む）にも対応しています。"
+      }
+    },
+    "launcher": {
+      "windstone_": "windstone_",
+      "hand7s": "hand7s",
+      "kaeeraa": "kaeeraa",
+      "so5iso4ka": "so5iso4ka",
+      "m3oweezed": "m3oweezed",
+      "no-selection": "インスタンスが選択されていません",
+      "time-played": "プレイ時間",
+      "specific-time-played": "通算プレイ時間",
+      "ungrouped": "未分類",
+      "placeholder-group": "プレースホルダ",
+      "confirm-deletion": {
+        "title": "削除を確認",
+        "description": "«{instanceName}»を削除しようとしています。\nこの操作は取り消せない場合があり、インスタンスが完全に削除されます。\n\n本当に削除してもよろしいですか？"
+      },
+      "add-instance": "インスタンスを追加",
+      "folders": "フォルダ",
+      "settings": "設定",
+      "help": "ヘルプ",
+      "update": "アップデート",
+      "news-toolbar": "ニュースツールバー",
+      "instance-toolbar": "インスタンスのツールバー",
+      "status-bar": "ステータスバー",
+      "lock-toolbars": "ツールバーのロック",
+      "no-default-account": "デフォルトアカウントなし",
+      "manage-accounts": "アカウントの管理",
+      "more-news": "その他のニュース",
+      "instance": {
+        "launch": "起動",
+        "kill": "強制停止",
+        "edit": "編集",
+        "change-group": "グループを変える",
+        "folder": "フォルダ",
+        "export": "エクスポート",
+        "copy": "コピー",
+        "delete": "削除",
+        "create-shortcut": "ショートカットの作成",
+        "rename": "名前の変更",
+        "change-icon": "アイコンの変更"
+      }
+    }
+  }
+}
